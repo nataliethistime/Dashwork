@@ -1,0 +1,42 @@
+version: '3'
+
+volumes:
+  node_modules:
+
+services:
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - '1080:1080'
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: flickthepaperwork
+
+  web:
+    build: .
+    command: bundle exec rails server --port 3000 --binding '0.0.0.0'
+    environment:
+      RAILS_ENV: development
+    expose:
+      - 3000
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/usr/src/app'
+      - 'node_modules:/usr/src/app/node_modules'
+    depends_on:
+      - db
+      - mailcatcher
