@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+/* Adjust simple_form layouts for using with new.css */
+form label {
+  display: block;
+}
+
+form .error {
+  color: red;
+}
+
+form .hint {
+  font-style: italic;
+}
+
+form input[type=checkbox] {
+  margin-right: 5px;
+}

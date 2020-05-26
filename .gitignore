@@ -42,3 +42,7 @@ yarn-debug.log*
 
 # Docker database storage location
 /data
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

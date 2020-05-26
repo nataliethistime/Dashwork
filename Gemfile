@@ -29,6 +29,31 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Model decoration
 gem 'mini_decorator'
 
+# Easy user authentication
+gem 'devise'
+
+# Display times to the user in their local timezones
+gem 'local_time'
+
+# Pagination
+gem 'kaminari'
+
+# Image processing
+gem 'image_processing'
+gem 'mini_magick'
+
+# Configure the app with yml files
+gem 'config'
+
+# Search filters
+gem 'ransack'
+
+# Simpler forms
+gem 'simple_form'
+
+# Country selection helper
+gem 'country_select'
+
 group :development, :test do
   # Debugging
   gem 'pry'
@@ -43,6 +68,16 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  # Annotate table attributes on our models
+  gem 'annotate'
+
+  # Lint our code with Rubocop. See .rubocop.yml
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+
+  # Get alerts about potential N+1 issues
+  gem 'bullet'
+
   # Better errors and debugging
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -51,4 +86,6 @@ end
 group :test do
   gem 'minitest'
   gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'simplecov'
 end
