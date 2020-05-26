@@ -16,8 +16,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = current_tenant.notes.new(note_params)
-    @note.user = current_user
+    @note = current_user.notes.new(note_params)
 
     if @note.save
       redirect_to @note, notice: 'Note was successfully created.'

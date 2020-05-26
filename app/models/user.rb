@@ -33,5 +33,6 @@ class User < ApplicationRecord
 
   belongs_to :tenant, optional: true
 
+  has_many :notes, -> (user) { where(tenant_id: user.tenant_id) }
   has_many :tasks, -> (user) { where(tenant_id: user.tenant_id) }
 end
