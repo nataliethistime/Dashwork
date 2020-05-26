@@ -1,0 +1,26 @@
+<h1>Edit Tenant</h1>
+
+
+<%= simple_form_for(@tenant) do |f| %>
+  <p>
+    Change your company name in our system.
+  </p>
+
+  <p>
+    <%= f.input :name %>
+  </p>
+
+  <p>
+    Select the applications you would like to be enabled in your <%= Settings.product_name %> instance.
+  </p>
+
+  <p>
+    <% Tenant.all_apps.each do |app| %>
+      <%= f.input "#{app}_app" %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

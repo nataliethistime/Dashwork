@@ -16,9 +16,28 @@ class TenantsController < ApplicationController
     end
   end
 
+  def edit
+    @tenant = current_tenant
+  end
+
+  def update
+    @tenant = current_tenant
+    @tenant.update tenant_params
+
+    if @tenant.save
+      redirect_to root_path, notice: 'Successfully updated your tenant settings'
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def tenant_params
-    params.require(:tenant).permit(:name)
+    params.require(:tenant).permit(:name, *app_names_as_params)
+  end
+
+  def app_names_as_params
+    Tenant.all_apps.dup.map { |app| "#{app}_app" }
   end
 end

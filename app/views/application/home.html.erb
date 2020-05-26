@@ -1,1 +1,15 @@
+<h1>Applications</h1>
+
+<p>
+  <% if current_tenant.apps.empty? %>
+    You haven't enabled any apps yet.
+  <% else %>
+    <ul>
+      <% current_tenant.apps.each do |app| %>
+        <li><%= link_to app[:name], app[:path] %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
 <p>Hello <%= current_user.email %> (<%= current_tenant.name %>)</p>
