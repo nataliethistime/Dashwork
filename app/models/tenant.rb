@@ -18,11 +18,13 @@
 class Tenant < ApplicationRecord
   has_many :users
   has_many :notes
+  has_many :tasks
 
   validates :name, presence: true, length: { minimum: 3 }
 
   APPS = {
-    notes: { name: 'Notes', path: Rails.application.routes.url_helpers.notes_path }
+    notes: { name: 'Notes', path: Rails.application.routes.url_helpers.notes_path },
+    tasks: { name: 'Tasks', path: Rails.application.routes.url_helpers.tasks_path }
   }
 
   def self.all_apps

@@ -1,0 +1,38 @@
+<h1>Tasks</h1>
+
+<p>
+  <% if @tasks.empty? %>
+    You haven't created any tasks yet.
+  <% else %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Due date</th>
+          <th>Completed</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td><%= link_to sanitize(task.name), task_path(task) %></td>
+            <td><%= task.description %></td>
+            <td><%= task.due_date %></td>
+            <td><%= t task.completed %></td>
+            <td>
+              <%= link_to 'Edit', edit_task_path(task) %> /
+              <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</p>
+
+<br />
+
+<%= button_to 'New Task', new_task_path, method: :get %>
