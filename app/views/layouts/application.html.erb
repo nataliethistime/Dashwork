@@ -14,7 +14,7 @@
 
   <body>
     <header>
-      <h1>Dashwork</h1>
+      <h1><%= Settings.product_name %></h1>
       <% if user_signed_in? %>
         <%= link_to 'Home', root_path %> /
         <%= link_to 'Settings', edit_user_registration_path %> /
