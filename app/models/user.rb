@@ -9,4 +9,6 @@ class User < ApplicationRecord
     :lockable,
     :timeoutable
   )
+
+  belongs_to :tenant, optional: true
 end

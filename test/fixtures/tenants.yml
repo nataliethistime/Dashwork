@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  notes_app: false
+  contacts_app: false
+  forms_app: false
+  tasks_app: false
+  equipment_app: false
+  projects_app: false
+  calendar_app: false
+  timesheets_app: false
+
+two:
+  name: MyString
+  notes_app: false
+  contacts_app: false
+  forms_app: false
+  tasks_app: false
+  equipment_app: false
+  projects_app: false
+  calendar_app: false
+  timesheets_app: false
