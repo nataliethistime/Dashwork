@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :forms
   resources :calendar_events
   resources :equipment
   resources :companies
