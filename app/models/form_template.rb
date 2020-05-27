@@ -1,0 +1,2 @@
+class FormTemplate < ApplicationRecord
+end
