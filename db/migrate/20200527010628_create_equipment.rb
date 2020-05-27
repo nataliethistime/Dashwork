@@ -6,6 +6,9 @@ class CreateEquipment < ActiveRecord::Migration[6.0]
       t.string :model
       t.string :manufacturer
 
+      t.integer :user_id
+      t.integer :tenant_id, null: false
+
       t.timestamps
     end
   end

@@ -4,7 +4,7 @@ class FormsController < ApplicationController
   # GET /forms
   # GET /forms.json
   def index
-    @forms = Form.all
+    @forms = current_tenant.forms.all
   end
 
   # GET /forms/1
@@ -14,7 +14,7 @@ class FormsController < ApplicationController
 
   # GET /forms/new
   def new
-    @form = Form.new
+    @form = current_tenant.forms.new
   end
 
   # GET /forms/1/edit
@@ -24,7 +24,7 @@ class FormsController < ApplicationController
   # POST /forms
   # POST /forms.json
   def create
-    @form = Form.new(form_params)
+    @form = current_user.forms.new(form_params)
 
     respond_to do |format|
       if @form.save
@@ -62,13 +62,14 @@ class FormsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_form
-      @form = Form.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def form_params
-      params.require(:form).permit(:name, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_form
+    @form = current_tenant.forms.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def form_params
+    params.require(:form).permit(:name, :status)
+  end
 end

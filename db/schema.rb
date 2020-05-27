@@ -10,10 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_134906) do
+ActiveRecord::Schema.define(version: 2020_05_27_030841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendar_events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer "user_id", null: false
+    t.integer "tenant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "website"
+    t.string "email"
+    t.string "phone"
+    t.integer "user_id", null: false
+    t.integer "tenant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "website"
+    t.string "email"
+    t.string "phone"
+    t.integer "user_id", null: false
+    t.integer "tenant_id", null: false
+    t.integer "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "model"
+    t.string "manufacturer"
+    t.integer "user_id"
+    t.integer "tenant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "form_templates", force: :cascade do |t|
+    t.string "name"
+    t.integer "tenant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "form_templates_apps", force: :cascade do |t|
+  end
+
+  create_table "forms", force: :cascade do |t|
+    t.string "name"
+    t.integer "status"
+    t.integer "user_id", null: false
+    t.integer "tenant_id", null: false
+    t.integer "form_template_id", null: false
+    t.integer "contact_id"
+    t.integer "equipment_id"
+    t.integer "project_id"
+    t.integer "calendar_event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string "title"
@@ -25,6 +96,18 @@ ActiveRecord::Schema.define(version: 2020_05_26_134906) do
     t.integer "equipment_id"
     t.integer "project_id"
     t.integer "calendar_event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "company_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "user_id", null: false
+    t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,6 +126,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_134906) do
     t.integer "note_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "company_id"
   end
 
   create_table "tenants", force: :cascade do |t|
@@ -57,6 +141,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_134906) do
     t.boolean "timesheets_app"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "form_templates_app"
+    t.boolean "companies_app"
   end
 
   create_table "users", force: :cascade do |t|

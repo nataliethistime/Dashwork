@@ -4,7 +4,7 @@ class CalendarEventsController < ApplicationController
   # GET /calendar_events
   # GET /calendar_events.json
   def index
-    @calendar_events = CalendarEvent.all
+    @calendar_events = current_tenant.calendar_events.all
   end
 
   # GET /calendar_events/1
@@ -14,7 +14,7 @@ class CalendarEventsController < ApplicationController
 
   # GET /calendar_events/new
   def new
-    @calendar_event = CalendarEvent.new
+    @calendar_event = current_tenant.calendar_events.new
   end
 
   # GET /calendar_events/1/edit
@@ -24,7 +24,7 @@ class CalendarEventsController < ApplicationController
   # POST /calendar_events
   # POST /calendar_events.json
   def create
-    @calendar_event = CalendarEvent.new(calendar_event_params)
+    @calendar_event = current_user.calendar_events.new(calendar_event_params)
 
     respond_to do |format|
       if @calendar_event.save
@@ -62,13 +62,14 @@ class CalendarEventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_calendar_event
-      @calendar_event = CalendarEvent.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def calendar_event_params
-      params.require(:calendar_event).permit(:name, :description, :start_at, :end_at)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_calendar_event
+    @calendar_event = current_tenant.calendar_events.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def calendar_event_params
+    params.require(:calendar_event).permit(:name, :description, :start_at, :end_at)
+  end
 end

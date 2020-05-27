@@ -6,6 +6,9 @@ class CreateCalendarEvents < ActiveRecord::Migration[6.0]
       t.datetime :start_at
       t.datetime :end_at
 
+      t.integer :user_id, null: false
+      t.integer :tenant_id, null: false
+
       t.timestamps
     end
   end
