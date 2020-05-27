@@ -68,6 +68,13 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  config.generators do |g|
+    g.helper false
+    g.assets false
+    g.stylesheets false
+    g.test_framework :test_unit, fixture: false
+  end
+
   if defined? BetterErrors
     BetterErrors::Middleware.allow_ip! '0.0.0.0/0'
   end
