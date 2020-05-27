@@ -25,10 +25,15 @@
   <%= @company.phone %>
 </p>
 
-<% if @company.notes.present? %>
-  <h2>Notes</h2>
+<h2>Notes</h2>
+
+<p>
   <%= render 'notes/notes', notes: @company.notes %>
-<% end %>
+</p>
+
+<p>
+  <%= link_to 'New Note', new_note_path(company_id: @company.id) %>
+</p>
 
 <%= link_to 'Edit', edit_company_path(@company) %> /
 <%= link_to 'Back', companies_path %>

@@ -8,7 +8,7 @@ class NotesController < ApplicationController
   end
 
   def new
-    @note = current_tenant.notes.new
+    @note = current_tenant.notes.new(new_note_params)
   end
 
   def edit
@@ -44,5 +44,9 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :content, :contact_id, :company_id, :project_id)
+  end
+
+  def new_note_params
+    params.permit(:contact_id, :company_id, :project_id)
   end
 end

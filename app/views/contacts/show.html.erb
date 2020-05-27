@@ -25,10 +25,15 @@
   <%= @contact.phone %>
 </p>
 
-<% if @contact.notes.present? %>
-  <h2>Notes</h2>
-  <%= render 'notes/notes', notes: @contact.notes %>
-<% end %>
+<h2>Notes</h2>
+
+<p>
+  <%= render 'notes/notes', notes: Array(@contact.notes) %>
+</p>
+
+<p>
+  <%= link_to 'New Note', new_note_path(contact_id: @contact.id) %>
+</p>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> /
 <%= link_to 'Back', contacts_path %>

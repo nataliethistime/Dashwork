@@ -20,10 +20,15 @@
   <%= @project.end_date %>
 </p>
 
-<% if @project.notes.present? %>
-  <h2>Notes</h2>
+<h2>Notes</h2>
+
+<p>
   <%= render 'notes/notes', notes: @project.notes %>
-<% end %>
+</p>
+
+<p>
+  <%= link_to 'New Note', new_note_path(project_id: @project.id) %>
+</p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> /
 <%= link_to 'Back', projects_path %>
