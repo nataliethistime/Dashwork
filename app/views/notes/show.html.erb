@@ -4,6 +4,24 @@
   <pre><%= @note.content %></pre>
 </p>
 
+<% if @note.contact.present? %>
+  <p>
+    <strong>Contact:</strong> <%= link_to @note.contact.name, contact_path(@note.contact) %>
+  </p>
+<% end %>
+
+<% if @note.company.present? %>
+  <p>
+    <strong>Company:</strong> <%= link_to @note.company.name, company_path(@note.company) %>
+  </p>
+<% end %>
+
+<% if @note.project.present? %>
+  <p>
+    <strong>Project:</strong> <%= link_to @note.project.name, project_path(@note.project) %>
+  </p>
+<% end %>
+
 <p><%= link_to 'Edit', edit_note_path(@note) %> / <%= link_to 'Back', notes_path %></p>
 
 <p>Lasted updated: <%= time_ago_in_words(@note.updated_at) %> ago</p>
