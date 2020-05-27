@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :calendar_events
   resources :equipment
   resources :companies
   resources :projects

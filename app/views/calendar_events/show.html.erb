@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @calendar_event.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @calendar_event.description %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @calendar_event.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @calendar_event.end_at %>
+</p>
+
+<%= link_to 'Edit', edit_calendar_event_path(@calendar_event) %> |
+<%= link_to 'Back', calendar_events_path %>
