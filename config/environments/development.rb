@@ -78,4 +78,6 @@ Rails.application.configure do
   if defined? BetterErrors
     BetterErrors::Middleware.allow_ip! '0.0.0.0/0'
   end
+
+  config.web_console.whitelisted_ips = '0.0.0.0/0'
 end
