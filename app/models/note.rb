@@ -26,5 +26,6 @@ class Note < ApplicationRecord
   belongs_to :task, -> (note) { where(tenant_id: note.tenant_id) }, optional: true
   belongs_to :calendar_event, -> (note) { where(tenant_id: note.tenant_id) }, optional: true
   validates :title, presence: true
-  validates :content, presence: true
+  validates :content, presence: true, allow_blank: true
+  default_scope -> { order(updated_at: :desc) }
 end
