@@ -1,33 +1,6 @@
 <h1>Notes</h1>
 
-<p>
-  <% if @notes.empty? %>
-    You haven't created any notes yet.
-  <% else %>
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Content</th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @notes.each do |note| %>
-          <tr>
-            <td><%= link_to(sanitize(note.title), note_path(note)) %></td>
-            <td><%= sanitize note.content.truncate_words 10 %></td>
-            <td>
-              <%= link_to 'Edit', edit_note_path(note) %> /
-              <%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</p>
+<%= render 'notes', notes: @notes %>
 
 <br />
 

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h2>Contact Details</h2>
 
 <p>
   <strong>Name:</strong>
@@ -25,5 +25,10 @@
   <%= @contact.phone %>
 </p>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<% if @contact.notes.present? %>
+  <h2>Notes</h2>
+  <%= render 'notes/notes', notes: @contact.notes %>
+<% end %>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> /
 <%= link_to 'Back', contacts_path %>

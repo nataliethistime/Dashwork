@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h2>Company Details</h2>
 
 <p>
   <strong>Name:</strong>
@@ -25,5 +25,10 @@
   <%= @company.phone %>
 </p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
+<% if @company.notes.present? %>
+  <h2>Notes</h2>
+  <%= render 'notes/notes', notes: @company.notes %>
+<% end %>
+
+<%= link_to 'Edit', edit_company_path(@company) %> /
 <%= link_to 'Back', companies_path %>
