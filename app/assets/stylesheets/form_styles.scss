@@ -1,0 +1,18 @@
+/* Adjust simple_form layouts for using with new.css */
+form {
+  label, .error, .hint {
+    display: block;
+  }
+
+  .error {
+    color: red;
+  }
+
+  .hint {
+    font-style: italic;
+  }
+
+  input[type=checkbox] {
+    margin-right: 5px;
+  }
+}
