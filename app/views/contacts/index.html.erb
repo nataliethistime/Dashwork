@@ -10,7 +10,6 @@
       <th>Website</th>
       <th>Email</th>
       <th>Phone</th>
-      <th></th>
     </tr>
   </thead>
 
@@ -22,10 +21,6 @@
         <td><%= contact.website %></td>
         <td><%= contact.email %></td>
         <td><%= contact.phone %></td>
-        <td>
-          <%= link_to 'Edit', edit_contact_path(contact) %> /
-          <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= button_to 'New Contact', new_contact_path, method: :get %>

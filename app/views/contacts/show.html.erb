@@ -25,6 +25,9 @@
   <%= @contact.phone %>
 </p>
 
+<%= link_to 'Edit', edit_contact_path(@contact) %> /
+<%= link_to 'Delete', contact_path(@contact), method: :delete, data: { confirm: "Are you sure you want to delete #{@contact.name}" } %>
+
 <h2>Notes</h2>
 
 <p>
@@ -35,5 +38,4 @@
   <%= link_to 'New Note', new_note_path(contact_id: @contact.id) %>
 </p>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> /
 <%= link_to 'Back', contacts_path %>
