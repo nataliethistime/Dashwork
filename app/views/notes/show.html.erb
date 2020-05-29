@@ -6,7 +6,7 @@
 
 <% if @note.contact.present? %>
   <p>
-    <strong>Contact:</strong> <%= link_to @note.contact.name, contact_path(@note.contact) %>
+    <strong>Contact:</strong> <%= link_to @note.contact.decorate(:name), contact_path(@note.contact) %>
   </p>
 <% end %>
 
@@ -24,4 +24,4 @@
 
 <p><%= link_to 'Edit', edit_note_path(@note) %> / <%= link_to 'Back', notes_path %></p>
 
-<p>Lasted updated: <%= time_ago_in_words(@note.updated_at) %> ago</p>
+<p>Lasted updated: <%= @note.decorate :updated_at_ago %></p>

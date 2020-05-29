@@ -28,4 +28,5 @@ class Note < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true, allow_blank: true
   default_scope -> { order(updated_at: :desc) }
+  include MiniDecorator.new(NoteDecorator)
 end

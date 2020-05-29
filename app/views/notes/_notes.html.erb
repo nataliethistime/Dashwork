@@ -17,7 +17,7 @@
           <tr>
             <td><%= link_to(sanitize(note.title), note_path(note)) %></td>
             <td><%= sanitize note.content.truncate_words 10 %></td>
-            <td><%= local_relative_time note.updated_at, type: 'time-or-date' %></td>
+            <td><%= note.decorate :updated_at %></td>
             <td>
               <%= link_to 'Edit', edit_note_path(note) %> /
               <%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' } %>
