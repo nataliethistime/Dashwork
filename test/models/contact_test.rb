@@ -2,17 +2,26 @@
 #
 # Table name: contacts
 #
-#  id          :bigint           not null, primary key
-#  name        :string
-#  description :text
-#  website     :string
-#  email       :string
-#  phone       :string
-#  user_id     :integer          not null
-#  tenant_id   :integer          not null
-#  company_id  :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id             :bigint           not null, primary key
+#  address        :string
+#  birthday       :date
+#  description    :text
+#  email          :string
+#  first_name     :string
+#  home_phone     :string
+#  job_department :string
+#  job_title      :string
+#  last_name      :string
+#  mobile_phone   :string
+#  nickname       :string
+#  title          :string
+#  website        :string
+#  work_phone     :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  company_id     :integer
+#  tenant_id      :integer          not null
+#  user_id        :integer          not null
 #
 require 'test_helper'
 

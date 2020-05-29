@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @contact.name %>
+  <%= @contact.decorate :name %>
 </p>
 
 <p>
@@ -12,21 +12,21 @@
 
 <p>
   <strong>Website:</strong>
-  <%= @contact.website %>
+  <%= @contact.decorate :website %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @contact.email %>
+  <%= @contact.decorate :email %>
 </p>
 
 <p>
   <strong>Phone:</strong>
-  <%= @contact.phone %>
+  <%= @contact.decorate :phone %>
 </p>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> /
-<%= link_to 'Delete', contact_path(@contact), method: :delete, data: { confirm: "Are you sure you want to delete #{@contact.name}" } %>
+<%= link_to 'Delete', contact_path(@contact), method: :delete, data: { confirm: "Are you sure you want to delete #{@contact.decorate :name}" } %>
 
 <h2>Notes</h2>
 

@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
       <th>Website</th>
       <th>Email</th>
       <th>Phone</th>
@@ -14,11 +13,10 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= link_to contact.name, contact_path(contact) %></td>
-        <td><%= contact.description %></td>
-        <td><%= contact.website %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.phone %></td>
+        <td><%= link_to contact.decorate(:name), contact_path(contact) %></td>
+        <td><%= contact.decorate :website %></td>
+        <td><%= contact.decorate :email %></td>
+        <td><%= contact.decorate :phone %></td>
       </tr>
     <% end %>
   </tbody>
