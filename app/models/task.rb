@@ -28,8 +28,6 @@ class Task < ApplicationRecord
   belongs_to :calendar_event, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
   validates :name, presence: true
   validates :description, presence: true, allow_blank: true
-
-  def completed
-    super.presence || false
-  end
+  default_scope -> { order(:completed, :due_date) }
+  include MiniDecorator.new(TaskDecorator)
 end

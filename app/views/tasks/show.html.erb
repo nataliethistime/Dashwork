@@ -2,16 +2,25 @@
   <strong>Name:</strong> <%= @task.name %>
 </p>
 
+<% if @task.description.present? %>
+  <p>
+    <strong>Description:</strong> <%= @task.description %>
+  </p>
+<% end %>
+
 <p>
-  <strong>Description:</strong> <%= @task.description %>
+  <strong>Due:</strong> <%= @task.decorate :due_date %>
 </p>
 
 <p>
-  <strong>Due date:</strong> <%= @task.due_date %>
+  <strong>Completed:</strong> <%= @task.decorate :completed %>
 </p>
 
-<p>
-  <strong>Completed:</strong> <%= translate @task.completed %>
-</p>
+<% if !@task.completed %>
+  <%= form_for(@task) do |f| %>
+    <%= f.hidden_field :completed, value: true %>
+    <%= f.submit 'Mark Completed' %>
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_task_path(@task) %> / <%= link_to 'Back', tasks_path %>

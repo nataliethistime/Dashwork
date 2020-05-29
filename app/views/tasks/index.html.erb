@@ -7,11 +7,9 @@
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Due date</th>
+          <th width="60%">Name</th>
           <th>Completed</th>
-          <th></th>
+          <th>Due date</th>
         </tr>
       </thead>
 
@@ -19,13 +17,8 @@
         <% @tasks.each do |task| %>
           <tr>
             <td><%= link_to sanitize(task.name), task_path(task) %></td>
-            <td><%= task.description %></td>
-            <td><%= task.due_date %></td>
-            <td><%= t task.completed %></td>
-            <td>
-              <%= link_to 'Edit', edit_task_path(task) %> /
-              <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
+            <td><%= task.decorate :completed %></td>
+            <td><%= task.decorate :due_date %></td>
           </tr>
         <% end %>
       </tbody>
