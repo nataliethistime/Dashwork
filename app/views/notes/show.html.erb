@@ -22,6 +22,11 @@
   </p>
 <% end %>
 
-<p><%= link_to 'Edit', edit_note_path(@note) %> / <%= link_to 'Back', notes_path %></p>
+<p>
+  <%= link_to 'Edit', edit_note_path(@note) %> /
+  <%= link_to 'Delete', note_path(@note), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' } %>
+</p>
 
 <p>Lasted updated: <%= @note.decorate :updated_at_ago %></p>
+
+<p><%= link_to 'Back', notes_path %></p>
