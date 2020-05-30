@@ -35,7 +35,7 @@
 </p>
 
 <p>
-  <%= button_to 'New Note', new_note_path(company_id: @company.id), method: :get %>
+  <%= link_to 'New Note', new_note_path(company_id: @company.id) %>
 </p>
 
 <%= link_to 'Back', companies_path %>
