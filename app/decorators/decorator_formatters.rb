@@ -2,8 +2,6 @@ module DecoratorFormatters
   def format(value, options = {})
     return '' unless value.present?
 
-    puts "Format #{value.inspect}, #{options.inspect}"
-
     if block_given?
       yield value
     elsif options[:as]
