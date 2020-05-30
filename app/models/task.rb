@@ -29,5 +29,5 @@ class Task < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true, allow_blank: true
   default_scope -> { order(:completed, :due_date) }
-  include MiniDecorator.new(TaskDecorator.new)
+  decorate_with TaskDecorator
 end

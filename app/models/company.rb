@@ -23,5 +23,5 @@ class Company < ApplicationRecord
   # TODO: link events
   # TODO: link projects
   default_scope -> { order(:name) }
-  include MiniDecorator.new(CompanyDecorator.new)
+  decorate_with CompanyDecorator
 end
