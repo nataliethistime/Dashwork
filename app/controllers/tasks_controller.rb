@@ -8,7 +8,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = current_tenant.tasks.new
+    @task = current_tenant.tasks.new new_task_params
   end
 
   def edit
@@ -42,6 +42,10 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :due_date, :completed, :user_id)
+    params.require(:task).permit(:name, :description, :due_date, :completed, :user_id, :project_id)
+  end
+
+  def new_task_params
+    params.permit(:project_id)
   end
 end

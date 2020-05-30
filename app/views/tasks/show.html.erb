@@ -16,6 +16,12 @@
   <strong>Completed:</strong> <%= @task.decorate :completed %>
 </p>
 
+<% if @task.project.present? %>
+  <p>
+    <strong>Project:</strong> <%= link_to @task.project.name, project_path(@task.project) %>
+  </p>
+<% end %>
+
 <% if !@task.completed %>
   <%= form_for(@task) do |f| %>
     <%= f.hidden_field :completed, value: true %>

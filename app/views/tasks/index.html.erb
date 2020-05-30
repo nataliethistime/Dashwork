@@ -1,29 +1,7 @@
 <h1>Tasks</h1>
 
 <p>
-  <% if @tasks.empty? %>
-    You haven't created any tasks yet.
-  <% else %>
-    <table>
-      <thead>
-        <tr>
-          <th width="60%">Name</th>
-          <th>Completed</th>
-          <th>Due date</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @tasks.each do |task| %>
-          <tr>
-            <td><%= link_to sanitize(task.name), task_path(task) %></td>
-            <td><%= task.decorate :completed %></td>
-            <td><%= task.decorate :due_date %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
+  <%= render 'tasks', tasks: @tasks %>
 </p>
 
 <br />

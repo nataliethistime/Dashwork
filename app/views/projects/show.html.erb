@@ -26,11 +26,21 @@
 <h2>Notes</h2>
 
 <p>
-  <%= render 'notes/notes', notes: @project.notes %>
+  <%= render 'notes/notes', notes: Array(@project.notes) %>
 </p>
 
 <p>
   <%= link_to 'New Note', new_note_path(project_id: @project.id) %>
+</p>
+
+<h2>Tasks</h2>
+
+<p>
+  <%= render 'tasks/tasks', tasks: Array(@project.tasks) %>
+</p>
+
+<p>
+  <%= link_to 'New Task', new_task_path(project_id: @project.id) %>
 </p>
 
 <%= link_to 'Back', projects_path %>
