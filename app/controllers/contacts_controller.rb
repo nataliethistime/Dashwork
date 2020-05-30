@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = current_tenant.contacts.new
+    @contact = current_tenant.contacts.new new_contact_params
   end
 
   # GET /contacts/1/edit
@@ -87,5 +87,9 @@ class ContactsController < ApplicationController
       :website,
       :work_phone
     )
+  end
+
+  def new_contact_params
+    params.permit(:company_id)
   end
 end
