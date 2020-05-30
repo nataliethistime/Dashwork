@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Website</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% companies.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company_path(company) %></td>
+        <td><%= company.description %></td>
+        <td><%= company.website %></td>
+        <td><%= company.email %></td>
+        <td><%= company.phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

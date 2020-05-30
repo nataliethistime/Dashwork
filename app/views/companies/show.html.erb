@@ -25,6 +25,9 @@
   <%= @company.phone %>
 </p>
 
+<%= link_to 'Edit', edit_company_path(@company) %> /
+<%= link_to 'Delete', company_path(@company), method: :delete, data: { confirm: 'Are you sure you want to delete this company?' } %>
+
 <h2>Notes</h2>
 
 <p>
@@ -32,8 +35,7 @@
 </p>
 
 <p>
-  <%= link_to 'New Note', new_note_path(company_id: @company.id) %>
+  <%= button_to 'New Note', new_note_path(company_id: @company.id), method: :get %>
 </p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> /
 <%= link_to 'Back', companies_path %>
