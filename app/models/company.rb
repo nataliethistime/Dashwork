@@ -22,4 +22,5 @@ class Company < ApplicationRecord
   has_many :tasks, -> (company) { where(tenant_id: company.tenant_id) }
   # TODO: link events
   # TODO: link projects
+  default_scope -> { order(:name) }
 end

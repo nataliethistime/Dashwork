@@ -22,4 +22,5 @@ class Project < ApplicationRecord
   # TODO: link companies
   # TODO: link calendar events
   # TODO: link equipment
+  default_scope -> { order(:name) }
 end

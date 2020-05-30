@@ -19,4 +19,5 @@ class Form < ApplicationRecord
   belongs_to :tenant
   belongs_to :user
   belongs_to :form_template
+  default_scope -> { order(:created_at) }
 end

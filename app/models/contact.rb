@@ -41,4 +41,6 @@ class Contact < ApplicationRecord
   end
 
   validates :title, inclusion: { in: self.titles }, allow_blank: true
+
+  default_scope -> { order(:first_name) }
 end

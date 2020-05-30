@@ -11,4 +11,5 @@
 class FormTemplate < ApplicationRecord
   belongs_to :tenant
   has_many :forms, -> (form_template) { where(tenant_id: form_template.tenant_id) }
+  default_scope -> { order(:name) }
 end
