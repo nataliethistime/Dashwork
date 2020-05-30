@@ -59,4 +59,14 @@
   <%= link_to 'New Task', new_task_path(company_id: @company.id) %>
 </p>
 
+<h2>Projects</h2>
+
+<p>
+  <%= render 'projects/projects', projects: Array(@company.projects) %>
+</p>
+
+<p>
+  <%= link_to 'New Project', new_project_path(company_ids: [@company.id]) %>
+</p>
+
 <%= link_to 'Back', companies_path %>

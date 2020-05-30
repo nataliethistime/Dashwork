@@ -20,8 +20,9 @@ class Company < ApplicationRecord
   has_many :forms, -> (company) { where(tenant_id: company.tenant_id) }
   has_many :notes, -> (company) { where(tenant_id: company.tenant_id) }
   has_many :tasks, -> (company) { where(tenant_id: company.tenant_id) }
+  has_many :project_companies
+  has_many :projects, -> (company) { where(tenant_id: company.tenant_id) }, through: :project_companies
   # TODO: link events
-  # TODO: link projects
   default_scope -> { order(:name) }
   decorate_with CompanyDecorator
 end

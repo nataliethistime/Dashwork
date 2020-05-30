@@ -18,8 +18,9 @@ class Project < ApplicationRecord
   has_many :notes, -> (project) { where(tenant_id: project.tenant_id) }
   has_many :tasks, -> (project) { where(tenant_id: project.tenant_id) }
   has_many :forms, -> (project) { where(tenant_id: project.tenant_id) }
+  has_many :project_companies
+  has_many :companies, -> (project) { where(tenant_id: project.tenant_id) }, through: :project_companies
   # TODO: link contacts
-  # TODO: link companies
   # TODO: link calendar events
   # TODO: link equipment
   default_scope -> { order(:name) }

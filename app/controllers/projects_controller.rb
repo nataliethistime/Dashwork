@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = current_tenant.projects.new
+    @project = current_tenant.projects.new new_project_params
   end
 
   # GET /projects/1/edit
@@ -70,6 +70,10 @@ class ProjectsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def project_params
-    params.require(:project).permit(:name, :description, :start_date, :end_date)
+    params.require(:project).permit(:name, :description, :start_date, :end_date, :company_ids, company_ids: [])
+  end
+
+  def new_project_params
+    params.permit(company_ids: [])
   end
 end
