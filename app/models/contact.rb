@@ -33,8 +33,10 @@ class Contact < ApplicationRecord
   has_many :forms, -> (contact) { where(tenant_id: contact.tenant_id) }
   has_many :notes, -> (contact) { where(tenant_id: contact.tenant_id) }
   has_many :tasks, -> (contact) { where(tenant_id: contact.tenant_id) }
+  has_many :project_contacts
+  has_many :projects, -> (company) { where(tenant_id: company.tenant_id) }, through: :project_contacts
+
   # TODO: link events
-  # TODO: link projects
 
   def self.titles
     %w[Mr Mrs Ms Dr Prof Sir]

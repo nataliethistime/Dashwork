@@ -20,6 +20,17 @@
   <%= @project.decorate :end_date %>
 </p>
 
+<% if @project.contacts.present? %>
+  <p>
+    <strong>Contacts:</strong>
+    <ul>
+      <% @project.contacts.find_each do |contacts| %>
+        <li><%= link_to contacts.name, contact_path(contacts) %></li>
+      <% end %>
+    </ul>
+  </p>
+<% end %>
+
 <% if @project.companies.present? %>
   <p>
     <strong>Companies:</strong>

@@ -48,4 +48,14 @@
   <%= link_to 'New Task', new_task_path(contact_id: @contact.id) %>
 </p>
 
+<h2>Projects</h2>
+
+<p>
+  <%= render 'projects/projects', projects: Array(@contact.projects) %>
+</p>
+
+<p>
+  <%= link_to 'New Project', new_project_path(contact_ids: [@contact.id]) %>
+</p>
+
 <%= link_to 'Back', contacts_path %>
