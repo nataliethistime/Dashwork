@@ -31,11 +31,21 @@
 <h2>Notes</h2>
 
 <p>
-  <%= render 'notes/notes', notes: @company.notes %>
+  <%= render 'notes/notes', notes: Array(@company.notes) %>
 </p>
 
 <p>
   <%= link_to 'New Note', new_note_path(company_id: @company.id) %>
+</p>
+
+<h2>Contacts</h2>
+
+<p>
+  <%= render 'contacts/contacts', contacts: Array(@company.contacts) %>
+</p>
+
+<p>
+  <%= link_to 'Add Contact', new_contact_path(company_id: @company_id) %>
 </p>
 
 <%= link_to 'Back', companies_path %>
