@@ -1,29 +1,24 @@
 <h2>Contact Details</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @contact.decorate :name %>
-</p>
+<p><strong>Name</strong>: <%= @contact.decorate :name %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @contact.description %>
-</p>
+<% if @contact.company.present? %>
+  <p>
+    <strong>Company</strong>:
+    <%= link_to @contact.company.name, company_path(@contact.company) %>
+  </p>
+<% end %>
 
-<p>
-  <strong>Website:</strong>
-  <%= @contact.decorate :website %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @contact.decorate :email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @contact.decorate :phone %>
-</p>
+<p><strong>Address</strong>: <%= @contact.decorate :address %></p>
+<p><strong>Job Title</strong>: <%= @contact.job_title %></p>
+<p><strong>Department</strong>: <%= @contact.job_department %></p>
+<p><strong>Description</strong>: <%= @contact.description %></p>
+<p><strong>Website</strong>: <%= @contact.decorate :website %></p>
+<p><strong>Email</strong>: <%= @contact.decorate :email %></p>
+<p><strong>Work Phone</strong>: <%= @contact.decorate :work_phone %></p>
+<p><strong>Home Phone</strong>: <%= @contact.decorate :home_phone %></p>
+<p><strong>Mobile Phone</strong>: <%= @contact.decorate :mobile_phone %></p>
+<p><strong>Birthday</strong>: <%= @contact.decorate :birthday %></p>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> /
 <%= link_to 'Delete', contact_path(@contact), method: :delete, data: { confirm: "Are you sure you want to delete #{@contact.decorate :name}" } %>
