@@ -1,26 +1,8 @@
 <h1>Contacts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Website</th>
-      <th>Email</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= link_to contact.decorate(:name), contact_path(contact) %></td>
-        <td><%= contact.decorate :website %></td>
-        <td><%= contact.decorate :email %></td>
-        <td><%= contact.decorate :phone %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<p>
+  <%= render 'contacts', contacts: @contacts %>
+</p>
 
 <br>
 
