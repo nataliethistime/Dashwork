@@ -38,4 +38,14 @@
   <%= link_to 'New Note', new_note_path(contact_id: @contact.id) %>
 </p>
 
+<h2>Tasks</h2>
+
+<p>
+  <%= render 'tasks/tasks', tasks: Array(@contact.tasks) %>
+</p>
+
+<p>
+  <%= link_to 'New Task', new_task_path(contact_id: @contact.id) %>
+</p>
+
 <%= link_to 'Back', contacts_path %>

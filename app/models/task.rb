@@ -22,7 +22,7 @@ class Task < ApplicationRecord
   belongs_to :user
   belongs_to :tenant
   belongs_to :contact, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
-  belongs_to :companies, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
+  belongs_to :company, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
   belongs_to :project, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
   belongs_to :equipment, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
   belongs_to :calendar_event, -> (task) { where(tenant_id: task.tenant_id) }, optional: true

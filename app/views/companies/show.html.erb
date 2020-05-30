@@ -48,4 +48,15 @@
   <%= link_to 'Add Contact', new_contact_path(company_id: @company.id) %>
 </p>
 
+
+<h2>Tasks</h2>
+
+<p>
+  <%= render 'tasks/tasks', tasks: Array(@company.tasks) %>
+</p>
+
+<p>
+  <%= link_to 'New Task', new_task_path(company_id: @company.id) %>
+</p>
+
 <%= link_to 'Back', companies_path %>
