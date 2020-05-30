@@ -23,4 +23,5 @@ class Project < ApplicationRecord
   # TODO: link calendar events
   # TODO: link equipment
   default_scope -> { order(:name) }
+  decorate_with ProjectDecorator
 end

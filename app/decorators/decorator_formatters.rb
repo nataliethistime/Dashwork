@@ -22,4 +22,8 @@ module DecoratorFormatters
   def format_email(email)
     helpers.link_to email, "mailto:#{email}"
   end
+
+  def format_date(date)
+    helpers.local_date date
+  end
 end

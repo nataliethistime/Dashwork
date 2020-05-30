@@ -12,13 +12,16 @@
 
 <p>
   <strong>Start date:</strong>
-  <%= @project.start_date %>
+  <%= @project.decorate :start_date %>
 </p>
 
 <p>
   <strong>End date:</strong>
-  <%= @project.end_date %>
+  <%= @project.decorate :end_date %>
 </p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> /
+<%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure you want to delete this project?' } %>
 
 <h2>Notes</h2>
 
@@ -30,5 +33,4 @@
   <%= link_to 'New Note', new_note_path(project_id: @project.id) %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> /
 <%= link_to 'Back', projects_path %>

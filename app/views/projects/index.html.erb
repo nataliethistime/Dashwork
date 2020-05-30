@@ -1,31 +1,8 @@
 <h1>Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= link_to project.name, project_path(project) %></td>
-        <td><%= project.description %></td>
-        <td><%= project.start_date %></td>
-        <td><%= project.end_date %></td>
-        <td>
-          <%= link_to 'Edit', edit_project_path(project) %> /
-          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<p>
+  <%= render 'projects', projects: @projects %>
+</p>
 
 <br>
 
