@@ -1,10 +1,8 @@
-module DecoratorBase
+class DecoratorBase
+  include DecoratorFormatters
+
   def helpers
     ApplicationController.helpers
-  end
-
-  def clean_url(url)
-    url.gsub(/https?:\/\//, '')
   end
 
   def updated_at(item)

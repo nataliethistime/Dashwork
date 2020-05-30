@@ -14,9 +14,9 @@
       <tr>
         <td><%= link_to company.name, company_path(company) %></td>
         <td><%= company.description %></td>
-        <td><%= company.website %></td>
-        <td><%= company.email %></td>
-        <td><%= company.phone %></td>
+        <td><%= company.decorate :website %></td>
+        <td><%= company.decorate :email %></td>
+        <td><%= company.decorate :phone %></td>
       </tr>
     <% end %>
   </tbody>

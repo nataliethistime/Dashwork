@@ -1,7 +1,4 @@
-module TaskDecorator
-  extend DecoratorBase
-  extend self
-
+class TaskDecorator < DecoratorBase
   def completed(task)
     task.completed.presence == true ? 'Yes' : 'No'
   end

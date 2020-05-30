@@ -1,24 +1,18 @@
-module ContactDecorator
-  extend DecoratorBase
-  extend self
-
+class ContactDecorator < DecoratorBase
   def name(contact)
     [contact.title.presence, contact.first_name.presence, contact.last_name.presence].join ' '
   end
 
   def website(contact)
-    return '' unless contact.website.present?
-    helpers.link_to clean_url(contact.website), contact.website
+    format contact.website, as: :url
   end
 
   def email(contact)
-    return '' unless contact.email.present?
-    helpers.link_to contact.email, "mailto:#{contact.email}"
+    format contact.email, as: :email
   end
 
   def phone(contact)
     phone = contact.work_phone.presence || contact.mobile_phone.presence || contact.home_phone.presence
-    return '' if phone.nil?
-    helpers.link_to phone, "tel:#{phone}"
+    format phone, as: :phone_url
   end
 end

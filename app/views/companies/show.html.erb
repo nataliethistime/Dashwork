@@ -12,17 +12,17 @@
 
 <p>
   <strong>Website:</strong>
-  <%= @company.website %>
+  <%= @company.decorate :website %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @company.email %>
+  <%= @company.decorate :email %>
 </p>
 
 <p>
   <strong>Phone:</strong>
-  <%= @company.phone %>
+  <%= @company.decorate :phone %>
 </p>
 
 <%= link_to 'Edit', edit_company_path(@company) %> /

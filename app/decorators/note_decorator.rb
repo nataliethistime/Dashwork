@@ -1,3 +1,2 @@
-module NoteDecorator
-  extend DecoratorBase
+class NoteDecorator < DecoratorBase
 end

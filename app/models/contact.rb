@@ -24,7 +24,7 @@
 #  user_id        :integer          not null
 #
 class Contact < ApplicationRecord
-  include MiniDecorator.new(ContactDecorator)
+  include MiniDecorator.new(ContactDecorator.new)
 
   belongs_to :tenant
   belongs_to :user
