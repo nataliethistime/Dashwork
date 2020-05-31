@@ -1,7 +1,7 @@
-<h1>Notes</h1>
+<h1 class="title">Notes</h1>
 
 <%= render 'notes', notes: @notes %>
 
 <br />
 
-<%= button_to 'New Note', new_note_path, method: :get %>
+<%= link_to 'New Note', new_note_path, class: 'button is-link' %>

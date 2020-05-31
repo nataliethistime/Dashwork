@@ -15,11 +15,8 @@ SimpleForm.setup do |config|
   # whole input.
   config.wrappers(
     :default,
-    class: :input,
-    hint_class: :field_with_hint,
-    error_class: :field_with_errors,
-    valid_class: :field_without_errors,
-    tag: :p
+    class: :field,
+    tag: :div
    ) do |b|
     b.use :html5
     b.use :placeholder
@@ -29,19 +26,16 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
 
-    b.use :label
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, wrap_with: { tag: :span, class: :error }
-    b.use :input
+    b.use :label, class: 'label'
+    b.use :input, class: 'input', error_class: 'is-danger', wrap_with: { tag: :div, class: :control }
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+    b.use :hint,  wrap_with: { tag: :p, class: :help }
   end
 
   config.wrappers(
     :checks,
-    class: :input,
-    hint_class: :field_with_hint,
-    error_class: :field_with_errors,
-    valid_class: :field_without_errors,
-    tag: :p
+    class: :field,
+    tag: :div
    ) do |b|
     b.use :html5
     b.use :placeholder
@@ -51,9 +45,9 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
 
-    b.use :label_input
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, wrap_with: { tag: :span, class: :error }
+    b.use :label_input, class: 'checkbox'
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+    b.use :hint,  wrap_with: { tag: :p, class: :help }
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -66,7 +60,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'button is-link'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.

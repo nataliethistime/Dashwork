@@ -1,8 +1,8 @@
-<h1>Applications</h1>
+<h1 class="title is-1">Applications</h1>
 
-<p>
+<div class="content">
   <% if current_tenant.apps.empty? %>
-    You haven't enabled any apps yet.
+    <p>You haven't enabled any apps yet.</p>
   <% else %>
     <ul>
       <% current_tenant.apps.each do |app| %>
@@ -10,6 +10,4 @@
       <% end %>
     </ul>
   <% end %>
-</p>
-
-<p>Hello <%= current_user.email %> (<%= current_tenant.name %>)</p>
+</div>

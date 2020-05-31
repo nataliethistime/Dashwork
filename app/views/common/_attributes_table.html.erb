@@ -1,0 +1,10 @@
+<table class="table is-narrow">
+  <tbody>
+    <% attributes.each do |key, value| %>
+      <tr>
+        <th><%= key.to_s.humanize %></th>
+        <td><%= value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

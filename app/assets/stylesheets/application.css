@@ -10,7 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require @exampledev/new.css/new.css
+ *= require bulma/css/bulma.css
  *= require_tree .
  *= require_self
  */
+
+/*
+ * TODO: not really sure why we need to do this
+ * Just trying to make it look right for now...
+ */
+.checkbox {
+  margin-right: 5px;
+}

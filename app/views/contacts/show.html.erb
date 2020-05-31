@@ -1,56 +1,50 @@
-<h2>Contact Details</h2>
+<h2 class="title"><%= @contact.decorate :name %></h2>
 
-<p><strong>Name</strong>: <%= @contact.decorate :name %></p>
+<%= render 'common/attributes_table', attributes: {
+  address: @contact.decorate(:address),
+  company: @contact.company.present? ? link_to(@contact.company.name, company_path(@contact.company)) : nil,
+  job_title: @contact.job_title,
+  department: @contact.job_department,
+  description: @contact.description,
+  website: @contact.decorate(:website),
+  email: @contact.decorate(:email),
+  work_phone: @contact.decorate(:work_phone),
+  home_phone: @contact.decorate(:home_phone),
+  mobile_phone: @contact.decorate(:mobile_phone),
+  birthday: @contact.decorate(:birthday),
+} %>
 
-<% if @contact.company.present? %>
-  <p>
-    <strong>Company</strong>:
-    <%= link_to @contact.company.name, company_path(@contact.company) %>
-  </p>
-<% end %>
+<%= link_to 'Edit', edit_contact_path(@contact), class: 'button is-link' %>
+<%= link_to 'Delete', contact_path(@contact), class: 'button is-danger is-light', method: :delete, data: { confirm: "Are you sure you want to delete #{@contact.decorate :name}" } %>
 
-<p><strong>Address</strong>: <%= @contact.decorate :address %></p>
-<p><strong>Job Title</strong>: <%= @contact.job_title %></p>
-<p><strong>Department</strong>: <%= @contact.job_department %></p>
-<p><strong>Description</strong>: <%= @contact.description %></p>
-<p><strong>Website</strong>: <%= @contact.decorate :website %></p>
-<p><strong>Email</strong>: <%= @contact.decorate :email %></p>
-<p><strong>Work Phone</strong>: <%= @contact.decorate :work_phone %></p>
-<p><strong>Home Phone</strong>: <%= @contact.decorate :home_phone %></p>
-<p><strong>Mobile Phone</strong>: <%= @contact.decorate :mobile_phone %></p>
-<p><strong>Birthday</strong>: <%= @contact.decorate :birthday %></p>
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> /
-<%= link_to 'Delete', contact_path(@contact), method: :delete, data: { confirm: "Are you sure you want to delete #{@contact.decorate :name}" } %>
-
-<h2>Notes</h2>
+<h2 class="title">Notes</h2>
 
 <p>
   <%= render 'notes/notes', notes: Array(@contact.notes) %>
 </p>
 
 <p>
-  <%= link_to 'New Note', new_note_path(contact_id: @contact.id) %>
+  <%= link_to 'New Note', new_note_path(contact_id: @contact.id), class: 'button is-link' %>
 </p>
 
-<h2>Tasks</h2>
+<h2 class="title">Tasks</h2>
 
 <p>
   <%= render 'tasks/tasks', tasks: Array(@contact.tasks) %>
 </p>
 
 <p>
-  <%= link_to 'New Task', new_task_path(contact_id: @contact.id) %>
+  <%= link_to 'New Task', new_task_path(contact_id: @contact.id), class: 'button is-link' %>
 </p>
 
-<h2>Projects</h2>
+<h2 class="title">Projects</h2>
 
 <p>
   <%= render 'projects/projects', projects: Array(@contact.projects) %>
 </p>
 
 <p>
-  <%= link_to 'New Project', new_project_path(contact_ids: [@contact.id]) %>
+  <%= link_to 'New Project', new_project_path(contact_ids: [@contact.id]), class: 'button is-link' %>
 </p>
 
 <%= link_to 'Back', contacts_path %>

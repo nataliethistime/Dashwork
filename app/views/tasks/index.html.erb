@@ -1,4 +1,4 @@
-<h1>Tasks</h1>
+<h1 class="title">Tasks</h1>
 
 <p>
   <%= render 'tasks', tasks: @tasks %>
@@ -6,4 +6,4 @@
 
 <br />
 
-<%= button_to 'New Task', new_task_path, method: :get %>
+<%= link_to 'New Task', new_task_path, class: 'button is-link' %>

@@ -1,9 +1,7 @@
-<h1>Companies</h1>
+<h1 class="title">Companies</h1>
 
 <p>
   <%= render 'companies', companies: @companies %>
 </p>
 
-<br>
-
-<%= button_to 'New Company', new_company_path, method: :get %>
+<%= link_to 'New Company', new_company_path, class: 'button is-link' %>

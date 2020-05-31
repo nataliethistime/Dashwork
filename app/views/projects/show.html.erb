@@ -1,4 +1,4 @@
-<h2>Project Details</h2>
+<h2 class="title">Project Details</h2>
 
 <p>
   <strong>Name:</strong>
@@ -42,27 +42,27 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_project_path(@project) %> /
-<%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure you want to delete this project?' } %>
+<%= link_to 'Edit', edit_project_path(@project), class: 'button is-link' %>
+<%= link_to 'Delete', project_path(@project), class: 'button is-danger is-light', method: :delete, data: { confirm: 'Are you sure you want to delete this project?' } %>
 
-<h2>Notes</h2>
+<h2 class="title">Notes</h2>
 
 <p>
   <%= render 'notes/notes', notes: Array(@project.notes) %>
 </p>
 
 <p>
-  <%= link_to 'New Note', new_note_path(project_id: @project.id) %>
+  <%= link_to 'New Note', new_note_path(project_id: @project.id), class: 'button is-link' %>
 </p>
 
-<h2>Tasks</h2>
+<h2 class="title">Tasks</h2>
 
 <p>
   <%= render 'tasks/tasks', tasks: Array(@project.tasks) %>
 </p>
 
 <p>
-  <%= link_to 'New Task', new_task_path(project_id: @project.id) %>
+  <%= link_to 'New Task', new_task_path(project_id: @project.id), class: 'button is-link' %>
 </p>
 
 <%= link_to 'Back', projects_path %>

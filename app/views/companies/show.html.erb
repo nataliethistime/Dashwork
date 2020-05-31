@@ -1,72 +1,54 @@
-<h2>Company Details</h2>
+<h2 class="title"><%= @company.name %></h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+<%= render 'common/attributes_table', attributes: {
+  description: @company.description,
+  website: @company.decorate(:website),
+  email: @company.decorate(:email),
+  phone: @company.decorate(:phone)
+} %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @company.description %>
-</p>
+<%= link_to 'Edit', edit_company_path(@company), class: 'button is-link' %>
+<%= link_to 'Delete', company_path(@company), class: 'button is-danger is-light', method: :delete, data: { confirm: 'Are you sure you want to delete this company?' } %>
 
-<p>
-  <strong>Website:</strong>
-  <%= @company.decorate :website %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @company.decorate :email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @company.decorate :phone %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> /
-<%= link_to 'Delete', company_path(@company), method: :delete, data: { confirm: 'Are you sure you want to delete this company?' } %>
-
-<h2>Notes</h2>
+<h2 class="title">Notes</h2>
 
 <p>
   <%= render 'notes/notes', notes: Array(@company.notes) %>
 </p>
 
 <p>
-  <%= link_to 'New Note', new_note_path(company_id: @company.id) %>
+  <%= link_to 'New Note', new_note_path(company_id: @company.id), class: 'button is-link' %>
 </p>
 
-<h2>Contacts</h2>
+<h2 class="title">Contacts</h2>
 
 <p>
   <%= render 'contacts/contacts', contacts: Array(@company.contacts) %>
 </p>
 
 <p>
-  <%= link_to 'Add Contact', new_contact_path(company_id: @company.id) %>
+  <%= link_to 'Add Contact', new_contact_path(company_id: @company.id), class: 'button is-link' %>
 </p>
 
 
-<h2>Tasks</h2>
+<h2 class="title">Tasks</h2>
 
 <p>
   <%= render 'tasks/tasks', tasks: Array(@company.tasks) %>
 </p>
 
 <p>
-  <%= link_to 'New Task', new_task_path(company_id: @company.id) %>
+  <%= link_to 'New Task', new_task_path(company_id: @company.id), class: 'button is-link' %>
 </p>
 
-<h2>Projects</h2>
+<h2 class="title">Projects</h2>
 
 <p>
   <%= render 'projects/projects', projects: Array(@company.projects) %>
 </p>
 
 <p>
-  <%= link_to 'New Project', new_project_path(company_ids: [@company.id]) %>
+  <%= link_to 'New Project', new_project_path(company_ids: [@company.id]), class: 'button is-link' %>
 </p>
 
 <%= link_to 'Back', companies_path %>

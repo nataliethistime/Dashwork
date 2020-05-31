@@ -11,19 +11,14 @@
   </head>
 
   <body>
-    <header>
-      <h1><%= Settings.product_name %></h1>
-      <% if user_signed_in? %>
-        <%= link_to 'Home', root_path %> /
-        <%= link_to 'Settings', edit_user_registration_path %> /
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign in', new_user_session_path %> /
-        <%= link_to 'Sign up', new_user_registration_path %>
-      <% end %>
-    </header>
-    <% if flash[:notice].present? %><p class="notice"><%= notice %></p><% end %>
-    <% if flash[:alert].present? %><p class="alert"><%= alert %></p><% end %>
-    <%= yield %>
+    <%= render 'navbar' %>
+
+    <section class="section">
+      <div class="container">
+        <% if flash[:notice].present? %><div class="notification is-info"><%= notice %></div><% end %>
+        <% if flash[:alert].present? %><div class="notification is-warning"><%= alert %></div><% end %>
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>

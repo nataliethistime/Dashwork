@@ -1,4 +1,4 @@
-<h1>Contacts</h1>
+<h1 class="title">Contacts</h1>
 
 <p>
   <%= render 'contacts', contacts: @contacts %>
@@ -6,4 +6,4 @@
 
 <br>
 
-<%= button_to 'New Contact', new_contact_path, method: :get %>
+<%= link_to 'New Contact', new_contact_path, class: 'button is-link' %>
