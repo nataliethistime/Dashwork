@@ -1,4 +1,4 @@
-class TenantsController < ApplicationController
+class Settings::TenantController < ApplicationController
   skip_before_action :check_tenant, only: [:new, :create]
 
   def new
@@ -17,6 +17,10 @@ class TenantsController < ApplicationController
   end
 
   def edit
+    @tenant = current_tenant
+  end
+
+  def edit_apps
     @tenant = current_tenant
   end
 

@@ -15,9 +15,18 @@
 
     <section class="section">
       <div class="container">
-        <% if flash[:notice].present? %><div class="notification is-info"><%= notice %></div><% end %>
-        <% if flash[:alert].present? %><div class="notification is-warning"><%= alert %></div><% end %>
-        <%= yield %>
+        <div class="columns">
+          <% if content_for?(:sidebar) %>
+            <div class="column is-one-fifth">
+              <%= yield :sidebar %>
+            </div>
+          <% end %>
+          <div class="column">
+            <% if flash[:notice].present? %><div class="notification is-info"><%= notice %></div><% end %>
+            <% if flash[:alert].present? %><div class="notification is-warning"><%= alert %></div><% end %>
+            <%= yield %>
+          </div>
+        </div>
       </div>
     </section>
   </body>

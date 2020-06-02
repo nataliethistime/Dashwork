@@ -1,4 +1,4 @@
-<%= simple_form_for @tenant do |f| %>
+<%= simple_form_for [:settings, @tenant] do |f| %>
   <%= f.input :name %>
   <%= f.button :submit %>
 <% end %>
