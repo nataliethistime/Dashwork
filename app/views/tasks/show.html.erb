@@ -35,10 +35,11 @@
 <% end %>
 
 <% if !@task.completed %>
-  <%= form_for(@task) do |f| %>
+  <%= simple_form_for(@task) do |f| %>
     <%= f.hidden_field :completed, value: true %>
     <%= f.button :submit, 'Mark Completed' %>
   <% end %>
+  <br />
 <% end %>
 
 <%= link_to 'Edit', edit_task_path(@task), class: 'button is-link' %>
