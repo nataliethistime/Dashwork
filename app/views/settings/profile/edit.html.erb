@@ -4,5 +4,9 @@
 
 <%= simple_form_for [:settings, @user], url: settings_profile_path do |f| %>
   <%= f.input :email %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :country %>
+  <%= f.input :time_zone %>
   <%= f.button :submit %>
 <% end %>
