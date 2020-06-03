@@ -1,23 +1,7 @@
 # frozen_string_literal: true
-#
-# Uncomment this and change the path if necessary to include your own
-# components.
-# See https://github.com/heartcombo/simple_form#custom-components to know
-# more about custom components.
-# Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
-#
-# Use this setup block to configure all options available in SimpleForm.
+
 SimpleForm.setup do |config|
-  # Wrappers are used by the form builder to generate a
-  # complete input. You can remove any component from the
-  # wrapper, change the order or even add your own to the
-  # stack. The options given below are used to wrap the
-  # whole input.
-  config.wrappers(
-    :default,
-    class: :field,
-    tag: :div
-   ) do |b|
+  config.wrappers :default, class: :field, tag: :div do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -32,11 +16,7 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: :p, class: :help }
   end
 
-  config.wrappers(
-    :checks,
-    class: :field,
-    tag: :div
-   ) do |b|
+  config.wrappers :checks, class: :field, tag: :div do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -103,7 +83,7 @@ SimpleForm.setup do |config|
   # config.default_form_class = nil
 
   # You can define which elements should obtain additional classes
-  # config.generate_additional_classes_for = [:wrapper, :label, :input]
+  config.generate_additional_classes_for = []
 
   # Whether attributes are required by default (or not). Default is true.
   # config.required_by_default = true
