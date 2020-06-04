@@ -1,7 +1,5 @@
-<p>
-  <strong>Name:</strong>
-  <%= @equipment.name %>
-</p>
+<% content_for(:title) { @equipment.name } %>
+<h1 class="title"><%= @equipment.name %></h1>
 
 <p>
   <strong>Description:</strong>

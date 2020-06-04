@@ -1,3 +1,4 @@
+<% content_for(:title) { @company.name } %>
 <h2 class="title"><%= @company.name %></h2>
 
 <%= render 'common/attributes_table', attributes: {

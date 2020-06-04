@@ -1,7 +1,5 @@
-<p>
-  <strong>Name:</strong>
-  <%= @form_template.name %>
-</p>
+<% content_for(:title) { @form_template.name } %>
+<h1 class="title"><%= @form_template.name %></h1>
 
 <%= link_to 'Edit', edit_form_template_path(@form_template) %> |
 <%= link_to 'Back', form_templates_path %>

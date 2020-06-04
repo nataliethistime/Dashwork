@@ -1,3 +1,4 @@
+<% content_for(:title) { @contact.decorate :name } %>
 <h2 class="title"><%= @contact.decorate :name %></h2>
 
 <%= render 'common/attributes_table', attributes: {

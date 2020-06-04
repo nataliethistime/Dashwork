@@ -1,9 +1,5 @@
-<h2 class="title">Project Details</h2>
-
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<% content_for(:title) { @project.name } %>
+<h2 class="title"><%= @project.name %></h2>
 
 <p>
   <strong>Description:</strong>

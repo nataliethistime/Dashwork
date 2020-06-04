@@ -1,3 +1,4 @@
+<% content_for(:title) { @task.name} %>
 <h1 class="title">Editing Task</h1>
 <p><%= render 'form', task: @task %></p>
 <p><%= link_to 'Back', tasks_path %></p>

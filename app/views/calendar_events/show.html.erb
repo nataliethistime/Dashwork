@@ -1,7 +1,5 @@
-<p>
-  <strong>Name:</strong>
-  <%= @calendar_event.name %>
-</p>
+<% content_for(:title) { @calendar_event.name } %>
+<h1 class="title"><%= @calendar_event.name %></h1>
 
 <p>
   <strong>Description:</strong>

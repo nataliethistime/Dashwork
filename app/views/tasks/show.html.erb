@@ -1,6 +1,5 @@
-<p>
-  <strong>Name:</strong> <%= @task.name %>
-</p>
+<% content_for(:title) { @task.name } %>
+<h1 class="title"><%= @task.name %></h1>
 
 <% if @task.description.present? %>
   <p>

@@ -1,7 +1,5 @@
-<p>
-  <strong>Name:</strong>
-  <%= @form.name %>
-</p>
+<% content_for(:title) { @form.name } %>
+<h1 class="title"><%= form.name %></h1>
 
 <p>
   <strong>Status:</strong>

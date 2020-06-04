@@ -1,3 +1,4 @@
+<% content_for(:title) { @contact.decorate :name } %>
 <h1 class="title">Editing Contact</h1>
 <p><%= render 'form', contact: @contact %></p>
 <p><%= link_to 'Back', contacts_path %></p>
