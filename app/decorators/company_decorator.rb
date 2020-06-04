@@ -10,4 +10,8 @@ class CompanyDecorator < DecoratorBase
   def phone(contact)
     format contact.phone, as: :phone_url
   end
+
+  def address(company)
+    format company.address, as: :google_maps_search_link
+  end
 end

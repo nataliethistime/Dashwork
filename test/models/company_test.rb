@@ -3,15 +3,16 @@
 # Table name: companies
 #
 #  id          :bigint           not null, primary key
-#  name        :string
+#  address     :string
 #  description :text
-#  website     :string
 #  email       :string
+#  name        :string
 #  phone       :string
-#  user_id     :integer          not null
-#  tenant_id   :integer          not null
+#  website     :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  tenant_id   :integer          not null
+#  user_id     :integer          not null
 #
 require 'test_helper'
 

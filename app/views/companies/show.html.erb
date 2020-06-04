@@ -6,7 +6,8 @@
   description: @company.description,
   website: @company.decorate(:website),
   email: @company.decorate(:email),
-  phone: @company.decorate(:phone)
+  phone: @company.decorate(:phone),
+  address: @company.decorate(:address)
 } %>
 
 <%= link_to 'Edit', edit_company_path(@company), class: 'button is-link' %>
