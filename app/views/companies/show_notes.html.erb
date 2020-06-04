@@ -2,8 +2,6 @@
 <h2 class="title"><%= @company.name %></h2>
 <%= render 'tabs', company: @company %>
 
-<h2 class="title">Notes</h2>
-
 <p>
   <%= render 'notes/notes', notes: Array(@company.notes) %>
 </p>
