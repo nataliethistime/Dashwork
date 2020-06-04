@@ -1,0 +1,13 @@
+<% content_for(:title) { @company.name } %>
+<h2 class="title"><%= @company.name %></h2>
+<%= render 'tabs', company: @company %>
+
+<h2 class="title">Contacts</h2>
+
+<p>
+  <%= render 'contacts/contacts', contacts: Array(@company.contacts) %>
+</p>
+
+<p>
+  <%= link_to 'Add Contact', new_contact_path(company_id: @company.id), class: 'button is-link' %>
+</p>

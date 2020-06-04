@@ -1,5 +1,14 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [
+    :show,
+    :show_notes,
+    :show_contacts,
+    :show_tasks,
+    :show_projects,
+    :edit,
+    :update,
+    :destroy
+  ]
 
   # GET /companies
   # GET /companies.json
@@ -10,6 +19,18 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+  end
+
+  def show_notes
+  end
+
+  def show_contcts
+  end
+
+  def show_tasks
+  end
+
+  def show_projects
   end
 
   # GET /companies/new
