@@ -13,12 +13,9 @@
   <div id="mainNavbar" class="navbar-menu">
     <div class="navbar-start">
       <% if user_signed_in? %>
-        <%= link_to 'Home', root_path, class: 'navbar-item' %>
-        <%= link_to 'Settings', edit_settings_profile_path(current_user), class: 'navbar-item' %>
-
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Go to...
+          <a class="navbar-link is-arrowless">
+            <i class="fas fa-th"></i>
           </a>
 
           <div class="navbar-dropdown">
@@ -31,6 +28,9 @@
             <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: 'navbar-item' %>
           </div>
         </div>
+        <%= link_to edit_settings_profile_path(current_user), class: 'navbar-item' do %>
+          <i class="fas fa-wrench"></i>
+        <% end %>
       <% end %>
     </div>
 
