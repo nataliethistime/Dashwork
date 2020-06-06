@@ -28,3 +28,10 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 .checkbox {
   margin-right: 5px;
 }
+
+/*
+ * Make sorting links appear the same as other table headers
+ */
+th .sort_link {
+  color: #363636;
+}
