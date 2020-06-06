@@ -2,7 +2,7 @@
 <% content_for(:back_link) { root_path } %>
 <% content_for(:actions) do %>
   <%= link_to new_company_path, class: 'navbar-item' do %>
-    <i class="fas fa-plus"></i>
+    <%= icon_for :create %>
   <% end %>
 <% end %>
 

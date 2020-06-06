@@ -2,10 +2,10 @@
 <% content_for(:back_link) { companies_path } %>
 <% content_for(:actions) do %>
   <%= link_to edit_company_path(@company), class: 'navbar-item' do %>
-    <i class="fas fa-edit"></i>
+    <%= icon_for :edit %>
   <% end %>
   <%= link_to company_path(@company), class: 'navbar-item', method: :delete, data: { confirm: "Are you sure you want to delete #{@company.name}?" } do %>
-    <i class="fas fa-trash"></i>
+    <%= icon_for :delete %>
   <% end %>
 <% end %>
 

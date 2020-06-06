@@ -15,7 +15,7 @@
       <% if user_signed_in? %>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link is-arrowless">
-            <i class="fas fa-th"></i>
+            <%= icon_for :apps %>
             <% if content_for?(:title) %>
               &nbsp;<%= yield(:title) %>
             <% end %>
@@ -24,7 +24,9 @@
           <div class="navbar-dropdown">
             <% if current_tenant.apps.present? %>
               <% current_tenant.apps.each do |app| %>
-                <%= link_to app[:name], app[:path], class: 'navbar-item' %>
+                <%= link_to app[:path], class: 'navbar-item' do %>
+                  <%= icon_for "#{app[:id]}_app" %>&nbsp;<%= app[:name] %>
+                <% end %>
               <% end %>
               <hr class="navbar-divider">
             <% end %>
@@ -33,7 +35,7 @@
         </div>
         <% if content_for?(:back_link) %>
           <%= link_to yield(:back_link), class: 'navbar-item' do %>
-            <i class="fas fa-arrow-left"></i>
+            <%= icon_for :back %>
           <% end %>
         <% end %>
         <% if content_for?(:actions) %>
@@ -48,10 +50,10 @@
           <%= current_user.email %> (<%= current_tenant.name %>)
         </div>
         <%= link_to edit_settings_profile_path(current_user), class: 'navbar-item' do %>
-          <i class="fas fa-wrench"></i>
+          <%= icon_for :settings %>
         <% end %>
         <%= link_to destroy_user_session_path, class: 'navbar-item', method: :delete do %>
-          <i class="fas fa-power-off"></i>
+          <%= icon_for :sign_out %>
         <% end %>
       <% else %>
         <div class="navbar-item">

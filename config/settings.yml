@@ -1,1 +1,19 @@
 product_name: Dashwork
+
+icons:
+  calendar_app: fas fa-calendar-alt
+  companies_app: fas fa-briefcase
+  contacts_app: fas fa-address-book
+  equipment_app: fas fa-truck
+  form_templates_app: fas fa-box
+  forms_app: fas fa-file-signature
+  notes_app: fas fa-sticky-note
+  projects_app: fas fa-project-diagram
+  tasks_app: fas fa-tasks
+  back: fas fa-arrow-left
+  apps: fas fa-th
+  create: fas fa-plus
+  delete: fas fa-trash
+  edit: fas fa-edit
+  settings: fas fa-wrench
+  sign_out: fas fa-power-off
