@@ -28,9 +28,6 @@
             <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: 'navbar-item' %>
           </div>
         </div>
-        <%= link_to edit_settings_profile_path(current_user), class: 'navbar-item' do %>
-          <i class="fas fa-wrench"></i>
-        <% end %>
       <% end %>
     </div>
 
@@ -39,17 +36,19 @@
         <div class="navbar-item">
           <%= current_user.email %> (<%= current_tenant.name %>)
         </div>
-      <% end %>
-
-      <div class="navbar-item">
-        <div class="buttons">
-          <% if user_signed_in? %>
-            <%= link_to 'Sign out', destroy_user_session_path, class: 'button is-danger is-light', method: :delete %>
-          <% else %>
+        <%= link_to edit_settings_profile_path(current_user), class: 'navbar-item' do %>
+          <i class="fas fa-wrench"></i>
+        <% end %>
+        <%= link_to destroy_user_session_path, class: 'navbar-item', method: :delete do %>
+          <i class="fas fa-power-off"></i>
+        <% end %>
+      <% else %>
+        <div class="navbar-item">
+          <div class="buttons">
             <%= link_to 'Sign up', new_user_registration_path, class: 'button is-primary' %>
             <%= link_to 'Sign in', new_user_session_path, class: 'button is-light' %>
-          <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
 </nav>
