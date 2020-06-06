@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = current_tenant.companies.all
+    @companies = current_tenant.companies.all.page(params[:page])
   end
 
   # GET /companies/1
