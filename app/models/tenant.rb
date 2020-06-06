@@ -52,10 +52,6 @@ class Tenant < ApplicationRecord
   end
 
   def apps
-    apps = []
-    Tenant.all_apps.each do |id|
-      apps << APPS[id] if has_app? id
-    end
-    apps
+    APPS.values.select { |app| has_app? app[:id] }
   end
 end
