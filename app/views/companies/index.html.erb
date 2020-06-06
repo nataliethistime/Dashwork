@@ -1,4 +1,11 @@
 <% content_for(:title) { 'Companies' } %>
+<% content_for(:back_link) { root_path } %>
+<% content_for(:actions) do %>
+  <%= link_to new_company_path, class: 'navbar-item' do %>
+    <i class="fas fa-plus"></i>
+  <% end %>
+<% end %>
+
 <h1 class="title">Companies</h1>
 
 <p>

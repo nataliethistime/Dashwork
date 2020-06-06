@@ -16,6 +16,9 @@
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link is-arrowless">
             <i class="fas fa-th"></i>
+            <% if content_for?(:title) %>
+              &nbsp;<%= yield(:title) %>
+            <% end %>
           </a>
 
           <div class="navbar-dropdown">
@@ -28,6 +31,14 @@
             <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: 'navbar-item' %>
           </div>
         </div>
+        <% if content_for?(:back_link) %>
+          <%= link_to yield(:back_link), class: 'navbar-item' do %>
+            <i class="fas fa-arrow-left"></i>
+          <% end %>
+        <% end %>
+        <% if content_for?(:actions) %>
+          <%= yield(:actions) %>
+        <% end %>
       <% end %>
     </div>
 
