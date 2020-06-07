@@ -40,4 +40,8 @@ class ContactDecorator < DecoratorBase
   def birthday(contact)
     format contact.birthday, as: :date
   end
+
+  def department(contact)
+    contact.job_department
+  end
 end

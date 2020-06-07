@@ -12,11 +12,11 @@
 <h2 class="title"><%= @company.name %></h2>
 <%= render 'tabs', company: @company %>
 
-<%= render 'common/attributes_table', attributes: {
-  description: @company.description,
-  groups: @company.decorate(:groups),
-  website: @company.decorate(:website),
-  email: @company.decorate(:email),
-  phone: @company.decorate(:phone),
-  address: @company.decorate(:address)
-} %>
+<%= attributes_table(@company, [
+  :description,
+  :groups,
+  :website,
+  :email,
+  :phone,
+  :address
+]) %>

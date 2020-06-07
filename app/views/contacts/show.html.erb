@@ -1,19 +1,19 @@
 <% content_for(:title) { @contact.decorate :name } %>
 <h2 class="title"><%= @contact.decorate :name %></h2>
 
-<%= render 'common/attributes_table', attributes: {
-  address: @contact.decorate(:address),
-  company: @contact.company.present? ? link_to(@contact.company.name, company_path(@contact.company)) : nil,
-  job_title: @contact.job_title,
-  department: @contact.job_department,
-  description: @contact.description,
-  website: @contact.decorate(:website),
-  email: @contact.decorate(:email),
-  work_phone: @contact.decorate(:work_phone),
-  home_phone: @contact.decorate(:home_phone),
-  mobile_phone: @contact.decorate(:mobile_phone),
-  birthday: @contact.decorate(:birthday),
-} %>
+<%= attributes_table(@contact, [
+  :address,
+  { company: [:name] },
+  :job_title,
+  :department,
+  :description,
+  :website,
+  :email,
+  :work_phone,
+  :home_phone,
+  :mobile_phone,
+  :birthday
+]) %>
 
 <%= link_to 'Edit', edit_contact_path(@contact), class: 'button is-link' %>
 <%= link_to 'Delete', contact_path(@contact), class: 'button is-danger is-light', method: :delete, data: { confirm: "Are you sure you want to delete #{@contact.decorate :name}" } %>
