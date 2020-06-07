@@ -1,0 +1,11 @@
+<% content_for(:title) { @company_group.name } %>
+<% content_for(:back_link) { company_groups_path } %>
+<% content_for(:actions) do %>
+  <%= link_to edit_company_group_path(@company_group), class: 'navbar-item' do %>
+    <%= icon_for :edit %>
+  <% end %>
+  <%= link_to company_group_path(@company_group), class: 'navbar-item', method: :delete, data: { confirm: "Are you sure you want to delete #{@company_group.name}?" } do %>
+    <%= icon_for :delete %>
+  <% end %>
+<% end %>
+<h1 class="title"><%= @company_group.name %></h1>

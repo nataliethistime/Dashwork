@@ -15,4 +15,5 @@
 class CompanyGroup < ApplicationRecord
   validates :name, presence: true
   belongs_to :tenant
+  decorate_with CompanyGroupDecorator
 end

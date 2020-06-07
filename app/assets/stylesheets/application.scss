@@ -35,3 +35,10 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 th .sort_link {
   color: #363636;
 }
+
+/*
+ * Make clickable table rows appear to be clickable
+ */
+table.is-clickable tbody tr {
+  cursor: pointer;
+}

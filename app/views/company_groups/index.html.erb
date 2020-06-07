@@ -1,0 +1,14 @@
+<% content_for(:title) { 'Company Groups' } %>
+<h1 class="title">Company Groups</h1>
+<% content_for(:actions) do %>
+  <%= link_to new_company_group_path, class: 'navbar-item' do %>
+    <%= icon_for :create %>
+  <% end %>
+<% end %>
+
+<%= render(
+  'common/table',
+  items: @company_groups,
+  fields: [:name, :created_at],
+  class: 'is-fullwidth'
+) %>
