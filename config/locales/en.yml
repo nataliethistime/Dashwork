@@ -32,5 +32,14 @@
 en:
   TrueClass: 'Yes'
   FalseClass: 'No'
-  true: 'Yes'
-  false: 'No'
+  'true': 'Yes'
+  'false': 'No'
+
+  activerecord:
+    attributes:
+
+      contact:
+        job_department: Department
+
+      contact/company:
+        name: Company name

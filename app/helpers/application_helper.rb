@@ -28,11 +28,11 @@ module ApplicationHelper
         item.each do |key, values|
           sub_model = model.public_send key
           Array(values).each do |val|
-            attributes["#{key} #{val}".humanize] = sub_model.decorate val
+            attributes[model.class.human_attribute_name("#{key}.#{val}")] = sub_model.decorate val
           end
         end
       else
-        attributes[item.to_s.humanize] = model.decorate item
+        attributes[model.class.human_attribute_name(item)] = model.decorate item
       end
     end
 
