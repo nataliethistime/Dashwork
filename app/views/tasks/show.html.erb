@@ -1,19 +1,11 @@
 <% content_for(:title) { @task.name } %>
 <h1 class="title"><%= @task.name %></h1>
 
-<% if @task.description.present? %>
-  <p>
-    <strong>Description:</strong> <%= @task.description %>
-  </p>
-<% end %>
-
-<p>
-  <strong>Due:</strong> <%= @task.decorate :due_date %>
-</p>
-
-<p>
-  <strong>Completed:</strong> <%= @task.decorate :completed %>
-</p>
+<%= attributes_table(@task, [
+  :description,
+  :due_date,
+  :completed
+]) %>
 
 <% if @task.contact.present? %>
   <p>
