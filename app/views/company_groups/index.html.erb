@@ -7,8 +7,7 @@
 <% end %>
 
 <%= render(
-  'common/table',
+  'common/index_table',
   items: @company_groups,
-  fields: [:name, :created_at],
-  class: 'is-fullwidth'
+  fields: [:name, :created_at]
 ) %>
