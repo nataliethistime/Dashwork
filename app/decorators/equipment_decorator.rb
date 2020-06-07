@@ -1,0 +1,2 @@
+class EquipmentDecorator < DecoratorBase
+end

@@ -1,20 +1,7 @@
 <% content_for(:title) { @equipment.name } %>
 <h1 class="title"><%= @equipment.name %></h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @equipment.description %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @equipment.model %>
-</p>
-
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @equipment.manufacturer %>
-</p>
+<%= attributes_table @equipment, [:description, :model, :manufacturer] %>
 
 <%= link_to 'Edit', edit_equipment_path(@equipment) %> |
 <%= link_to 'Back', equipment_index_path %>

@@ -22,4 +22,5 @@ class Equipment < ApplicationRecord
   # TODO: link calendar events
   # TODO: link tasks
   default_scope -> { order(:name) }
+  decorate_with EquipmentDecorator
 end
