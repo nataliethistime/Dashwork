@@ -4,26 +4,11 @@
 <%= attributes_table(@task, [
   :description,
   :due_date,
-  :completed
+  :completed,
+  { contact: [:name_link] },
+  { company: [:name_link] },
+  { project: [:name_link] },
 ]) %>
-
-<% if @task.contact.present? %>
-  <p>
-    <strong>Contact:</strong> <%= link_to @task.contact.name, contact_path(@task.contact) %>
-  </p>
-<% end %>
-
-<% if @task.company.present? %>
-  <p>
-    <strong>Company:</strong> <%= link_to @task.company.name, company_path(@task.company) %>
-  </p>
-<% end %>
-
-<% if @task.project.present? %>
-  <p>
-    <strong>Project:</strong> <%= link_to @task.project.name, project_path(@task.project) %>
-  </p>
-<% end %>
 
 <% if !@task.completed %>
   <%= simple_form_for(@task) do |f| %>

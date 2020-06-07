@@ -40,4 +40,8 @@ class ContactDecorator < DecoratorBase
   def birthday(contact)
     format contact.birthday, as: :date
   end
+
+  def name_link(contact)
+    helpers.link_to contact.name, routes.contact_path(contact)
+  end
 end

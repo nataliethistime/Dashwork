@@ -43,3 +43,10 @@ en:
 
       contact/company:
         name_link: Company name
+
+      task/contact:
+        name_link: Contact name
+      task/company:
+        name_link: Company name
+      task/project:
+        name_link: Project name
