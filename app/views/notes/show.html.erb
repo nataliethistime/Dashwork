@@ -5,23 +5,11 @@
   <pre><%= @note.content %></pre>
 </p>
 
-<% if @note.contact.present? %>
-  <p>
-    <strong>Contact:</strong> <%= link_to @note.contact.decorate(:name), contact_path(@note.contact) %>
-  </p>
-<% end %>
-
-<% if @note.company.present? %>
-  <p>
-    <strong>Company:</strong> <%= link_to @note.company.name, company_path(@note.company) %>
-  </p>
-<% end %>
-
-<% if @note.project.present? %>
-  <p>
-    <strong>Project:</strong> <%= link_to @note.project.name, project_path(@note.project) %>
-  </p>
-<% end %>
+<%= attributes_table(@note, [
+  { contact: [:name_link] },
+  { company: [:name_link] },
+  { project: [:name_link] },
+]) %>
 
 <%= link_to 'Edit', edit_note_path(@note), class: 'button is-link' %>
 <%= link_to 'Delete', note_path(@note), class: 'button is-danger is-light', method: :delete, data: { confirm: 'Are you sure you want to delete this note?' } %>

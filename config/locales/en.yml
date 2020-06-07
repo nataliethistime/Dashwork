@@ -50,3 +50,10 @@ en:
         name_link: Company name
       task/project:
         name_link: Project name
+
+      note/contact:
+        name_link: Contact name
+      note/company:
+        name_link: Company name
+      note/project:
+        name_link: Project name
