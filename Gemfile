@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # Model decoration
-gem 'mini_decorator'
+gem 'mini_decorator', '0.0.2'
 
 # Easy user authentication
 gem 'devise'
