@@ -18,4 +18,8 @@ class CompanyDecorator < DecoratorBase
   def groups(company)
     company.groups.collect(&:name).join ','
   end
+
+  def name_link(company)
+    helpers.link_to company.name, routes.company_path(company)
+  end
 end

@@ -5,6 +5,10 @@ class DecoratorBase
     ApplicationController.helpers
   end
 
+  def routes
+    Rails.application.routes.url_helpers
+  end
+
   def updated_at(item)
     helpers.local_relative_time item.updated_at, type: 'time-or-date'
   end
