@@ -1,0 +1,18 @@
+<table class="table is-fullwidth is-hoverable is-clickable">
+  <thead>
+    <tr>
+      <% fields.each do |field| %>
+        <th><%= field.to_s.humanize %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% items.each do |item| %>
+      <tr onclick="javascript:Turbolinks.visit('<%= url_for item %>');">
+        <% fields.each do |field| %>
+          <td><%= item.decorate field %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
