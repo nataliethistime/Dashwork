@@ -2,11 +2,11 @@
   <thead>
     <tr>
       <th><%= sort_link @q, :name %></th>
-      <th>Description</th>
-      <th>Website</th>
-      <th>Email</th>
+      <th class="is-hidden-mobile is-hidden-tablet-only">Description</th>
+      <th class="is-hidden-mobile">Website</th>
+      <th class="is-hidden-mobile">Email</th>
       <th>Phone</th>
-      <th>Groups</th>
+      <th class="is-hidden-mobile is-hidden-tablet-only">Groups</th>
     </tr>
   </thead>
 
@@ -14,11 +14,11 @@
     <% companies.each do |company| %>
       <tr>
         <td><%= link_to company.name, company_path(company) %></td>
-        <td><%= company.description %></td>
-        <td><%= company.decorate :website %></td>
-        <td><%= company.decorate :email %></td>
+        <td class="is-hidden-mobile is-hidden-tablet-only"><%= company.description %></td>
+        <td class="is-hidden-mobile"><%= company.decorate :website %></td>
+        <td class="is-hidden-mobile"><%= company.decorate :email %></td>
         <td><%= company.decorate :phone %></td>
-        <td><%= company.decorate :groups %></td>
+        <td class="is-hidden-mobile is-hidden-tablet-only"><%= company.decorate :groups %></td>
       </tr>
     <% end %>
   </tbody>
