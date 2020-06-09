@@ -21,6 +21,10 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/regular';
 @import '@fortawesome/fontawesome-free/scss/brands';
 
+html, body {
+  background-color: #efeef7;
+}
+
 /*
  * TODO: not really sure why we need to do this
  * Just trying to make it look right for now...
