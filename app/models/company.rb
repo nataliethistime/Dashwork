@@ -17,14 +17,14 @@
 class Company < ApplicationRecord
   belongs_to :tenant
   belongs_to :user
-  has_many :contacts, -> (company) { where(tenant_id: company.tenant_id) }
-  has_many :forms, -> (company) { where(tenant_id: company.tenant_id) }
-  has_many :notes, -> (company) { where(tenant_id: company.tenant_id) }
-  has_many :tasks, -> (company) { where(tenant_id: company.tenant_id) }
+  has_many :contacts
+  has_many :forms
+  has_many :notes
+  has_many :tasks
   has_many :project_companies
-  has_many :projects, -> (company) { where(tenant_id: company.tenant_id) }, through: :project_companies
+  has_many :projects, through: :project_companies
   has_many :company_company_groups
-  has_many :groups, -> (company) { where(tenant_id: company.tenant_id) }, through: :company_company_groups, source: :company_group
+  has_many :groups, through: :company_company_groups, source: :company_group
   # TODO: link events
   default_scope -> { order(:name) }
   decorate_with CompanyDecorator

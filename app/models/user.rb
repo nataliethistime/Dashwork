@@ -44,12 +44,12 @@ class User < ApplicationRecord
 
   belongs_to :tenant, optional: true
 
-  has_many :notes, -> (user) { where(tenant_id: user.tenant_id) }
-  has_many :tasks, -> (user) { where(tenant_id: user.tenant_id) }
-  has_many :contacts, -> (user) { where(tenant_id: user.tenant_id) }
-  has_many :companies, -> (user) { where(tenant_id: user.tenant_id) }
-  has_many :calendar_events, -> (user) { where(tenant_id: user.tenant_id) }
-  has_many :equipment, -> (user) { where(tenant_id: user.tenant_id) }
-  has_many :forms, -> (user) { where(tenant_id: user.tenant_id) }
-  has_many :projects, -> (user) { where(tenant_id: user.tenant_id) }
+  has_many :notes
+  has_many :tasks
+  has_many :contacts
+  has_many :companies
+  has_many :calendar_events
+  has_many :equipment
+  has_many :forms
+  has_many :projects
 end

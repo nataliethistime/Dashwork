@@ -15,9 +15,9 @@
 class Equipment < ApplicationRecord
   belongs_to :tenant
   belongs_to :user, optional: true
-  has_many :tasks, -> (equipment) { where(tenant_id: equipment.tenant_id) }
-  has_many :notes, -> (equipment) { where(tenant_id: equipment.tenant_id) }
-  has_many :forms, -> (equipment) { where(tenant_id: equipment.tenant_id) }
+  has_many :tasks
+  has_many :notes
+  has_many :forms
   # TODO: link projects
   # TODO: link calendar events
   # TODO: link tasks

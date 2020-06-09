@@ -21,11 +21,11 @@
 class Task < ApplicationRecord
   belongs_to :user
   belongs_to :tenant
-  belongs_to :contact, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
-  belongs_to :company, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
-  belongs_to :project, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
-  belongs_to :equipment, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
-  belongs_to :calendar_event, -> (task) { where(tenant_id: task.tenant_id) }, optional: true
+  belongs_to :contact, optional: true
+  belongs_to :company, optional: true
+  belongs_to :project, optional: true
+  belongs_to :equipment, optional: true
+  belongs_to :calendar_event, optional: true
   validates :name, presence: true
   validates :description, presence: true, allow_blank: true
   default_scope -> { order(:completed, :due_date) }

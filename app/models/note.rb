@@ -19,12 +19,12 @@
 class Note < ApplicationRecord
   belongs_to :tenant
   belongs_to :user
-  belongs_to :contact, -> (note) { where(tenant_id: note.tenant_id) }, optional: true
-  belongs_to :company, -> (note) { where(tenant_id: note.tenant_id) }, optional: true
-  belongs_to :equipment, -> (note) { where(tenant_id: note.tenant_id) }, optional: true
-  belongs_to :project, -> (note) { where(tenant_id: note.tenant_id) }, optional: true
-  belongs_to :task, -> (note) { where(tenant_id: note.tenant_id) }, optional: true
-  belongs_to :calendar_event, -> (note) { where(tenant_id: note.tenant_id) }, optional: true
+  belongs_to :contact, optional: true
+  belongs_to :company, optional: true
+  belongs_to :equipment, optional: true
+  belongs_to :project, optional: true
+  belongs_to :task, optional: true
+  belongs_to :calendar_event, optional: true
   validates :title, presence: true
   validates :content, presence: true, allow_blank: true
   default_scope -> { order(updated_at: :desc) }

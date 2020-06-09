@@ -28,13 +28,13 @@ class Contact < ApplicationRecord
 
   belongs_to :tenant
   belongs_to :user
-  belongs_to :company, -> (contact) { where(tenant_id: contact.tenant_id) }, optional: true
-  has_many :notes, -> (contact) { where(tenant_id: contact.tenant_id) }
-  has_many :forms, -> (contact) { where(tenant_id: contact.tenant_id) }
-  has_many :notes, -> (contact) { where(tenant_id: contact.tenant_id) }
-  has_many :tasks, -> (contact) { where(tenant_id: contact.tenant_id) }
+  belongs_to :company, optional: true
+  has_many :notes
+  has_many :forms
+  has_many :notes
+  has_many :tasks
   has_many :project_contacts
-  has_many :projects, -> (company) { where(tenant_id: company.tenant_id) }, through: :project_contacts
+  has_many :projects, through: :project_contacts
 
   # TODO: link events
 

@@ -15,9 +15,9 @@
 class CalendarEvent < ApplicationRecord
   belongs_to :tenant
   belongs_to :user
-  has_many :notes, -> (calendar_event) { where(tenant_id: calendar_event.tenant_id) }
-  has_many :tasks, -> (calendar_event) { where(tenant_id: calendar_event.tenant_id) }
-  has_many :forms, -> (calendar_event) { where(tenant_id: calendar_event.tenant_id) }
+  has_many :notes
+  has_many :tasks
+  has_many :forms
   # TODO: link companies
   # TODO: link contacts
   # TODO: link projects

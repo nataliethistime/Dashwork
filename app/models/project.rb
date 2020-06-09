@@ -15,13 +15,13 @@
 class Project < ApplicationRecord
   belongs_to :tenant
   belongs_to :user
-  has_many :notes, -> (project) { where(tenant_id: project.tenant_id) }
-  has_many :tasks, -> (project) { where(tenant_id: project.tenant_id) }
-  has_many :forms, -> (project) { where(tenant_id: project.tenant_id) }
+  has_many :notes
+  has_many :tasks
+  has_many :forms
   has_many :project_companies
-  has_many :companies, -> (project) { where(tenant_id: project.tenant_id) }, through: :project_companies
+  has_many :companies, through: :project_companies
   has_many :project_contacts
-  has_many :contacts, -> (project) { where(tenant_id: project.tenant_id) }, through: :project_contacts
+  has_many :contacts, through: :project_contacts
   # TODO: link calendar events
   # TODO: link equipment
   default_scope -> { order(:name) }
