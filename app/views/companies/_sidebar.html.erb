@@ -1,0 +1,10 @@
+<aside class="menu">
+  <ul class="menu-list">
+    <li>
+      <%= link_to 'Companies', companies_path, class: current_page?(companies_path) ? 'is-active' : nil %>
+    </li>
+    <li>
+      <%= link_to 'Groups', company_groups_path, class: current_page?(company_groups_path) ? 'is-active' : nil %>
+    </li>
+  </ul>
+</aside>

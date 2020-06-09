@@ -14,10 +14,10 @@
     <%= render 'navbar' %>
 
     <section class="section">
-      <div class="container">
+      <div class="<%= yield(:page_style) == 'fullwidth' ? '' : 'container' %>">
         <div class="columns">
           <% if content_for?(:sidebar) %>
-            <div class="column is-one-fifth">
+            <div class="column is-2">
               <%= yield :sidebar %>
             </div>
           <% end %>

@@ -5,6 +5,8 @@
     <%= icon_for :create %>
   <% end %>
 <% end %>
+<% content_for(:page_style, :fullwidth) %>
+<% content_for(:sidebar) { render 'companies/sidebar' } %>
 
 <h1 class="title">Companies</h1>
 
