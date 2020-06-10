@@ -2,16 +2,22 @@
   <p class="menu-label">General</p>
   <ul class="menu-list">
     <li>
-      <%= link_to 'Your Profile', edit_settings_profile_path(current_user), class: current_page?(edit_settings_profile_path(current_user)) ? 'is-active' : nil %>
+      <%= link_to edit_settings_profile_path(current_user), class: current_page?(edit_settings_profile_path(current_user)) ? 'is-active' : nil do %>
+        <%= icon_for :profile %>&nbsp;Profile
+      <% end %>
     </li>
   </ul>
   <p class="menu-label">Tenant</p>
   <ul class="menu-list">
     <li>
-      <%= link_to 'Company Settings', edit_settings_tenant_path(current_tenant), class: current_page?(edit_settings_tenant_path(current_tenant)) ? 'is-active' : nil %>
+      <%= link_to edit_settings_tenant_path(current_tenant), class: current_page?(edit_settings_tenant_path(current_tenant)) ? 'is-active' : nil do %>
+        <%= icon_for :tenant_settings %>&nbsp;Company Settings
+      <% end %>
     </li>
     <li>
-      <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: current_page?(settings_tenant_apps_path(current_tenant)) ? 'is-active' : nil %>
+      <%= link_to settings_tenant_apps_path(current_tenant), class: current_page?(settings_tenant_apps_path(current_tenant)) ? 'is-active' : nil do %>
+        <%= icon_for :apps %>&nbsp;Manage Apps
+      <% end %>
     </li>
   </ul>
 </aside>

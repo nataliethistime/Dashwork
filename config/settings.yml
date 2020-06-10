@@ -14,7 +14,9 @@ icons:
   forms: fas fa-file-signature
   groups: fas fa-tags
   notes: fas fa-sticky-note
+  profile: fas fa-user-circle
   projects: fas fa-project-diagram
   settings: fas fa-wrench
   sign_out: fas fa-power-off
   tasks: fas fa-tasks
+  tenant_settings: fas fa-building
