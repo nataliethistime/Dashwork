@@ -3,6 +3,17 @@
     <%= link_to root_path, class: 'navbar-item' do %>
       <h1 class="title is-4" style="color: #fff;"><%= EnvSettings.product_name %></h1>
     <% end %>
+
+    <% if content_for?(:back_link) %>
+      <%= link_to yield(:back_link), class: 'navbar-item' do %>
+        <%= icon_for :back %>
+      <% end %>
+    <% end %>
+
+    <% if content_for?(:actions) %>
+      <%= yield(:actions) %>
+    <% end %>
+
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -11,8 +22,12 @@
   </div>
 
   <div id="mainNavbar" class="navbar-menu">
-    <div class="navbar-start">
+    <div class="navbar-end">
       <% if user_signed_in? %>
+        <div class="navbar-item is-hidden-mobile is-hidden-tablet-only">
+          <%= current_user.decorate :name %> (<%= current_tenant.name %>)
+        </div>
+
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link is-arrowless">
             <%= icon_for :apps %>
@@ -33,27 +48,12 @@
             <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: 'navbar-item' %>
           </div>
         </div>
-        <% if content_for?(:back_link) %>
-          <%= link_to yield(:back_link), class: 'navbar-item' do %>
-            <%= icon_for :back %>
-          <% end %>
-        <% end %>
-        <% if content_for?(:actions) %>
-          <%= yield(:actions) %>
-        <% end %>
-      <% end %>
-    </div>
 
-    <div class="navbar-end">
-      <% if user_signed_in? %>
-        <div class="navbar-item">
-          <%= current_user.decorate :name %> (<%= current_tenant.name %>)
-        </div>
-        <%= link_to edit_settings_profile_path(current_user), class: 'navbar-item' do %>
-          <%= icon_for :settings %>
+        <%= link_to edit_settings_profile_path(current_user), class: 'navbar-item', title: 'Settings' do %>
+          <%= icon_for :settings %><span class="is-hidden-desktop">&nbsp;Settings</span>
         <% end %>
-        <%= link_to destroy_user_session_path, class: 'navbar-item', method: :delete do %>
-          <%= icon_for :sign_out %>
+        <%= link_to destroy_user_session_path, class: 'navbar-item', method: :delete, title: 'Sign Out' do %>
+          <%= icon_for :sign_out %><span class="is-hidden-desktop">&nbsp;Sign Out</span>
         <% end %>
       <% else %>
         <div class="navbar-item">
