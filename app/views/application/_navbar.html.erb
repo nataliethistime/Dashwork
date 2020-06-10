@@ -25,7 +25,7 @@
             <% if current_tenant.apps.present? %>
               <% current_tenant.apps.each do |app| %>
                 <%= link_to app[:path], class: 'navbar-item' do %>
-                  <%= icon_for "#{app[:id]}_app" %>&nbsp;<%= app[:name] %>
+                  <%= icon_for app[:id] %>&nbsp;<%= app[:name] %>
                 <% end %>
               <% end %>
               <hr class="navbar-divider">
