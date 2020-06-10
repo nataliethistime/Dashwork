@@ -5,6 +5,7 @@ class CompanyGroupsController < ApplicationController
 
   def show
     @company_group = current_tenant.company_groups.find params[:id]
+    @companies = @company_group.companies.includes(:groups).page params[:page]
   end
 
   def new

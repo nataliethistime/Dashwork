@@ -8,4 +8,7 @@
     <%= icon_for :delete %>
   <% end %>
 <% end %>
+<% content_for(:page_style, :fullwidth) %>
+<% content_for(:sidebar) { render 'companies/sidebar' } %>
 <h1 class="title"><%= @company_group.name %></h1>
+<%= render 'companies/companies', companies: @companies %>
