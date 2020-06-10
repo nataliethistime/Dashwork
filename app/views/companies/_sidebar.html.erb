@@ -1,10 +1,14 @@
 <aside class="menu">
   <ul class="menu-list">
     <li>
-      <%= link_to 'Companies', companies_path, class: current_page?(companies_path) ? 'is-active' : nil %>
+      <%= link_to companies_path, class: current_page?(companies_path) ? 'is-active' : nil do %>
+        <%= icon_for :companies %>&nbsp;Companies
+      <% end %>
     </li>
     <li>
-      <%= link_to 'Groups', company_groups_path, class: current_page?(company_groups_path) ? 'is-active' : nil %>
+      <%= link_to company_groups_path, class: current_page?(company_groups_path) ? 'is-active' : nil do %>
+        <%= icon_for :groups %>&nbsp;Groups
+      <% end %>
     </li>
   </ul>
 </aside>
