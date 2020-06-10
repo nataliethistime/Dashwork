@@ -1,8 +1,17 @@
+<% should_sort = local_variables.include?(:sort_fields) && instance_variable_defined?('@q') %>
+<% classes = local_variables.include?(:row_classes) ? row_classes : {} %>
+
 <table class="table is-fullwidth is-hoverable is-clickable">
   <thead>
     <tr>
       <% fields.each do |field| %>
-        <th><%= field.to_s.humanize %></th>
+        <th class="<%= classes[field] %>">
+          <% if should_sort && Array(sort_fields).include?(field) %>
+            <%= sort_link @q, field %>
+          <% else %>
+            <%= field.to_s.humanize %>
+          <% end %>
+        </th>
       <% end %>
     </tr>
   </thead>
@@ -10,7 +19,9 @@
     <% items.each do |item| %>
       <tr onclick="javascript:Turbolinks.visit('<%= url_for item %>');">
         <% fields.each do |field| %>
-          <td><%= item.decorate field %></td>
+          <td class="<%= classes[field] %>">
+            <%= item.decorate field %>
+          </td>
         <% end %>
       </tr>
     <% end %>
