@@ -47,7 +47,7 @@
     <div class="navbar-end">
       <% if user_signed_in? %>
         <div class="navbar-item">
-          <%= current_user.email %> (<%= current_tenant.name %>)
+          <%= current_user.decorate :name %> (<%= current_tenant.name %>)
         </div>
         <%= link_to edit_settings_profile_path(current_user), class: 'navbar-item' do %>
           <%= icon_for :settings %>
