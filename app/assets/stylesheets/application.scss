@@ -46,3 +46,9 @@ th .sort_link {
 table.is-clickable tbody tr {
   cursor: pointer;
 }
+
+table.table {
+  td:last-child, th:last-child {
+    text-align: right;
+  }
+}
