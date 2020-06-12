@@ -30,7 +30,7 @@ class CompanyFieldsController < ApplicationController
     @field.update company_field_params
 
     if @field.save
-      redirect_to @field
+      redirect_to company_field_path(@field)
     else
       render 'edit'
     end
