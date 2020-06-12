@@ -40,4 +40,10 @@ module ApplicationHelper
 
     attributes
   end
+
+  def class_names(names)
+    classes = []
+    names.each { |key, value| classes << key if value == true }
+    classes.join ' '
+  end
 end
