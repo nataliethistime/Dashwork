@@ -1,5 +1,5 @@
 <% content_for(:title) { @company_group.name } %>
-<% content_for(:back_link) { company_groups_path } %>
+<% content_for(:back_link, company_groups_path) %>
 <% content_for(:actions) do %>
   <%= link_to edit_company_group_path(@company_group), class: 'navbar-item' do %>
     <%= icon_for :edit %>
