@@ -11,7 +11,7 @@
       <% end %>
     </li>
     <li>
-      <%= link_to company_fields_path, class: params[:controller] == 'company_fields' ? 'is-active' : nil do %>
+      <%= link_to company_fields_path, class: params[:controller] == 'fields' && params[:domain] == 'company' ? 'is-active' : nil do %>
         <%= icon_for :custom_fields %>&nbsp;Custom Fields
       <% end %>
     </li>

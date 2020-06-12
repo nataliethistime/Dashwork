@@ -1,6 +1,0 @@
-<% content_for(:title, 'Edit Custom Field') %>
-<% content_for(:page_style, :fullwidth) %>
-<% content_for(:sidebar) { render 'companies/sidebar' } %>
-<% content_for(:back_link, company_field_path(@field)) %>
-<h1 class='title'>Edit Custom Field</h1>
-<%= render 'form', field: @field %>

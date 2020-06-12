@@ -1,4 +1,4 @@
-<%= simple_form_for field, url: polymorphic_path([:company, field]), as: :company_field do |f| %>
+<%= simple_form_for field, url: polymorphic_path([params[:domain], field]) do |f| %>
   <%= render 'common/form_errors', form: f %>
   <%= f.input :name %>
   <%= f.button :submit %>

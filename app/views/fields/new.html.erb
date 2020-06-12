@@ -1,4 +1,5 @@
 <% content_for(:title, 'New Custom Field') %>
-<% content_for(:back_link, company_fields_path) %>
+<% content_for(:back_link, polymorphic_path([params[:domain], :fields])) %>
+<%= render 'sidebar' %>
 <h1 class='title'>New Custom Field</h1>
 <%= render 'form', field: @field %>
