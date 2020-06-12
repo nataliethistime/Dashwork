@@ -1,7 +1,6 @@
 <%
   begin
     content_for(:sidebar) { render "#{params[:domain].pluralize(2)}/sidebar" }
-    content_for(:page_style, :fullwidth)
   rescue ActionView::MissingTemplate
     nil
   end
