@@ -1,5 +1,4 @@
 <% content_for(:title, 'Edit Custom Field') %>
 <% content_for(:back_link, polymorphic_path([params[:domain], @field])) %>
 <%= render 'sidebar' %>
-<h1 class='title'>Edit Custom Field</h1>
 <%= render 'form', field: @field %>

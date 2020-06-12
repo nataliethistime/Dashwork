@@ -1,11 +1,5 @@
-<% content_for(:title) { 'Edit Company' } %>
+<% content_for(:title) { 'Company Settings' } %>
 <% content_for(:sidebar) { render 'settings/sidebar' } %>
-
-<h1 class="title">Edit Tenant</h1>
-
-<p class="subtitle">
-  Change your company name.
-</p>
 
 <%= simple_form_for [:settings, @tenant] do |f| %>
   <%= f.input :name %>

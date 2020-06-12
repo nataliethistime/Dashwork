@@ -1,4 +1,3 @@
-<% content_for(:title) { @note.title } %>
-<h1 class="title">Editing Note</h1>
+<% content_for(:title) { 'Editing Note' } %>
 <p><%= render 'form', note: @note %></p>
 <p><%= link_to 'Back', notes_path %></p>

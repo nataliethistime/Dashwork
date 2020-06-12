@@ -25,6 +25,7 @@
           <div class="column">
             <% if flash[:notice].present? %><div class="notification is-info"><%= notice %></div><% end %>
             <% if flash[:alert].present? %><div class="notification is-warning"><%= alert %></div><% end %>
+            <h1 class='title'><%= yield :title %></h1>
             <%= yield %>
           </div>
         </div>
