@@ -7,6 +7,7 @@ icons:
   companies: fas fa-briefcase
   contacts: fas fa-address-book
   create: fas fa-plus
+  custom_fields: fas fa-clipboard-list
   delete: fas fa-trash
   edit: fas fa-edit
   equipment: fas fa-truck

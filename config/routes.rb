@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :calendar_events
   resources :equipment
   resources :companies
+  resources :company_fields
   resources :company_groups
   get '/companies/:id/notes' => 'companies#show_notes', as: :company_notes
   get '/companies/:id/contacts' => 'companies#show_contacts', as: :company_contacts

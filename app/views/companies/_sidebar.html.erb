@@ -10,5 +10,10 @@
         <%= icon_for :groups %>&nbsp;Groups
       <% end %>
     </li>
+    <li>
+      <%= link_to company_fields_path, class: params[:controller] == 'company_fields' ? 'is-active' : nil do %>
+        <%= icon_for :custom_fields %>&nbsp;Custom Fields
+      <% end %>
+    </li>
   </ul>
 </aside>

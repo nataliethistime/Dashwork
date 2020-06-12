@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_221118) do
+ActiveRecord::Schema.define(version: 2020_06_12_011429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 2020_06_04_221118) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_group_id"], name: "index_company_company_groups_on_company_group_id"
     t.index ["company_id"], name: "index_company_company_groups_on_company_id"
+  end
+
+  create_table "company_fields", force: :cascade do |t|
+    t.bigint "company_id"
+    t.bigint "field_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tenant_id"
+    t.index ["company_id"], name: "index_company_fields_on_company_id"
+    t.index ["field_id"], name: "index_company_fields_on_field_id"
+    t.index ["tenant_id"], name: "index_company_fields_on_tenant_id"
   end
 
   create_table "company_groups", force: :cascade do |t|
@@ -87,6 +98,16 @@ ActiveRecord::Schema.define(version: 2020_06_04_221118) do
     t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "domain"
+    t.bigint "tenant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id"], name: "index_fields_on_tenant_id"
   end
 
   create_table "form_templates", force: :cascade do |t|
@@ -157,6 +178,13 @@ ActiveRecord::Schema.define(version: 2020_06_04_221118) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "string_values", force: :cascade do |t|
+    t.integer "field_id"
+    t.string "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -216,4 +244,5 @@ ActiveRecord::Schema.define(version: 2020_06_04_221118) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "company_fields", "tenants"
 end

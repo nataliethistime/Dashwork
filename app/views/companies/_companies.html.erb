@@ -1,6 +1,7 @@
 <%= render(
   'common/index_table',
   items: companies,
+  item_path: :company_path,
   fields: [:name, :description, :website, :email, :phone, :groups],
   sort_fields: [:name],
   row_classes: {

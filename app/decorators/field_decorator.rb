@@ -1,0 +1,2 @@
+class FieldDecorator < DecoratorBase
+end
