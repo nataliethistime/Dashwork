@@ -1,6 +1,6 @@
 # Dashwork
 
-A platform
+An information management platform
 
 # License
 
