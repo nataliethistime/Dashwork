@@ -1,6 +1,5 @@
 <% content_for(:title) { @company.name } %>
 <% content_for(:back_link, companies_path(@company)) %>
-<h2 class="title"><%= @company.name %></h2>
 <%= render 'tabs', company: @company %>
 
 <p>
