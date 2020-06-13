@@ -15,14 +15,14 @@
     <%= render 'navbar' %>
 
     <section class="section">
-      <div class="<%= yield(:page_style) == 'narrow' ? 'container' : nil %>">
-        <div class="columns">
+      <div class="<%= class_names container: yield(:page_style) == 'narrow' || yield(:page_style) == 'auth' %>">
+        <div class="<%= class_names columns: true, 'is-centered' => yield(:page_style) == 'auth' %>">
           <% if content_for?(:sidebar) %>
             <div class="column is-2">
               <%= yield :sidebar %>
             </div>
           <% end %>
-          <div class="column">
+          <div class="<%= class_names column: true, 'is-one-third' => yield(:page_style) == 'auth' %>">
             <% if flash[:notice].present? %><div class="notification is-info"><%= notice %></div><% end %>
             <% if flash[:alert].present? %><div class="notification is-warning"><%= alert %></div><% end %>
             <h1 class='title'><%= yield :title %></h1>
