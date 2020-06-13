@@ -2,6 +2,7 @@
 <% content_for(:sidebar) { render 'settings/sidebar' } %>
 
 <%= simple_form_for [:settings, @tenant] do |f| %>
+  <%= render 'common/field_errors', form: f %>
   <%= f.input :name %>
   <%= f.button :submit %>
 <% end %>

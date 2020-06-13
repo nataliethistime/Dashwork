@@ -1,16 +1,10 @@
-
 <%= simple_form_for(@equipment) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= render 'common/form_errors', form: f %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :model %>
-    <%= f.input :manufacturer %>
-  </div>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :model %>
+  <%= f.input :manufacturer %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>

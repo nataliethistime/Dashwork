@@ -2,6 +2,7 @@
 <% content_for(:sidebar) { render 'settings/sidebar' } %>
 
 <%= simple_form_for [:settings, @user], url: settings_profile_path do |f| %>
+  <%= render 'common/form_errors', form: f %>
   <%= f.input :email %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>

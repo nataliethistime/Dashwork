@@ -1,27 +1,22 @@
 
 <%= simple_form_for(@contact) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= render 'common/form_errors', form: f %>
 
-  <div class="form-inputs">
-    <%= f.input :title, collection: Contact.titles %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :nickname %>
-    <%= f.input :address %>
-    <%= f.association :company %>
-    <%= f.input :job_title %>
-    <%= f.input :job_department %>
-    <%= f.input :description %>
-    <%= f.input :website %>
-    <%= f.input :email %>
-    <%= f.input :mobile_phone %>
-    <%= f.input :work_phone %>
-    <%= f.input :home_phone %>
-    <%= f.input :birthday %>
-  </div>
+  <%= f.input :title, collection: Contact.titles %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :nickname %>
+  <%= f.input :address %>
+  <%= f.association :company %>
+  <%= f.input :job_title %>
+  <%= f.input :job_department %>
+  <%= f.input :description %>
+  <%= f.input :website %>
+  <%= f.input :email %>
+  <%= f.input :mobile_phone %>
+  <%= f.input :work_phone %>
+  <%= f.input :home_phone %>
+  <%= f.input :birthday %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>
