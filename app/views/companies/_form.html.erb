@@ -3,17 +3,13 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :website %>
-    <%= f.input :email %>
-    <%= f.input :phone %>
-    <%= f.input :address %>
-    <%= f.association :groups %>
-  </div>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :website %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :address %>
+  <%= f.association :groups %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>
