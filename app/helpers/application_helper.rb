@@ -5,7 +5,9 @@ module ApplicationHelper
 
   def icon_for(name)
     icon = EnvSettings.icons[name.to_s]
-    tag.i class: icon if icon.present?
+    tag.span class: 'icon' do
+      tag.i class: icon if icon.present?
+    end
   end
 
   def attributes_table(model, list)
