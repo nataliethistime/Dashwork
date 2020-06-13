@@ -9,5 +9,6 @@
 <%= render(
   'common/index_table',
   items: @company_groups,
+  item_path: :company_group_path,
   fields: [:name, :created_at]
 ) %>
