@@ -58,8 +58,14 @@
       <% else %>
         <div class="navbar-item">
           <div class="buttons">
-            <%= link_to 'Sign up', new_user_registration_path, class: 'button is-primary' %>
-            <%= link_to 'Sign in', new_user_session_path, class: 'button is-light' %>
+            <%= link_to new_user_session_path, class: 'button is-link is-rounded' do %>
+              <%= icon_for :log_in %>
+              <span>Log in</span>
+            <% end %>
+            <%= link_to new_user_registration_path, class: 'button is-light is-outlined is-rounded' do %>
+              <%= icon_for :sign_up %>
+              <span>Sign up</span>
+            <% end %>
           </div>
         </div>
       <% end %>

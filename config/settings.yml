@@ -14,10 +14,12 @@ icons:
   form_templates: fas fa-box
   forms: fas fa-file-signature
   groups: fas fa-tags
+  log_in: fas fa-sign-in-alt
   notes: fas fa-sticky-note
   profile: fas fa-user-circle
   projects: fas fa-project-diagram
   settings: fas fa-wrench
   sign_out: fas fa-power-off
+  sign_up: fas fa-user-plus
   tasks: fas fa-tasks
   tenant_settings: fas fa-building
