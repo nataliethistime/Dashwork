@@ -1,7 +1,27 @@
 @import 'bulma/bulma.sass';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono');
 
 html, body {
   background-color: #efeef7;
+  /* Fallbacks taken from the Bulma default font-family setting */
+  font-family: 'Ubuntu',
+    BlinkMacSystemFont,
+    -apple-system,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    sans-serif;
+}
+
+code, pre {
+  font-family: 'Ubuntu Mono', monospace;
 }
 
 /*
