@@ -1,4 +1,5 @@
 <% content_for(:title, 'New Company') %>
+<% content_for(:sidebar) { render 'companies/sidebar' } %>
 
 <p><%= render 'form', company: @company %></p>
 
