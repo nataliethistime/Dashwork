@@ -1,2 +1,4 @@
 <% content_for(:title) { @company_group.name } %>
+<% content_for(:back_link, company_groups_path) %>
+<% content_for(:siderbar) { render 'companies/sidebar' } %>
 <%= render 'form', company_group: @company_group %>
