@@ -1,0 +1,14 @@
+<section class='section'>
+  <div class='container'>
+    <div class='columns'>
+      <% if content_for?(:sidebar) %>
+        <div class='column is-2'>
+          <%= yield :sidebar %>
+        </div>
+      <% end %>
+      <div class='column'>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
