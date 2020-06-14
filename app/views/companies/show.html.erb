@@ -27,7 +27,90 @@
   <% end %>
 <% end %>
 
-<%= render 'tabs', company: @company %>
+<nav class='level'>
+  <div class='level-item has-text-centered'>
+    <div class='box is-rounded' style='width: 100px; height: 100px;'>
+      <p class='title'><%= @company.contacts.count %></p>
+      <p class='heading'><%= 'Contact'.pluralize @company.contacts.count %></p>
+    </div>
+  </div>
+  <div class='level-item has-text-centered'>
+    <div class='box is-rounded' style='width: 100px; height: 100px;'>
+      <p class='title'><%= @company.projects.count %></p>
+      <p class='heading'><%= 'Project'.pluralize(@company.projects.count) %></p>
+    </div>
+  </div>
+  <div class='level-item has-text-centered'>
+    <div class='box is-rounded' style='width: 100px; height: 100px;'>
+      <p class='title'><%= @company.notes.count %></p>
+      <p class='heading'><%= 'Note'.pluralize @company.notes.count %></p>
+    </div>
+  </div>
+  <div class='level-item has-text-centered'>
+    <div class='box is-rounded' style='width: 100px; height: 100px;'>
+      <p class='title'><%= @company.tasks.count %></p>
+      <p class='heading'><%= 'Task'.pluralize(@company.tasks.count) %></p>
+    </div>
+  </div>
+</nav>
+
+<nav class='columns'>
+  <div class='column is-one-quarter'>
+    <div class='card'>
+      <div class='card-content'>
+        <h1 class='title is-4 has-text-centered'>
+          <%= icon_for :contacts %>&nbsp;<%= pluralize(@company.contacts.count, 'Contact') %>
+        </h1>
+      </div>
+      <footer class='card-footer'>
+        <%= link_to 'View', company_contacts_path(@company), class: 'card-footer-item' %>
+        <%= link_to 'Create', new_contact_path(company_id: @company.id), class: 'card-footer-item' %>
+      </footer>
+    </div>
+  </div>
+
+  <div class='column is-one-quarter'>
+    <div class='card'>
+      <div class='card-content'>
+        <h1 class='title is-4 has-text-centered'>
+          <%= icon_for :notes %>&nbsp;<%= pluralize(@company.notes.count, 'Note') %>
+        </h1>
+      </div>
+      <footer class='card-footer'>
+        <%= link_to 'View', company_notes_path(@company), class: 'card-footer-item' %>
+        <%= link_to 'Create', new_note_path(company_id: @company.id), class: 'card-footer-item' %>
+      </footer>
+    </div>
+  </div>
+
+  <div class='column is-one-quarter'>
+    <div class='card'>
+      <div class='card-content'>
+        <h1 class='title is-4 has-text-centered'>
+          <%= icon_for :projects %>&nbsp;<%= pluralize(@company.projects.count, 'Project') %>
+        </h1>
+      </div>
+      <footer class='card-footer'>
+        <%= link_to 'View', company_projects_path(@company), class: 'card-footer-item' %>
+        <%= link_to 'Create', new_project_path(company_id: @company.id), class: 'card-footer-item' %>
+      </footer>
+    </div>
+  </div>
+
+  <div class='column is-one-quarter'>
+    <div class='card'>
+      <div class='card-content'>
+        <h1 class='title is-4 has-text-centered'>
+          <%= icon_for :tasks %>&nbsp;<%= pluralize(@company.tasks.count, 'Task') %>
+        </h1>
+      </div>
+      <footer class='card-footer'>
+        <%= link_to 'View', company_tasks_path(@company), class: 'card-footer-item' %>
+        <%= link_to 'Create', new_task_path(company_id: @company.id), class: 'card-footer-item' %>
+      </footer>
+    </div>
+  </div>
+</nav>
 
 <%= attributes_table(@company, [
   :description,
