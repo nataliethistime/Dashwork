@@ -36,15 +36,15 @@ class Tenant < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 
   APPS = {
-    calendar: { name: 'Calendar', id: 'calendar', path: Rails.application.routes.url_helpers.calendar_events_path },
-    companies: { name: 'Companies', id: 'companies', path: Rails.application.routes.url_helpers.companies_path },
-    contacts: { name: 'Contacts', id: 'contacts', path: Rails.application.routes.url_helpers.contacts_path },
-    equipment: { name: 'Equipment', id: 'equipment', path: Rails.application.routes.url_helpers.equipment_index_path },
-    form_templates: { name: 'Form Templates', id: 'form_templates', path: Rails.application.routes.url_helpers.form_templates_path },
-    forms: { name: 'Forms', id: 'forms', path: Rails.application.routes.url_helpers.forms_path },
-    notes: { name: 'Notes', id: 'notes', path: Rails.application.routes.url_helpers.notes_path },
-    projects: { name: 'Projects', id: 'projects', path: Rails.application.routes.url_helpers.projects_path },
-    tasks: { name: 'Tasks', id: 'tasks', path: Rails.application.routes.url_helpers.tasks_path }
+    calendar: { name: 'Calendar', id: 'calendar', path: routes.calendar_events_path },
+    companies: { name: 'Companies', id: 'companies', path: routes.companies_path },
+    contacts: { name: 'Contacts', id: 'contacts', path: routes.contacts_path },
+    equipment: { name: 'Equipment', id: 'equipment', path: routes.equipment_index_path },
+    form_templates: { name: 'Form Templates', id: 'form_templates', path: routes.form_templates_path },
+    forms: { name: 'Forms', id: 'forms', path: routes.forms_path },
+    notes: { name: 'Notes', id: 'notes', path: routes.notes_path },
+    projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
+    tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path }
   }
 
   def self.all_apps
