@@ -2,6 +2,23 @@
 <% content_for(:back_link, companies_path) %>
 <% content_for(:sidebar) { render 'companies/sidebar' } %>
 <% content_for(:actions) do %>
+  <div class='navbar-item has-dropdown is-hoverable'>
+    <a class='navbar-link is-arrowless'><%= icon_for :create %></a>
+    <div class='navbar-dropdown'>
+      <%= link_to new_contact_path(company_id: @company.id), class: 'navbar-item' do %>
+        <%= icon_for :contacts %>&nbsp;Add Contact
+      <% end %>
+      <%= link_to new_note_path(company_id: @company.id), class: 'navbar-item' do %>
+        <%= icon_for :notes %>&nbsp;Add Note
+      <% end %>
+      <%= link_to new_project_path(company_id: @company.id), class: 'navbar-item' do %>
+        <%= icon_for :projects %>&nbsp;Add Project
+      <% end %>
+      <%= link_to new_task_path(company_id: @company.id), class: 'navbar-item' do %>
+        <%= icon_for :tasks %>&nbsp;Add Task
+      <% end %>
+    </div>
+  </div>
   <%= link_to edit_company_path(@company), class: 'navbar-item' do %>
     <%= icon_for :edit %>
   <% end %>
