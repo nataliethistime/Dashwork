@@ -16,7 +16,7 @@ class CompanyDecorator < DecoratorBase
   end
 
   def groups(company)
-    company.groups.collect(&:name).join ','
+    company.groups.collect(&:name).join ', '
   end
 
   def name_link(company)
