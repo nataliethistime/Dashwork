@@ -24,7 +24,8 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = current_user.contacts.new(contact_params)
+    @contact = current_tenant.contacts.new(contact_params)
+    @contact.user = current_user
 
     respond_to do |format|
       if @contact.save
