@@ -6,9 +6,15 @@
 <% end %>
 <% content_for(:sidebar) { render 'companies/sidebar' } %>
 
-<%= render(
-  'common/index_table',
-  items: @company_groups,
-  item_path: :company_group_path,
-  fields: [:name, :created_at]
-) %>
+<% if @company_groups.empty? %>
+  <div>
+    You haven't created any company groups yet.
+  </div>
+<% else %>
+  <%= render(
+    'common/index_table',
+    items: @company_groups,
+    item_path: :company_group_path,
+    fields: [:name, :created_at]
+  ) %>
+<% end %>
