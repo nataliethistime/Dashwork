@@ -24,7 +24,7 @@
   <div id="mainNavbar" class="navbar-menu">
     <div class="navbar-end">
       <% if user_signed_in? %>
-        <div class="navbar-item is-hidden-mobile is-hidden-tablet-only">
+        <div class="navbar-item is-hidden-touch">
           <%= current_user.decorate :name %> (<%= current_tenant.name %>)
         </div>
 
