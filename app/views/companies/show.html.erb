@@ -2,7 +2,7 @@
 <% content_for(:back_link, companies_path) %>
 <% content_for(:sidebar) { render 'companies/sidebar' } %>
 <% content_for(:actions) do %>
-  <div class='navbar-item has-dropdown is-hoverable'>
+  <div class='navbar-item has-dropdown is-hoverable is-hidden-mobile is-hidden-tablet-only'>
     <a class='navbar-link is-arrowless'><%= icon_for :create %></a>
     <div class='navbar-dropdown'>
       <%= link_to new_contact_path(company_id: @company.id), class: 'navbar-item' do %>
@@ -27,34 +27,15 @@
   <% end %>
 <% end %>
 
-<nav class='level'>
-  <div class='level-item has-text-centered'>
-    <div class='box is-rounded' style='width: 100px; height: 100px;'>
-      <p class='title'><%= @company.contacts.count %></p>
-      <p class='heading'><%= 'Contact'.pluralize @company.contacts.count %></p>
-    </div>
-  </div>
-  <div class='level-item has-text-centered'>
-    <div class='box is-rounded' style='width: 100px; height: 100px;'>
-      <p class='title'><%= @company.projects.count %></p>
-      <p class='heading'><%= 'Project'.pluralize(@company.projects.count) %></p>
-    </div>
-  </div>
-  <div class='level-item has-text-centered'>
-    <div class='box is-rounded' style='width: 100px; height: 100px;'>
-      <p class='title'><%= @company.notes.count %></p>
-      <p class='heading'><%= 'Note'.pluralize @company.notes.count %></p>
-    </div>
-  </div>
-  <div class='level-item has-text-centered'>
-    <div class='box is-rounded' style='width: 100px; height: 100px;'>
-      <p class='title'><%= @company.tasks.count %></p>
-      <p class='heading'><%= 'Task'.pluralize(@company.tasks.count) %></p>
-    </div>
-  </div>
-</nav>
+<%= attributes_table(@company, [
+  :description,
+  :groups,
+  :website,
+  :email,
+  :phone
+]) %>
 
-<nav class='columns'>
+<div class='columns'>
   <div class='column is-one-quarter'>
     <div class='card'>
       <div class='card-content'>
@@ -63,8 +44,12 @@
         </h1>
       </div>
       <footer class='card-footer'>
-        <%= link_to 'View', company_contacts_path(@company), class: 'card-footer-item' %>
-        <%= link_to 'Create', new_contact_path(company_id: @company.id), class: 'card-footer-item' %>
+        <%= link_to company_contacts_path(@company), class: 'card-footer-item' do %>
+          View&nbsp;<%= icon_for :go_to %>
+        <% end %>
+        <%= link_to new_contact_path(company_id: @company.id), class: 'card-footer-item' do %>
+          <%= icon_for :create %>&nbsp;Create
+        <% end %>
       </footer>
     </div>
   </div>
@@ -77,8 +62,12 @@
         </h1>
       </div>
       <footer class='card-footer'>
-        <%= link_to 'View', company_notes_path(@company), class: 'card-footer-item' %>
-        <%= link_to 'Create', new_note_path(company_id: @company.id), class: 'card-footer-item' %>
+        <%= link_to company_notes_path(@company), class: 'card-footer-item' do %>
+          View&nbsp;<%= icon_for :go_to %>
+        <% end %>
+        <%= link_to new_note_path(company_id: @company.id), class: 'card-footer-item' do %>
+          <%= icon_for :create %>&nbsp;Create
+        <% end %>
       </footer>
     </div>
   </div>
@@ -91,8 +80,12 @@
         </h1>
       </div>
       <footer class='card-footer'>
-        <%= link_to 'View', company_projects_path(@company), class: 'card-footer-item' %>
-        <%= link_to 'Create', new_project_path(company_id: @company.id), class: 'card-footer-item' %>
+        <%= link_to company_projects_path(@company), class: 'card-footer-item' do %>
+          View&nbsp;<%= icon_for :go_to %>
+        <% end %>
+        <%= link_to new_project_path(company_id: @company.id), class: 'card-footer-item' do %>
+          <%= icon_for :create %>&nbsp;Create
+        <% end %>
       </footer>
     </div>
   </div>
@@ -105,20 +98,16 @@
         </h1>
       </div>
       <footer class='card-footer'>
-        <%= link_to 'View', company_tasks_path(@company), class: 'card-footer-item' %>
-        <%= link_to 'Create', new_task_path(company_id: @company.id), class: 'card-footer-item' %>
+        <%= link_to company_tasks_path(@company), class: 'card-footer-item' do %>
+          View&nbsp;<%= icon_for :go_to %>
+        <% end %>
+        <%= link_to new_task_path(company_id: @company.id), class: 'card-footer-item' do %>
+          <%= icon_for :create %>&nbsp;Create
+        <% end %>
       </footer>
     </div>
   </div>
-</nav>
-
-<%= attributes_table(@company, [
-  :description,
-  :groups,
-  :website,
-  :email,
-  :phone
-]) %>
+</div>
 
 <% if @company.address.present? %>
   <div class='card' style='height: 400px;'>

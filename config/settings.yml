@@ -13,6 +13,7 @@ icons:
   equipment: fas fa-truck
   form_templates: fas fa-box
   forms: fas fa-file-signature
+  go_to: fas fa-arrow-right
   groups: fas fa-tags
   log_in: fas fa-sign-in-alt
   notes: fas fa-sticky-note
