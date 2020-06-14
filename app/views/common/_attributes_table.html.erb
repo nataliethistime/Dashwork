@@ -1,10 +1,16 @@
-<table class="table is-narrow">
-  <tbody>
-    <% attributes.each do |key, value| %>
-      <tr>
-        <th><%= key %></th>
-        <td><%= value %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class='columns'>
+  <div class='column is-one-third'>
+    <div class='box'>
+      <table class='table is-narrow is-fullwidth'>
+        <tbody>
+          <% attributes.each do |key, value| %>
+            <tr>
+              <th><%= key %></th>
+              <td><%= value %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
