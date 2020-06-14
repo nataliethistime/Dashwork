@@ -3,34 +3,36 @@
 <% item_path = item_path.presence %>
 <% show = (show.present? ? show : true) && item_path.present? %>
 
-<table class="<%= class_names(
-  table: true,
-  'is-fullwidth': true,
-  'is-hoverable': show,
-  'is-clickable': show,
-) %>">
-  <thead>
-    <tr>
-      <% fields.each do |field| %>
-        <th class="<%= classes[field] %>">
-          <% if should_sort && Array(sort_fields).include?(field) %>
-            <%= sort_link @q, field %>
-          <% else %>
-            <%= field.to_s.humanize %>
-          <% end %>
-        </th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% items.each do |item| %>
-      <tr <% if show %>onclick="javascript:Turbolinks.visit('<%= Rails.application.routes.url_helpers.public_send(item_path, item) %>');"<% end %>>
+<div class='box'>
+  <table class="<%= class_names(
+    table: true,
+    'is-fullwidth': true,
+    'is-hoverable': show,
+    'is-clickable': show,
+  ) %>">
+    <thead>
+      <tr>
         <% fields.each do |field| %>
-          <td class="<%= classes[field] %>">
-            <%= item.decorate field %>
-          </td>
+          <th class="<%= classes[field] %>">
+            <% if should_sort && Array(sort_fields).include?(field) %>
+              <%= sort_link @q, field %>
+            <% else %>
+              <%= field.to_s.humanize %>
+            <% end %>
+          </th>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% items.each do |item| %>
+        <tr <% if show %>onclick="javascript:Turbolinks.visit('<%= Rails.application.routes.url_helpers.public_send(item_path, item) %>');"<% end %>>
+          <% fields.each do |field| %>
+            <td class="<%= classes[field] %>">
+              <%= item.decorate field %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
