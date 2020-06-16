@@ -1,6 +1,3 @@
 <% content_for(:title, 'New Company') %>
 <% content_for(:sidebar) { render 'companies/sidebar' } %>
-
-<p><%= render 'form', company: @company %></p>
-
-<%= link_to 'Back', companies_path %>
+<%= render 'form', company: @company %>
