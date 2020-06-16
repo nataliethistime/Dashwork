@@ -26,9 +26,16 @@ class Value < ApplicationRecord
   belongs_to :field
 
   def value
-    case type
+    case field.type # TODO: I think this is bad
     when 'string'
       string_entity
+    end
+  end
+
+  def value=(new_value)
+    case field.type # TODO: fuck this off
+    when 'string'
+      string_entity = new_value
     end
   end
 end

@@ -40,9 +40,9 @@ module ApplicationHelper
       end
     end
 
-    if opts[:custom_fields] && model.respond_to?('custom_fields')
-      model.custom_fields.each do |custom_field|
-        attributes[custom_field.name] = custom_field.values.present? ? custom_field.values.first.decorate(:value) : ''
+    if opts[:custom_fields] && model.respond_to?('custom_values')
+      model.custom_values.each do |custom_value|
+        attributes[custom_value.field.name] = custom_value.decorate :value
       end
     end
 

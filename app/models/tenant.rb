@@ -56,4 +56,8 @@ class Tenant < ApplicationRecord
   def apps
     APPS.values.select { |app| has_app? app[:id] }
   end
+
+  def company_fields
+    fields.where domain: 'company'
+  end
 end

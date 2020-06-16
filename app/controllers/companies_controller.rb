@@ -100,7 +100,8 @@ class CompaniesController < ApplicationController
       :email,
       :phone,
       :address,
-      group_ids: []
+      group_ids: [],
+      custom_values_attributes: {}
     )
   end
 end

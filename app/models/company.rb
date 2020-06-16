@@ -29,7 +29,18 @@ class Company < ApplicationRecord
   default_scope -> { order(:name) }
   decorate_with CompanyDecorator
 
+  #
+  # TODO: do MTI and stuff for the values. This will not scale safely beyond only companies.
+  #
+  has_many :custom_values, class_name: 'Value', foreign_key: :linked_record_id
+
+  accepts_nested_attributes_for :custom_values
+
   def custom_fields
-    tenant.fields.includes(:values).where(domain: 'company', values: { linked_record_id: id })
+    tenant.company_fields
+  end
+
+  def build_custom_values
+    custom_values
   end
 end
