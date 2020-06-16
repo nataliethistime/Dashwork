@@ -29,9 +29,7 @@ class Tenant < ApplicationRecord
   has_many :forms
   has_many :form_templates
   has_many :projects
-
-  has_many :tenant_company_fields
-  has_many :company_fields, through: :tenant_company_fields, source: :field
+  has_many :fields
 
   validates :name, presence: true, length: { minimum: 3 }
 

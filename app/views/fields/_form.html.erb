@@ -1,5 +1,6 @@
 <%= simple_form_for field, url: polymorphic_path([params[:domain], field]) do |f| %>
   <%= render 'common/form_errors', form: f %>
   <%= f.input :name %>
+  <%= f.input :type, collection: Field::TYPES %>
   <%= f.button :submit %>
 <% end %>
