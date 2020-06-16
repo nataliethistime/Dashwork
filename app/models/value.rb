@@ -21,6 +21,8 @@
 #  index_values_on_field_id  (field_id)
 #
 class Value < ApplicationRecord
+  decorate_with ValueDecorator
+
   belongs_to :field
 
   def value

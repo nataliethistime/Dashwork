@@ -28,4 +28,8 @@ class Company < ApplicationRecord
   # TODO: link events
   default_scope -> { order(:name) }
   decorate_with CompanyDecorator
+
+  def custom_fields
+    tenant.fields.includes(:values).where(domain: 'company', values: { linked_record_id: id })
+  end
 end

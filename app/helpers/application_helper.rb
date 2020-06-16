@@ -10,11 +10,11 @@ module ApplicationHelper
     end
   end
 
-  def attributes_table(model, list)
-    render 'common/attributes_table', attributes: decorate_items(model, list)
+  def attributes_table(model, list, opts = {})
+    render 'common/attributes_table', attributes: decorate_items(model, list, opts)
   end
 
-  def decorate_items(model, list)
+  def decorate_items(model, list, opts = {})
     attributes = {}
 
     #
@@ -37,6 +37,12 @@ module ApplicationHelper
         end
       else
         attributes[model.class.human_attribute_name(item)] = model.decorate item
+      end
+    end
+
+    if opts[:custom_fields] && model.respond_to?('custom_fields')
+      model.custom_fields.each do |custom_field|
+        attributes[custom_field.name] = custom_field.values.present? ? custom_field.values.first.decorate(:value) : ''
       end
     end
 
