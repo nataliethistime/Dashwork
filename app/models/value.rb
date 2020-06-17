@@ -29,13 +29,17 @@ class Value < ApplicationRecord
     case field.type # TODO: I think this is bad
     when 'string'
       string_entity
+    else
+      raise "Unhandled field type: #{field.type.inspect}"
     end
   end
 
   def value=(new_value)
     case field.type # TODO: fuck this off
     when 'string'
-      string_entity = new_value
+      self.string_entity = new_value
+    else
+      raise "Unhandled field type: #{field.type.inspect}"
     end
   end
 end

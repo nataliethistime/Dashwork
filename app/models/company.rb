@@ -41,6 +41,27 @@ class Company < ApplicationRecord
   end
 
   def build_custom_values
+    existing_fields = custom_values.map(&:field_id)
+
+    custom_fields.each do |field|
+      unless existing_fields.include? field.id
+        custom_values.build field_id: field.id
+      end
+    end
+
     custom_values
+  end
+
+  def custom_values_attributes=(attributes)
+    list = Hash[attributes.values.map { |attr| [attr['field_id'].to_i, attr['value']] }]
+
+    custom_values.each do |cv|
+      new_value = list[cv.field_id]
+      if new_value.present?
+        cv.value = new_value
+      else
+        cv.delete
+      end
+    end
   end
 end
