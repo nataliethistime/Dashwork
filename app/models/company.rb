@@ -32,7 +32,7 @@ class Company < ApplicationRecord
   #
   # TODO: do MTI and stuff for the values. This will not scale safely beyond only companies.
   #
-  has_many :custom_values, class_name: 'Value', foreign_key: :linked_record_id
+  has_many :custom_values, class_name: 'Value', foreign_key: :linked_record_id, dependent: :destroy
 
   accepts_nested_attributes_for :custom_values
 
