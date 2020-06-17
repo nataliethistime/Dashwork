@@ -1,4 +1,4 @@
-<%= simple_form_for(@company) do |f| %>
+<%= simple_form_for company do |f| %>
   <%= render 'common/form_errors', form: f %>
 
   <%= f.input :name %>
@@ -9,7 +9,7 @@
   <%= f.input :address %>
   <%= f.association :groups %>
 
-  <% @company.build_custom_values.each do |cv| %>
+  <% company.custom_values.each do |cv| %>
     <%= f.fields_for :custom_values, cv do |cv_form| %>
       <%= cv_form.input :value, label: cv.field.name %>
     <% end %>
