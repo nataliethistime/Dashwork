@@ -55,8 +55,8 @@ class Company < ApplicationRecord
   def custom_values_attributes=(attributes)
     list = Hash[attributes.values.map { |attr| [attr['field_id'].to_i, attr['value']] }]
 
-    custom_values.each do |cv|
       new_value = list[cv.field_id]
+    build_custom_values.each do |cv|
       if new_value.present?
         cv.value = new_value
       else

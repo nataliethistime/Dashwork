@@ -46,9 +46,7 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
-    @company = current_tenant.companies.new
-    @company.build_custom_values
-    @company.assign_attributes company_params
+    @company = current_tenant.companies.new company_params
     @company.user = current_user
 
     respond_to do |format|
@@ -65,9 +63,8 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
-    @company.assign_attributes company_params
     respond_to do |format|
-      if @company.save
+      if @company.update(company_params)
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
         format.json { render :show, status: :ok, location: @company }
       else
@@ -92,7 +89,6 @@ class CompaniesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_company
     @company = current_tenant.companies.find(params[:id])
-    @company.build_custom_values
   end
 
   # Only allow a list of trusted parameters through.
