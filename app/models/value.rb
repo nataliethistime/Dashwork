@@ -11,6 +11,7 @@
 #  string_entity    :string
 #  text_entity      :text
 #  time_entity      :time
+#  type             :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  field_id         :bigint
@@ -25,21 +26,22 @@ class Value < ApplicationRecord
 
   belongs_to :field
 
+  validates :type, presence: true
+  validates :linked_record_id, presence: true
+
+  TYPES = {
+    'string' => 'StringValue'
+  }
+
+  def self.type_for(type)
+    TYPES[type]
+  end
+
   def value
-    case field.type # TODO: I think this is bad
-    when 'string'
-      string_entity
-    else
-      raise "Unhandled field type: #{field.type.inspect}"
-    end
+    raise "Please override #value: #{self.inspect}"
   end
 
   def value=(new_value)
-    case field.type # TODO: fuck this off
-    when 'string'
-      self.string_entity = new_value
-    else
-      raise "Unhandled field type: #{field.type.inspect}"
-    end
+    raise "Please override #value=: #{self.inspect}"
   end
 end

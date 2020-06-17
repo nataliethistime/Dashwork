@@ -29,9 +29,6 @@ class Company < ApplicationRecord
   default_scope -> { order(:name) }
   decorate_with CompanyDecorator
 
-  #
-  # TODO: do MTI and stuff for the values. This will not scale safely beyond only companies.
-  #
   has_many :custom_values, class_name: 'Value', foreign_key: :linked_record_id, dependent: :destroy
 
   accepts_nested_attributes_for :custom_values
@@ -45,7 +42,7 @@ class Company < ApplicationRecord
 
     custom_fields.each do |field|
       unless existing_fields.include? field.id
-        custom_values.build field_id: field.id
+        custom_values.build field_id: field.id, type: Value.type_for(field.type)
       end
     end
 

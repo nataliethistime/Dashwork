@@ -21,10 +21,14 @@
 #
 #  index_values_on_field_id  (field_id)
 #
-require 'test_helper'
+class StringValue < Value
+  validates :string_entity, presence: true
 
-class ValueTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def value
+    string_entity
+  end
+
+  def value=(new_value)
+    self.string_entity = new_value
+  end
 end
