@@ -42,6 +42,7 @@ module ApplicationHelper
 
     if opts[:custom_fields] && model.respond_to?('custom_values')
       model.custom_values.each do |custom_value|
+      model.custom_values.includes(:field).each do |custom_value|
         attributes[custom_value.field.name] = custom_value.decorate :value
       end
     end
