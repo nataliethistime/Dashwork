@@ -1,6 +1,6 @@
 <%= simple_form_for field, url: polymorphic_path(field) do |f| %>
   <%= render 'common/form_errors', form: f %>
   <%= f.input :name %>
-  <%= f.input :type, collection: Field::TYPES %>
+  <%= f.input :type, collection: Field::TYPES.map(&:to_sym) %>
   <%= f.button :submit %>
 <% end %>

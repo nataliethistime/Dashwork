@@ -57,3 +57,10 @@ en:
         name_link: Company name
       note/project:
         name_link: Project name
+
+  simple_form:
+    options:
+      company_field:
+        type:
+          StringValue: Text Box
+          TextValue: Long Text
