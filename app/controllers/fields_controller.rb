@@ -11,7 +11,7 @@ class FieldsController < ApplicationController
     @field = tenant_fields.new field_params
 
     if @field.save
-      redirect_to polymorphic_path([params[:domain], :fields]), 'Successfully created field'
+      redirect_to polymorphic_path([params[:domain], :fields]), notice: 'Successfully created field'
     else
       render 'new'
     end
