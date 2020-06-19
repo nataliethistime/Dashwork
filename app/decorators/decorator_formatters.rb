@@ -30,4 +30,18 @@ module DecoratorFormatters
   def format_google_maps_search_link(query)
     helpers.link_to query, "https://www.google.com/maps?q=#{query}", target: '_blank'
   end
+
+  def format_markdown(text = '')
+    redcarpet = Redcarpet::Markdown.new(
+      Redcarpet::Render::HTML.new(filter_html: true, no_styles: true, prettify: true),
+      no_intra_emphasis: true,
+      autolink: true,
+      strikethrough: true,
+      space_after_headers: true,
+      underline: true,
+      highlight: true,
+      fenced_code_blocks: true
+    )
+    helpers.content_tag :div, redcarpet.render(text).html_safe, class: 'content'
+  end
 end

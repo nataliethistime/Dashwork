@@ -54,6 +54,9 @@ gem 'simple_form'
 # Country selection helper
 gem 'country_select'
 
+# Markdown rendering
+gem 'redcarpet'
+
 group :development, :test do
   # Debugging
   gem 'pry'
