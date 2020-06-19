@@ -22,20 +22,10 @@
 #  index_values_on_field_id  (field_id)
 #
 class Value < ApplicationRecord
-  decorate_with ValueDecorator
-
   belongs_to :field
 
-  TYPES = {
-    'string' => 'StringValue'
-  }
-
-  validates :type, presence: true, inclusion: { in: TYPES.values }
+  validates :type, presence: true, inclusion: { in: Field::TYPES }
   validates :linked_record_id, presence: true
-
-  def self.type_for(type)
-    TYPES[type]
-  end
 
   def value
     raise "Please override #value: #{self.inspect}"
@@ -43,5 +33,9 @@ class Value < ApplicationRecord
 
   def value=(new_value)
     raise "Please override #value=: #{self.inspect}"
+  end
+
+  def form_field_type
+    raise "Please override #form_field_type: #{self.inspect}"
   end
 end

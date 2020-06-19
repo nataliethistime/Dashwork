@@ -12,7 +12,7 @@
   <% if !company.new_record? %>
     <% company.build_custom_values.each do |cv| %>
       <%= f.fields_for :custom_values, cv do |cv_form| %>
-        <%= cv_form.input :value, label: cv.field.name %>
+        <%= cv_form.input :value, label: cv.field.name, as: cv.form_field_type %>
         <%= cv_form.input :field_id, as: :hidden %>
       <% end %>
     <% end %>

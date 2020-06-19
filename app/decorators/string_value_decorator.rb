@@ -1,0 +1,2 @@
+class StringValueDecorator < DecoratorBase
+end

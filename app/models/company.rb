@@ -42,7 +42,7 @@ class Company < ApplicationRecord
 
     custom_fields.each do |field|
       unless existing_fields.include? field.id
-        custom_values.build field_id: field.id, type: Value.type_for(field.type)
+        custom_values.build field_id: field.id, type: field.type
       end
     end
 

@@ -18,7 +18,7 @@ class Field < ApplicationRecord
   self.inheritance_column = :domain
   decorate_with FieldDecorator
 
-  TYPES = %w{string}
+  TYPES = %w{StringValue TextValue}
   DOMAINS = %w{CompanyField}
 
   belongs_to :tenant

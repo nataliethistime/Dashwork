@@ -21,19 +21,19 @@
 #
 #  index_values_on_field_id  (field_id)
 #
-class StringValue < Value
-  decorate_with StringValueDecorator
-  validates :string_entity, presence: true
+class TextValue < Value
+  decorate_with TextValueDecorator
+  validates :text_entity, presence: true
 
   def value
-    string_entity
+    text_entity
   end
 
   def value=(new_value)
-    self.string_entity = new_value
+    self.text_entity = new_value
   end
 
   def form_field_type
-    'string'
+    'text'
   end
 end
