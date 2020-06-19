@@ -59,3 +59,7 @@ table.table:not(.has-last-column-aligned-left) {
 .pagination a {
   background-color: white;
 }
+
+textarea {
+  min-height: 6em; /* 2 rows approx */
+}
