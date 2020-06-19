@@ -50,7 +50,7 @@ table.is-clickable tbody tr {
   cursor: pointer;
 }
 
-table.table {
+table.table:not(.has-last-column-aligned-left) {
   td:last-child, th:last-child {
     text-align: right;
   }
