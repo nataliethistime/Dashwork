@@ -15,11 +15,11 @@
 #  index_fields_on_tenant_id  (tenant_id)
 #
 class Field < ApplicationRecord
-  self.inheritance_column = nil
+  self.inheritance_column = :domain
   decorate_with FieldDecorator
 
   TYPES = %w{string}
-  DOMAINS = %w{company}
+  DOMAINS = %w{CompanyField}
 
   belongs_to :tenant
   has_many :values

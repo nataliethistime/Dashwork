@@ -26,12 +26,12 @@ class Value < ApplicationRecord
 
   belongs_to :field
 
-  validates :type, presence: true
-  validates :linked_record_id, presence: true
-
   TYPES = {
     'string' => 'StringValue'
   }
+
+  validates :type, presence: true, inclusion: { in: TYPES.values }
+  validates :linked_record_id, presence: true
 
   def self.type_for(type)
     TYPES[type]

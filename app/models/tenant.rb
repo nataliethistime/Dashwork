@@ -29,7 +29,9 @@ class Tenant < ApplicationRecord
   has_many :forms
   has_many :form_templates
   has_many :projects
+
   has_many :fields
+  has_many :company_fields
 
   validates :name, presence: true, length: { minimum: 3 }
 
@@ -57,7 +59,10 @@ class Tenant < ApplicationRecord
     APPS.values.select { |app| has_app? app[:id] }
   end
 
-  def company_fields
-    fields.where domain: 'company'
+  def fields_for(domain)
+    case domain
+    when 'company'
+      company_fields
+    end
   end
 end

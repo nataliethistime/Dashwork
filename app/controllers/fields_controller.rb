@@ -11,7 +11,7 @@ class FieldsController < ApplicationController
     @field = tenant_fields.new field_params
 
     if @field.save
-      redirect_to polymorphic_path([params[:domain], :fields])
+      redirect_to polymorphic_path([params[:domain], :fields]), 'Successfully created field'
     else
       render 'new'
     end
@@ -27,10 +27,9 @@ class FieldsController < ApplicationController
 
   def update
     @field = tenant_fields.find params[:id]
-    @field.update company_field_params
 
-    if @field.save
-      redirect_to polymorphic_path([params[:domian], @field])
+    if @field.update field_params
+      redirect_to polymorphic_path(@field), notice: 'Successfully updated field'
     else
       render 'edit'
     end
@@ -45,13 +44,13 @@ class FieldsController < ApplicationController
   private
 
   def field_params
-    params.require(:field).permit(:name, :type)
+    params.require(:"#{params[:domain]}_field").permit(:name, :type)
   end
 
   #
   # Takes into account the domain and returns the association for the correct kind of field
   #
   def tenant_fields
-    current_tenant.fields.where domain: params[:domain]
+    current_tenant.public_send "#{params[:domain]}_fields"
   end
 end
