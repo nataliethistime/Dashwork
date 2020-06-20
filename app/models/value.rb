@@ -31,7 +31,7 @@ class Value < ApplicationRecord
     raise "Please override #value: #{self.inspect}"
   end
 
-  def value=(new_value)
+  def value=(*)
     raise "Please override #value=: #{self.inspect}"
   end
 

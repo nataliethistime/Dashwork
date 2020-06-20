@@ -29,10 +29,10 @@ module ApplicationHelper
       if item.instance_of? Hash
         item.each do |key, values|
           sub_model = model.public_send key
-          if sub_model.present?
-            Array(values).each do |val|
-              attributes[model.class.human_attribute_name("#{key}.#{val}")] = sub_model.decorate val
-            end
+          next if sub_model.blank?
+
+          Array(values).each do |val|
+            attributes[model.class.human_attribute_name("#{key}.#{val}")] = sub_model.decorate val
           end
         end
       else

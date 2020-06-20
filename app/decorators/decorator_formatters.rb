@@ -1,6 +1,6 @@
 module DecoratorFormatters
   def format(value, options = {})
-    return '' unless value.present?
+    return '' if value.blank?
 
     if block_given?
       yield value
@@ -12,7 +12,7 @@ module DecoratorFormatters
   end
 
   def format_url(url)
-    helpers.link_to url.gsub(/^https?:\/\//, ''), url, target: '_blank'
+    helpers.link_to url.gsub(%r{^https?://}, ''), url, target: '_blank', rel: 'noopener noreferrer'
   end
 
   def format_phone_url(phone)
@@ -28,7 +28,7 @@ module DecoratorFormatters
   end
 
   def format_google_maps_search_link(query)
-    helpers.link_to query, "https://www.google.com/maps?q=#{query}", target: '_blank'
+    helpers.link_to query, "https://www.google.com/maps?q=#{query}", target: '_blank', rel: 'noopener noreferrer'
   end
 
   def format_markdown(text = '')

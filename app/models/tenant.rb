@@ -45,7 +45,7 @@ class Tenant < ApplicationRecord
     notes: { name: 'Notes', id: 'notes', path: routes.notes_path },
     projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
     tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path }
-  }
+  }.freeze
 
   def self.all_apps
     APPS.keys

@@ -75,9 +75,7 @@ Rails.application.configure do
     g.test_framework :test_unit, fixture: false
   end
 
-  if defined? BetterErrors
-    BetterErrors::Middleware.allow_ip! '0.0.0.0/0'
-  end
+  BetterErrors::Middleware.allow_ip! '0.0.0.0/0' if defined? BetterErrors
 
   config.web_console.whitelisted_ips = '0.0.0.0/0'
 end
