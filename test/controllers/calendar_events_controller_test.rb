@@ -9,17 +9,17 @@ class CalendarEventsControllerTest < ActionController::TestCase
     sign_in @user
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create calendar_event" do
+  test 'should create calendar_event' do
     assert_difference('CalendarEvent.count') do
       post :create, params: {
         calendar_event: {
@@ -33,17 +33,17 @@ class CalendarEventsControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should show calendar_event" do
+  test 'should show calendar_event' do
     get :show, params: { id: @calendar_event.id }
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, params: { id: @calendar_event.id }
     assert_response :success
   end
 
-  test "should update calendar_event" do
+  test 'should update calendar_event' do
     patch :update, params: {
       id: @calendar_event.id,
       calendar_event: {
@@ -56,7 +56,7 @@ class CalendarEventsControllerTest < ActionController::TestCase
     assert_redirected_to calendar_event_url(@calendar_event)
   end
 
-  test "should destroy calendar_event" do
+  test 'should destroy calendar_event' do
     assert_difference('CalendarEvent.count', -1) do
       delete :destroy, params: { id: @calendar_event.id }
     end

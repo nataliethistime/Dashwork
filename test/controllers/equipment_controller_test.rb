@@ -9,17 +9,17 @@ class EquipmentControllerTest < ActionController::TestCase
     sign_in @user
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create equipment" do
+  test 'should create equipment' do
     assert_difference('Equipment.count') do
       post :create, params: {
         equipment: {
@@ -33,17 +33,17 @@ class EquipmentControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should show equipment" do
+  test 'should show equipment' do
     get :show, params: { id: @equipment.id }
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, params: { id: @equipment.id }
     assert_response :success
   end
 
-  test "should update equipment" do
+  test 'should update equipment' do
     patch :update, params: {
       id: @equipment.id,
       equipment: {
@@ -56,7 +56,7 @@ class EquipmentControllerTest < ActionController::TestCase
     assert_redirected_to equipment_url(@equipment)
   end
 
-  test "should destroy equipment" do
+  test 'should destroy equipment' do
     assert_difference('Equipment.count', -1) do
       delete :destroy, params: { id: @equipment.id }
     end

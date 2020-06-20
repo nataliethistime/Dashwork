@@ -1,1 +1,1 @@
-json.partial! "form_templates/form_template", form_template: @form_template
+json.partial! 'form_templates/form_template', form_template: @form_template

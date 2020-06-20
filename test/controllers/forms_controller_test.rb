@@ -10,17 +10,17 @@ class FormsControllerTest < ActionController::TestCase
     sign_in @user
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create form" do
+  test 'should create form' do
     assert_difference('Form.count') do
       post :create, params: {
         form: {
@@ -32,17 +32,17 @@ class FormsControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should show form" do
+  test 'should show form' do
     get :show, params: { id: @form.id }
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, params: { id: @form.id }
     assert_response :success
   end
 
-  test "should update form" do
+  test 'should update form' do
     patch :update, params: {
       id: @form.id,
       form: {
@@ -52,7 +52,7 @@ class FormsControllerTest < ActionController::TestCase
     assert_redirected_to form_url(@form)
   end
 
-  test "should destroy form" do
+  test 'should destroy form' do
     assert_difference('Form.count', -1) do
       delete :destroy, params: { id: @form.id }
     end

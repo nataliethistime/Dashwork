@@ -9,17 +9,17 @@ class ProjectsControllerTest < ActionController::TestCase
     sign_in @user
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create project" do
+  test 'should create project' do
     assert_difference('Project.count') do
       post :create, params: {
         project: {
@@ -33,17 +33,17 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should show project" do
+  test 'should show project' do
     get :show, params: { id: @project.id }
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, params: { id: @project.id }
     assert_response :success
   end
 
-  test "should update project" do
+  test 'should update project' do
     patch :update, params: {
       id: @project.id,
       project: {
@@ -56,7 +56,7 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_redirected_to project_url(@project)
   end
 
-  test "should destroy project" do
+  test 'should destroy project' do
     assert_difference('Project.count', -1) do
       delete :destroy, params: { id: @project.id }
     end

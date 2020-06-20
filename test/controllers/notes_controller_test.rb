@@ -9,17 +9,17 @@ class NotesControllerTest < ActionController::TestCase
     sign_in @user
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create note" do
+  test 'should create note' do
     assert_difference('Note.count') do
       post :create, params: {
         note: {
@@ -31,17 +31,17 @@ class NotesControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should show note" do
+  test 'should show note' do
     get :show, params: { id: @note.id }
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, params: { id: @note.id }
     assert_response :success
   end
 
-  test "should update note" do
+  test 'should update note' do
     patch :update, params: {
       id: @note.id,
       note: {
@@ -51,7 +51,7 @@ class NotesControllerTest < ActionController::TestCase
     assert_redirected_to note_url(@note)
   end
 
-  test "should destroy note" do
+  test 'should destroy note' do
     assert_difference('Note.count', -1) do
       delete :destroy, params: { id: @note.id }
     end

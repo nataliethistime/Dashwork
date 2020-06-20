@@ -9,17 +9,17 @@ class CompaniesControllerTest < ActionController::TestCase
     sign_in @user, scope: :user
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create company" do
+  test 'should create company' do
     assert_difference('Company.count') do
       post :create, params: {
         company: {
@@ -35,17 +35,17 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should show company" do
+  test 'should show company' do
     get :show, params: { id: @company.id }
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, params: { id: @company.id }
     assert_response :success
   end
 
-  test "should update company" do
+  test 'should update company' do
     patch :update, params: {
       id: @company.id,
       company: {
@@ -59,7 +59,7 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_redirected_to company_url(@company)
   end
 
-  test "should destroy company" do
+  test 'should destroy company' do
     assert_difference('Company.count', -1) do
       delete :destroy, params: { id: @company.id }
     end
