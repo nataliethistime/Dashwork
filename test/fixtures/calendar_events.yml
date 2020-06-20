@@ -1,14 +1,12 @@
 # == Schema Information
 #
-# Table name: companies
+# Table name: calendar_events
 #
 #  id          :bigint           not null, primary key
-#  address     :string
 #  description :text
-#  email       :string
+#  end_at      :datetime
 #  name        :string
-#  phone       :string
-#  website     :string
+#  start_at    :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  tenant_id   :integer          not null
@@ -16,6 +14,8 @@
 #
 
 one:
-  name: Company of the Ring
-  tenant: one
+  name: My Fake Birthday!
+  start_at: <%= Time.zone.tomorrow.beginning_of_day %>
+  end_at: <%= Time.zone.tomorrow.beginning_of_day + 4.hours %>
   user: one
+  tenant: one

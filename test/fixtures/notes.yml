@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: notes
+#
+#  id                :bigint           not null, primary key
+#  content           :text
+#  title             :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  calendar_event_id :integer
+#  company_id        :integer
+#  contact_id        :integer
+#  equipment_id      :integer
+#  project_id        :integer
+#  task_id           :integer
+#  tenant_id         :integer          not null
+#  user_id           :integer          not null
+#
+
+one:
+  title: I am a note
+  content: >-
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  tenant: one
+  user: one

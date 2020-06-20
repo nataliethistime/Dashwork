@@ -24,7 +24,8 @@ class FormsController < ApplicationController
   # POST /forms
   # POST /forms.json
   def create
-    @form = current_user.forms.new(form_params)
+    @form = current_tenant.forms.new(form_params)
+    @form.user = current_user
 
     respond_to do |format|
       if @form.save
@@ -70,6 +71,6 @@ class FormsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def form_params
-    params.require(:form).permit(:name, :status)
+    params.require(:form).permit(:name, :status, :form_template_id)
   end
 end

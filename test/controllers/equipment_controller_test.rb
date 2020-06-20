@@ -1,48 +1,65 @@
 require 'test_helper'
 
-class EquipmentControllerTest < ActionDispatch::IntegrationTest
-  setup do
+class EquipmentControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
+  def setup
     @equipment = equipment(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
-    get equipment_index_url
+    get :index
     assert_response :success
   end
 
   test "should get new" do
-    get new_equipment_url
+    get :new
     assert_response :success
   end
 
   test "should create equipment" do
     assert_difference('Equipment.count') do
-      post equipment_index_url, params: { equipment: { description: @equipment.description, manufacturer: @equipment.manufacturer, model: @equipment.model, name: @equipment.name } }
+      post :create, params: {
+        equipment: {
+          description: @equipment.description,
+          manufacturer: @equipment.manufacturer,
+          model: @equipment.model,
+          name: @equipment.name
+        }
+      }
     end
-
-    assert_redirected_to equipment_url(Equipment.last)
+    assert_response :redirect
   end
 
   test "should show equipment" do
-    get equipment_url(@equipment)
+    get :show, params: { id: @equipment.id }
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_equipment_url(@equipment)
+    get :edit, params: { id: @equipment.id }
     assert_response :success
   end
 
   test "should update equipment" do
-    patch equipment_url(@equipment), params: { equipment: { description: @equipment.description, manufacturer: @equipment.manufacturer, model: @equipment.model, name: @equipment.name } }
+    patch :update, params: {
+      id: @equipment.id,
+      equipment: {
+        description: @equipment.description,
+        manufacturer: @equipment.manufacturer,
+        model: @equipment.model,
+        name: @equipment.name
+      }
+    }
     assert_redirected_to equipment_url(@equipment)
   end
 
   test "should destroy equipment" do
     assert_difference('Equipment.count', -1) do
-      delete equipment_url(@equipment)
+      delete :destroy, params: { id: @equipment.id }
     end
-
     assert_redirected_to equipment_index_url
   end
 end

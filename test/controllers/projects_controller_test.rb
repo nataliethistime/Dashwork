@@ -1,46 +1,64 @@
 require 'test_helper'
 
-class ProjectsControllerTest < ActionDispatch::IntegrationTest
-  setup do
+class ProjectsControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
+  def setup
     @project = projects(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
-    get projects_url
+    get :index
     assert_response :success
   end
 
   test "should get new" do
-    get new_project_url
+    get :new
     assert_response :success
   end
 
   test "should create project" do
     assert_difference('Project.count') do
-      post projects_url, params: { project: { description: @project.description, end_date: @project.end_date, name: @project.name, start_date: @project.start_date } }
+      post :create, params: {
+        project: {
+          description: @project.description,
+          end_date: @project.end_date,
+          name: @project.name,
+          start_date: @project.start_date
+        }
+      }
     end
-
-    assert_redirected_to project_url(Project.last)
+    assert_response :redirect
   end
 
   test "should show project" do
-    get project_url(@project)
+    get :show, params: { id: @project.id }
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_project_url(@project)
+    get :edit, params: { id: @project.id }
     assert_response :success
   end
 
   test "should update project" do
-    patch project_url(@project), params: { project: { description: @project.description, end_date: @project.end_date, name: @project.name, start_date: @project.start_date } }
+    patch :update, params: {
+      id: @project.id,
+      project: {
+        description: @project.description,
+        end_date: @project.end_date,
+        name: @project.name,
+        start_date: @project.start_date
+      }
+    }
     assert_redirected_to project_url(@project)
   end
 
   test "should destroy project" do
     assert_difference('Project.count', -1) do
-      delete project_url(@project)
+      delete :destroy, params: { id: @project.id }
     end
 
     assert_redirected_to projects_url

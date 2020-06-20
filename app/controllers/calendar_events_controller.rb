@@ -24,7 +24,8 @@ class CalendarEventsController < ApplicationController
   # POST /calendar_events
   # POST /calendar_events.json
   def create
-    @calendar_event = current_user.calendar_events.new(calendar_event_params)
+    @calendar_event = current_tenant.calendar_events.new(calendar_event_params)
+    @calendar_event.user = current_user
 
     respond_to do |format|
       if @calendar_event.save

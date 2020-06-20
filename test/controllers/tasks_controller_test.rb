@@ -1,48 +1,56 @@
 require 'test_helper'
 
-class TasksControllerTest < ActionDispatch::IntegrationTest
-  setup do
+class TasksControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
+  def setup
     @task = tasks(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
-    get tasks_url
+    get :index
     assert_response :success
   end
 
   test "should get new" do
-    get new_task_url
+    get :new
     assert_response :success
   end
 
   test "should create task" do
     assert_difference('Task.count') do
-      post tasks_url, params: { task: { completed: @task.completed, description: @task.description, due_date: @task.due_date, name: @task.name, tenant_id: @task.tenant_id, user_id: @task.user_id } }
+      post :create, params: {
+        task: {
+          description: @task.description,
+          due_date: @task.due_date,
+          name: @task.name
+        }
+      }
     end
-
-    assert_redirected_to task_url(Task.last)
+    assert_response :redirect
   end
 
   test "should show task" do
-    get task_url(@task)
+    get :show, params: { id: @task.id }
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_task_url(@task)
+    get :edit, params: { id: @task.id }
     assert_response :success
   end
 
   test "should update task" do
-    patch task_url(@task), params: { task: { completed: @task.completed, description: @task.description, due_date: @task.due_date, name: @task.name, tenant_id: @task.tenant_id, user_id: @task.user_id } }
+    patch :update, params: { id: @task.id, task: { completed: true } }
     assert_redirected_to task_url(@task)
   end
 
   test "should destroy task" do
     assert_difference('Task.count', -1) do
-      delete task_url(@task)
+      delete :destroy, params: { id: @task.id }
     end
-
     assert_redirected_to tasks_url
   end
 end

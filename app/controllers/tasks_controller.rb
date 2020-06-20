@@ -16,7 +16,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(task_params)
+    @task = current_tenant.tasks.new(task_params)
+    @task.user = current_user
+
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
     else

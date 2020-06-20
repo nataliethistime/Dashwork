@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: equipment
+#
+#  id           :bigint           not null, primary key
+#  description  :text
+#  manufacturer :string
+#  model        :string
+#  name         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  tenant_id    :integer          not null
+#  user_id      :integer
+#
+
+one:
+  name: My Car
+  description: I don't know man, it's a car.
+  model: Car
+  manufacturer: Factory
+  tenant: one
+  user: one
