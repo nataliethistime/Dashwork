@@ -1,46 +1,67 @@
 require 'test_helper'
 
-class CompaniesControllerTest < ActionDispatch::IntegrationTest
-  setup do
+class CompaniesControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
+  def setup
     @company = companies(:one)
+    @user = users(:one)
+    sign_in @user, scope: :user
   end
 
   test "should get index" do
-    get companies_url
+    get :index
     assert_response :success
   end
 
   test "should get new" do
-    get new_company_url
+    get :new
     assert_response :success
   end
 
   test "should create company" do
     assert_difference('Company.count') do
-      post companies_url, params: { company: { description: @company.description, email: @company.email, name: @company.name, phone: @company.phone, website: @company.website } }
+      post :create, params: {
+        company: {
+          description: @company.description,
+          email: @company.email,
+          name: @company.name,
+          phone: @company.phone,
+          website: @company.website
+        }
+      }
     end
 
-    assert_redirected_to company_url(Company.last)
+    assert_response :redirect
   end
 
   test "should show company" do
-    get company_url(@company)
+    get :show, params: { id: @company.id }
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_company_url(@company)
+    get :edit, params: { id: @company.id }
     assert_response :success
   end
 
   test "should update company" do
-    patch company_url(@company), params: { company: { description: @company.description, email: @company.email, name: @company.name, phone: @company.phone, website: @company.website } }
+    patch :update, params: {
+      id: @company.id,
+      company: {
+        description: @company.description,
+        email: @company.email,
+        name: @company.name,
+        phone: @company.phone,
+        website: @company.website
+      }
+    }
     assert_redirected_to company_url(@company)
   end
 
   test "should destroy company" do
     assert_difference('Company.count', -1) do
-      delete company_url(@company)
+      delete :destroy, params: { id: @company.id }
     end
 
     assert_redirected_to companies_url

@@ -1,48 +1,67 @@
 require 'test_helper'
 
-class ContactsControllerTest < ActionDispatch::IntegrationTest
-  setup do
+class ContactsControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
+  def setup
+    @user = users(:one)
     @contact = contacts(:one)
+    sign_in @user
   end
 
   test "should get index" do
-    get contacts_url
+    get :index
     assert_response :success
   end
 
   test "should get new" do
-    get new_contact_url
+    get :new
     assert_response :success
   end
 
   test "should create contact" do
     assert_difference('Contact.count') do
-      post contacts_url, params: { contact: { description: @contact.description, email: @contact.email, name: @contact.name, phone: @contact.phone, website: @contact.website } }
+      post :create, params: {
+        contact: {
+          description: @contact.description,
+          email: @contact.email,
+          name: @contact.name,
+          website: @contact.website
+        }
+      }
     end
 
-    assert_redirected_to contact_url(Contact.last)
+    assert_redirected_to contact_path(Contact.last)
   end
 
   test "should show contact" do
-    get contact_url(@contact)
+    get :show, params: { id: @contact.id }
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_contact_url(@contact)
+    get :edit, params: { id: @contact.id }
     assert_response :success
   end
 
   test "should update contact" do
-    patch contact_url(@contact), params: { contact: { description: @contact.description, email: @contact.email, name: @contact.name, phone: @contact.phone, website: @contact.website } }
-    assert_redirected_to contact_url(@contact)
+    patch :update, params: {
+      id: @contact.id,
+      contact: {
+        description: @contact.description,
+        email: @contact.email,
+        name: @contact.name,
+        website: @contact.website
+      }
+    }
+    assert_redirected_to contact_path(@contact)
   end
 
   test "should destroy contact" do
     assert_difference('Contact.count', -1) do
-      delete contact_url(@contact)
+      delete :destroy, params: { id: @contact.id }
     end
 
-    assert_redirected_to contacts_url
+    assert_redirected_to contacts_path
   end
 end
