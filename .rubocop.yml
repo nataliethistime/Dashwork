@@ -1,0 +1,41 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'lib/**/*'
+    - 'node_modules/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: '{}'
+    '%i': '{}'
+    '%I': '{}'
+    '%r': '{}'
+    '%w': '{}'
+    '%W': '{}'
+
+Style/EmptyMethod:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
