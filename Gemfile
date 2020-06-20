@@ -88,7 +88,5 @@ end
 
 group :test do
   gem 'minitest'
-  gem 'factory_bot_rails'
-  gem 'faker'
   gem 'simplecov'
 end
