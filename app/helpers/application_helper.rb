@@ -10,8 +10,8 @@ module ApplicationHelper
     end
   end
 
-  def attributes_table(model, list, opts = {})
-    render 'common/attributes_table', attributes: decorate_items(model, list, opts)
+  def attributes_table(model, list, opts = {}, &block)
+    render 'common/attributes_table', attributes: decorate_items(model, list, opts), size: opts[:size] || 'is-half', &block
   end
 
   def decorate_items(model, list, opts = {})

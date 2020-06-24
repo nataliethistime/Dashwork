@@ -33,81 +33,14 @@
   :website,
   :email,
   :phone
-], custom_values: true) %>
-
-<div class='columns'>
-  <div class='column is-one-quarter'>
-    <div class='card'>
-      <div class='card-content'>
-        <h1 class='title is-4 has-text-centered'>
-          <%= icon_for :contacts %>&nbsp;<%= pluralize(@company.contacts.count, 'Contact') %>
-        </h1>
-      </div>
-      <footer class='card-footer'>
-        <%= link_to company_contacts_path(@company), class: 'card-footer-item' do %>
-          View&nbsp;<%= icon_for :go_to %>
-        <% end %>
-        <%= link_to new_contact_path(company_id: @company.id), class: 'card-footer-item' do %>
-          <%= icon_for :create %>&nbsp;Create
-        <% end %>
-      </footer>
-    </div>
+], custom_values: true, size: 'is-two-thirds') do %>
+  <div class='column is-one-third'>
+    <%= render 'common/linked_items_panel', parent: @company, scope: :tasks %>
+    <%= render 'common/linked_items_panel', parent: @company, scope: :notes, display_attribute: :title %>
+    <%= render 'common/linked_items_panel', parent: @company, scope: :projects %>
+    <%= render 'common/linked_items_panel', parent: @company, scope: :contacts %>
   </div>
-
-  <div class='column is-one-quarter'>
-    <div class='card'>
-      <div class='card-content'>
-        <h1 class='title is-4 has-text-centered'>
-          <%= icon_for :notes %>&nbsp;<%= pluralize(@company.notes.count, 'Note') %>
-        </h1>
-      </div>
-      <footer class='card-footer'>
-        <%= link_to company_notes_path(@company), class: 'card-footer-item' do %>
-          View&nbsp;<%= icon_for :go_to %>
-        <% end %>
-        <%= link_to new_note_path(company_id: @company.id), class: 'card-footer-item' do %>
-          <%= icon_for :create %>&nbsp;Create
-        <% end %>
-      </footer>
-    </div>
-  </div>
-
-  <div class='column is-one-quarter'>
-    <div class='card'>
-      <div class='card-content'>
-        <h1 class='title is-4 has-text-centered'>
-          <%= icon_for :projects %>&nbsp;<%= pluralize(@company.projects.count, 'Project') %>
-        </h1>
-      </div>
-      <footer class='card-footer'>
-        <%= link_to company_projects_path(@company), class: 'card-footer-item' do %>
-          View&nbsp;<%= icon_for :go_to %>
-        <% end %>
-        <%= link_to new_project_path(company_id: @company.id), class: 'card-footer-item' do %>
-          <%= icon_for :create %>&nbsp;Create
-        <% end %>
-      </footer>
-    </div>
-  </div>
-
-  <div class='column is-one-quarter'>
-    <div class='card'>
-      <div class='card-content'>
-        <h1 class='title is-4 has-text-centered'>
-          <%= icon_for :tasks %>&nbsp;<%= pluralize(@company.tasks.count, 'Task') %>
-        </h1>
-      </div>
-      <footer class='card-footer'>
-        <%= link_to company_tasks_path(@company), class: 'card-footer-item' do %>
-          View&nbsp;<%= icon_for :go_to %>
-        <% end %>
-        <%= link_to new_task_path(company_id: @company.id), class: 'card-footer-item' do %>
-          <%= icon_for :create %>&nbsp;Create
-        <% end %>
-      </footer>
-    </div>
-  </div>
-</div>
+<% end %>
 
 <% if @company.address.present? %>
   <div class='card' style='height: 400px;'>

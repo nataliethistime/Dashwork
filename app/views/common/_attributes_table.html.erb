@@ -1,5 +1,5 @@
 <div class='columns'>
-  <div class='column is-half'>
+  <div class='column <%= size %>'>
     <div class='box'>
       <table class='table is-narrow is-fullwidth has-last-column-aligned-left'>
         <tbody>
@@ -13,4 +13,7 @@
       </table>
     </div>
   </div>
+  <% if block_given? %>
+    <%= yield %>
+  <% end %>
 </div>
