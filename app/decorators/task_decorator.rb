@@ -4,6 +4,6 @@ class TaskDecorator < DecoratorBase
   end
 
   def due_date(task)
-    helpers.local_time_ago(task.due_date)
+    task.due_date.present? ? helpers.local_time_ago(task.due_date) : nil
   end
 end
