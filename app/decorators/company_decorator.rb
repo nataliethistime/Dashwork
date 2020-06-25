@@ -3,16 +3,16 @@ class CompanyDecorator < DecoratorBase
     format company.description, as: :markdown
   end
 
-  def website(contact)
-    format contact.website, as: :url
+  def website(company)
+    format company.website, as: :url
   end
 
-  def email(contact)
-    format contact.email, as: :email
+  def email(company)
+    format company.email, as: :email
   end
 
-  def phone(contact)
-    format contact.phone, as: :phone_url
+  def phone(company)
+    format company.phone, as: :phone_url
   end
 
   def address(company)
