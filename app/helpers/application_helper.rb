@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def attributes_table(model, list, opts = {}, &block)
-    render 'common/attributes_table', attributes: decorate_items(model, list, opts), size: opts[:size] || 'is-half', &block
+    render 'common/attributes_table', attributes: decorate_items(model, list, opts)
   end
 
   def decorate_items(model, list, opts = {})

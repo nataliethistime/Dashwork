@@ -1,19 +1,12 @@
-<div class='columns'>
-  <div class='column <%= size %>'>
-    <div class='box'>
-      <table class='table is-narrow is-fullwidth has-last-column-aligned-left'>
-        <tbody>
-          <% attributes.each do |key, value| %>
-            <tr>
-              <th><%= key %></th>
-              <td><%= value %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <% if block_given? %>
-    <%= yield %>
-  <% end %>
+<div class='box'>
+  <table class='table is-narrow is-fullwidth has-last-column-aligned-left'>
+    <tbody>
+      <% attributes.each do |key, value| %>
+        <tr>
+          <th><%= key %></th>
+          <td><%= value %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
