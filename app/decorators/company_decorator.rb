@@ -1,4 +1,8 @@
 class CompanyDecorator < DecoratorBase
+  def description(company)
+    format company.description, as: :markdown
+  end
+
   def website(contact)
     format contact.website, as: :url
   end
