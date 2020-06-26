@@ -44,4 +44,8 @@ class ContactDecorator < DecoratorBase
   def name_link(contact)
     helpers.link_to contact.name, routes.contact_path(contact)
   end
+
+  def description(contact)
+    format contact.description, as: :markdown
+  end
 end
