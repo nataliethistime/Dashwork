@@ -1,9 +1,5 @@
 <% content_for(:title, 'Company Groups') %>
-<% content_for(:actions) do %>
-  <%= link_to new_company_group_path, class: 'navbar-item' do %>
-    <%= icon_for :create %>
-  <% end %>
-<% end %>
+<% content_for(:actions, actions_for(CompanyGroup, :create)) %>
 <% content_for(:sidebar) { render 'companies/sidebar' } %>
 
 <% if @company_groups.empty? %>
