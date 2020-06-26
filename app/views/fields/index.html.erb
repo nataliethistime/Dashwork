@@ -11,5 +11,5 @@
     You haven't created any custom fields yet.
   </div>
 <% else %>
-  <%= render 'common/index_table', items: @fields, fields: [:name, :created_at], item_path: "#{params[:domain]}_field_path" %>
+  <%= render 'common/index_table', items: @fields, fields: [:name, :created_at] %>
 <% end %>

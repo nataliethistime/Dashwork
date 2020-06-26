@@ -1,15 +1,8 @@
 <% should_sort = local_variables.include?(:sort_fields) && instance_variable_defined?('@q') %>
 <% classes = local_variables.include?(:row_classes) ? row_classes : {} %>
-<% item_path = item_path.presence %>
-<% show = (show.present? ? show : true) && item_path.present? %>
 
 <div class='box'>
-  <table class="<%= class_names(
-    table: true,
-    'is-fullwidth': true,
-    'is-hoverable': show,
-    'is-clickable': show,
-  ) %>">
+  <table class='table is-fullwidth is-hoverable is-clickable'>
     <thead>
       <tr>
         <% fields.each do |field| %>
@@ -25,7 +18,7 @@
     </thead>
     <tbody>
       <% items.each do |item| %>
-        <tr <% if show %>onclick="javascript:Turbolinks.visit('<%= Rails.application.routes.url_helpers.public_send(item_path, item) %>');"<% end %>>
+        <tr onclick="javascript:Turbolinks.visit('<%= polymorphic_path([item]) %>');">
           <% fields.each do |field| %>
             <td class="<%= classes[field] %>">
               <%= item.decorate field %>
