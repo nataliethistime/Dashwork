@@ -22,6 +22,12 @@ module Actions
     end
   end
 
+  def create_action(model)
+    helpers.link_to routes.polymorphic_path([:new, model.model_name.singular]), class: 'navbar-item' do
+      helpers.icon_for :create
+    end
+  end
+
   private
 
   def action_item(icon, path)
