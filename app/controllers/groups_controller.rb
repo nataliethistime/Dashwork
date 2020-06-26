@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
   def create
     @group = tenant_groups.new group_params
     if @group.save
-      redirect_to polymorphic_path([params[:domain], :groups]), notice: 'Successfully created group'
+      redirect_to polymorphic_path([@domain, :groups]), notice: 'Successfully created group'
     else
       render 'new'
     end
@@ -39,20 +39,20 @@ class GroupsController < ApplicationController
   def destroy
     @group = tenant_groups.find params[:id]
     @group.delete
-    redirect_to polymorphic_path([params[:domain], :groups]), notice: 'Successfully deleted group'
+    redirect_to polymorphic_path([@domain, :groups]), notice: 'Successfully deleted group'
   end
 
   private
 
   def group_params
-    params.require(:"#{params[:domain]}_group").permit(:name)
+    params.require(:"#{@domain}_group").permit(:name)
   end
 
   #
   # Takes into account the domain and returns the association for the correct kind of field
   #
   def tenant_groups
-    current_tenant.public_send "#{params[:domain]}_groups"
+    current_tenant.public_send "#{@domain}_groups"
   end
 
   def set_domain

@@ -1,4 +1,4 @@
 <% content_for(:title, @field.name) %>
-<% content_for(:back_link, polymorphic_path([params[:domain], :fields])) %>
+<% content_for(:back_link, polymorphic_path([@domain, :fields])) %>
 <% content_for(:actions, actions_for(@field, :edit, :delete)) %>
-<%= render 'sidebar' %>
+<%= render 'fields/sidebar' %>
