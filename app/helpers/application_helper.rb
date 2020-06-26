@@ -3,6 +3,10 @@ module ApplicationHelper
     Actions.actions_for(model, Array(actions)).html_safe
   end
 
+  def actions_dropdown(icon, items)
+    render 'common/actions_dropdown', icon: icon, items: items
+  end
+
   def current_tenant
     current_user&.tenant
   end

@@ -1,0 +1,10 @@
+<div class='navbar-item has-dropdown is-hoverable is-hidden-touch'>
+  <a class='navbar-link is-arrowless'><%= icon_for icon %></a>
+  <div class='navbar-dropdown'>
+    <% items.each do |item| %>
+      <%= link_to item[:path], class: 'navbar-item' do %>
+        <%= icon_for item[:icon] %>&nbsp; <%= item[:label] %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -2,29 +2,13 @@
 <% content_for(:back_link, companies_path) %>
 <% content_for(:sidebar) { render 'companies/sidebar' } %>
 <% content_for(:actions) do %>
-  <div class='navbar-item has-dropdown is-hoverable is-hidden-touch'>
-    <a class='navbar-link is-arrowless'><%= icon_for :create %></a>
-    <div class='navbar-dropdown'>
-      <%= link_to new_contact_path(company_id: @company.id), class: 'navbar-item' do %>
-        <%= icon_for :contacts %>&nbsp;Add Contact
-      <% end %>
-      <%= link_to new_note_path(company_id: @company.id), class: 'navbar-item' do %>
-        <%= icon_for :notes %>&nbsp;Add Note
-      <% end %>
-      <%= link_to new_project_path(company_id: @company.id), class: 'navbar-item' do %>
-        <%= icon_for :projects %>&nbsp;Add Project
-      <% end %>
-      <%= link_to new_task_path(company_id: @company.id), class: 'navbar-item' do %>
-        <%= icon_for :tasks %>&nbsp;Add Task
-      <% end %>
-    </div>
-  </div>
-  <%= link_to edit_company_path(@company), class: 'navbar-item' do %>
-    <%= icon_for :edit %>
-  <% end %>
-  <%= link_to company_path(@company), class: 'navbar-item', method: :delete, data: { confirm: "Are you sure you want to delete #{@company.name}?" } do %>
-    <%= icon_for :delete %>
-  <% end %>
+  <%= actions_dropdown(:create, [
+    { icon: :contacts, label: 'Add Contact', path: new_contact_path(company_id: @company.id) },
+    { icon: :notes, label: 'Add Note', path: new_note_path(company_id: @company.id) },
+    { icon: :projects, label: 'Add Project', path: new_project_path(company_id: @company.id) },
+    { icon: :tasks, label: 'Add Task', path: new_task_path(company_id: @company.id) }
+  ]) %>
+  <%= actions_for(@company, :edit, :delete) %>
 <% end %>
 
 <div class='columns'>
