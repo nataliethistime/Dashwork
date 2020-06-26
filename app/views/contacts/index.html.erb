@@ -1,4 +1,7 @@
 <% content_for(:title, 'Contacts') %>
+<% content_for(:sidebar) { render 'contacts/sidebar' } %>
+<% content_for(:back_link, root_path) %>
+<% content_for(:actions, actions_for(Contact, :create)) %>
 
 <p>
   <%= render 'contacts', contacts: @contacts %>

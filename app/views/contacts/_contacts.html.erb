@@ -1,21 +1,10 @@
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Website</th>
-      <th>Email</th>
-      <th>Phone</th>
-    </tr>
-  </thead>
+<%= render 'common/index_table',
+  items: contacts,
+  fields: [:name, :website, :email, :phone],
+  row_classes: {
+    website: 'is-hidden-mobile',
+    email: 'is-hidden-mobile'
+  }
+%>
 
-  <tbody>
-    <% contacts.each do |contact| %>
-      <tr>
-        <td><%= link_to contact.decorate(:name), contact_path(contact) %></td>
-        <td><%= contact.decorate :website %></td>
-        <td><%= contact.decorate :email %></td>
-        <td><%= contact.decorate :phone %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= paginate contacts %>

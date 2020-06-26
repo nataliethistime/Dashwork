@@ -1,0 +1,33 @@
+<aside class="menu">
+  <ul class="menu-list">
+    <li>
+      <%= link_to contacts_path, class: params[:controller] == 'contacts' ? 'is-active' : nil do %>
+        <%= icon_for :contacts %>&nbsp;Contacts
+      <% end %>
+    </li>
+    <!--
+    <li>
+      <%#= link_to contact_groups_path, class: params[:controller] == 'contact_groups' ? 'is-active' : nil do %>
+        <%#= icon_for :groups %>&nbsp;Groups
+      <%# end %>
+    </li>
+    <li>
+      <%#= link_to contact_fields_path, class: params[:controller] == 'fields' && params[:domain] == 'contact' ? 'is-active' : nil do %>
+        <%#= icon_for :custom_fields %>&nbsp;Custom Fields
+      <%# end %>
+    </li>
+    -->
+    <li>
+      <a><%= icon_for :favourites %>&nbsp;Favourites</a>
+    </li>
+    <li>
+      <a><%= icon_for :import %>&nbsp;Import</a>
+    </li>
+    <li>
+      <a><%= icon_for :export %>&nbsp;Export</a>
+    </li>
+    <li>
+      <a><%= icon_for :help %>&nbsp;Help</a>
+    </li>
+  </ul>
+</aside>

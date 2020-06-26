@@ -1,3 +1,5 @@
 <% content_for(:title, 'Editing Contact') %>
-<p><%= render 'form', contact: @contact %></p>
-<p><%= link_to 'Back', contacts_path %></p>
+<% content_for(:sidebar) { render 'contacts/sidebar' } %>
+<% content_for(:back_link, contact_path(@contact)) %>
+<% content_for(:actions, actions_for(@contact, :delete)) %>
+<%= render 'form', contact: @contact %>

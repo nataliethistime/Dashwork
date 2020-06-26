@@ -1,5 +1,4 @@
-
-<%= simple_form_for(@contact) do |f| %>
+<%= simple_form_for(contact) do |f| %>
   <%= render 'common/form_errors', form: f %>
 
   <%= f.input :title, collection: Contact.titles %>
