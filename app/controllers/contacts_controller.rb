@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = current_tenant.contacts.page(params[:page])
+    @contacts = current_tenant.contacts.includes(:groups).page(params[:page])
   end
 
   # GET /contacts/1
@@ -86,7 +86,9 @@ class ContactsController < ApplicationController
       :nickname,
       :title,
       :website,
-      :work_phone
+      :work_phone,
+      group_ids: [],
+      custom_values_attributes: {}
     )
   end
 

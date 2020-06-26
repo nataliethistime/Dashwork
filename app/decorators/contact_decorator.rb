@@ -48,4 +48,8 @@ class ContactDecorator < DecoratorBase
   def description(contact)
     format contact.description, as: :markdown
   end
+
+  def groups(contact)
+    contact.groups.collect(&:name).join ', '
+  end
 end

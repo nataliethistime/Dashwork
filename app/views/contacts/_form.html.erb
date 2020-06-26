@@ -10,12 +10,15 @@
   <%= f.input :job_title %>
   <%= f.input :job_department %>
   <%= f.input :description %>
+  <%= f.association :groups %>
   <%= f.input :website %>
   <%= f.input :email %>
   <%= f.input :mobile_phone %>
   <%= f.input :work_phone %>
   <%= f.input :home_phone %>
   <%= f.input :birthday %>
+
+  <%= render 'common/custom_values_form', form: f, item: contact %>
 
   <%= f.button :submit %>
 <% end %>

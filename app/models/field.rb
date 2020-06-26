@@ -19,7 +19,7 @@ class Field < ApplicationRecord
   decorate_with FieldDecorator
 
   TYPES = %w{StringValue TextValue}
-  DOMAINS = %w{CompanyField}
+  DOMAINS = %w{CompanyField ContactField}
 
   belongs_to :tenant
   has_many :values

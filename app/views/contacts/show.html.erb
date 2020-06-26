@@ -18,13 +18,14 @@
       :job_title,
       :job_department,
       :description,
+      :groups,
       :website,
       :email,
       :work_phone,
       :home_phone,
       :mobile_phone,
       :birthday
-    ]) %>
+    ], custom_values: true) %>
   </div>
   <div class='column is-one-third'>
     <%= render 'common/linked_items_panel', parent: @contact, scope: :notes, display_attribute: :title %>

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :equipment
   resources :companies
   resources :company_fields, controller: 'fields', defaults: { domain: 'company' }
+  resources :contact_fields, controller: 'fields', defaults: { domain: 'contact' }
   resources :company_groups, controller: 'groups', defaults: { domain: 'company' }
+  resources :contact_groups, controller: 'groups', defaults: { domain: 'contact' }
   get '/companies/:id/notes' => 'companies#show_notes', as: :company_notes
   get '/companies/:id/contacts' => 'companies#show_contacts', as: :company_contacts
   get '/companies/:id/tasks' => 'companies#show_tasks', as: :company_tasks
