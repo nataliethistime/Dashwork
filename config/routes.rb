@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :contacts
+  get '/contacts/:id/notes' => 'contacts#show_notes', as: :contact_notes
+  get '/contacts/:id/tasks' => 'contacts#show_tasks', as: :contact_tasks
+  get '/contacts/:id/projects' => 'contacts#show_projects', as: :contact_projects
   resources :form_templates
   resources :forms
   resources :calendar_events

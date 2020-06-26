@@ -3,51 +3,40 @@
 <% content_for(:back_link, contacts_path) %>
 <% content_for(:actions, actions_for(@contact, :edit, :delete)) %>
 
-<%= attributes_table(@contact, [
-  :address,
-  { company: [:name_link] },
-  :job_title,
-  :job_department,
-  :description,
-  :website,
-  :email,
-  :work_phone,
-  :home_phone,
-  :mobile_phone,
-  :birthday
-]) %>
+<div class='columns'>
+  <div class='column is-two-thirds'>
+    <%= attributes_table(@contact, [
+      :address,
+      { company: [:name_link] },
+      :job_title,
+      :job_department,
+      :description,
+      :website,
+      :email,
+      :work_phone,
+      :home_phone,
+      :mobile_phone,
+      :birthday
+    ]) %>
+  </div>
+  <div class='column is-one-third'>
+    <%= render 'common/linked_items_panel', parent: @contact, scope: :notes, display_attribute: :title %>
+    <%= render 'common/linked_items_panel', parent: @contact, scope: :tasks %>
+    <%= render 'common/linked_items_panel', parent: @contact, scope: :projects %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_contact_path(@contact), class: 'button is-link' %>
-<%= link_to 'Delete', contact_path(@contact), class: 'button is-danger is-light', method: :delete, data: { confirm: "Are you sure you want to delete #{@contact.decorate :name}" } %>
-
-<h2 class="title">Notes</h2>
-
-<p>
-  <%= render 'notes/notes', notes: Array(@contact.notes) %>
-</p>
-
-<p>
-  <%= link_to 'New Note', new_note_path(contact_id: @contact.id), class: 'button is-link' %>
-</p>
-
-<h2 class="title">Tasks</h2>
-
-<p>
-  <%= render 'tasks/tasks', tasks: Array(@contact.tasks) %>
-</p>
-
-<p>
-  <%= link_to 'New Task', new_task_path(contact_id: @contact.id), class: 'button is-link' %>
-</p>
-
-<h2 class="title">Projects</h2>
-
-<p>
-  <%= render 'projects/projects', projects: Array(@contact.projects) %>
-</p>
-
-<p>
-  <%= link_to 'New Project', new_project_path(contact_ids: [@contact.id]), class: 'button is-link' %>
-</p>
-
-<%= link_to 'Back', contacts_path %>
+<% if @contact.address.present? %>
+  <div class='card' style='height: 400px;'>
+    <iframe
+      src="https://www.google.com/maps?q=<%= @contact.address %>&output=embed"
+      frameborder="0"
+      style="border:0;"
+      allowfullscreen=""
+      aria-hidden="false"
+      width="100%"
+      height="400px"
+      tabindex="0"
+    ></iframe>
+  </div>
+<% end %>
