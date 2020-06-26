@@ -30,9 +30,6 @@ module Actions
 
   private
 
-  def action_item(icon, path)
-  end
-
   def helpers
     ApplicationController.helpers
   end
