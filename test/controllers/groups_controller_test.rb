@@ -1,4 +1,4 @@
-class CompanyGroupsControllerTest < ActionController::TestCase
+class GroupsControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
 
   def setup
@@ -8,18 +8,19 @@ class CompanyGroupsControllerTest < ActionController::TestCase
   end
 
   test 'should get index' do
-    get :index
+    get :index, params: { domain: 'company' }
     assert_response :success
   end
 
   test 'should get new' do
-    get :new
+    get :new, params: { domain: 'company' }
     assert_response :success
   end
 
   test 'should create company group' do
     assert_difference('CompanyGroup.count') do
       post :create, params: {
+        domain: 'company',
         company_group: {
           name: @company_group.name
         }
@@ -29,24 +30,30 @@ class CompanyGroupsControllerTest < ActionController::TestCase
   end
 
   test 'should show company group' do
-    get :show, params: { id: @company_group.id }
+    get :show, params: { id: @company_group.id, domain: 'company' }
     assert_response :success
   end
 
   test 'should get edit' do
-    get :edit, params: { id: @company_group.id }
+    get :edit, params: { id: @company_group.id, domain: 'company' }
     assert_response :success
   end
 
   test 'should update company group' do
-    patch :update, params: { id: @company_group.id, company_group: { name: @company_group.name } }
-    assert_redirected_to company_group_url(@company_group)
+    patch :update, params: {
+      id: @company_group.id,
+      domain: 'company',
+      company_group: {
+        name: @company_group.name
+      }
+    }
+    assert_response :redirect
   end
 
   test 'should destroy company group' do
     assert_difference('CompanyGroup.count', -1) do
-      delete :destroy, params: { id: @company_group.id }
+      delete :destroy, params: { id: @company_group.id, domain: 'company' }
     end
-    assert_redirected_to company_groups_url
+    assert_response :redirect
   end
 end

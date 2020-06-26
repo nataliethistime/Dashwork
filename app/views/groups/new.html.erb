@@ -1,0 +1,4 @@
+<% content_for(:title, "New #{@domain.capitalize} Group") %>
+<% content_for(:back_link, polymorphic_path([@domain, :groups])) %>
+<% content_for(:sidebar) { render 'groups/sidebar' } %>
+<%= render 'form', group: @group %>

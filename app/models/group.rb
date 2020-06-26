@@ -13,10 +13,13 @@
 #
 #  index_groups_on_tenant_id  (tenant_id)
 #
-require 'test_helper'
+class Group < ApplicationRecord
+  TYPES = %w{CompanyGroup ContactGroup}
 
-class CompanyGroupTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  belongs_to :tenant
+
+  validates :name, presence: true
+  validates :type, presence: true, inclusion: { in: TYPES }
+
+  decorate_with GroupDecorator
 end

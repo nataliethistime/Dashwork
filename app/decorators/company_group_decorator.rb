@@ -1,2 +1,0 @@
-class CompanyGroupDecorator < DecoratorBase
-end

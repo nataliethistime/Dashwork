@@ -1,26 +1,30 @@
 # == Schema Information
 #
-# Table name: company_groups
+# Table name: groups
 #
 #  id         :bigint           not null, primary key
 #  name       :string           not null
+#  type       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  tenant_id  :bigint
 #
 # Indexes
 #
-#  index_company_groups_on_tenant_id  (tenant_id)
+#  index_groups_on_tenant_id  (tenant_id)
 #
 
 suppliers:
   name: Suppliers
   tenant: one
+  type: CompanyGroup
 
 subcontractors:
   name: Subcontractors
   tenant: one
+  type: CompanyGroup
 
 consultants:
   name: Consultants
   tenant: one
+  type: CompanyGroup

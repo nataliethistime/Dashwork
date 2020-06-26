@@ -13,10 +13,7 @@
 #
 #  index_groups_on_tenant_id  (tenant_id)
 #
-require 'test_helper'
-
-class CompanyGroupTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class ContactGroup < Group
+  has_many :contact_contact_groups
+  has_many :contacts, through: :contact_contact_groups
 end
