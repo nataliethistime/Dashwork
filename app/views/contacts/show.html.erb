@@ -1,4 +1,5 @@
 <% content_for(:title) { @contact.decorate :name } %>
+<% content_for(:actions, actions_for(@contact, :edit, :delete)) %>
 
 <%= attributes_table(@contact, [
   :address,

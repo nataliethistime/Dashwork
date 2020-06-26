@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def actions_for(model, *actions)
+    Actions.actions_for(model, Array(actions)).html_safe
+  end
+
   def current_tenant
     current_user&.tenant
   end
