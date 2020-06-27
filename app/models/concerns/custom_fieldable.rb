@@ -2,7 +2,10 @@ module CustomFieldable
   extend ActiveSupport::Concern
 
   included do
-    has_many :custom_values, class_name: 'Value', foreign_key: :linked_record_id, dependent: :destroy
+    has_many :custom_values,
+      class_name: 'Value',
+      as: :custom_fieldable,
+      dependent: :destroy
     accepts_nested_attributes_for :custom_values
   end
 

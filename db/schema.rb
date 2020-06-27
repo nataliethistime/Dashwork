@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_064941) do
+ActiveRecord::Schema.define(version: 2020_06_27_014214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -246,10 +246,11 @@ ActiveRecord::Schema.define(version: 2020_06_26_064941) do
     t.float "float_entity"
     t.boolean "boolean_entity"
     t.bigint "field_id"
-    t.bigint "linked_record_id"
+    t.bigint "custom_fieldable_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
+    t.string "custom_fieldable_type"
     t.index ["field_id"], name: "index_values_on_field_id"
   end
 
