@@ -14,6 +14,4 @@
 #  index_groups_on_tenant_id  (tenant_id)
 #
 class CompanyGroup < Group
-  has_many :company_company_groups
-  has_many :companies, through: :company_company_groups
 end

@@ -17,6 +17,9 @@ class Group < ApplicationRecord
   TYPES = %w{CompanyGroup ContactGroup}
 
   belongs_to :tenant
+  has_many :group_memberships
+  has_many :contacts, through: :group_memberships, source: :groupable, source_type: 'Contact'
+  has_many :companies, through: :group_memberships, source: :groupable, source_type: 'Company'
 
   validates :name, presence: true
   validates :type, presence: true, inclusion: { in: TYPES }

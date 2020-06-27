@@ -35,11 +35,10 @@ class Contact < ApplicationRecord
   has_many :tasks
   has_many :project_contacts
   has_many :projects, through: :project_contacts
-  has_many :contact_contact_groups
-  has_many :groups, through: :contact_contact_groups, source: :contact_group
   # TODO: link events
 
   include CustomFieldable
+  include Groupable
 
   def self.titles
     %w[Mr Mrs Ms Dr Prof Sir]

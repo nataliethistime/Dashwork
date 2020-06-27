@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_27_014214) do
+ActiveRecord::Schema.define(version: 2020_06_27_055946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,24 +37,6 @@ ActiveRecord::Schema.define(version: 2020_06_27_014214) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
-  end
-
-  create_table "company_company_groups", force: :cascade do |t|
-    t.bigint "company_id"
-    t.bigint "company_group_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_group_id"], name: "index_company_company_groups_on_company_group_id"
-    t.index ["company_id"], name: "index_company_company_groups_on_company_id"
-  end
-
-  create_table "contact_contact_groups", force: :cascade do |t|
-    t.bigint "contact_id"
-    t.bigint "contact_group_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["contact_group_id"], name: "index_contact_contact_groups_on_contact_group_id"
-    t.index ["contact_id"], name: "index_contact_contact_groups_on_contact_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -122,6 +104,16 @@ ActiveRecord::Schema.define(version: 2020_06_27_014214) do
     t.integer "calendar_event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "group_memberships", force: :cascade do |t|
+    t.string "groupable_type"
+    t.bigint "groupable_id"
+    t.bigint "group_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_memberships_on_group_id"
+    t.index ["groupable_type", "groupable_id"], name: "index_group_memberships_on_groupable_type_and_groupable_id"
   end
 
   create_table "groups", force: :cascade do |t|

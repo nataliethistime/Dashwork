@@ -23,11 +23,10 @@ class Company < ApplicationRecord
   has_many :tasks
   has_many :project_companies
   has_many :projects, through: :project_companies
-  has_many :company_company_groups
-  has_many :groups, through: :company_company_groups, source: :company_group
   # TODO: link events
   default_scope -> { order(:name) }
   decorate_with CompanyDecorator
 
   include CustomFieldable
+  include Groupable
 end
