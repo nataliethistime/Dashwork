@@ -11,11 +11,20 @@
   <%= actions_for(@company, :edit, :delete) %>
 <% end %>
 
+<div class='subtitle'>
+  <% @company.groups.each do |group| %>
+    <%= link_to company_group_path(group) do %>
+      <div class='tag is-info is-medium'>
+        <%= group.decorate :name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 <div class='columns'>
   <div class='column is-two-thirds'>
     <%= attributes_table(@company, [
       :description,
-      :groups,
       :website,
       :email,
       :phone
