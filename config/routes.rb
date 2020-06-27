@@ -26,5 +26,6 @@ Rails.application.routes.draw do
       get '/apps' => 'tenant#edit_apps'
     end
   end
+  mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
   root to: 'application#home'
 end

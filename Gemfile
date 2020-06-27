@@ -57,6 +57,9 @@ gem 'country_select'
 # Markdown rendering
 gem 'redcarpet'
 
+# Manage the databse
+gem 'rails_admin', '~> 2.0'
+
 group :development, :test do
   # Debugging
   gem 'pry'
