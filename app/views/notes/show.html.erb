@@ -1,18 +1,23 @@
-<% content_for(:title) { @note.title } %>
+<% content_for(:title, 'Note') %>
+<% content_for(:sidebar) { render 'notes/sidebar' } %>
+<% content_for(:back_link, notes_path) %>
+<% content_for(:actions, actions_for(@note, :edit, :delete)) %>
 
-<p>
-  <pre><%= @note.content %></pre>
-</p>
+<div class='columns'>
+  <div class='column is-two-thirds'>
+    <div class='box'>
+      <%= @note.decorate :content %>
+    </div>
+  </div>
+  <% if @note.has_links? %>
+    <div class='column is-one-third'>
+      <%= attributes_table(@note, [
+        { contact: [:name_link] },
+        { company: [:name_link] },
+        { project: [:name_link] },
+      ]) %>
+    </div>
+  <% end %>
+</div>
 
-<%= attributes_table(@note, [
-  { contact: [:name_link] },
-  { company: [:name_link] },
-  { project: [:name_link] },
-]) %>
-
-<%= link_to 'Edit', edit_note_path(@note), class: 'button is-link' %>
-<%= link_to 'Delete', note_path(@note), class: 'button is-danger is-light', method: :delete, data: { confirm: 'Are you sure you want to delete this note?' } %>
-
-<p>Lasted updated: <%= @note.decorate :updated_at_ago %></p>
-
-<p><%= link_to 'Back', notes_path %></p>
+<div>Lasted updated: <%= @note.decorate :updated_at_ago %></div>

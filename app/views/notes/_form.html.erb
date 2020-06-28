@@ -1,6 +1,5 @@
-<%= simple_form_for(@note) do |f| %>
+<%= simple_form_for(note) do |f| %>
   <%= render 'common/form_errors', form: f %>
-  <%= f.input :title %>
   <%= f.input :content %>
   <%= f.association :contact %>
   <%= f.association :company %>

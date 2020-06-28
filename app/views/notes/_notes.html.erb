@@ -1,25 +1,10 @@
-<p>
-  <% if notes.empty? %>
-    You haven't created any notes yet.
-  <% else %>
-    <table class="table is-fullwidth">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Content</th>
-          <th>Last Updated</th>
-        </tr>
-      </thead>
+<%= render 'common/index_table',
+  items: notes,
+  fields: [:content, :updated_at],
+  sort_fields: [:updated_at],
+  row_classes: {
+    updated_at: 'is-hidden-mobile'
+  }
+%>
 
-      <tbody>
-        <% notes.each do |note| %>
-          <tr>
-            <td><%= link_to(sanitize(note.title), note_path(note)) %></td>
-            <td><%= sanitize note.content.truncate_words 10 %></td>
-            <td><%= note.decorate :updated_at %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
-</p>
+<%= paginate notes %>

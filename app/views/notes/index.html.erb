@@ -1,7 +1,6 @@
 <% content_for(:title, 'Notes') %>
+<% content_for(:sidebar) { render 'notes/sidebar' } %>
+<% content_for(:back_link, root_path) %>
+<% content_for(:actions, actions_for(Note, :create)) %>
 
 <%= render 'notes', notes: @notes %>
-
-<br />
-
-<%= link_to 'New Note', new_note_path, class: 'button is-link' %>

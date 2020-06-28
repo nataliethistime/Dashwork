@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   def index
-    @notes = current_tenant.notes.all
+    @q = current_tenant.notes.ransack(params[:q])
+    @notes = @q.result.page(params[:page])
   end
 
   def show
