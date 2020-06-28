@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :projects
   devise_for :users
   resources :notes
+  resources :note_groups, controller: 'groups', defaults: { domain: 'note', display_as: 'tag' }
   resources :tasks
   namespace :settings do
     resources :profile, only: [:edit, :update]

@@ -6,8 +6,8 @@
       <% end %>
     </li>
     <li>
-      <%= link_to company_groups_path, class: params[:controller] == 'groups' && params[:domain] == 'company' ? 'is-active' : nil do %>
-        <%= icon_for :groups %>&nbsp;Groups
+      <%= link_to note_groups_path, class: params[:controller] == 'groups' && params[:domain] == 'note' ? 'is-active' : nil do %>
+        <%= icon_for :groups %>&nbsp;Tags
       <% end %>
     </li>
 </aside>

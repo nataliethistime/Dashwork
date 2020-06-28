@@ -6,4 +6,8 @@ class NoteDecorator < DecoratorBase
   def content(note)
     format note.content, as: :markdown
   end
+
+  def tags(note)
+    note.groups.collect(&:name).join ', '
+  end
 end

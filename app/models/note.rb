@@ -28,6 +28,8 @@ class Note < ApplicationRecord
   default_scope -> { order(updated_at: :desc) }
   decorate_with NoteDecorator
 
+  include Groupable
+
   def has_links?
     calendar_event_id.present? ||
     company_id.present? ||

@@ -3,6 +3,16 @@
 <% content_for(:back_link, notes_path) %>
 <% content_for(:actions, actions_for(@note, :edit, :delete)) %>
 
+<div class='subtitle'>
+  <% @note.groups.each do |group| %>
+    <%= link_to note_group_path(group) do %>
+      <div class='tag is-info is-medium'>
+        <%= group.decorate :name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 <div class='columns'>
   <div class='column is-two-thirds'>
     <div class='box'>

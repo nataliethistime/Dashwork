@@ -21,6 +21,7 @@ class Tenant < ApplicationRecord
   has_many :calendar_events
   has_many :users
   has_many :notes
+  has_many :note_groups
   has_many :tasks
   has_many :companies
   has_many :company_groups

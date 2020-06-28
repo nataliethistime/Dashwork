@@ -4,5 +4,6 @@
   <%= f.association :contact %>
   <%= f.association :company %>
   <%= f.association :project %>
+  <%= f.association :groups, collection: current_tenant.note_groups.all %>
   <%= f.button :submit %>
 <% end %>

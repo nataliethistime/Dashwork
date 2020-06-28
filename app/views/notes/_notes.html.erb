@@ -1,6 +1,6 @@
 <%= render 'common/index_table',
   items: notes,
-  fields: [:content, :updated_at],
+  fields: [:content, :tags, :updated_at],
   sort_fields: [:updated_at],
   row_classes: {
     updated_at: 'is-hidden-mobile'
