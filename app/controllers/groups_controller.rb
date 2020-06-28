@@ -59,5 +59,7 @@ class GroupsController < ApplicationController
     @domain = params[:domain]
     raise 'Domain must be specified when using he groups controller' if @domain.blank?
     @domain_plural = @domain.pluralize(2)
+    @display_as = params[:display_as] || 'group'
+    @display_as_plural = @display_as.pluralize(2)
   end
 end

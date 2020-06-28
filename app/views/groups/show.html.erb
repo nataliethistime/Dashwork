@@ -5,7 +5,7 @@
 
 <% if @items.empty? %>
   <div>
-    There aren't any <%= @domain_plural %> in this group.
+    There aren't any <%= @domain_plural %> associated with this <%= @display_as %>.
   </div>
 <% else %>
   <%= render "#{@domain_plural}/#{@domain_plural}", "#{@domain_plural}": @items %>

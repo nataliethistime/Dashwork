@@ -1,4 +1,4 @@
-<% content_for(:title, "Edit #{@domain} Group") %>
+<% content_for(:title, "Edit #{@display_as.capitalize}") %>
 <% content_for(:back_link, polymorphic_path([@group])) %>
 <% content_for(:sidebar) { render 'groups/sidebar' } %>
 <%= render 'form', group: @group %>

@@ -1,5 +1,5 @@
 <%= simple_form_for(group) do |f| %>
   <%= render 'common/form_errors', form: f %>
   <%= f.input :name %>
-  <%= f.button :submit %>
+  <%= f.button :submit, "#{group.new_record? ? 'Create' : 'Update'} #{@display_as.capitalize}" %>
 <% end %>
