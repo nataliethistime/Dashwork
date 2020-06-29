@@ -26,5 +26,7 @@ icons:
   settings: fas fa-wrench
   sign_out: fas fa-power-off
   sign_up: fas fa-user-plus
+  star: far fa-star
+  starred: fas fa-star
   tasks: fas fa-tasks
   tenant_settings: fas fa-building

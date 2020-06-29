@@ -43,6 +43,12 @@ Rails.application.routes.draw do
   resources :equipment
 
   #
+  # Favourites
+  #
+  get '/favouritable/:favouritable/index' => 'favouritable#index', as: :favouritable
+  get '/favouritable/:favouritable/:id/toggle' => 'favouritable#toggle', as: :toggle_favourite
+
+  #
   # Forms
   #
   resources :form_templates

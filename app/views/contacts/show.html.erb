@@ -20,6 +20,22 @@
   <% end %>
 </div>
 
+<div class='column'>
+  <div class='column'>
+    <% if @contact.favourited_by?(current_user) %>
+      <%= link_to toggle_favourite_path(favouritable: 'contact', id: @contact.id), class: 'button is-outline' do %>
+        <%= icon_for :starred %>
+        <span>Favourited</span>
+      <% end %>
+    <% else %>
+      <%= link_to toggle_favourite_path(favouritable: 'contact', id: @contact.id), class: 'button is-outline' do %>
+        <%= icon_for :star %>
+        <span>Favourite</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <div class='columns'>
   <div class='column is-two-thirds'>
     <%= attributes_table(@contact, [

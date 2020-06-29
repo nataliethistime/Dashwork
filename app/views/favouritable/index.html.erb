@@ -1,0 +1,10 @@
+<% content_for(:title, 'Favourites') %>
+<% content_for(:sidebar) { render 'common/domain_sidebar', domain: @favouritable_plural } %>
+
+<% if @favourites.empty? %>
+  <div>
+    You haven't favourited any <%= @favouritable_plural %>.
+  </div>
+<% else %>
+  <%= render "#{@favouritable_plural}/#{@favouritable_plural}", "#{@favouritable_plural}": @favourites %>
+<% end %>

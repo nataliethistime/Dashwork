@@ -29,4 +29,5 @@ class Company < ApplicationRecord
 
   include CustomFieldable
   include Groupable
+  include Favouritable
 end

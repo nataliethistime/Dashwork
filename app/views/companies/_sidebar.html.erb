@@ -16,7 +16,9 @@
       <% end %>
     </li>
     <li>
-      <a><%= icon_for :favourites %>&nbsp;Favourites</a>
+      <%= link_to favouritable_path(favouritable: 'company'), class: params[:controller] == 'favouritable' ? 'is-active' : nil do %>
+        <%= icon_for :favourites %>&nbsp;Favourites
+      <% end %>
     </li>
     <li>
       <a><%= icon_for :import %>&nbsp;Import</a>
