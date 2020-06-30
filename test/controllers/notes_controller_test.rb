@@ -21,12 +21,7 @@ class NotesControllerTest < ActionController::TestCase
 
   test 'should create note' do
     assert_difference('Note.count') do
-      post :create, params: {
-        note: {
-          title: @note.title,
-          content: @note.content
-        }
-      }
+      post :create, params: { note: { content: @note.content } }
     end
     assert_response :redirect
   end
@@ -42,12 +37,7 @@ class NotesControllerTest < ActionController::TestCase
   end
 
   test 'should update note' do
-    patch :update, params: {
-      id: @note.id,
-      note: {
-        content: @note.content
-      }
-    }
+    patch :update, params: { id: @note.id, note: { content: @note.content } }
     assert_redirected_to note_url(@note)
   end
 
