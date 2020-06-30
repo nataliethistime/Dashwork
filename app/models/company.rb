@@ -28,6 +28,6 @@ class Company < ApplicationRecord
   decorate_with CompanyDecorator
 
   include CustomFieldable
-  include Groupable
+  include Taggable
   include Starrable
 end

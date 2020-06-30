@@ -38,7 +38,7 @@ class Contact < ApplicationRecord
   # TODO: link events
 
   include CustomFieldable
-  include Groupable
+  include Taggable
   include Starrable
 
   def self.titles

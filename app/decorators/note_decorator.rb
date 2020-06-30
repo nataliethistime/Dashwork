@@ -8,6 +8,6 @@ class NoteDecorator < DecoratorBase
   end
 
   def tags(note)
-    note.groups.collect(&:name).join ', '
+    note.tags.collect(&:name).join ', '
   end
 end

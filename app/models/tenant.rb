@@ -21,16 +21,17 @@ class Tenant < ApplicationRecord
   has_many :calendar_events
   has_many :users
   has_many :notes
-  has_many :note_groups
   has_many :tasks
   has_many :companies
-  has_many :company_groups
   has_many :contacts
-  has_many :contact_groups
   has_many :equipment
   has_many :forms
   has_many :form_templates
   has_many :projects
+
+  has_many :company_tags
+  has_many :contact_tags
+  has_many :note_tags
 
   has_many :fields
   has_many :company_fields
@@ -60,12 +61,5 @@ class Tenant < ApplicationRecord
 
   def apps
     APPS.values.select { |app| has_app? app[:id] }
-  end
-
-  def fields_for(domain)
-    case domain
-    when 'company'
-      company_fields
-    end
   end
 end

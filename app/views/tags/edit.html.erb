@@ -1,0 +1,4 @@
+<% content_for(:title, 'Edit Tag') %>
+<% content_for(:back_link, polymorphic_path([@tag])) %>
+<% content_for(:sidebar) { render 'tags/sidebar' } %>
+<%= render 'form', tag: @tag %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_022121) do
+ActiveRecord::Schema.define(version: 2020_06_30_050658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,25 +106,6 @@ ActiveRecord::Schema.define(version: 2020_06_30_022121) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "group_memberships", force: :cascade do |t|
-    t.string "groupable_type"
-    t.bigint "groupable_id"
-    t.bigint "group_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["group_id"], name: "index_group_memberships_on_group_id"
-    t.index ["groupable_type", "groupable_id"], name: "index_group_memberships_on_groupable_type_and_groupable_id"
-  end
-
-  create_table "groups", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "tenant_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "type"
-    t.index ["tenant_id"], name: "index_groups_on_tenant_id"
-  end
-
   create_table "notes", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -174,6 +155,25 @@ ActiveRecord::Schema.define(version: 2020_06_30_022121) do
     t.bigint "user_id"
     t.index ["starrable_type", "starrable_id"], name: "index_stars_on_starrable_type_and_starrable_id"
     t.index ["user_id"], name: "index_stars_on_user_id"
+  end
+
+  create_table "tag_assignments", force: :cascade do |t|
+    t.string "taggable_type"
+    t.bigint "taggable_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_tag_assignments_on_tag_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_tag_assignments_on_taggable_type_and_taggable_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "tenant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
+    t.index ["tenant_id"], name: "index_tags_on_tenant_id"
   end
 
   create_table "tasks", force: :cascade do |t|

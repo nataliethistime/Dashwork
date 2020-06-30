@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   #
   resources :companies
   resources :company_fields, controller: 'fields', defaults: { domain: 'company' }
-  resources :company_groups, controller: 'groups', defaults: { domain: 'company' }
+  resources :company_tags, controller: 'tags', defaults: { type: 'company' }
   get '/companies/:id/notes' => 'companies#show_notes', as: :company_notes
   get '/companies/:id/contacts' => 'companies#show_contacts', as: :company_contacts
   get '/companies/:id/tasks' => 'companies#show_tasks', as: :company_tasks
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   #
   resources :contacts
   resources :contact_fields, controller: 'fields', defaults: { domain: 'contact' }
-  resources :contact_groups, controller: 'groups', defaults: { domain: 'contact' }
+  resources :contact_tags, controller: 'tags', defaults: { type: 'contact' }
   get '/contacts/:id/notes' => 'contacts#show_notes', as: :contact_notes
   get '/contacts/:id/tasks' => 'contacts#show_tasks', as: :contact_tasks
   get '/contacts/:id/projects' => 'contacts#show_projects', as: :contact_projects
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   # Notes
   #
   resources :notes
-  resources :note_groups, controller: 'groups', defaults: { domain: 'note', display_as: 'tag' }
+  resources :note_tags, controller: 'tags', defaults: { type: 'note' }
 
   #
   # Projects

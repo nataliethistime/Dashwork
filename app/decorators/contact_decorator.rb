@@ -49,7 +49,7 @@ class ContactDecorator < DecoratorBase
     format contact.description, as: :markdown
   end
 
-  def groups(contact)
-    contact.groups.collect(&:name).join ', '
+  def tags(contact)
+    contact.tags.collect(&:name).join ', '
   end
 end

@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @q = current_tenant.notes.includes(:groups).ransack(params[:q])
+    @q = current_tenant.notes.includes(:tags).ransack(params[:q])
     @notes = @q.result.page(params[:page])
   end
 
@@ -45,7 +45,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :content, :contact_id, :company_id, :project_id, group_ids: [])
+    params.require(:note).permit(:title, :content, :contact_id, :company_id, :project_id, tag_ids: [])
   end
 
   def new_note_params

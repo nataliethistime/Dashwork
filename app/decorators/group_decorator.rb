@@ -1,2 +1,0 @@
-class GroupDecorator < DecoratorBase
-end

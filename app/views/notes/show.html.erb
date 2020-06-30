@@ -4,10 +4,10 @@
 <% content_for(:actions, actions_for(@note, :edit, :delete)) %>
 
 <div class='subtitle'>
-  <% @note.groups.each do |group| %>
-    <%= link_to note_group_path(group) do %>
+  <% @note.tags.each do |tag| %>
+    <%= link_to note_tag_path(tag) do %>
       <div class='tag is-info is-medium'>
-        <%= group.decorate :name %>
+        <%= tag.decorate :name %>
       </div>
     <% end %>
   <% end %>

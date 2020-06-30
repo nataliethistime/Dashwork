@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @q = current_tenant.companies.ransack(params[:q])
-    @companies = @q.result.includes(:groups).page(params[:page])
+    @companies = @q.result.includes(:tags).page(params[:page])
   end
 
   # GET /companies/1
@@ -100,7 +100,7 @@ class CompaniesController < ApplicationController
       :email,
       :phone,
       :address,
-      group_ids: [],
+      tag_ids: [],
       custom_values_attributes: {}
     )
   end

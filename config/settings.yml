@@ -15,7 +15,6 @@ icons:
   form_templates: fas fa-box
   forms: fas fa-file-signature
   go_to: fas fa-arrow-right
-  groups: fas fa-tags
   help: fas fa-question-circle
   import: fas fa-upload
   log_in: fas fa-sign-in-alt
@@ -27,5 +26,6 @@ icons:
   sign_up: fas fa-user-plus
   star: far fa-star
   starred: fas fa-star
+  tags: fas fa-tags
   tasks: fas fa-tasks
   tenant_settings: fas fa-building

@@ -12,10 +12,10 @@
 <% end %>
 
 <div class='subtitle'>
-  <% @company.groups.each do |group| %>
-    <%= link_to company_group_path(group) do %>
+  <% @company.tags.each do |tag| %>
+    <%= link_to company_tag_path(tag) do %>
       <div class='tag is-info is-medium'>
-        <%= group.decorate :name %>
+        <%= tag.decorate :name %>
       </div>
     <% end %>
   <% end %>

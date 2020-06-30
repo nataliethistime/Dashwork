@@ -58,7 +58,7 @@ class FieldsController < ApplicationController
 
   def set_domain
     @domain = params[:domain]
-    raise 'Domain must be specified when using he groups controller' if @domain.blank?
+    raise 'Domain must be specified when using the fields controller' if @domain.blank?
     @domain_plural = @domain.pluralize(2)
   end
 end

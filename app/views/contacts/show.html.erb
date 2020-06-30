@@ -11,10 +11,10 @@
 <% end %>
 
 <div class='subtitle'>
-  <% @contact.groups.each do |group| %>
-    <%= link_to contact_group_path(group) do %>
+  <% @contact.tags.each do |tag| %>
+    <%= link_to contact_tag_path(tag) do %>
       <div class='tag is-info is-medium'>
-        <%= group.decorate :name %>
+        <%= tag.decorate :name %>
       </div>
     <% end %>
   <% end %>

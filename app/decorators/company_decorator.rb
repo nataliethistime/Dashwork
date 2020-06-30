@@ -19,8 +19,8 @@ class CompanyDecorator < DecoratorBase
     format company.address, as: :google_maps_search_link
   end
 
-  def groups(company)
-    company.groups.collect(&:name).join ', '
+  def tags(company)
+    company.tags.collect(&:name).join ', '
   end
 
   def name_link(company)

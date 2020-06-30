@@ -1,12 +1,12 @@
 <%= render(
   'common/index_table',
   items: companies,
-  fields: [:name, :website, :email, :phone, :groups],
+  fields: [:name, :website, :email, :phone, :tags],
   sort_fields: [:name],
   row_classes: {
     website: 'is-hidden-mobile',
     email: 'is-hidden-mobile',
-    groups: 'is-hidden-touch',
+    tags: 'is-hidden-touch',
   }
 ) %>
 

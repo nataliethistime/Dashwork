@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: groups
+# Table name: tags
 #
 #  id         :bigint           not null, primary key
 #  name       :string           not null
@@ -11,12 +11,7 @@
 #
 # Indexes
 #
-#  index_groups_on_tenant_id  (tenant_id)
+#  index_tags_on_tenant_id  (tenant_id)
 #
-require 'test_helper'
-
-class CompanyGroupTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class ContactTag < Tag
 end
