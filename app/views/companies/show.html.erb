@@ -23,15 +23,15 @@
 
 <div class='column'>
   <div class='column'>
-    <% if @company.favourited_by?(current_user) %>
-      <%= link_to toggle_favourite_path(favouritable: 'company', id: @company.id), class: 'button is-outline' do %>
+    <% if @company.starred_by?(current_user) %>
+      <%= link_to toggle_star_path(type: 'company', id: @company.id), class: 'button is-outline' do %>
         <%= icon_for :starred %>
-        <span>Favourited</span>
+        <span>Starred</span>
       <% end %>
     <% else %>
-      <%= link_to toggle_favourite_path(favouritable: 'company', id: @company.id), class: 'button is-outline' do %>
+      <%= link_to toggle_star_path(type: 'company', id: @company.id), class: 'button is-outline' do %>
         <%= icon_for :star %>
-        <span>Favourite</span>
+        <span>Star</span>
       <% end %>
     <% end %>
   </div>

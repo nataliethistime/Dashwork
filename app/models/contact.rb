@@ -39,7 +39,7 @@ class Contact < ApplicationRecord
 
   include CustomFieldable
   include Groupable
-  include Favouritable
+  include Starrable
 
   def self.titles
     %w[Mr Mrs Ms Dr Prof Sir]

@@ -16,8 +16,8 @@
       <% end %>
     </li>
     <li>
-      <%= link_to favouritable_path(favouritable: 'company'), class: params[:controller] == 'favouritable' ? 'is-active' : nil do %>
-        <%= icon_for :favourites %>&nbsp;Favourites
+      <%= link_to stars_path(type: 'company'), class: params[:controller] == 'stars' ? 'is-active' : nil do %>
+        <%= icon_for :starred %>&nbsp;Stars
       <% end %>
     </li>
     <li>

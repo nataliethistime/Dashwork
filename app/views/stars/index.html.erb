@@ -1,0 +1,10 @@
+<% content_for(:title, 'Stars') %>
+<% content_for(:sidebar) { render 'common/domain_sidebar', domain: @type_plural } %>
+
+<% if @stars.empty? %>
+  <div>
+    You haven't starred any <%= @type_plural %>.
+  </div>
+<% else %>
+  <%= render "#{@type_plural}/#{@type_plural}", "#{@type_plural}": @stars %>
+<% end %>

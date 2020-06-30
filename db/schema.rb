@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_28_043638) do
+ActiveRecord::Schema.define(version: 2020_06_30_022121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,14 +70,6 @@ ActiveRecord::Schema.define(version: 2020_06_28_043638) do
     t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "favourites", force: :cascade do |t|
-    t.string "favouritable_type"
-    t.bigint "favouritable_id"
-    t.bigint "user_id"
-    t.index ["favouritable_type", "favouritable_id"], name: "index_favourites_on_favouritable_type_and_favouritable_id"
-    t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
   create_table "fields", force: :cascade do |t|
@@ -174,6 +166,14 @@ ActiveRecord::Schema.define(version: 2020_06_28_043638) do
     t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.string "starrable_type"
+    t.bigint "starrable_id"
+    t.bigint "user_id"
+    t.index ["starrable_type", "starrable_id"], name: "index_stars_on_starrable_type_and_starrable_id"
+    t.index ["user_id"], name: "index_stars_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|

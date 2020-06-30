@@ -53,9 +53,9 @@ class User < ApplicationRecord
   has_many :forms
   has_many :projects
 
-  has_many :favourites
-  has_many :favourite_companies, through: :favourites, source: :favouritable, source_type: 'Company'
-  has_many :favourite_contacts, through: :favourites, source: :favouritable, source_type: 'Contact'
+  has_many :stars
+  has_many :starred_companies, through: :stars, source: :starrable, source_type: 'Company'
+  has_many :starred_contacts, through: :stars, source: :starrable, source_type: 'Contact'
 
   decorate_with UserDecorator
 end
