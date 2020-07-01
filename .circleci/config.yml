@@ -16,8 +16,8 @@ jobs:
       # specifying that we use `yarn` and to cache dependencies with `yarn.lock`
       # learn more: https://circleci.com/docs/2.0/caching/
       - node/install-packages:
-        pkg-manager: yarn
-        cache-key: 'yarn.lock'
+          pkg-manager: yarn
+          cache-key: 'yarn.lock'
 
   test:
     docker:
@@ -33,8 +33,8 @@ jobs:
       - checkout
       - ruby/install-deps
       - node/install-packages:
-        pkg-manager: yarn
-        cache-key: 'yarn.lock'
+          pkg-manager: yarn
+          cache-key: 'yarn.lock'
       # Here we make sure that the secondary container boots
       # up before we run operations on the database.
       - run:
