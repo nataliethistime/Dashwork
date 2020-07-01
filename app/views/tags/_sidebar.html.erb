@@ -1,7 +1,0 @@
-<%
-  begin
-    content_for(:sidebar) { render "#{@type_plural}/sidebar" }
-  rescue ActionView::MissingTemplate
-    nil
-  end
-%>

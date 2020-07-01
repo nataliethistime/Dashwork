@@ -51,4 +51,8 @@ class NotesController < ApplicationController
   def new_note_params
     params.permit(:contact_id, :company_id, :project_id)
   end
+
+  def sidebar
+    :notes
+  end
 end

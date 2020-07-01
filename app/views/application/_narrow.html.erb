@@ -1,9 +1,9 @@
 <section class='section'>
   <div class='container'>
     <div class='columns'>
-      <% if content_for?(:sidebar) %>
+      <% if @sidebar.present? %>
         <div class='column is-2'>
-          <%= yield :sidebar %>
+          <%= render "#{@sidebar}/sidebar" %>
         </div>
       <% end %>
       <div class='column'>

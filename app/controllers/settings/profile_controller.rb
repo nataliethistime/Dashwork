@@ -12,6 +12,10 @@ class Settings::ProfileController < ApplicationController
 
   private
 
+  def sidebar
+    :settings
+  end
+
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :country, :time_zone)
   end

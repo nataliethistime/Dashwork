@@ -1,5 +1,4 @@
 <% content_for(:title, 'Company Settings') %>
-<% content_for(:sidebar) { render 'settings/sidebar' } %>
 
 <%= simple_form_for [:settings, @tenant] do |f| %>
   <%= render 'common/form_errors', form: f %>

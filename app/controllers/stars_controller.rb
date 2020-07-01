@@ -21,6 +21,10 @@ class StarsController < ApplicationController
     current_tenant.public_send @type_plural
   end
 
+  def sidebar
+    params[:type].pluralize(2)
+  end
+
   def set_type
     @type = params[:type]
     @type_plural = @type.pluralize(2)

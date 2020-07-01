@@ -69,6 +69,10 @@ class ContactsController < ApplicationController
     @contact = current_tenant.contacts.find(params[:id])
   end
 
+  def sidebar
+    :contacts
+  end
+
   # Only allow a list of trusted parameters through.
   def contact_params
     params.require(:contact).permit(

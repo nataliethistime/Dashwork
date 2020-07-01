@@ -41,6 +41,10 @@ class Settings::TenantController < ApplicationController
     params.require(:tenant).permit(:name, *app_names_as_params)
   end
 
+  def sidebar
+    :settings
+  end
+
   def app_names_as_params
     Tenant.all_apps.dup.map { |app| "#{app}_app" }
   end

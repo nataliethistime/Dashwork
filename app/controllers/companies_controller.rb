@@ -91,6 +91,10 @@ class CompaniesController < ApplicationController
     @company = current_tenant.companies.find(params[:id])
   end
 
+  def sidebar
+    :companies
+  end
+
   # Only allow a list of trusted parameters through.
   def company_params
     params.require(:company).permit(

@@ -56,6 +56,10 @@ class FieldsController < ApplicationController
     current_tenant.public_send "#{@domain}_fields"
   end
 
+  def sidebar
+    params[:domain].pluralize(2)
+  end
+
   def set_domain
     @domain = params[:domain]
     raise 'Domain must be specified when using the fields controller' if @domain.blank?

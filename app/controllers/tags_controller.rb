@@ -55,6 +55,10 @@ class TagsController < ApplicationController
     current_tenant.public_send "#{@type}_tags"
   end
 
+  def sidebar
+    params[:type].pluralize(2)
+  end
+
   def set_type
     @type = params[:type]
     @type_plural = @type.pluralize(2)
