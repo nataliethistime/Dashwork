@@ -7,20 +7,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7-node
-    executor: ruby/default
-    steps:
-      - checkout # pull down our git code.
-      - ruby/install-deps # use the ruby orb to install dependencies
-      # use the node orb to install our packages
-      # specifying that we use `yarn` and to cache dependencies with `yarn.lock`
-      # learn more: https://circleci.com/docs/2.0/caching/
-      - node/install-packages:
-          pkg-manager: yarn
-
-  test:
-    docker:
-      - image: cimg/ruby:2.7-node
+      - image: circleci/ruby:2.7.0-node
       - image: circleci/postgres:9.5-alpine
         environment:
           POSTGRES_USER: postgres
@@ -28,13 +15,12 @@ jobs:
           POSTGRES_PASSWORD: flickthepaperwork
     environment:
       RAILS_ENV: test
+    executor: ruby/default
     steps:
       - checkout
       - ruby/install-deps
       - node/install-packages:
-          pkg-manager: yarn
-      # Here we make sure that the secondary container boots
-      # up before we run operations on the database.
+        pkg-manager: yarn
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -44,12 +30,3 @@ jobs:
       - run:
           name: Run Rails tests
           command: bundle exec rails test
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build
