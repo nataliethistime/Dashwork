@@ -3,7 +3,7 @@
   <ul class="menu-list">
     <li>
       <%= link_to edit_settings_profile_path(current_user), class: current_page?(edit_settings_profile_path(current_user)) ? 'is-active' : nil do %>
-        <%= icon_for :profile %>&nbsp;Profile
+        <%= icon_for :profile %><span>Profile</span>
       <% end %>
     </li>
   </ul>
@@ -11,12 +11,12 @@
   <ul class="menu-list">
     <li>
       <%= link_to edit_settings_tenant_path(current_tenant), class: current_page?(edit_settings_tenant_path(current_tenant)) ? 'is-active' : nil do %>
-        <%= icon_for :tenant_settings %>&nbsp;Company Settings
+        <%= icon_for :tenant_settings %><span>Company Settings</span>
       <% end %>
     </li>
     <li>
       <%= link_to settings_tenant_apps_path(current_tenant), class: current_page?(settings_tenant_apps_path(current_tenant)) ? 'is-active' : nil do %>
-        <%= icon_for :apps %>&nbsp;Manage Apps
+        <%= icon_for :apps %><span>Manage Apps</span>
       <% end %>
     </li>
   </ul>

@@ -2,12 +2,12 @@
   <ul class="menu-list">
     <li>
       <%= link_to notes_path, class: params[:controller] == 'notes' ? 'is-active' : nil do %>
-        <%= icon_for :notes %>&nbsp;Notes
+        <%= icon_for :notes %><span>Notes</span>
       <% end %>
     </li>
     <li>
       <%= link_to note_tags_path, class: params[:controller] == 'tags' ? 'is-active' : nil do %>
-        <%= icon_for :tags %>&nbsp;Tags
+        <%= icon_for :tags %><span>Tags</span>
       <% end %>
     </li>
 </aside>

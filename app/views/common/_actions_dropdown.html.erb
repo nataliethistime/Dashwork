@@ -3,7 +3,7 @@
   <div class='navbar-dropdown'>
     <% items.each do |item| %>
       <%= link_to item[:path], class: 'navbar-item' do %>
-        <%= icon_for item[:icon] %>&nbsp; <%= item[:label] %>
+        <%= icon_for item[:icon] %><span><%= item[:label] %></span>
       <% end %>
     <% end %>
   </div>

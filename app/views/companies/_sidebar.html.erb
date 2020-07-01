@@ -2,32 +2,32 @@
   <ul class="menu-list">
     <li>
       <%= link_to companies_path, class: params[:controller] == 'companies' ? 'is-active' : nil do %>
-        <%= icon_for :companies %>&nbsp;Companies
+        <%= icon_for :companies %><span>Companies</span>
       <% end %>
     </li>
     <li>
       <%= link_to company_tags_path, class: params[:controller] == 'tags' ? 'is-active' : nil do %>
-        <%= icon_for :tags %>&nbsp;Tags
+        <%= icon_for :tags %><span>Tags</span>
       <% end %>
     </li>
     <li>
       <%= link_to company_fields_path, class: params[:controller] == 'fields' && params[:domain] == 'company' ? 'is-active' : nil do %>
-        <%= icon_for :custom_fields %>&nbsp;Custom Fields
+        <%= icon_for :custom_fields %><span>Custom Fields</span>
       <% end %>
     </li>
     <li>
       <%= link_to stars_path(type: 'company'), class: params[:controller] == 'stars' ? 'is-active' : nil do %>
-        <%= icon_for :starred %>&nbsp;Stars
+        <%= icon_for :starred %><span>Stars</span>
       <% end %>
     </li>
     <li>
-      <a><%= icon_for :import %>&nbsp;Import</a>
+      <a><%= icon_for :import %><span>Import</span></a>
     </li>
     <li>
-      <a><%= icon_for :export %>&nbsp;Export</a>
+      <a><%= icon_for :export %><span>Export</span></a>
     </li>
     <li>
-      <a><%= icon_for :help %>&nbsp;Help</a>
+      <a><%= icon_for :help %><span>Help</span></a>
     </li>
   </ul>
 </aside>

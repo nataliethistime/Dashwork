@@ -61,5 +61,9 @@ table.table:not(.has-last-column-aligned-left) {
 }
 
 textarea {
-  min-height: 6em; /* 2 rows approx */
+  min-height: 6em;
+}
+
+span.icon + span {
+  margin: 0 0.2em;
 }

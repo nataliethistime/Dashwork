@@ -4,7 +4,7 @@
 
 <nav class='panel is-info'>
   <p class='panel-heading'>
-    <%= icon_for(scope) %>&nbsp;<%= pluralize(items.count, singular.capitalize) %>
+    <%= icon_for(scope) %><span><%= pluralize(items.count, singular.capitalize) %></span>
   </p>
 
   <% items.limit(10).each do |item| %>
@@ -13,10 +13,10 @@
 
   <div class='panel-block'>
     <%= link_to polymorphic_path([parent, scope]), class: 'button is-link is-outlined is-fullwidth mr-1' do %>
-      View All &nbsp;<%= icon_for(:go_to) %>
+      <span>View All</span><%= icon_for(:go_to) %>
     <% end %>
     <%= link_to polymorphic_path([:new, singular], { "#{parent.model_name.to_s.downcase}_id": parent.id }), class: 'button is-link is-outlined is-fullwidth ml-1' do %>
-      <%= icon_for :create %>&nbsp; Create
+      <%= icon_for :create %><span>Create</span>
     <% end %>
   </div>
 </nav>
