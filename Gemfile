@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.7.0'
 
 # Yes, it's a rails app
-gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
+gem 'rails', '~> 6.0.3.2'
 
 # Postgress database
 gem 'pg'
@@ -15,7 +15,7 @@ gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 5.x'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
