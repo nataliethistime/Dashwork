@@ -1,5 +1,14 @@
 @import 'bulma/bulma.sass';
 
+/*
+ * Unset the font smoothing options that Bulma set so that the user's font smoothing option prevails.
+ * For users who can & do disable font smoothing (such as myself) this means that fonts look nicer.
+ */
+html {
+  -moz-osx-font-smoothing: unset;
+  -webkit-font-smoothing: unset;
+}
+
 html, body {
   background-color: #efeef7;
 }
