@@ -17,7 +17,6 @@ jobs:
       # learn more: https://circleci.com/docs/2.0/caching/
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: 'yarn.lock'
 
   test:
     docker:
@@ -34,18 +33,17 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: 'yarn.lock'
       # Here we make sure that the secondary container boots
       # up before we run operations on the database.
       - run:
-        name: Wait for DB
-        command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
-        name: Database setup
-        command: bundle exec rails db:schema:load --trace
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
       - run:
-        name: Run Rails tests
-        command: bundle exec rails test
+          name: Run Rails tests
+          command: bundle exec rails test
 
 workflows:
   version: 2
@@ -53,5 +51,5 @@ workflows:
     jobs:
       - build
       - test:
-        requires:
-          - build
+          requires:
+            - build
