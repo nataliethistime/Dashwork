@@ -1,22 +1,22 @@
 <aside class="menu">
   <ul class="menu-list">
     <li>
-      <%= link_to companies_path, class: params[:controller] == 'companies' ? 'is-active' : nil do %>
+      <%= link_to companies_path, class: controller_name == 'companies' ? 'is-active' : nil do %>
         <%= icon_for :companies %><span>Companies</span>
       <% end %>
     </li>
     <li>
-      <%= link_to company_tags_path, class: params[:controller] == 'tags' ? 'is-active' : nil do %>
+      <%= link_to company_tags_path, class: controller_name == 'tags' ? 'is-active' : nil do %>
         <%= icon_for :tags %><span>Tags</span>
       <% end %>
     </li>
     <li>
-      <%= link_to company_fields_path, class: params[:controller] == 'fields' && params[:domain] == 'company' ? 'is-active' : nil do %>
+      <%= link_to company_fields_path, class: controller_name == 'fields' && params[:domain] == 'company' ? 'is-active' : nil do %>
         <%= icon_for :custom_fields %><span>Custom Fields</span>
       <% end %>
     </li>
     <li>
-      <%= link_to stars_path(type: 'company'), class: params[:controller] == 'stars' ? 'is-active' : nil do %>
+      <%= link_to stars_path(type: 'company'), class: controller_name == 'stars' ? 'is-active' : nil do %>
         <%= icon_for :starred %><span>Stars</span>
       <% end %>
     </li>
