@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class='column is-narrow'>
-        <div class='is-aligned-right is-hidden-mobile'>
+        <div class='has-text-right is-hidden-mobile'>
           <% if @company.starred_by?(current_user) %>
             <%= link_to toggle_star_path(type: 'company', id: @company.id), class: 'button is-outline' do %>
               <%= icon_for :starred %>
