@@ -18,9 +18,12 @@ jobs:
     executor: ruby/default
     steps:
       - checkout
+      - run: bundle --version
+      - run: node --version
+      - run: yarn --version
       - ruby/install-deps
       - node/install-packages:
-        pkg-manager: yarn
+          pkg-manager: yarn
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
