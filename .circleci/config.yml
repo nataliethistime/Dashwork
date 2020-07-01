@@ -1,0 +1,57 @@
+version: 2.1
+
+orbs:
+  ruby: circleci/ruby@1.0.4
+  node: circleci/node@3.0.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.7-node
+    executor: ruby/default
+    steps:
+      - checkout # pull down our git code.
+      - ruby/install-deps # use the ruby orb to install dependencies
+      # use the node orb to install our packages
+      # specifying that we use `yarn` and to cache dependencies with `yarn.lock`
+      # learn more: https://circleci.com/docs/2.0/caching/
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: 'yarn.lock'
+
+  test:
+    docker:
+      - image: cimg/ruby:2.7-node
+      - image: circleci/postgres:9.5-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: dashwork_test
+          POSTGRES_PASSWORD: flickthepaperwork
+    environment:
+      RAILS_ENV: test
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: 'yarn.lock'
+      # Here we make sure that the secondary container boots
+      # up before we run operations on the database.
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
+      - run:
+        name: Run Rails tests
+        command: bundle exec rails test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
