@@ -10,6 +10,12 @@ docker_config: &docker_config
   username: postgres
   password: flickthepaperwork
 
+ci_config: &ci_config
+  <<: *default_config
+  host: <%= ENV['PGHOST'] %>
+  username: <%= ENV['PGUSER'] %>
+  password: <%= ENV['PGPASSWORD'] %>
+
 development:
   <<: *docker_config
   database: dashwork_development
@@ -18,7 +24,11 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
+  <% if ENV['CIRCLECI'].present? %>
+  <<: *ci_config
+  <% else %>
   <<: *docker_config
+  <% end %>
   database: dashwork_test
 
 production:
