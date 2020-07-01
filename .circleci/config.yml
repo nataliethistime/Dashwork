@@ -12,12 +12,13 @@ jobs:
         environment:
           POSTGRES_USER: dashwork_circleci
           POSTGRES_DB: dashwork_test
-          POSTGRES_PASSWORD: ''
+          POSTGRES_PASSWORD: lets_test_this_thing
     environment:
       RAILS_ENV: test
-      PGHOST: 127.0.0.1
-      PGUSER: dashwork_circleci
-      PGPASSWORD: ''
+      CI_DB_HOST: 127.0.0.1
+      CI_DB_USER: dashwork_circleci
+      CI_DB: dashwork_circle_ci_test
+      CI_DB_PASSWORD: lets_test_this_thing
     executor: ruby/default
     steps:
       - checkout

@@ -12,9 +12,10 @@ docker_config: &docker_config
 
 ci_config: &ci_config
   <<: *default_config
-  host: <%= ENV['PGHOST'] %>
-  username: <%= ENV['PGUSER'] %>
-  password: <%= ENV['PGPASSWORD'] %>
+  host: <%= ENV['CI_DB_HOST'] %>
+  username: <%= ENV['CI_DB_USER'] %>
+  password: <%= ENV['CI_DB_PASSWORD'] %>
+  database: <%= ENV['CI_DB'] %>
 
 development:
   <<: *docker_config
@@ -28,8 +29,8 @@ test:
   <<: *ci_config
   <% else %>
   <<: *docker_config
-  <% end %>
   database: dashwork_test
+  <% end %>
 
 production:
   <<: *default_config
