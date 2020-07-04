@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   def index
-    @q = current_tenant.notes.includes(:tags).ransack(params[:q])
+    @q = current_tenant.notes.includes(:user, :tags).ransack(params[:q])
     @notes = @q.result.page(params[:page])
   end
 
