@@ -1,12 +1,12 @@
 <div class='box'>
-  <table class='table is-narrow is-fullwidth has-last-column-aligned-left'>
-    <tbody>
-      <% attributes.each do |key, value| %>
-        <tr>
-          <th><%= key %></th>
-          <td><%= value %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% attributes.each do |key, value| %>
+    <div class='columns' style='border-bottom: 1px solid hsl(0, 0%, 86%);'>
+      <div class='column has-text-centered-mobile'>
+        <strong><%= key %></strong>
+      </div>
+      <div class='column'>
+        <%= value %>
+      </div>
+    </div>
+  <% end %>
 </div>
