@@ -1,0 +1,15 @@
+<% content_for(:title, "Tasks | #{@parent.decorate :name}") %>
+<% content_for(:back_link, polymorphic_path([@parent])) %>
+<% content_for(:actions) do %>
+  <%= link_to new_task_path("#{@parent.model_name.singular}_id" => @parent.id), class: 'navbar-item' do %>
+    <%= icon_for :create %>
+  <% end %>
+<% end %>
+
+<% if @tasks.empty? %>
+  <div>
+    There aren't any tasks linked to this <%= @type %>.
+  </div>
+<% else %>
+  <%= render 'tasks/tasks', tasks: @tasks %>
+<% end %>

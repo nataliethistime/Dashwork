@@ -1,0 +1,15 @@
+<% content_for(:title, "Contacts | #{@parent.decorate :name}") %>
+<% content_for(:back_link, polymorphic_path([@parent])) %>
+<% content_for(:actions) do %>
+  <%= link_to new_contact_path("#{@parent.model_name.singular}_id" => @parent.id), class: 'navbar-item' do %>
+    <%= icon_for :create %>
+  <% end %>
+<% end %>
+
+<% if @contacts.empty? %>
+  <div>
+    There aren't any contacts linked to this <%= @type %>.
+  </div>
+<% else %>
+  <%= render 'contacts/contacts', contacts: @contacts %>
+<% end %>

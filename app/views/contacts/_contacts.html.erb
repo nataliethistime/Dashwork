@@ -1,5 +1,5 @@
 <%= render 'common/index_table',
-  items: contacts.includes(:tags),
+  items: contacts,
   fields: [:name, :website, :email, :phone, :tags],
   row_classes: {
     website: 'is-hidden-mobile',

@@ -22,10 +22,10 @@ Rails.application.routes.draw do
   resources :companies
   resources :company_fields, controller: 'fields', defaults: { domain: 'company' }
   resources :company_tags, controller: 'tags', defaults: { type: 'company' }
-  get '/companies/:id/notes' => 'companies#show_notes', as: :company_notes
-  get '/companies/:id/contacts' => 'companies#show_contacts', as: :company_contacts
-  get '/companies/:id/tasks' => 'companies#show_tasks', as: :company_tasks
-  get '/companies/:id/projects' => 'companies#show_projects', as: :company_projects
+  get '/companies/:id/contacts' => 'links#contacts', as: :company_contacts, defaults: { type: 'company' }
+  get '/companies/:id/notes' => 'links#notes', as: :company_notes, defaults: { type: 'company' }
+  get '/companies/:id/projects' => 'links#projects', as: :company_projects, defaults: { type: 'company' }
+  get '/companies/:id/tasks' => 'links#tasks', as: :company_tasks, defaults: { type: 'company' }
 
   #
   # Contacts
@@ -33,9 +33,9 @@ Rails.application.routes.draw do
   resources :contacts
   resources :contact_fields, controller: 'fields', defaults: { domain: 'contact' }
   resources :contact_tags, controller: 'tags', defaults: { type: 'contact' }
-  get '/contacts/:id/notes' => 'contacts#show_notes', as: :contact_notes
-  get '/contacts/:id/tasks' => 'contacts#show_tasks', as: :contact_tasks
-  get '/contacts/:id/projects' => 'contacts#show_projects', as: :contact_projects
+  get '/contacts/:id/notes' => 'links#notes', as: :contact_notes, defaults: { type: 'contact' }
+  get '/contacts/:id/projects' => 'links#projects', as: :contact_projects, defaults: { type: 'contact' }
+  get '/contacts/:id/tasks' => 'links#tasks', as: :contact_tasks, defaults: { type: 'contact' }
 
   #
   # Equipment

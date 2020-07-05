@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = current_tenant.contacts.page(params[:page])
+    @contacts = current_tenant.contacts.includes(:tags).page(params[:page])
   end
 
   # GET /contacts/1

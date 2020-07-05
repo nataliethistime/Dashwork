@@ -22,18 +22,6 @@ class CompaniesController < ApplicationController
   def show
   end
 
-  def show_notes
-  end
-
-  def show_contcts
-  end
-
-  def show_tasks
-  end
-
-  def show_projects
-  end
-
   # GET /companies/new
   def new
     @company = current_tenant.companies.new

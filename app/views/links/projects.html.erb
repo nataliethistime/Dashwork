@@ -1,0 +1,15 @@
+<% content_for(:title, "Projects | #{@parent.decorate :name}") %>
+<% content_for(:back_link, polymorphic_path([@parent])) %>
+<% content_for(:actions) do %>
+  <%= link_to new_note_path("#{@parent.model_name.singular}_id" => @parent.id), class: 'navbar-item' do %>
+    <%= icon_for :create %>
+  <% end %>
+<% end %>
+
+<% if @projects.empty? %>
+  <div>
+    There aren't any prjects linked to this <%= @type %>.
+  </div>
+<% else %>
+  <%= render 'projects/projects', projects: @projects %>
+<% end %>
