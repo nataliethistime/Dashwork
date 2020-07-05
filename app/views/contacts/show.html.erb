@@ -1,4 +1,5 @@
 <% content_for(:title) { @contact.decorate :name } %>
+<% content_for(:hide_body_title, true) %>
 <% content_for(:back_link, contacts_path) %>
 <% content_for(:actions) do %>
   <%= actions_dropdown(:create, [
@@ -9,34 +10,37 @@
   <%= actions_for(@contact, :edit, :delete) %>
 <% end %>
 
-<div class='subtitle'>
-  <% @contact.tags.each do |tag| %>
-    <%= link_to contact_tag_path(tag) do %>
-      <div class='tag is-info is-medium'>
-        <%= tag.decorate :name %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-
-<div class='column'>
-  <div class='column'>
-    <% if @contact.starred_by?(current_user) %>
-      <%= link_to toggle_star_path(type: 'contact', id: @contact.id), class: 'button is-outline' do %>
-        <%= icon_for :starred %>
-        <span>Starred</span>
-      <% end %>
-    <% else %>
-      <%= link_to toggle_star_path(type: 'contact', id: @contact.id), class: 'button is-outline' do %>
-        <%= icon_for :star %>
-        <span>Star</span>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
 <div class='columns'>
   <div class='column is-two-thirds'>
+    <div class='columns'>
+      <div class='column'>
+        <h1 class='title'><%= @contact.decorate :name %></h1>
+        <div class='subtitle'>
+          <% @contact.tags.each do |tag| %>
+            <%= link_to contact_tag_path(tag) do %>
+              <div class='tag is-info is-medium'>
+                <%= tag.decorate :name %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class='column is-narrow'>
+        <div class='has-text-right is-hidden-mobile'>
+          <% if @contact.starred_by?(current_user) %>
+            <%= link_to toggle_star_path(type: 'contact', id: @contact.id), class: 'button is-outline' do %>
+              <%= icon_for :starred %>
+              <span>Starred</span>
+            <% end %>
+          <% else %>
+            <%= link_to toggle_star_path(type: 'contact', id: @contact.id), class: 'button is-outline' do %>
+              <%= icon_for :star %>
+              <span>Star</span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <%= attributes_table(@contact, [
       :address,
       { company: [:name_link] },
