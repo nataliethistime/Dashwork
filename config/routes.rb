@@ -43,12 +43,6 @@ Rails.application.routes.draw do
   resources :equipment
 
   #
-  # Stars
-  #
-  get '/stars/:type/index' => 'stars#index', as: :stars
-  get '/stars/:type/:id/toggle' => 'stars#toggle', as: :toggle_star
-
-  #
   # Forms
   #
   resources :form_templates
@@ -74,6 +68,12 @@ Rails.application.routes.draw do
       get '/apps' => 'tenant#edit_apps'
     end
   end
+
+  #
+  # Stars
+  #
+  get '/stars/:type/index' => 'stars#index', as: :stars
+  get '/stars/:type/:id/toggle' => 'stars#toggle', as: :toggle_star
 
   #
   # Tasks
