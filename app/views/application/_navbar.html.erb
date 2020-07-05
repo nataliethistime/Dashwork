@@ -1,7 +1,7 @@
-<nav class="navbar is-dark is-spaced is-fixed-top" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
+<nav class='navbar is-dark is-spaced is-fixed-top' role='navigation' aria-label='main navigation'>
+  <div class='navbar-brand'>
     <%= link_to root_path, class: 'navbar-item' do %>
-      <h1 class="title is-4" style="color: #fff;"><%= EnvSettings.product_name %></h1>
+      <h1 class='title is-4' style='color: #fff;'><%= EnvSettings.product_name %></h1>
     <% end %>
 
     <% if content_for?(:back_link) %>
@@ -14,36 +14,36 @@
       <%= yield(:actions) %>
     <% end %>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+    <a role='button' class='navbar-burger burger' aria-label='menu' aria-expanded='false' data-target='mainNavbar'>
+      <span aria-hidden='true'></span>
+      <span aria-hidden='true'></span>
+      <span aria-hidden='true'></span>
     </a>
   </div>
 
-  <div id="mainNavbar" class="navbar-menu">
-    <div class="navbar-end">
+  <div id='mainNavbar' class='navbar-menu'>
+    <div class='navbar-end'>
       <% if user_signed_in? %>
-        <div class="navbar-item is-hidden-touch">
+        <div class='navbar-item is-hidden-touch'>
           <%= current_user.decorate :name %> (<%= current_tenant.name %>)
         </div>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link is-arrowless">
+        <div class='navbar-item has-dropdown is-hoverable'>
+          <a class='navbar-link is-arrowless'>
             <%= icon_for :apps %>
             <% if content_for?(:title) %>
               <span><%= yield(:title) %></span>
             <% end %>
           </a>
 
-          <div class="navbar-dropdown">
+          <div class='navbar-dropdown'>
             <% if current_tenant.apps.present? %>
               <% current_tenant.apps.each do |app| %>
                 <%= link_to app[:path], class: 'navbar-item' do %>
                   <%= icon_for app[:id] %><span><%= app[:name] %></span>
                 <% end %>
               <% end %>
-              <hr class="navbar-divider">
+              <hr class='navbar-divider'>
             <% end %>
             <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: 'navbar-item is-hidden-touch' %>
           </div>
@@ -51,14 +51,14 @@
 
         <a class='navbar-item'><%= icon_for :help %><span class='is-hidden-desktop'>Help</span></a>
         <%= link_to edit_settings_profile_path(current_user), class: 'navbar-item', title: 'Settings' do %>
-          <%= icon_for :settings %><span class="is-hidden-desktop">Settings</span>
+          <%= icon_for :settings %><span class='is-hidden-desktop'>Settings</span>
         <% end %>
         <%= link_to destroy_user_session_path, class: 'navbar-item', method: :delete, title: 'Sign Out' do %>
-          <%= icon_for :sign_out %><span class="is-hidden-desktop">Sign Out</span>
+          <%= icon_for :sign_out %><span class='is-hidden-desktop'>Sign Out</span>
         <% end %>
       <% else %>
-        <div class="navbar-item">
-          <div class="buttons">
+        <div class='navbar-item'>
+          <div class='buttons'>
             <%= link_to new_user_session_path, class: 'button is-link is-rounded' do %>
               <%= icon_for :log_in %>
               <span>Log in</span>

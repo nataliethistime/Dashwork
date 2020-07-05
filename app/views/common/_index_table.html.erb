@@ -6,7 +6,7 @@
     <thead>
       <tr>
         <% fields.each do |field| %>
-          <th class="<%= classes[field] %>">
+          <th class='<%= classes[field] %>'>
             <% if should_sort && Array(sort_fields).include?(field) %>
               <%= sort_link @q, field %>
             <% else %>
@@ -20,7 +20,7 @@
       <% items.each do |item| %>
         <tr onclick="javascript:Turbolinks.visit('<%= polymorphic_path([item]) %>');">
           <% fields.each do |field| %>
-            <td class="<%= classes[field] %>">
+            <td class='<%= classes[field] %>'>
               <%= item.decorate field %>
             </td>
           <% end %>

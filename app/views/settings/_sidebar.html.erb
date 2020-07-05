@@ -1,14 +1,14 @@
-<aside class="menu">
-  <p class="menu-label">General</p>
-  <ul class="menu-list">
+<aside class='menu'>
+  <p class='menu-label'>General</p>
+  <ul class='menu-list'>
     <li>
       <%= link_to edit_settings_profile_path(current_user), class: current_page?(edit_settings_profile_path(current_user)) ? 'is-active' : nil do %>
         <%= icon_for :profile %><span>Profile</span>
       <% end %>
     </li>
   </ul>
-  <p class="menu-label">Tenant</p>
-  <ul class="menu-list">
+  <p class='menu-label'>Tenant</p>
+  <ul class='menu-list'>
     <li>
       <%= link_to edit_settings_tenant_path(current_tenant), class: current_page?(edit_settings_tenant_path(current_tenant)) ? 'is-active' : nil do %>
         <%= icon_for :tenant_settings %><span>Company Settings</span>
