@@ -1,54 +1,33 @@
 <% content_for(:title) { @project.name } %>
+<% content_for(:hide_body_title, true) %>
+<% content_for(:back_link, projects_path) %>
+<% content_for(:actions, actions_for(@project, :edit, :delete)) %>
 
-<%= attributes_table(@project, [
-  :description,
-  :start_date,
-  :end_date,
-]) %>
+<div class='columns'>
+  <div class='column is-two-thirds'>
+    <h1 class='title'><%= @project.decorate :name %></h1>
+    <%= attributes_table(@project, [
+      :description,
+      :start_date,
+      :end_date,
+      :contacts,
+      :companies
+    ]) %>
+  </div>
+  <div class='column is-one-third'>
+    <%= render 'common/linked_items_panel', parent: @project, scope: :tasks %>
+  </div>
+</div>
 
-<% if @project.contacts.present? %>
-  <p>
-    <strong>Contacts:</strong>
-    <ul>
-      <% @project.contacts.find_each do |contacts| %>
-        <li><%= link_to contacts.name, contact_path(contacts) %></li>
-      <% end %>
-    </ul>
-  </p>
-<% end %>
+<div class='columns'>
+  <div class='column'>
+    <h2 class='title'>Notes</h2>
+    <%= link_to 'New Note', new_note_path(project_id: @project.id), class: 'button is-link' %>
+  </div>
+</div>
 
-<% if @project.companies.present? %>
-  <p>
-    <strong>Companies:</strong>
-    <ul>
-      <% @project.companies.find_each do |company| %>
-        <li><%= link_to company.name, company_path(company) %></li>
-      <% end %>
-    </ul>
-  </p>
-<% end %>
-
-<%= link_to 'Edit', edit_project_path(@project), class: 'button is-link' %>
-<%= link_to 'Delete', project_path(@project), class: 'button is-danger is-light', method: :delete, data: { confirm: 'Are you sure you want to delete this project?' } %>
-
-<h2 class='title'>Notes</h2>
-
-<p>
-  <%#= render 'notes/notes', notes: Array(@project.notes) %>
-</p>
-
-<p>
-  <%= link_to 'New Note', new_note_path(project_id: @project.id), class: 'button is-link' %>
-</p>
-
-<h2 class='title'>Tasks</h2>
-
-<p>
-  <%= render 'tasks/tasks', tasks: Array(@project.tasks) %>
-</p>
-
-<p>
-  <%= link_to 'New Task', new_task_path(project_id: @project.id), class: 'button is-link' %>
-</p>
-
-<%= link_to 'Back', projects_path %>
+<div class='columns'>
+  <div class='column'>
+    <%= render 'notes/notes', notes: @project.notes.includes(:user, :tags).page(params[:notes_page]) %>
+  </div>
+</div>

@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   # Projects
   #
   resources :projects
+  get '/projects/:id/tasks' => 'links#tasks', as: :project_tasks, defaults: { type: 'project' }
 
   #
   # Settings

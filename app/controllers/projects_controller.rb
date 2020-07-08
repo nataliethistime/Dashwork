@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_tenant.projects.all
+    @projects = current_tenant.projects.all.page(params[:page])
   end
 
   # GET /projects/1
