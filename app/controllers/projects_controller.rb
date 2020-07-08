@@ -64,6 +64,10 @@ class ProjectsController < ApplicationController
 
   private
 
+  def sidebar
+    :projects
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_project
     @project = current_tenant.projects.find(params[:id])

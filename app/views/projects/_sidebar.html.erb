@@ -1,0 +1,15 @@
+
+<aside class='menu'>
+  <ul class='menu-list'>
+    <li>
+      <%= link_to projects_path, class: controller_name == 'projects' ? 'is-active' : nil do %>
+        <%= icon_for :projects %><span>Projects</span>
+      <% end %>
+    </li>
+    <li><a><%= icon_for :tags %><span>Tags</span></a></li>
+    <li><a><%= icon_for :custom_fields %><span>Custom Fields</span></a></li>
+    <li><a><%= icon_for :starred %><span>Stars</span></a></li>
+    <li><a><%= icon_for :export %><span>Export</span></a></li>
+    <li><a><%= icon_for :help %><span>Help</span></a></li>
+  </ul>
+  </aside>
