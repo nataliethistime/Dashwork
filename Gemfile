@@ -63,6 +63,18 @@ gem 'redcarpet'
 # Manage the databse
 gem 'rails_admin', '~> 2.0'
 
+# Sane default secure headers
+gem 'secure_headers'
+
+# Improved active linking library
+gem 'active_link_to'
+
+# Soft deletion of items
+gem 'discard', '~> 1.2'
+
+# Item version tracking
+gem 'paper_trail'
+
 group :development, :test do
   # Debugging
   gem 'pry'
@@ -90,6 +102,9 @@ group :development do
   # Better errors and debugging
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # Static analysis tool
+  gem 'brakeman'
 end
 
 group :test do
