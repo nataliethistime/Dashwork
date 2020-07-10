@@ -63,9 +63,6 @@ gem 'redcarpet'
 # Manage the databse
 gem 'rails_admin', '~> 2.0'
 
-# Sane default secure headers
-gem 'secure_headers'
-
 # Improved active linking library
 gem 'active_link_to'
 
