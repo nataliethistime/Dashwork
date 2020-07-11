@@ -72,6 +72,9 @@ gem 'discard', '~> 1.2'
 # Item version tracking
 gem 'paper_trail'
 
+# Object based view components
+gem 'view_component'
+
 group :development, :test do
   # Debugging
   gem 'pry'

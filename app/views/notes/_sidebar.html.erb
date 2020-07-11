@@ -1,16 +1,7 @@
-<aside class='menu'>
-  <ul class='menu-list'>
-    <li>
-      <%= link_to notes_path, class: controller_name == 'notes' ? 'is-active' : nil do %>
-        <%= icon_for :notes %><span>Notes</span>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to note_tags_path, class: controller_name == 'tags' ? 'is-active' : nil do %>
-        <%= icon_for :tags %><span>Tags</span>
-      <% end %>
-    </li>
-    <li><a><%= icon_for :import %><span>Import</span></a></li>
-    <li><a><%= icon_for :export %><span>Export</span></a></li>
-    <li><a><%= icon_for :help %><span>Help</span></a></li>
-</aside>
+<%= render SidebarComponent.new do |component| %>
+  <%= render SidebarLinkComponent.new(:notes, 'Notes', notes_path) %>
+  <%= render SidebarLinkComponent.new(:tags, 'Tags', note_tags_path) %>
+  <%= render SidebarLinkComponent.new(:import, 'Import', '#', active: false) %>
+  <%= render SidebarLinkComponent.new(:export, 'Export', '#', active: false) %>
+  <%= render SidebarLinkComponent.new(:help, 'Help', '#', active: false) %>
+<% end %>
