@@ -1,4 +1,4 @@
-<%= render SidebarComponent.new do |component| %>
+<%= render SidebarComponent.new do %>
   <%= render SidebarLinkComponent.new(:notes, 'Notes', notes_path) %>
   <%= render SidebarLinkComponent.new(:tags, 'Tags', note_tags_path) %>
   <%= render SidebarLinkComponent.new(:import, 'Import', '#', active: false) %>

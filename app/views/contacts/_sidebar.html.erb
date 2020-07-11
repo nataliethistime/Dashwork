@@ -1,33 +1,9 @@
-<aside class='menu'>
-  <ul class='menu-list'>
-    <li>
-      <%= link_to contacts_path, class: controller_name == 'contacts' ? 'is-active' : nil do %>
-        <%= icon_for :contacts %><span>Contacts</span>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to contact_tags_path, class: controller_name == 'tags' ? 'is-active' : nil do %>
-        <%= icon_for :tags %><span>Tags</span>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to contact_fields_path, class: controller_name == 'fields' && params[:domain] == 'contact' ? 'is-active' : nil do %>
-        <%= icon_for :custom_fields %><span>Custom Fields</span>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to stars_path(type: 'contact'), class: controller_name == 'stars' ? 'is-active' : nil do %>
-        <%= icon_for :starred %><span>Stars</span>
-      <% end %>
-    </li>
-    <li>
-      <a><%= icon_for :import %><span>Import</span></a>
-    </li>
-    <li>
-      <a><%= icon_for :export %><span>Export</span></a>
-    </li>
-    <li>
-      <a><%= icon_for :help %><span>Help</span></a>
-    </li>
-  </ul>
-</aside>
+<%= render SidebarComponent.new do %>
+  <%= render SidebarLinkComponent.new(:contacts, 'Contacts', contacts_path) %>
+  <%= render SidebarLinkComponent.new(:tags, 'Tags', contact_tags_path) %>
+  <%= render SidebarLinkComponent.new(:custom_fields, 'Custom Fields', contact_fields_path) %>
+  <%= render SidebarLinkComponent.new(:starred, 'Stars', stars_path(type: 'contact')) %>
+  <%= render SidebarLinkComponent.new(:import, 'Import', '#', active: false) %>
+  <%= render SidebarLinkComponent.new(:export, 'Export', '#', active: false) %>
+  <%= render SidebarLinkComponent.new(:help, 'Help', '#', active: false) %>
+<% end %>
