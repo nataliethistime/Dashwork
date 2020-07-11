@@ -1,14 +1,11 @@
-<% should_sort = local_variables.include?(:sort_fields) && instance_variable_defined?('@q') %>
-<% classes = local_variables.include?(:row_classes) ? row_classes : {} %>
-
 <div class='box'>
   <table class='table is-fullwidth is-hoverable is-clickable'>
     <thead>
       <tr>
-        <% fields.each do |field| %>
-          <th class='<%= classes[field] %>'>
-            <% if should_sort && Array(sort_fields).include?(field) %>
-              <%= sort_link @q, field %>
+        <% @fields.each do |field| %>
+          <th class='<%= @row_classes[field] %>'>
+            <% if should_sort?(field) %>
+              <%= helpers.sort_link @q, field %>
             <% else %>
               <%= field.to_s.humanize %>
             <% end %>
@@ -17,10 +14,10 @@
       </tr>
     </thead>
     <tbody>
-      <% items.each do |item| %>
+      <% @items.each do |item| %>
         <tr onclick="javascript:Turbolinks.visit('<%= polymorphic_path([item]) %>');">
-          <% fields.each do |field| %>
-            <td class='<%= classes[field] %>'>
+          <% @fields.each do |field| %>
+            <td class='<%= @row_classes[field] %>'>
               <%= item.decorate field %>
             </td>
           <% end %>

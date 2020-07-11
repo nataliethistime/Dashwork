@@ -1,2 +1,2 @@
-<%= render 'common/index_table', items: @projects, fields: [:name, :description, :start_date, :end_date] %>
-<%= paginate @projects %>
+<%= render IndexTableComponent.new(projects, [:name, :description, :start_date, :end_date]) %>
+<%= paginate projects %>

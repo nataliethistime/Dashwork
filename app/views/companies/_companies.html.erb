@@ -1,8 +1,8 @@
-<%= render(
-  'common/index_table',
-  items: companies.includes(:tags),
-  fields: [:name, :website, :email, :phone, :tags],
+<%= render IndexTableComponent.new(
+  companies.includes(:tags),
+  [:name, :website, :email, :phone, :tags],
   sort_fields: [:name],
+  q: @q,
   row_classes: {
     website: 'is-hidden-mobile',
     email: 'is-hidden-mobile',

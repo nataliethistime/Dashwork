@@ -1,10 +1,8 @@
-<%= render 'common/index_table',
-  items: contacts,
-  fields: [:name, :website, :email, :phone, :tags],
+<%= render IndexTableComponent.new(contacts, [:name, :website, :email, :phone, :tags],
   row_classes: {
-    website: 'is-hidden-mobile',
+    website: 'is-hidden-touch',
     email: 'is-hidden-mobile'
   }
-%>
+) %>
 
 <%= paginate contacts %>

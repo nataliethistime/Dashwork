@@ -10,5 +10,5 @@
     You haven't created any <%= @domain %> custom fields yet.
   </div>
 <% else %>
-  <%= render 'common/index_table', items: @fields, fields: [:name, :created_at] %>
+  <%= render IndexTableComponent.new(@fields, [:name, :created_at]) %>
 <% end %>

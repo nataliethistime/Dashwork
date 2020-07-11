@@ -10,9 +10,5 @@
     You haven't created any <%= @type_plural %> yet.
   </div>
 <% else %>
-  <%= render(
-    'common/index_table',
-    items: @tags,
-    fields: [:name, :created_at]
-  ) %>
+  <%= render IndexTableComponent.new(@tags, [:name, :created_at]) %>
 <% end %>
