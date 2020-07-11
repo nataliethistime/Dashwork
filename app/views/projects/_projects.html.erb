@@ -1,2 +1,7 @@
-<%= render IndexTableComponent.new(projects, [:name, :description, :start_date, :end_date]) %>
+<%= render IndexTableComponent.new(
+  projects,
+  [:name, :description, :start_date, :end_date],
+  q: @q,
+  sort_fields: [:name, :start_date, :end_date]
+) %>
 <%= paginate projects %>
