@@ -3,13 +3,7 @@
 <% content_for(:actions, actions_for(@note, :edit, :delete)) %>
 
 <div class='subtitle'>
-  <% @note.tags.each do |tag| %>
-    <%= link_to note_tag_path(tag) do %>
-      <div class='tag is-info is-medium'>
-        <%= tag.decorate :name %>
-      </div>
-    <% end %>
-  <% end %>
+  <%= render TagComponent.with_collection @note.tags %>
 </div>
 
 <div class='columns'>

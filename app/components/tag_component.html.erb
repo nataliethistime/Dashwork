@@ -1,0 +1,5 @@
+<%= link_to polymorphic_path([@tag]) do %>
+  <div class='tag is-info is-medium'>
+    <%= @tag.decorate :name %>
+  </div>
+<% end %>

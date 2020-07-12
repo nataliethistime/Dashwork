@@ -16,13 +16,7 @@
       <div class='column'>
         <h1 class='title'><%= @contact.decorate :name %></h1>
         <div class='subtitle'>
-          <% @contact.tags.each do |tag| %>
-            <%= link_to contact_tag_path(tag) do %>
-              <div class='tag is-info is-medium'>
-                <%= tag.decorate :name %>
-              </div>
-            <% end %>
-          <% end %>
+          <%= render TagComponent.with_collection @contact.tags %>
         </div>
       </div>
       <div class='column is-narrow'>
