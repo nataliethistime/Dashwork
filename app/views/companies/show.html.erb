@@ -28,17 +28,7 @@
       </div>
       <div class='column is-narrow'>
         <div class='has-text-right is-hidden-mobile'>
-          <% if @company.starred_by?(current_user) %>
-            <%= link_to toggle_star_path(type: 'company', id: @company.id), class: 'button is-outline' do %>
-              <%= icon_for :starred %>
-              <span>Starred</span>
-            <% end %>
-          <% else %>
-            <%= link_to toggle_star_path(type: 'company', id: @company.id), class: 'button is-outline' do %>
-              <%= icon_for :star %>
-              <span>Star</span>
-            <% end %>
-          <% end %>
+          <%= render StarButtonComponent.new @company %>
         </div>
       </div>
     </div>

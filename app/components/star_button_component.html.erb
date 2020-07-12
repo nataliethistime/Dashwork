@@ -1,0 +1,7 @@
+<%= link_to star_path, class: 'button is-outline' do %>
+  <% if starred? %>
+    <%= helpers.icon_for :starred %><span>Starred</span>
+  <% else %>
+    <%= helpers.icon_for :star %><span>Star</span>
+  <% end %>
+<% end %>
