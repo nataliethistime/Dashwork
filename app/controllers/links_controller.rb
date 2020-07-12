@@ -20,6 +20,8 @@ class LinksController < ApplicationController
 
   private
 
+  VALID_TYPES = %w{company contact project}.freeze
+
   def set_type
     @type = params.fetch(:type).to_s
     @type_plural = @type.pluralize(2)
@@ -38,13 +40,7 @@ class LinksController < ApplicationController
   end
 
   def model
-    case @type
-    when 'company'
-      Company
-    when 'contact'
-      Contact
-    else
-      raise "Invalid type: #{@type.inspect}"
-    end
+    raise "Invalid type: #{@type.inspect}" unless VALID_TYPES.include?(@type)
+    @type.capitalize.constantize
   end
 end
