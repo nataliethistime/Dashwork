@@ -1,14 +1,34 @@
 <% content_for(:title, 'Home') %>
-<% content_for(:page_style, :narrow) %>
+<% content_for(:hide_body_title, true) %>
 
-<div class='content'>
-  <% if current_tenant.apps.empty? %>
-    <p>You haven't enabled any apps yet.</p>
-  <% else %>
-    <ul>
-      <% current_tenant.apps.each do |app| %>
-        <li><%= link_to app[:name], app[:path] %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<div class='columns'>
+  <div class='column'>
+    <section class='hero is-link is-bold is-small'>
+      <div class='hero-body'>
+        <div class='container'>
+          <h1 class='title'>
+            Hi <%= current_user.first_name %>
+          </h1>
+          <h2 class='subtitle'>
+            It's nice to see you today
+          </h2>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<h1 class='title'>Your Work</h1>
+
+<div class='columns'>
+  <div class='column'>
+    <li>Upcoming Tasks</li>
+    <li>Projects in Progress</li>
+    <li>New Contacts</li>
+    <li>New Companies</li>
+    <li>New Tasks</li>
+    <li>New Projects</li>
+    <li>New Notes</li>
+    <li>New Forms</li>
+  </div>
 </div>

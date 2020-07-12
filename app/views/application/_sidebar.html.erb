@@ -1,0 +1,6 @@
+<%= render SidebarComponent.new do %>
+  <%= render SidebarHeaderComponent.new 'Apps' %>
+  <% current_tenant.apps.each do |app| %>
+    <%= render SidebarLinkComponent.new app[:name].downcase, app[:name], app[:path] %>
+  <% end %>
+<% end %>

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_sidebar
 
   def home
+    @sidebar = :application
   end
 
   def current_tenant
