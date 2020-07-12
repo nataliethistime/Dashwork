@@ -56,6 +56,7 @@ class User < ApplicationRecord
   has_many :stars
   has_many :starred_companies, through: :stars, source: :starrable, source_type: 'Company'
   has_many :starred_contacts, through: :stars, source: :starrable, source_type: 'Contact'
+  has_many :starred_projects, through: :stars, source: :starrable, source_type: 'Project'
 
   decorate_with UserDecorator
 end

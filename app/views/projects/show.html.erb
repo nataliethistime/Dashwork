@@ -5,9 +5,18 @@
 
 <div class='columns'>
   <div class='column is-two-thirds'>
-    <h1 class='title'><%= @project.decorate :name %></h1>
-    <div class='subtitle'>
-      <%= render TagComponent.with_collection(@project.tags) %>
+    <div class='columns'>
+      <div class='column'>
+        <h1 class='title'><%= @project.decorate :name %></h1>
+        <div class='subtitle'>
+          <%= render TagComponent.with_collection(@project.tags) %>
+        </div>
+      </div>
+      <div class='column is-narrow'>
+        <div class='has-text-right is-hidden-mobile'>
+          <%= render StarButtonComponent.new @project %>
+        </div>
+      </div>
     </div>
     <%= render AttributesTableComponent.new(@project, [
       :description,

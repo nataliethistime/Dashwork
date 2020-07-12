@@ -28,4 +28,5 @@ class Project < ApplicationRecord
   decorate_with ProjectDecorator
   include Taggable
   include CustomFieldable
+  include Starrable
 end
