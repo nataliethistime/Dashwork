@@ -20,7 +20,7 @@
   </div>
   <% if @note.has_links? %>
     <div class='column is-one-third'>
-      <%= attributes_table(@note, [
+      <%= render AttributesTableComponent.new(@note, [
         { contact: [:name_link] },
         { company: [:name_link] },
         { project: [:name_link] },

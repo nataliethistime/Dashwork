@@ -1,6 +1,6 @@
 <% content_for(:title, @task.name) %>
 
-<%= attributes_table(@task, [
+<%= render AttributesTableComponent.new(@task, [
   :description,
   :due_date,
   :completed,

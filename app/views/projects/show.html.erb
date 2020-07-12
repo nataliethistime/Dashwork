@@ -6,7 +6,7 @@
 <div class='columns'>
   <div class='column is-two-thirds'>
     <h1 class='title'><%= @project.decorate :name %></h1>
-    <%= attributes_table(@project, [
+    <%= render AttributesTableComponent.new(@project, [
       :description,
       :start_date,
       :end_date,

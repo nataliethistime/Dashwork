@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-    <%= attributes_table(@company, [
+    <%= render AttributesTableComponent.new(@company, [
       :description,
       :website,
       :email,

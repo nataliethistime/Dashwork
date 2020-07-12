@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <%= attributes_table(@contact, [
+    <%= render AttributesTableComponent.new(@contact, [
       :address,
       { company: [:name_link] },
       :job_title,
