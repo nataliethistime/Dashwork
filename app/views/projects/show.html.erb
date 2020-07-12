@@ -15,7 +15,7 @@
     ]) %>
   </div>
   <div class='column is-one-third'>
-    <%= render 'common/linked_items_panel', parent: @project, scope: :tasks %>
+    <%= render LinkedItemsPanelComponent.new @project, :tasks %>
   </div>
 </div>
 

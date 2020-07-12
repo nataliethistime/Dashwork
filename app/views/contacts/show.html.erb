@@ -56,9 +56,9 @@
     ], custom_values: true) %>
   </div>
   <div class='column is-one-third'>
-    <%= render 'common/linked_items_panel', parent: @contact, scope: :notes, display_attribute: :title %>
-    <%= render 'common/linked_items_panel', parent: @contact, scope: :tasks %>
-    <%= render 'common/linked_items_panel', parent: @contact, scope: :projects %>
+    <%= render LinkedItemsPanelComponent.new @contact, :notes, display_attribute: :title %>
+    <%= render LinkedItemsPanelComponent.new @contact, :tasks %>
+    <%= render LinkedItemsPanelComponent.new @contact, :projects %>
   </div>
 </div>
 

@@ -1,0 +1,18 @@
+<nav class='panel is-info'>
+  <p class='panel-heading'>
+    <%= helpers.icon_for(@scope) %><span><%= pluralize(@items.count, @singular.capitalize) %></span>
+  </p>
+
+  <% @items.limit(10).each do |item| %>
+    <%= link_to name_for(item), url_for(item), class: 'panel-block' %>
+  <% end %>
+
+  <div class='panel-block'>
+    <%= link_to view_all_path, class: 'button is-link is-outlined is-fullwidth mr-1' do %>
+      <span>View All</span><%= helpers.icon_for(:go_to) %>
+    <% end %>
+    <%= link_to create_path, class: 'button is-link is-outlined is-fullwidth ml-1' do %>
+      <%= helpers.icon_for :create %><span>Create</span>
+    <% end %>
+  </div>
+</nav>

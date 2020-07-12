@@ -50,10 +50,10 @@
     ], custom_values: true) %>
   </div>
   <div class='column is-one-third'>
-    <%= render 'common/linked_items_panel', parent: @company, scope: :tasks %>
-    <%= render 'common/linked_items_panel', parent: @company, scope: :notes, display_attribute: :title %>
-    <%= render 'common/linked_items_panel', parent: @company, scope: :projects %>
-    <%= render 'common/linked_items_panel', parent: @company, scope: :contacts %>
+    <%= render LinkedItemsPanelComponent.new @company, :tasks %>
+    <%= render LinkedItemsPanelComponent.new @company, :notes, display_attribute: :title %>
+    <%= render LinkedItemsPanelComponent.new @company, :projects %>
+    <%= render LinkedItemsPanelComponent.new @company, :contacts %>
   </div>
 </div>
 
