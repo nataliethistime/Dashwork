@@ -1,4 +1,4 @@
-<%= simple_form_for(@project) do |f| %>
+<%= simple_form_for(project) do |f| %>
   <%= render 'common/form_errors', form: f %>
 
   <%= f.input :name %>
@@ -8,6 +8,8 @@
   <%= f.association :tags, collection: current_tenant.project_tags %>
   <%= f.association :contacts %>
   <%= f.association :companies %>
+
+  <%= render 'common/custom_values_form', form: f, item: project %>
 
   <%= f.button :submit %>
 <% end %>

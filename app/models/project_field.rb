@@ -1,0 +1,2 @@
+class ProjectField < Field
+end

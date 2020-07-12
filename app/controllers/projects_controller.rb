@@ -85,7 +85,8 @@ class ProjectsController < ApplicationController
       :contact_ids,
       tag_ids: [],
       company_ids: [],
-      contact_ids: []
+      contact_ids: [],
+      custom_values_attributes: {}
     )
   end
 

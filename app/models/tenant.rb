@@ -37,6 +37,7 @@ class Tenant < ApplicationRecord
   has_many :fields
   has_many :company_fields
   has_many :contact_fields
+  has_many :project_fields
 
   validates :name, presence: true, length: { minimum: 3 }
 

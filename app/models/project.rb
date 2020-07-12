@@ -27,4 +27,5 @@ class Project < ApplicationRecord
   default_scope -> { order(:name) }
   decorate_with ProjectDecorator
   include Taggable
+  include CustomFieldable
 end

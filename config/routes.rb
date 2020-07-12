@@ -58,6 +58,7 @@ Rails.application.routes.draw do
   # Projects
   #
   resources :projects
+  resources :project_fields, controller: 'fields', defaults: { domain: 'project' }
   resources :project_tags, controller: 'tags', defaults: { type: 'project' }
   get '/projects/:id/tasks' => 'links#tasks', as: :project_tasks, defaults: { type: 'project' }
 
