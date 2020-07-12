@@ -1,0 +1,2 @@
+class ProjectTag < Tag
+end

@@ -15,6 +15,10 @@ class ProjectDecorator < DecoratorBase
     format project.description, as: :markdown
   end
 
+  def tags(project)
+    project.tags.collect(&:name).join ', '
+  end
+
   def contacts(project)
     names = project.contacts
       .map { |c| "<li>#{helpers.link_to c.decorate(:name), routes.contact_path(c)}</li>" }

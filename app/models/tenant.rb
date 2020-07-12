@@ -32,6 +32,7 @@ class Tenant < ApplicationRecord
   has_many :company_tags
   has_many :contact_tags
   has_many :note_tags
+  has_many :project_tags
 
   has_many :fields
   has_many :company_fields

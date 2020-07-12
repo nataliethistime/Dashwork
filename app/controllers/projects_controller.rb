@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @q = current_tenant.projects.ransack(params[:q])
+    @q = current_tenant.projects.includes(:tags).ransack(params[:q])
     @projects = @q.result.page(params[:page])
   end
 
@@ -83,6 +83,7 @@ class ProjectsController < ApplicationController
       :end_date,
       :company_ids,
       :contact_ids,
+      tag_ids: [],
       company_ids: [],
       contact_ids: []
     )

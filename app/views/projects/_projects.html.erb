@@ -1,6 +1,6 @@
 <%= render IndexTableComponent.new(
   projects,
-  [:name, :description, :start_date, :end_date],
+  [:name, :description, :start_date, :end_date, :tags],
   q: @q,
   sort_fields: [:name, :start_date, :end_date]
 ) %>

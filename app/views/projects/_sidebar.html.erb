@@ -1,6 +1,6 @@
 <%= render SidebarComponent.new do %>
   <%= render SidebarLinkComponent.new(:projects, 'Projects', projects_path) %>
-  <%= render SidebarLinkComponent.new(:tags, 'Tags', '#', active: false) %>
+  <%= render SidebarLinkComponent.new(:tags, 'Tags', project_tags_path) %>
   <%= render SidebarLinkComponent.new(:custom_fields, 'Custom Fields', '#', active: false) %>
   <%= render SidebarLinkComponent.new(:starred, 'Stars', '#', active: false) %>
   <%= render SidebarLinkComponent.new(:export, 'Export', '#', active: false) %>

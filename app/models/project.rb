@@ -26,4 +26,5 @@ class Project < ApplicationRecord
   # TODO: link equipment
   default_scope -> { order(:name) }
   decorate_with ProjectDecorator
+  include Taggable
 end

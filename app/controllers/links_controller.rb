@@ -11,7 +11,7 @@ class LinksController < ApplicationController
   end
 
   def projects
-    @projects = @parent.projects
+    @projects = @parent.projects.includes(:tags).page(params[:page])
   end
 
   def tasks

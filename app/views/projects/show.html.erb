@@ -6,6 +6,9 @@
 <div class='columns'>
   <div class='column is-two-thirds'>
     <h1 class='title'><%= @project.decorate :name %></h1>
+    <div class='subtitle'>
+      <%= render TagComponent.with_collection(@project.tags) %>
+    </div>
     <%= render AttributesTableComponent.new(@project, [
       :description,
       :start_date,

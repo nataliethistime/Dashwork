@@ -5,6 +5,7 @@
   <%= f.input :description %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
+  <%= f.association :tags, collection: current_tenant.project_tags %>
   <%= f.association :contacts %>
   <%= f.association :companies %>
 
