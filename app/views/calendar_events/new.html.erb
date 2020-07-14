@@ -1,5 +1,3 @@
 <% content_for(:title, 'New Calendar Event') %>
-
+<% content_for(:back_link, calendar_events_path) %>
 <%= render 'form', calendar_event: @calendar_event %>
-
-<%= link_to 'Back', calendar_events_path %>

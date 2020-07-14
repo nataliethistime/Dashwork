@@ -27,6 +27,10 @@ module DecoratorFormatters
     helpers.local_date date
   end
 
+  def format_time(time)
+    helpers.local_time time
+  end
+
   def format_google_maps_search_link(query)
     helpers.link_to query, "https://www.google.com/maps?q=#{query}", target: '_blank', rel: 'noopener noreferrer'
   end

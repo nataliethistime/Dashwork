@@ -22,4 +22,5 @@ class CalendarEvent < ApplicationRecord
   # TODO: link contacts
   # TODO: link projects
   default_scope -> { order(:start_at, :end_at) }
+  decorate_with CalendarEventDecorator
 end
