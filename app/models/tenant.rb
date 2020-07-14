@@ -46,7 +46,6 @@ class Tenant < ApplicationRecord
     companies: { name: 'Companies', id: 'companies', path: routes.companies_path },
     contacts: { name: 'Contacts', id: 'contacts', path: routes.contacts_path },
     equipment: { name: 'Equipment', id: 'equipment', path: routes.equipment_index_path },
-    form_templates: { name: 'Form Templates', id: 'form_templates', path: routes.form_templates_path },
     forms: { name: 'Forms', id: 'forms', path: routes.forms_path },
     notes: { name: 'Notes', id: 'notes', path: routes.notes_path },
     projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
