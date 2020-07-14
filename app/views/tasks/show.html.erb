@@ -1,4 +1,6 @@
 <% content_for(:title, @task.name) %>
+<% content_for(:actions, actions_for(@task, :edit, :delete)) %>
+<% content_for(:back_link, tasks_path) %>
 
 <%= render AttributesTableComponent.new(@task, [
   :description,
@@ -16,7 +18,3 @@
   <% end %>
   <br />
 <% end %>
-
-<%= link_to 'Edit', edit_task_path(@task), class: 'button is-link' %>
-<%= link_to 'Delete', task_path(@task), class: 'button is-danger is-light', method: :delete, data: { confirm: 'Are you sure you want to delete this task?' } %>
-<%= link_to 'Back', tasks_path %>

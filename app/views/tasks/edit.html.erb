@@ -1,3 +1,3 @@
 <% content_for(:title, 'Editing Task') %>
-<p><%= render 'form', task: @task %></p>
-<p><%= link_to 'Back', tasks_path %></p>
+<% content_for(:back_link, task_path(@task) %>
+<%= render 'form', task: @task %>

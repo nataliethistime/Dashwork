@@ -1,0 +1,5 @@
+<%= render SidebarComponent.new do %>
+  <%= render SidebarLinkComponent.new :tasks, 'Tasks', tasks_path %>
+  <%= render SidebarLinkComponent.new :tasks, 'Completed', '#', active: false %>
+  <%= render SidebarLinkComponent.new :tasks, 'Today', '#', active: false %>
+<% end %>

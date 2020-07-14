@@ -1,8 +1,8 @@
 <% content_for(:title, 'Tasks') %>
+<% content_for(:back_link, root_path) %>
+<% content_for(:actions, actions_for(Task, :create)) %>
 
-<p>
-  <%= render 'tasks', tasks: @tasks %>
-</p>
+<%= render 'tasks/tasks', tasks: @tasks %>
 
 <br />
 

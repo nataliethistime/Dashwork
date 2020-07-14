@@ -43,6 +43,10 @@ class TasksController < ApplicationController
 
   private
 
+  def sidebar
+    :tasks
+  end
+
   def task_params
     params.require(:task).permit(
       :name,
