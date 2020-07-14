@@ -63,6 +63,10 @@ class EquipmentController < ApplicationController
 
   private
 
+  def sidebar
+    :equipment
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_equipment
     @equipment = current_tenant.equipment.find(params[:id])

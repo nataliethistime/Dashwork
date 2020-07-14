@@ -1,0 +1,6 @@
+<%= render SidebarComponent.new do %>
+  <%= render SidebarLinkComponent.new :equipment, 'Equipment', equipment_index_path %>
+  <%= render SidebarLinkComponent.new(:import, 'Import', '#', active: false) %>
+  <%= render SidebarLinkComponent.new(:export, 'Export', '#', active: false) %>
+  <%= render SidebarLinkComponent.new(:help, 'Help', '#', active: false) %>
+<% end %>

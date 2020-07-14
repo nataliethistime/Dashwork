@@ -1,5 +1,3 @@
 <% content_for(:title, 'New Equipment') %>
-
+<% content_for(:back_link, equipment_index_path) %>
 <%= render 'form', equipment: @equipment %>
-
-<%= link_to 'Back', equipment_index_path %>

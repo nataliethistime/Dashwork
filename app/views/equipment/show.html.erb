@@ -1,6 +1,5 @@
 <% content_for(:title) { @equipment.name } %>
+<% content_for(:back_link, equipment_index_path) %>
+<% content_for(:actions, actions_for(@equipment, :edit, :delete)) %>
 
 <%= render AttributesTableComponent.new @equipment, [:description, :model, :manufacturer] %>
-
-<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
-<%= link_to 'Back', equipment_index_path %>
