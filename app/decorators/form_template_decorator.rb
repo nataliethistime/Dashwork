@@ -1,0 +1,2 @@
+class FormTemplateDecorator < DecoratorBase
+end

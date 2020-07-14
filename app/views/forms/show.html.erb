@@ -1,9 +1,8 @@
-<% content_for(:title) { @form.name } %>
+<% content_for(:title, @form.decorate(:name)) %>
+<% content_for(:back_link, forms_path) %>
+<% content_for(:actions, actions_for(@form, :edit, :delete)) %>
 
 <p>
   <strong>Status:</strong>
   <%= @form.status %>
 </p>
-
-<%= link_to 'Edit', edit_form_path(@form) %> |
-<%= link_to 'Back', forms_path %>

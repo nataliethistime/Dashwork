@@ -20,4 +20,5 @@ class Form < ApplicationRecord
   belongs_to :user
   belongs_to :form_template
   default_scope -> { order(:created_at) }
+  decorate_with FormDecorator
 end

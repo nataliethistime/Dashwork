@@ -1,4 +1,3 @@
-<% content_for(:title) { @form_template.name } %>
-
-<%= link_to 'Edit', edit_form_template_path(@form_template) %> |
-<%= link_to 'Back', form_templates_path %>
+<% content_for(:title, @form_template.decorate(:name)) %>
+<% content_for(:actions, actions_for(@form_template, :edit, :delete)) %>
+<% content_for(:back_link, form_templates_path) %>

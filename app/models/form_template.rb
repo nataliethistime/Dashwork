@@ -12,4 +12,5 @@ class FormTemplate < ApplicationRecord
   belongs_to :tenant
   has_many :forms
   default_scope -> { order(:name) }
+  decorate_with FormTemplateDecorator
 end

@@ -64,6 +64,10 @@ class FormsController < ApplicationController
 
   private
 
+  def sidebar
+    :forms
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_form
     @form = current_tenant.forms.find(params[:id])
