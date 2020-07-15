@@ -33,6 +33,6 @@ class Task < ApplicationRecord
   default_scope -> { order(:completed, :due_date) }
   scope :completed, -> { where(completed: true) }
   scope :uncompleted, -> { where(completed: [false, nil]) }
-  scope :due_before, -> (date) { uncompleted.where('due_date < ?', date).reorder(due_date: :asc) }
+  scope :due_before, -> (date) { uncompleted.where('due_date IS NULL OR due_date < ?', date).reorder(due_date: :asc) }
   scope :newly_created, -> { uncompleted.reorder(created_at: :desc) }
 end
