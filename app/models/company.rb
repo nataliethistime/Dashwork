@@ -24,8 +24,10 @@ class Company < ApplicationRecord
   has_many :project_companies
   has_many :projects, through: :project_companies
   # TODO: link events
-  default_scope -> { order(:name) }
   decorate_with CompanyDecorator
+
+  default_scope -> { order(:name) }
+  scope :newly_created, -> { all.reorder(created_at: :desc) }
 
   include CustomFieldable
   include Taggable

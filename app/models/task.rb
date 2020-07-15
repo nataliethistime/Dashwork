@@ -28,6 +28,11 @@ class Task < ApplicationRecord
   belongs_to :calendar_event, optional: true
   validates :name, presence: true
   validates :description, presence: true, allow_blank: true
-  default_scope -> { order(:completed, :due_date) }
   decorate_with TaskDecorator
+
+  default_scope -> { order(:completed, :due_date) }
+  scope :completed, -> { where(completed: true) }
+  scope :uncompleted, -> { where(completed: [false, nil]) }
+  scope :due_before, -> (date) { uncompleted.where('due_date < ?', date).reorder(due_date: :asc) }
+  scope :newly_created, -> { uncompleted.reorder(created_at: :desc) }
 end

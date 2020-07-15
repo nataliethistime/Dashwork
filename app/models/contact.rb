@@ -48,6 +48,7 @@ class Contact < ApplicationRecord
   validates :title, inclusion: { in: self.titles }, allow_blank: true
 
   default_scope -> { order(:first_name) }
+  scope :newly_created, -> { all.reorder(created_at: :desc) }
 
   #
   # So that simple_form can automatically create options for contact select boxes.

@@ -24,9 +24,12 @@ class Project < ApplicationRecord
   has_many :contacts, through: :project_contacts
   # TODO: link calendar events
   # TODO: link equipment
-  default_scope -> { order(:name) }
   decorate_with ProjectDecorator
   include Taggable
   include CustomFieldable
   include Starrable
+
+  default_scope -> { order(:name) }
+  scope :open, -> { all }
+  scope :newly_created, -> { all.reorder(created_at: :desc) }
 end
