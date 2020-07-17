@@ -1,8 +1,8 @@
 class LinkedItemsPanelComponent < ViewComponent::Base
-  def initialize(parent, scope, display_attribute: nil)
+  def initialize(parent, items:, display_attribute: nil)
     @parent = parent
-    @scope = scope.to_s
-    @items = parent.public_send @scope
+    @items = items
+    @scope = items.model_name.plural.to_s
     @singular = @scope.singularize
     @display_attribute = display_attribute.presence || :name
   end

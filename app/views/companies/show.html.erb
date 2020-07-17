@@ -34,10 +34,10 @@
     ], custom_values: true) %>
   </div>
   <div class='column is-one-third'>
-    <%= render LinkedItemsPanelComponent.new @company, :tasks %>
-    <%= render LinkedItemsPanelComponent.new @company, :notes, display_attribute: :title %>
-    <%= render LinkedItemsPanelComponent.new @company, :projects %>
-    <%= render LinkedItemsPanelComponent.new @company, :contacts %>
+    <%= render LinkedItemsPanelComponent.new @company, items: @company.tasks.uncompleted %>
+    <%= render LinkedItemsPanelComponent.new @company, items: @company.notes, display_attribute: :title %>
+    <%= render LinkedItemsPanelComponent.new @company, items: @company.projects.open %>
+    <%= render LinkedItemsPanelComponent.new @company, items: @company.contacts %>
   </div>
 </div>
 
