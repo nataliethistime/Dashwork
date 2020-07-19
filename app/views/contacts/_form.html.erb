@@ -1,7 +1,7 @@
 <%= simple_form_for(contact) do |f| %>
   <%= render 'common/form_errors', form: f %>
 
-  <%= f.input :title, collection: Contact.titles %>
+  <%= f.input :title, collection: Contact::TITLES %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :nickname %>
