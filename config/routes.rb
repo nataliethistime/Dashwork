@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # Companies
   #
   resources :companies
-  resources :company_fields, controller: 'fields', defaults: { domain: 'company' }
+  resources :custom_company_fields, controller: 'custom_fields', defaults: { domain: 'company' }
   resources :company_tags, controller: 'tags', defaults: { type: 'company' }
   get '/companies/:id/contacts' => 'links#contacts', as: :company_contacts, defaults: { type: 'company' }
   get '/companies/:id/notes' => 'links#notes', as: :company_notes, defaults: { type: 'company' }
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   # Contacts
   #
   resources :contacts
-  resources :contact_fields, controller: 'fields', defaults: { domain: 'contact' }
+  resources :custom_contact_fields, controller: 'custom_fields', defaults: { domain: 'contact' }
   resources :contact_tags, controller: 'tags', defaults: { type: 'contact' }
   get '/contacts/:id/notes' => 'links#notes', as: :contact_notes, defaults: { type: 'contact' }
   get '/contacts/:id/projects' => 'links#projects', as: :contact_projects, defaults: { type: 'contact' }
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   # Projects
   #
   resources :projects
-  resources :project_fields, controller: 'fields', defaults: { domain: 'project' }
+  resources :custom_project_fields, controller: 'custom_fields', defaults: { domain: 'project' }
   resources :project_tags, controller: 'tags', defaults: { type: 'project' }
   get '/projects/:id/tasks' => 'links#tasks', as: :project_tasks, defaults: { type: 'project' }
 

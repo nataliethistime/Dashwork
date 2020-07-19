@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_050658) do
+ActiveRecord::Schema.define(version: 2020_07_19_072509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,34 @@ ActiveRecord::Schema.define(version: 2020_06_30_050658) do
     t.date "birthday"
   end
 
+  create_table "custom_fields", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "domain"
+    t.bigint "tenant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id"], name: "index_custom_fields_on_tenant_id"
+  end
+
+  create_table "custom_values", force: :cascade do |t|
+    t.string "string_entity"
+    t.date "date_entity"
+    t.time "time_entity"
+    t.datetime "datetime_entity"
+    t.text "text_entity"
+    t.integer "integer_entity"
+    t.float "float_entity"
+    t.boolean "boolean_entity"
+    t.bigint "custom_field_id"
+    t.bigint "custom_fieldable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "type"
+    t.string "custom_fieldable_type"
+    t.index ["custom_field_id"], name: "index_custom_values_on_custom_field_id"
+  end
+
   create_table "equipment", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -70,16 +98,6 @@ ActiveRecord::Schema.define(version: 2020_06_30_050658) do
     t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "fields", force: :cascade do |t|
-    t.string "name"
-    t.string "type"
-    t.string "domain"
-    t.bigint "tenant_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tenant_id"], name: "index_fields_on_tenant_id"
   end
 
   create_table "form_templates", force: :cascade do |t|
@@ -233,24 +251,6 @@ ActiveRecord::Schema.define(version: 2020_06_30_050658) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
-  end
-
-  create_table "values", force: :cascade do |t|
-    t.string "string_entity"
-    t.date "date_entity"
-    t.time "time_entity"
-    t.datetime "datetime_entity"
-    t.text "text_entity"
-    t.integer "integer_entity"
-    t.float "float_entity"
-    t.boolean "boolean_entity"
-    t.bigint "field_id"
-    t.bigint "custom_fieldable_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "type"
-    t.string "custom_fieldable_type"
-    t.index ["field_id"], name: "index_values_on_field_id"
   end
 
 end

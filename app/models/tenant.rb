@@ -34,10 +34,10 @@ class Tenant < ApplicationRecord
   has_many :note_tags
   has_many :project_tags
 
-  has_many :fields
-  has_many :company_fields
-  has_many :contact_fields
-  has_many :project_fields
+  has_many :custom_fields
+  has_many :custom_company_fields
+  has_many :custom_contact_fields
+  has_many :custom_project_fields
 
   validates :name, presence: true, length: { minimum: 3 }
 

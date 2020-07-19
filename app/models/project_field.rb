@@ -1,2 +1,0 @@
-class ProjectField < Field
-end

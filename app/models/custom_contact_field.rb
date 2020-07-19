@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: fields
+# Table name: custom_fields
 #
 #  id         :bigint           not null, primary key
 #  domain     :string
@@ -12,5 +12,7 @@
 #
 # Indexes
 #
-#  index_fields_on_tenant_id  (tenant_id)
+#  index_custom_fields_on_tenant_id  (tenant_id)
 #
+class CustomContactField < CustomField
+end
