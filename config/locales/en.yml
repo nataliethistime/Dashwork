@@ -60,7 +60,7 @@ en:
 
   simple_form:
     options:
-      company_field:
+      custom_company_field:
         type:
-          StringValue: Text Box
-          TextValue: Long Text
+          CustomStringValue: Short Text
+          CustomTextValue: Long Text

@@ -1,7 +1,7 @@
 <%= render SidebarComponent.new do %>
   <%= render SidebarLinkComponent.new(:contacts, 'Contacts', contacts_path) %>
   <%= render SidebarLinkComponent.new(:tags, 'Tags', contact_tags_path) %>
-  <%= render SidebarLinkComponent.new(:custom_fields, 'Custom Fields', contact_fields_path) %>
+  <%= render SidebarLinkComponent.new(:custom_fields, 'Custom Fields', custom_contact_fields_path) %>
   <%= render SidebarLinkComponent.new(:starred, 'Stars', stars_path(type: 'contact')) %>
   <%= render SidebarLinkComponent.new(:import, 'Import', '#', active: false) %>
   <%= render SidebarLinkComponent.new(:export, 'Export', '#', active: false) %>

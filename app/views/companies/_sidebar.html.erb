@@ -1,7 +1,7 @@
 <%= render SidebarComponent.new do %>
   <%= render SidebarLinkComponent.new(:companies, 'Companies', companies_path) %>
   <%= render SidebarLinkComponent.new(:tags, 'Tags', company_tags_path) %>
-  <%= render SidebarLinkComponent.new(:custom_fields, 'Custom Fields', company_fields_path) %>
+  <%= render SidebarLinkComponent.new(:custom_fields, 'Custom Fields', custom_company_fields_path) %>
   <%= render SidebarLinkComponent.new(:starred, 'Stars', stars_path(type: 'company')) %>
   <%= render SidebarLinkComponent.new(:import, 'Import', '#', active: false) %>
   <%= render SidebarLinkComponent.new(:export, 'Export', '#', active: false) %>

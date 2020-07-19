@@ -27,7 +27,7 @@
     ], custom_values: true) %>
   </div>
   <div class='column is-one-third'>
-    <%= render LinkedItemsPanelComponent.new @project, :tasks %>
+    <%= render LinkedItemsPanelComponent.new @project, items: @project.tasks.uncompleted %>
   </div>
 </div>
 

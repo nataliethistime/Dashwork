@@ -26,8 +26,8 @@ class AttributesTableComponent < ViewComponent::Base
     end
 
     if custom_values && model.respond_to?('custom_values')
-      model.custom_values.includes(:field).each do |custom_value|
-        @attributes[custom_value.field.name] = custom_value.decorate :value
+      model.custom_values.includes(:custom_field).each do |custom_value|
+        @attributes[custom_value.custom_field.name] = custom_value.decorate :value
       end
     end
   end

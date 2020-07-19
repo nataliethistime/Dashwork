@@ -1,4 +1,4 @@
-class FieldsController < ApplicationController
+class CustomFieldsController < ApplicationController
   before_action :set_domain
 
   def index
@@ -13,7 +13,7 @@ class FieldsController < ApplicationController
     @field = tenant_fields.new field_params
 
     if @field.save
-      redirect_to polymorphic_path([@domain, :fields]), notice: 'Successfully created field'
+      redirect_to polymorphic_path([:custom, @domain, :fields]), notice: 'Successfully created field'
     else
       render 'new'
     end
@@ -40,20 +40,20 @@ class FieldsController < ApplicationController
   def destroy
     field = tenant_fields.find params[:id]
     field.destroy
-    redirect_to polymorphic_path([@domain, :fields]), notice: 'Successfully deleted custom field'
+    redirect_to polymorphic_path([:custom, @domain, :fields]), notice: 'Successfully deleted custom field'
   end
 
   private
 
   def field_params
-    params.require(:"#{@domain}_field").permit(:name, :type)
+    params.require(:"custom_#{@domain}_field").permit(:name, :type)
   end
 
   #
   # Takes into account the domain and returns the association for the correct kind of field
   #
   def tenant_fields
-    current_tenant.public_send "#{@domain}_fields"
+    current_tenant.public_send "custom_#{@domain}_fields"
   end
 
   def sidebar

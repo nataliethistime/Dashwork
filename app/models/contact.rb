@@ -41,11 +41,9 @@ class Contact < ApplicationRecord
   include Taggable
   include Starrable
 
-  def self.titles
-    %w[Mr Mrs Ms Dr Prof Sir]
-  end
+  TITLES = %w[Mr Mrs Ms Dr Prof Sir]
 
-  validates :title, inclusion: { in: self.titles }, allow_blank: true
+  validates :title, inclusion: { in: TITLES }, allow_blank: true
 
   default_scope -> { order(:first_name) }
   scope :newly_created, -> { all.reorder(created_at: :desc) }

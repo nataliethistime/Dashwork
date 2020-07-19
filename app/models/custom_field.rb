@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: fields
+# Table name: custom_fields
 #
 #  id         :bigint           not null, primary key
 #  domain     :string
@@ -12,17 +12,17 @@
 #
 # Indexes
 #
-#  index_fields_on_tenant_id  (tenant_id)
+#  index_custom_fields_on_tenant_id  (tenant_id)
 #
-class Field < ApplicationRecord
+class CustomField < ApplicationRecord
   self.inheritance_column = :domain
   decorate_with FieldDecorator
 
-  TYPES = %w{StringValue TextValue}
-  DOMAINS = %w{CompanyField ContactField ProjectField}
+  TYPES = %w{CustomStringValue CustomTextValue}
+  DOMAINS = %w{CustomCompanyField CustomContactField CustomProjectField}
 
   belongs_to :tenant
-  has_many :values
+  has_many :custom_values
 
   validates :name, presence: true
   validates :domain, presence: true, inclusion: { in: DOMAINS }

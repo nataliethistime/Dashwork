@@ -1,0 +1,6 @@
+<%= simple_form_for field do |f| %>
+  <%= render 'common/form_errors', form: f %>
+  <%= f.input :name %>
+  <%= f.input :type, collection: CustomField::TYPES.map(&:to_sym) %>
+  <%= f.button :submit, field.new_record? ? 'Create Custom Field' : 'Update Custom Field' %>
+<% end %>
