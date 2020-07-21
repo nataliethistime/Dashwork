@@ -1,5 +1,5 @@
 <% notes.each_slice(3) do |row| %>
-  <div class='columns''>
+  <div class='columns'>
     <% row.each do |note| %>
       <div class='column is-4'>
         <div class='card'>
@@ -20,6 +20,9 @@
               </div>
             </div>
             <%= note.decorate :content %>
+            <% if note.company.present? %><p><%= icon_for :companies %><span><%= note.company.decorate :name_link %></span><% end %>
+            <% if note.contact.present? %><p><%= icon_for :contacts %><span><%= note.contact.decorate :name_link %></span><% end %>
+            <% if note.project.present? %><p><%= icon_for :projects %><span><%= note.project.decorate :name_link %></span><% end %>
           </div>
           <footer class='card-footer'>
             <%= link_to 'View', note_path(note), class: 'card-footer-item' %>
