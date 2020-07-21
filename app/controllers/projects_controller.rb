@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @notes = @project.notes.includes(:user, :tags, :contact, :company, :project).page(params[:notes_page])
   end
 
   # GET /projects/new

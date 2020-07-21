@@ -40,6 +40,6 @@
 
 <div class='columns'>
   <div class='column'>
-    <%= render 'notes/notes', notes: @project.notes.includes(:user, :tags).page(params[:notes_page]) %>
+    <%= render 'notes/notes', notes: @notes %>
   </div>
 </div>
