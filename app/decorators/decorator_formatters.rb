@@ -48,4 +48,8 @@ module DecoratorFormatters
     )
     helpers.content_tag :div, redcarpet.render(text).html_safe, class: 'content'
   end
+
+  def format_currency(number)
+    helpers.number_to_currency number, unit: '$'
+  end
 end

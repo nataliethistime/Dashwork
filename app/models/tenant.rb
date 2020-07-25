@@ -3,6 +3,7 @@
 # Table name: tenants
 #
 #  id                 :bigint           not null, primary key
+#  assets_app         :boolean          default(FALSE)
 #  calendar_app       :boolean
 #  companies_app      :boolean
 #  contacts_app       :boolean
@@ -18,6 +19,7 @@
 #  updated_at         :datetime         not null
 #
 class Tenant < ApplicationRecord
+  has_many :assets
   has_many :calendar_events
   has_many :users
   has_many :notes
@@ -42,6 +44,7 @@ class Tenant < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 
   APPS = {
+    assets: { name: 'Assets', id: 'assets', path: routes.assets_path },
     calendar: { name: 'Calendar', id: 'calendar', path: routes.calendar_events_path },
     companies: { name: 'Companies', id: 'companies', path: routes.companies_path },
     contacts: { name: 'Contacts', id: 'contacts', path: routes.contacts_path },

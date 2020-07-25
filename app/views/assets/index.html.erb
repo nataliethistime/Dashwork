@@ -1,0 +1,15 @@
+<% content_for(:title, 'Assets') %>
+<% content_for(:back_link, root_path) %>
+<% content_for(:actions, actions_for(Asset, :create)) %>
+
+<% if @assets.empty? %>
+  <div>
+    You haven't created any assets yet.
+  </div>
+<% else %>
+  <%= render 'assets/assets', assets: @assets %>
+<% end %>
+
+<br />
+
+<%= link_to 'New Asset', new_asset_path, class: 'button is-link' %>

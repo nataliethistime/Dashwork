@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   #
+  # Assets
+  #
+  resources :assets
+
+  #
   # Calendar
   #
   resources :calendar_events

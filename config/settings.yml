@@ -2,6 +2,7 @@ product_name: Dashwork
 
 icons:
   apps: fas fa-th
+  assets: fas fa-car-side
   back: fas fa-arrow-left
   calendar: fas fa-calendar-alt
   companies: fas fa-briefcase

@@ -1,0 +1,14 @@
+<% content_for(:title, @asset.name) %>
+<% content_for(:back_link, assets_path) %>
+<% content_for(:actions, actions_for(@asset, :edit, :delete)) %>
+
+<%= render AttributesTableComponent.new @asset, [
+  :name,
+  :description,
+  :model,
+  :manufacturer,
+  :purchase_date,
+  :purchase_price,
+  :serial_number,
+  :warranty_date
+] %>

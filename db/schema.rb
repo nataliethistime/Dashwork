@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_072509) do
+ActiveRecord::Schema.define(version: 2020_07_25_020330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assets", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "model"
+    t.string "manufacturer"
+    t.string "serial_number"
+    t.date "warranty_date"
+    t.date "purchase_date"
+    t.decimal "purchase_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tenant_id"
+    t.index ["tenant_id"], name: "index_assets_on_tenant_id"
+  end
 
   create_table "calendar_events", force: :cascade do |t|
     t.string "name"
@@ -225,6 +240,7 @@ ActiveRecord::Schema.define(version: 2020_07_19_072509) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "form_templates_app"
     t.boolean "companies_app"
+    t.boolean "assets_app", default: false
   end
 
   create_table "users", force: :cascade do |t|
