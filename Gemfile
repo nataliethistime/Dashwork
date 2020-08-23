@@ -18,7 +18,7 @@ gem 'paper_trail' # Item version tracking
 gem 'pg' # Postgress database
 gem 'puma', '~> 4.1' # Use Puma as the app server
 gem 'rails_admin', '~> 2.0' # Manage the databse
-gem 'rails', github: 'rails/rails' # Yes, it's a rails app
+gem 'rails', '~> 6.0.3.2' # Yes, it's a rails app
 gem 'ransack' # Search filters
 gem 'redcarpet' # Markdown rendering
 gem 'sass-rails', '>= 6' # Use SCSS for stylesheets
@@ -34,10 +34,10 @@ end
 
 group :development do
   gem 'annotate' # Annotate table attributes on our models
-  gem 'better_errors' # Better errors and debugging
+  gem 'better_errors'   # Better errors and debugging
   gem 'binding_of_caller'
   gem 'brakeman' # Static analysis tool
-  gem 'bullet', require: false # Get alerts about potential N+1 issues
+  gem 'bullet'   # Get alerts about potential N+1 issues
   gem 'listen', '~> 3.2'
   gem 'rubocop-rails', require: false
   gem 'rubocop', require: false # Lint our code with Rubocop. See .rubocop.yml
