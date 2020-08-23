@@ -1,46 +1,59 @@
 require 'test_helper'
 
-class AssetsControllerTest < ActionDispatch::IntegrationTest
+class AssetsControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
   setup do
     @asset = assets(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
-  test "should get index" do
-    get assets_url
+  test 'should get index' do
+    get :index
     assert_response :success
   end
 
-  test "should get new" do
-    get new_asset_url
+  test 'should get new' do
+    get :new
     assert_response :success
   end
 
-  test "should create asset" do
+  test 'should create asset' do
     assert_difference('Asset.count') do
-      post assets_url, params: { asset: {  } }
+      post :create, params: {
+        asset: {
+          name: 'Suzuki Swift'
+        }
+      }
     end
 
-    assert_redirected_to asset_url(Asset.last)
+    assert_response :redirect
   end
 
-  test "should show asset" do
-    get asset_url(@asset)
+  test 'should show asset' do
+    get :show, params: { id: @asset.id }
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_asset_url(@asset)
+  test 'should get edit' do
+    get :edit, params: { id: @asset.id }
     assert_response :success
   end
 
-  test "should update asset" do
-    patch asset_url(@asset), params: { asset: {  } }
+  test 'should update asset' do
+    patch :update, params: {
+      id: @asset.id,
+      asset: {
+        name: 'Something Else'
+      }
+    }
     assert_redirected_to asset_url(@asset)
   end
 
-  test "should destroy asset" do
+  test 'should destroy asset' do
     assert_difference('Asset.count', -1) do
-      delete asset_url(@asset)
+      delete :destroy, params: { id: @asset.id }
     end
 
     assert_redirected_to assets_url
