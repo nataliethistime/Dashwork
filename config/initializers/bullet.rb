@@ -1,4 +1,4 @@
-if Rails.env.development?
+if Rails.env.development? && defined? Bullet
   Rails.application.config.after_initialize do
     Bullet.enable = true
     Bullet.alert = true
