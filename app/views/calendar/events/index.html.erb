@@ -2,7 +2,7 @@
 <% content_for(:back_link, root_path) %>
 <% content_for(:actions, actions_for(CalendarEvent, :create)) %>
 
-<%= render 'calendar_events/calendar_events', calendar_events: @calendar_events %>
+<%= render 'calendar/events/events', calendar_events: @calendar_events %>
 
 <br>
 

@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   #
   # Calendar
   #
-  resources :calendar_events
+  namespace :calendar do
+    resources :events
+  end
 
   #
   # Companies
