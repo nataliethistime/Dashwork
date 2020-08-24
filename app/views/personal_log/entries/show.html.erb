@@ -1,0 +1,5 @@
+<% content_for(:title, 'Log Entry') %>
+<% content_for(:back_link, personal_log_entries_path) %>
+<% content_for(:actions, actions_for(@personal_log_entry, :edit, :delete)) %>
+
+<%= render AttributesTableComponent.new @personal_log_entry, [:date, :content] %>

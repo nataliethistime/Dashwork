@@ -3,6 +3,7 @@
 # Table name: tenants
 #
 #  id                 :bigint           not null, primary key
+#  assets_app         :boolean          default(FALSE)
 #  calendar_app       :boolean
 #  companies_app      :boolean
 #  contacts_app       :boolean
@@ -11,6 +12,7 @@
 #  forms_app          :boolean
 #  name               :string
 #  notes_app          :boolean
+#  personal_log_app   :boolean          default(FALSE)
 #  projects_app       :boolean
 #  tasks_app          :boolean
 #  timesheets_app     :boolean

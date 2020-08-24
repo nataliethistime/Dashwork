@@ -52,6 +52,7 @@ class User < ApplicationRecord
   has_many :equipment
   has_many :forms
   has_many :projects
+  has_many :personal_log_entries, class_name: 'PersonalLog::Entry'
 
   has_many :stars
   has_many :starred_companies, through: :stars, source: :starrable, source_type: 'Company'

@@ -3,6 +3,7 @@
 # Table name: tenants
 #
 #  id                 :bigint           not null, primary key
+#  assets_app         :boolean          default(FALSE)
 #  calendar_app       :boolean
 #  companies_app      :boolean
 #  contacts_app       :boolean
@@ -11,6 +12,7 @@
 #  forms_app          :boolean
 #  name               :string
 #  notes_app          :boolean
+#  personal_log_app   :boolean          default(FALSE)
 #  projects_app       :boolean
 #  tasks_app          :boolean
 #  timesheets_app     :boolean
@@ -18,6 +20,7 @@
 #  updated_at         :datetime         not null
 #
 class Tenant < ApplicationRecord
+  has_many :assets
   has_many :calendar_events
   has_many :users
   has_many :notes
@@ -42,12 +45,14 @@ class Tenant < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 
   APPS = {
+    assets: { name: 'Assets', id: 'assets', path: routes.assets_path },
     calendar: { name: 'Calendar', id: 'calendar', path: routes.calendar_events_path },
     companies: { name: 'Companies', id: 'companies', path: routes.companies_path },
     contacts: { name: 'Contacts', id: 'contacts', path: routes.contacts_path },
     equipment: { name: 'Equipment', id: 'equipment', path: routes.equipment_index_path },
     forms: { name: 'Forms', id: 'forms', path: routes.forms_path },
     notes: { name: 'Notes', id: 'notes', path: routes.notes_path },
+    personal_log: { name: 'Personal Log', id: 'personal_log', path: routes.personal_log_entries_path },
     projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
     tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path }
   }.freeze

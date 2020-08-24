@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :personal_log do
+    resources :entries
+  end
   root to: 'application#home'
 
   #
@@ -12,9 +15,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   #
+  # Assets
+  #
+  resources :assets
+
+  #
   # Calendar
   #
-  resources :calendar_events
+  namespace :calendar do
+    resources :events
+  end
 
   #
   # Companies

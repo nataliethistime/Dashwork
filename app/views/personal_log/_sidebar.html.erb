@@ -1,0 +1,5 @@
+<%= render SidebarComponent.new do %>
+  <%= render SidebarLinkComponent.new :personal_log, 'Entries', personal_log_entries_path %>
+  <%= render SidebarLinkComponent.new :export, 'Export', '#', active: false %>
+  <%= render SidebarLinkComponent.new :help, 'Help', '#', active: false %>
+<% end %>

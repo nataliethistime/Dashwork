@@ -72,7 +72,6 @@ Rails.application.configure do
     g.helper false
     g.assets false
     g.stylesheets false
-    g.test_framework :test_unit, fixture: false
   end
 
   BetterErrors::Middleware.allow_ip! '0.0.0.0/0' if defined? BetterErrors

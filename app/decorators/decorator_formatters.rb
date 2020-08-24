@@ -37,15 +37,27 @@ module DecoratorFormatters
 
   def format_markdown(text = '')
     redcarpet = Redcarpet::Markdown.new(
-      Redcarpet::Render::HTML.new(filter_html: true, no_styles: true, prettify: true),
+      Redcarpet::Render::HTML.new(
+        filter_html: true,
+        no_styles: true,
+        prettify: true,
+        link_attributes: {
+          target: '_blank',
+          rel: 'noopener noreferrer'
+        }
+      ),
       no_intra_emphasis: true,
       autolink: true,
       strikethrough: true,
       space_after_headers: true,
       underline: true,
       highlight: true,
-      fenced_code_blocks: true
+      fenced_code_blocks: true,
     )
     helpers.content_tag :div, redcarpet.render(text).html_safe, class: 'content'
+  end
+
+  def format_currency(number)
+    helpers.number_to_currency number, unit: '$'
   end
 end

@@ -1,0 +1,5 @@
+<%= simple_form_for(personal_log_entry) do |f| %>
+  <%= render 'common/form_errors', form: f %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>
