@@ -20,6 +20,7 @@ icons:
   import: fas fa-upload
   log_in: fas fa-sign-in-alt
   notes: fas fa-sticky-note
+  personal_log: fas fa-book
   profile: fas fa-user-circle
   projects: fas fa-project-diagram
   settings: fas fa-wrench

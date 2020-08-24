@@ -1,0 +1,4 @@
+<% content_for(:title, 'Editing Personal Log Entry') %>
+<% content_for(:back_link, personal_log_entry_path(@personal_log_entry)) %>
+
+<%= render 'form', personal_log_entry: @personal_log_entry %>

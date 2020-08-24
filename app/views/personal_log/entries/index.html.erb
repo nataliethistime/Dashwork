@@ -1,0 +1,15 @@
+<% content_for(:title, 'Personal Log') %>
+<% content_for(:back_link, root_path) %>
+<% content_for(:actions, actions_for(PersonalLog::Entry, :create)) %>
+
+<% if @personal_log_entries.empty? %>
+  <div>
+    You haven't written any entries yet.
+  </div>
+<% else %>
+  <%= render IndexTableComponent.new(@personal_log_entries, [:content, :date]) %>
+<% end %>
+
+<br />
+
+<%= link_to 'New Entry', new_personal_log_entry_path, class: 'button is-link' %>

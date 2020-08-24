@@ -12,6 +12,7 @@
 #  forms_app          :boolean
 #  name               :string
 #  notes_app          :boolean
+#  personal_log_app   :boolean          default(FALSE)
 #  projects_app       :boolean
 #  tasks_app          :boolean
 #  timesheets_app     :boolean
@@ -51,6 +52,7 @@ class Tenant < ApplicationRecord
     equipment: { name: 'Equipment', id: 'equipment', path: routes.equipment_index_path },
     forms: { name: 'Forms', id: 'forms', path: routes.forms_path },
     notes: { name: 'Notes', id: 'notes', path: routes.notes_path },
+    personal_log: { name: 'Personal Log', id: 'personal_log', path: routes.personal_log_entries_path },
     projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
     tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path }
   }.freeze

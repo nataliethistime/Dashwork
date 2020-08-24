@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_25_020330) do
+ActiveRecord::Schema.define(version: 2020_08_23_025929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,17 @@ ActiveRecord::Schema.define(version: 2020_07_25_020330) do
     t.integer "company_id"
   end
 
+  create_table "personal_log_entries", force: :cascade do |t|
+    t.text "content"
+    t.datetime "date"
+    t.bigint "tenant_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id"], name: "index_personal_log_entries_on_tenant_id"
+    t.index ["user_id"], name: "index_personal_log_entries_on_user_id"
+  end
+
   create_table "project_companies", force: :cascade do |t|
     t.bigint "project_id"
     t.bigint "company_id"
@@ -241,6 +252,7 @@ ActiveRecord::Schema.define(version: 2020_07_25_020330) do
     t.boolean "form_templates_app"
     t.boolean "companies_app"
     t.boolean "assets_app", default: false
+    t.boolean "personal_log_app", default: false
   end
 
   create_table "users", force: :cascade do |t|

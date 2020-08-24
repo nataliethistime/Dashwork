@@ -12,6 +12,7 @@
 #  forms_app          :boolean
 #  name               :string
 #  notes_app          :boolean
+#  personal_log_app   :boolean          default(FALSE)
 #  projects_app       :boolean
 #  tasks_app          :boolean
 #  timesheets_app     :boolean

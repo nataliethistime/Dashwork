@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :personal_log do
+    resources :entries
+  end
   root to: 'application#home'
 
   #
