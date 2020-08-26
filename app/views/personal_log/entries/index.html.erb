@@ -7,7 +7,32 @@
     You haven't written any entries yet.
   </div>
 <% else %>
-  <%= render IndexTableComponent.new(@personal_log_entries, [:content, :date]) %>
+  <% previous_day = nil %>
+  <% @personal_log_entries.each do |personal_log_entry| %>
+    <% new_day = personal_log_entry.date.beginning_of_day %>
+    <% if previous_day != new_day %>
+      <% previous_day = new_day %>
+      <h1 class='title is-4'><%= personal_log_entry.decorate :day %></h1>
+    <% end %>
+    <div class='columns'>
+      <div class='column is-6'>
+        <div class='card'>
+          <div class='card-content'>
+            <p class='title is-4 has-text-centered'>
+              <%= link_to personal_log_entry, class: 'has-text-black' do %>
+                <%= personal_log_entry.decorate :time %>
+              <% end %>
+            </p>
+            <div class='content'>
+              <%= personal_log_entry.decorate :content %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= paginate @personal_log_entries %>
 <% end %>
 
 <br />
