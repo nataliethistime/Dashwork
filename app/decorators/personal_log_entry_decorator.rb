@@ -4,10 +4,10 @@ class PersonalLogEntryDecorator < DecoratorBase
   end
 
   def time(personal_log_entry)
-    helpers.local_time personal_log_entry.date, format: '%l:%M%P'
+    localize personal_log_entry.date, format: '%l:%M %P'
   end
 
   def day(personal_log_entry)
-    helpers.local_date personal_log_entry.date
+    localize personal_log_entry.date, format: '%A %B %e, %Y'
   end
 end
