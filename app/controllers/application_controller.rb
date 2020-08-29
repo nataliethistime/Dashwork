@@ -45,12 +45,12 @@ class ApplicationController < ActionController::Base
         current_tenant.companies.newly_created.limit(5)
       end
 
-      @filters = {
-        projects: params[:projects],
-        tasks: params[:tasks],
-        contacts: params[:contacts],
-        companies: params[:companies]
-      }
+    @filters = {
+      projects: params[:projects],
+      tasks: params[:tasks],
+      contacts: params[:contacts],
+      companies: params[:companies]
+    }
   end
 
   def current_tenant
