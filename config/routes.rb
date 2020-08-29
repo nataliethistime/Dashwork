@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :personal_log do
-    resources :entries
-  end
   root to: 'application#home'
 
   #
@@ -63,6 +60,14 @@ Rails.application.routes.draw do
   #
   resources :notes
   resources :note_tags, controller: 'tags', defaults: { type: 'note' }
+
+  #
+  # Personal Log
+  #
+  namespace :personal_log do
+    resources :entries
+    get 'review' => 'entries#review'
+  end
 
   #
   # Projects

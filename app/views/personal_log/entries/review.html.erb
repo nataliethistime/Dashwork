@@ -1,0 +1,21 @@
+<% content_for(:title, 'Review') %>
+<% content_for(:back_link, root_path) %>
+
+<% @periods.each do |period| %>
+  <% entries = @entries[period] %>
+  <div class='columns mt-5'>
+    <div class='column'>
+      <h1 class='title is-4'>One <%= period.to_s.humanize %> Ago</h1>
+    </div>
+  </div>
+  <% if entries.present? %>
+    <h1 class='title is-5'><%= entries.first.decorate :day %></h1>
+    <% @entries[period].each do |entry| %>
+      <div class='columns'>
+        <div class='column is-6'>
+          <%= render 'personal_log/entries/personal_log_entry', personal_log_entry: entry %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,12 @@
+<div class='card'>
+  <div class='card-content'>
+    <p class='title is-4 has-text-centered'>
+      <%= link_to personal_log_entry, class: 'has-text-black' do %>
+        <%= personal_log_entry.decorate :time %>
+      <% end %>
+    </p>
+    <div class='content'>
+      <%= personal_log_entry.decorate :content %>
+    </div>
+  </div>
+</div>
