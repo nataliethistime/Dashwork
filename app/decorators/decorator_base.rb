@@ -9,8 +9,12 @@ class DecoratorBase
     Rails.application.routes.url_helpers
   end
 
+  def localize(*args)
+    I18n.localize(*args)
+  end
+
   def updated_at(item)
-    helpers.local_relative_time item.updated_at, type: 'time-or-date'
+    localize item.updated_at, format: :short
   end
 
   def updated_at_ago(item)
@@ -18,7 +22,7 @@ class DecoratorBase
   end
 
   def created_at(item)
-    helpers.local_relative_time item.created_at, type: 'time-or-date'
+    localize item.created_at, format: :short
   end
 
   def created_at_ago(item)

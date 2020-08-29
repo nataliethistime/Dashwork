@@ -11,7 +11,6 @@ gem 'discard', '~> 1.2' # Soft deletion of items
 gem 'image_processing'
 gem 'jbuilder', '~> 2.7' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'kaminari' # Pagination
-gem 'local_time' # Display times to the user in their local timezones
 gem 'mini_decorator', '0.0.2' # Model decoration
 gem 'mini_magick'
 gem 'paper_trail' # Item version tracking

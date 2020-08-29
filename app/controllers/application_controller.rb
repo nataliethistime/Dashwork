@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :check_tenant
   before_action :set_sidebar
+  around_action :set_time_zone
 
   def home
     @sidebar = :application
@@ -45,12 +46,12 @@ class ApplicationController < ActionController::Base
         current_tenant.companies.newly_created.limit(5)
       end
 
-      @filters = {
-        projects: params[:projects],
-        tasks: params[:tasks],
-        contacts: params[:contacts],
-        companies: params[:companies]
-      }
+    @filters = {
+      projects: params[:projects],
+      tasks: params[:tasks],
+      contacts: params[:contacts],
+      companies: params[:companies]
+    }
   end
 
   def current_tenant
@@ -75,5 +76,9 @@ class ApplicationController < ActionController::Base
     if user_signed_in? && current_tenant.nil?
       redirect_to new_tenant_path unless helpers.current_page?(new_tenant_path)
     end
+  end
+
+  def set_time_zone
+    Time.use_zone(current_user&.time_zone || 'UTC') { yield }
   end
 end
