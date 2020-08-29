@@ -8,6 +8,21 @@ module PersonalLog
       @personal_log_entries = entries.all.page(params[:page])
     end
 
+    # GET /personal_log/entries/review
+    def review
+      @days = {
+        week: Time.zone.today.beginning_of_day - 7.days,
+        month: Time.zone.today.prev_month.beginning_of_day,
+        year: Time.zone.today.prev_year.beginning_of_day
+      }
+      @periods = @days.keys
+      @entries = {}
+
+      @periods.each do |period|
+        @entries[period] = entries.on_day(@days[period])
+      end
+    end
+
     # GET /personal_log/entries/1
     # GET /personal_log/entries/1.json
     def show

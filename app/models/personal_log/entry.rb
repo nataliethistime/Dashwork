@@ -28,6 +28,7 @@ module PersonalLog
       personal_log_entry.date ||= Time.zone.now
     end
 
+    scope :on_day, -> (date) { where(date: date..(date + 1.day)) }
     default_scope -> { order(date: :desc) }
   end
 end
