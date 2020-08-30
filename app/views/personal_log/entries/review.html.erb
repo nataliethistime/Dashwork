@@ -1,5 +1,5 @@
 <% content_for(:title, 'Review') %>
-<% content_for(:back_link, root_path) %>
+<% content_for(:back_link, dashboard_home_path) %>
 
 <% @periods.each do |period| %>
   <% entries = @entries[period] %>

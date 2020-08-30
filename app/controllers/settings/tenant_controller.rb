@@ -10,7 +10,7 @@ class Settings::TenantController < ApplicationController
 
     if @tenant.save
       current_user.update_attribute :tenant_id, @tenant.id
-      redirect_to root_path
+      redirect_to dashboard_home_path
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class Settings::TenantController < ApplicationController
     @tenant.update tenant_params
 
     if @tenant.save
-      redirect_to root_path, notice: 'Successfully updated your tenant settings'
+      redirect_to dashboard_home_path, notice: 'Successfully updated your tenant settings'
     else
       render 'edit'
     end

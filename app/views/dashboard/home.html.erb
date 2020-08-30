@@ -27,9 +27,9 @@
         <%= icon_for :projects %><span>Projects</span>
       </p>
       <p class='panel-tabs'>
-        <%= active_link_to 'Open', root_path(@filters.merge(projects: 'open')), class_active: 'is-active', active: { projects: 'open' } %>
-        <%= active_link_to 'Starred', root_path(@filters.merge(projects: 'starred')), class_active: 'is-active', active: { projects: 'starred' } %>
-        <%= active_link_to 'New', root_path(@filters.merge(projects: 'new')), class_active: 'is-active', active: { projects: 'new' } %>
+        <%= active_link_to 'Open', dashboard_home_path(@filters.merge(projects: 'open')), class_active: 'is-active', active: { projects: 'open' } %>
+        <%= active_link_to 'Starred', dashboard_home_path(@filters.merge(projects: 'starred')), class_active: 'is-active', active: { projects: 'starred' } %>
+        <%= active_link_to 'New', dashboard_home_path(@filters.merge(projects: 'new')), class_active: 'is-active', active: { projects: 'new' } %>
       </p>
       <% @projects.each do |project| %>
         <%= link_to project.decorate(:name), project_path(project), class: 'panel-block' %>
@@ -43,8 +43,8 @@
         <%= icon_for :tasks %><span>Tasks</span>
       </p>
       <p class='panel-tabs'>
-        <%= active_link_to 'Today', root_path(@filters.merge(tasks: 'today')), class_active: 'is-active', active: { tasks: 'today' } %>
-        <%= active_link_to 'New', root_path(@filters.merge(tasks: 'new')), class_active: 'is-active', active: { tasks: 'new' } %>
+        <%= active_link_to 'Today', dashboard_home_path(@filters.merge(tasks: 'today')), class_active: 'is-active', active: { tasks: 'today' } %>
+        <%= active_link_to 'New', dashboard_home_path(@filters.merge(tasks: 'new')), class_active: 'is-active', active: { tasks: 'new' } %>
       </p>
       <% @tasks.each do |task| %>
         <%= link_to task.decorate(:name), task_path(task), class: 'panel-block' %>
@@ -58,8 +58,8 @@
         <%= icon_for :contacts %><span>Contacts</span>
       </div>
       <div class='panel-tabs'>
-        <%= active_link_to 'Starred', root_path(@filters.merge(contacts: 'starred')), class_active: 'is-active', active: { contacts: 'starred' } %>
-        <%= active_link_to 'New', root_path(@filters.merge(contacts: 'new')), class_active: 'is-active', active: { contacts: 'new' } %>
+        <%= active_link_to 'Starred', dashboard_home_path(@filters.merge(contacts: 'starred')), class_active: 'is-active', active: { contacts: 'starred' } %>
+        <%= active_link_to 'New', dashboard_home_path(@filters.merge(contacts: 'new')), class_active: 'is-active', active: { contacts: 'new' } %>
       </div>
       <% @contacts.each do |contact| %>
         <%= link_to contact.decorate(:name), contact_path(contact), class: 'panel-block' %>
@@ -73,8 +73,8 @@
         <%= icon_for :companies %><span>Companies</span>
       </div>
       <div class='panel-tabs'>
-        <%= active_link_to 'Starred', root_path(@filters.merge(companies: 'starred')), class_active: 'is-active', active: { companies: 'starred' } %>
-        <%= active_link_to 'New', root_path(@filters.merge(companies: 'new')), class_active: 'is-active', active: { companies: 'new' } %>
+        <%= active_link_to 'Starred', dashboard_home_path(@filters.merge(companies: 'starred')), class_active: 'is-active', active: { companies: 'starred' } %>
+        <%= active_link_to 'New', dashboard_home_path(@filters.merge(companies: 'new')), class_active: 'is-active', active: { companies: 'new' } %>
       </div>
       <% @companies.each do |company| %>
         <%= link_to company.decorate(:name), company_path(company), class: 'panel-block' %>

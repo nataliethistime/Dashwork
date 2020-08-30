@@ -1,5 +1,5 @@
 <% content_for(:title, 'Projects') %>
-<% content_for(:back_link, root_path) %>
+<% content_for(:back_link, dashboard_home_path) %>
 <% content_for(:actions, actions_for(Project, :create)) %>
 
 <%= render 'projects', projects: @projects %>

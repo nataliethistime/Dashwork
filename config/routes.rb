@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'application#home'
+  root to: 'public#index'
 
   #
   # Administration
@@ -45,6 +45,13 @@ Rails.application.routes.draw do
   get '/contacts/:id/tasks' => 'links#tasks', as: :contact_tasks, defaults: { type: 'contact' }
 
   #
+  # Dashboard
+  #
+  namespace :dashboard do
+    get :home
+  end
+
+  #
   # Equipment
   #
   resources :equipment
@@ -76,6 +83,13 @@ Rails.application.routes.draw do
   resources :custom_project_fields, controller: 'custom_fields', defaults: { domain: 'project' }
   resources :project_tags, controller: 'tags', defaults: { type: 'project' }
   get '/projects/:id/tasks' => 'links#tasks', as: :project_tasks, defaults: { type: 'project' }
+
+  #
+  # Public pages
+  #
+  namespace :public do
+    get :index
+  end
 
   #
   # Settings
