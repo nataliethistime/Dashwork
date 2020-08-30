@@ -16,30 +16,23 @@ require("turbolinks").start();
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-//
-// Enables the hamburger button on mobile. Copied from Bulma docs
-//
 document.addEventListener('turbolinks:load', () => {
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-
-    // Add a click event on each of them
-    $navbarBurgers.forEach( el => {
-      el.addEventListener('click', () => {
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
-
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-      });
+  //
+  // Toggle the is-active class when a burger button is clicked on
+  //
+  $('.navbar-burger').each(function() {
+    const burger = $(this);
+    burger.click(function() {
+      const target = burger.attr('data-target');
+      const bar = $(`#${target}`);
+      burger.toggleClass('is-active');
+      bar.toggleClass('is-active');
     });
-  }
+  });
 
+  //
+  // Hide notification bubbles when clicking on the 'x' button or after 5 seconds automatically.
+  //
   $('.notification .delete').each(function() {
     const deleteButton = $(this);
     const notification = deleteButton.parent();
