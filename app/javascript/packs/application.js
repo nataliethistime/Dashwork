@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 const autosize = require('autosize');
+window.jQuery = window.$ = require('jquery');
 
 require("@rails/ujs").start();
 require("turbolinks").start();
@@ -38,6 +39,21 @@ document.addEventListener('turbolinks:load', () => {
       });
     });
   }
+
+  $('.notification .delete').each(function() {
+    const deleteButton = $(this);
+    const notification = deleteButton.parent();
+
+    deleteButton.click(function() {
+      notification.fadeOut(500);
+    });
+
+    if (notification.hasClass('will-autohide')) {
+      setTimeout(() => {
+        notification.fadeOut(1000);
+      }, 5000);
+    }
+  });
 
   //
   // Autosize all <textarea> elements

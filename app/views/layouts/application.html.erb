@@ -16,8 +16,16 @@
   <body class='has-navbar-fixed-top'>
     <%= render 'navbar' %>
     <%= render "application/#{yield(:page_style).presence || 'full_width'}" do %>
-      <% if flash[:notice].present? %><div class='notification is-info'><%= notice %></div><% end %>
-      <% if flash[:alert].present? %><div class='notification is-warning'><%= alert %></div><% end %>
+      <% if flash[:notice].present? %>
+        <%= render NotificationComponent.new style: :info do %>
+          <%= notice %>
+        <% end %>
+      <% end %>
+      <% if flash[:alert].present? %>
+        <%= render NotificationComponent.new style: :warning do %>
+          <%= alert %>
+        <% end %>
+      <% end %>
       <% unless content_for?(:hide_body_title) %>
         <h1 class='title'><%= yield :title %></h1>
       <% end %>
