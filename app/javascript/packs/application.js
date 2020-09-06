@@ -45,4 +45,14 @@ document.addEventListener('turbolinks:load', () => {
   // Autosize all <textarea> elements
   //
   autosize(document.querySelectorAll('textarea'));
+
+  $('.landing-module-toggler').click(function() {
+    const el = $(this);
+    const module = el.attr('data-module-id');
+    console.log(`Switching to the ${module} module`);
+    $('.landing-module-toggler').removeClass('is-active');
+    $('.landing-module-content').addClass('is-hidden');
+    $(`.landing-module-toggler[data-module-id="${module}"]`).addClass('is-active');
+    $(`.landing-module-content[data-module-id="${module}"]`).removeClass('is-hidden');
+  });
 });
