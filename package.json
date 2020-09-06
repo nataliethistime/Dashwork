@@ -8,6 +8,7 @@
     "@rails/webpacker": "4.2.2",
     "autosize": "4.0.2",
     "bulma": "^0.9.0",
+    "jquery": "^3.5.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

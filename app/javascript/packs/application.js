@@ -4,43 +4,55 @@
 // that code so it'll be compiled.
 
 const autosize = require('autosize');
+window.jQuery = window.$ = require('jquery');
 
-require("@rails/ujs").start();
-require("turbolinks").start();
+require('@rails/ujs').start();
+require('turbolinks').start();
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
-
-//
-// Enables the hamburger button on mobile. Copied from Bulma docs
-//
 document.addEventListener('turbolinks:load', () => {
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-
-    // Add a click event on each of them
-    $navbarBurgers.forEach( el => {
-      el.addEventListener('click', () => {
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
-
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-      });
+  //
+  // Toggle the is-active class when a burger button is clicked on
+  //
+  $('.navbar-burger').each(function() {
+    const burger = $(this);
+    burger.click(function() {
+      const target = burger.attr('data-target');
+      const bar = $(`#${target}`);
+      burger.toggleClass('is-active');
+      bar.toggleClass('is-active');
     });
-  }
+  });
+
+  //
+  // Hide notification bubbles when clicking on the 'x' button or after 5 seconds automatically.
+  //
+  $('.notification .delete').each(function() {
+    const deleteButton = $(this);
+    const notification = deleteButton.parent();
+
+    deleteButton.click(function() {
+      notification.fadeOut(500);
+    });
+
+    if (notification.hasClass('will-autohide')) {
+      setTimeout(() => {
+        notification.fadeOut(1000);
+      }, 5000);
+    }
+  });
 
   //
   // Autosize all <textarea> elements
   //
   autosize(document.querySelectorAll('textarea'));
+
+  $('.landing-module-toggler').click(function() {
+    const el = $(this);
+    const module = el.attr('data-module-id');
+    console.log(`Switching to the ${module} module`);
+    $('.landing-module-toggler').removeClass('is-active');
+    $('.landing-module-content').addClass('is-hidden');
+    $(`.landing-module-toggler[data-module-id="${module}"]`).addClass('is-active');
+    $(`.landing-module-content[data-module-id="${module}"]`).removeClass('is-hidden');
+  });
 });
