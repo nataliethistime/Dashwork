@@ -18,13 +18,20 @@ class Project < ApplicationRecord
   has_many :notes
   has_many :tasks
   has_many :forms
+
   has_many :project_companies
   has_many :companies, through: :project_companies
+
   has_many :project_contacts
   has_many :contacts, through: :project_contacts
-  # TODO: link calendar events
+
+  has_many :calendar_event_projects
+  has_many :calendar_events, through: :calendar_event_projects
+
   # TODO: link equipment
+
   decorate_with ProjectDecorator
+
   include Taggable
   include CustomFieldable
   include Starrable

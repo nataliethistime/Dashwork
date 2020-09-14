@@ -6,5 +6,9 @@
   <%= f.input :start_at %>
   <%= f.input :end_at %>
 
+  <%= f.association :contacts %>
+  <%= f.association :companies %>
+  <%= f.association :projects %>
+
   <%= f.button :submit %>
 <% end %>

@@ -72,7 +72,15 @@ module Calendar
 
     # Only allow a list of trusted parameters through.
     def calendar_event_params
-      params.require(:calendar_event).permit(:name, :description, :start_at, :end_at)
+      params.require(:calendar_event).permit(
+        :name,
+        :description,
+        :start_at,
+        :end_at,
+        company_ids: [],
+        contact_ids: [],
+        project_ids: []
+      )
     end
   end
 end
