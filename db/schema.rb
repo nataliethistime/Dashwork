@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_081144) do
+ActiveRecord::Schema.define(version: 2020_09_16_074453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -218,6 +218,17 @@ ActiveRecord::Schema.define(version: 2020_09_14_081144) do
     t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews_book_reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.text "thoughts"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reviews_book_reviews_on_user_id"
   end
 
   create_table "stars", force: :cascade do |t|

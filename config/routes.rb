@@ -92,6 +92,13 @@ Rails.application.routes.draw do
   end
 
   #
+  # Reviews
+  #
+  namespace :reviews do
+    resources :book_reviews
+  end
+
+  #
   # Settings
   #
   namespace :settings do
