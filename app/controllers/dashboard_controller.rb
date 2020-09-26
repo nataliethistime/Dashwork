@@ -1,18 +1,18 @@
 class DashboardController < ApplicationController
   def home
-    params[:projects] ||= 'open'
+    params[:projects] ||= 'active'
     params[:tasks] ||= 'today'
     params[:contacts] ||= 'starred'
     params[:companies] ||= 'starred'
 
     @projects =
       case params[:projects]
-      when 'open'
-        current_tenant.projects.open.limit(5)
+      when 'active'
+        current_tenant.projects.active.limit(5)
       when 'starred'
-        current_user.starred_projects.limit(5)
+        current_user.starred_projects.active.limit(5)
       when 'new'
-        current_tenant.projects.newly_created.limit(5)
+        current_tenant.projects.active.newly_created.limit(5)
       end
 
     @tasks =

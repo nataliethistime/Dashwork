@@ -1,5 +1,6 @@
 <%= render SidebarComponent.new do %>
-  <%= render SidebarLinkComponent.new(:projects, 'Projects', projects_path) %>
+  <%= render SidebarLinkComponent.new(:projects, 'Projects', projects_path, active: :exclusive) %>
+  <%= render SidebarLinkComponent.new(:complete, 'Closed', closed_projects_path) %>
   <%= render SidebarLinkComponent.new(:tags, 'Tags', project_tags_path) %>
   <%= render SidebarLinkComponent.new(:custom_fields, 'Custom Fields', custom_project_fields_path) %>
   <%= render SidebarLinkComponent.new(:starred, 'Stars', stars_path(type: 'project')) %>

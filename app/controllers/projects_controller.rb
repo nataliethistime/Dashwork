@@ -4,7 +4,14 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @q = current_tenant.projects.includes(:tags).ransack(params[:q])
+    @q = current_tenant.projects.active.includes(:tags).ransack(params[:q])
+    @projects = @q.result.page(params[:page])
+  end
+
+  # GET /projects/closed
+  # GET /projects/closed.json
+  def closed
+    @q = current_tenant.projects.closed.includes(:tags).ransack(params[:q])
     @projects = @q.result.page(params[:page])
   end
 
@@ -82,6 +89,7 @@ class ProjectsController < ApplicationController
       :description,
       :start_date,
       :end_date,
+      :status,
       :company_ids,
       :contact_ids,
       tag_ids: [],

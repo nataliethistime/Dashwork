@@ -32,4 +32,8 @@ class ProjectDecorator < DecoratorBase
       .join ''
     "<div class='content'><ul>#{names}</ul></div>".html_safe
   end
+
+  def status(project)
+    project.status.capitalize
+  end
 end

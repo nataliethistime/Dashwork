@@ -79,7 +79,9 @@ Rails.application.routes.draw do
   #
   # Projects
   #
-  resources :projects
+  resources :projects do
+    get 'closed', on: :collection
+  end
   resources :custom_project_fields, controller: 'custom_fields', defaults: { domain: 'project' }
   resources :project_tags, controller: 'tags', defaults: { type: 'project' }
   get '/projects/:id/tasks' => 'links#tasks', as: :project_tasks, defaults: { type: 'project' }

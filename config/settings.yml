@@ -7,6 +7,7 @@ icons:
   books: fas fa-book-reader
   calendar: fas fa-calendar-alt
   companies: fas fa-briefcase
+  complete: fas fa-check-circle
   contacts: fas fa-address-book
   create: fas fa-plus
   custom_fields: fas fa-clipboard-list

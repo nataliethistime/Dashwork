@@ -3,14 +3,15 @@
 # Table name: projects
 #
 #  id          :bigint           not null, primary key
-#  name        :string
 #  description :text
-#  start_date  :date
 #  end_date    :date
-#  user_id     :integer          not null
-#  tenant_id   :integer          not null
+#  name        :string
+#  start_date  :date
+#  status      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  tenant_id   :integer          not null
+#  user_id     :integer          not null
 #
 require 'test_helper'
 
