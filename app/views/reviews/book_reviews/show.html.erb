@@ -1,0 +1,5 @@
+<% content_for(:title, 'Book Review') %>
+<% content_for(:back_link, reviews_book_reviews_path) %>
+<% content_for(:actions, actions_for(@reviews_book_review, :edit, :delete)) %>
+
+<%= render AttributesTableComponent.new(@reviews_book_review, [:title, :author, :rating, :thoughts]) %>

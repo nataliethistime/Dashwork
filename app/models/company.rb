@@ -21,9 +21,13 @@ class Company < ApplicationRecord
   has_many :forms
   has_many :notes
   has_many :tasks
+
   has_many :project_companies
   has_many :projects, through: :project_companies
-  # TODO: link events
+
+  has_many :calendar_event_companies
+  has_many :calendar_events, through: :calendar_event_companies
+
   decorate_with CompanyDecorator
 
   default_scope -> { order(:name) }

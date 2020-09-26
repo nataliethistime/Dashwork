@@ -4,8 +4,10 @@ icons:
   apps: fas fa-th
   assets: fas fa-car-side
   back: fas fa-arrow-left
+  books: fas fa-book-reader
   calendar: fas fa-calendar-alt
   companies: fas fa-briefcase
+  complete: fas fa-check-circle
   contacts: fas fa-address-book
   create: fas fa-plus
   custom_fields: fas fa-clipboard-list
@@ -24,6 +26,7 @@ icons:
   personal_log_review: fas fa-binoculars
   profile: fas fa-user-circle
   projects: fas fa-project-diagram
+  reviews: fas fa-bullhorn
   settings: fas fa-wrench
   sign_out: fas fa-power-off
   sign_up: fas fa-user-plus

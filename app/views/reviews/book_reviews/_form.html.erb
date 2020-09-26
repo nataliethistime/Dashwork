@@ -1,0 +1,10 @@
+<%= simple_form_for(@reviews_book_review) do |f| %>
+  <%= render 'common/form_errors', form: f %>
+
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :rating %>
+  <%= f.input :thoughts %>
+
+  <%= f.button :submit %>
+<% end %>

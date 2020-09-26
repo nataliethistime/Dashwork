@@ -33,9 +33,12 @@ class Contact < ApplicationRecord
   has_many :forms
   has_many :notes
   has_many :tasks
+
   has_many :project_contacts
   has_many :projects, through: :project_contacts
-  # TODO: link events
+
+  has_many :calendar_event_contacts
+  has_many :calendar_events, through: :calendar_event_contacts
 
   include CustomFieldable
   include Taggable

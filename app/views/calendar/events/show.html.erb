@@ -2,4 +2,4 @@
 <% content_for(:back_link, calendar_events_path) %>
 <% content_for(:actions, actions_for(@calendar_event, :edit, :delete)) %>
 
-<%= render AttributesTableComponent.new @calendar_event, [:description, :start_at, :end_at] %>
+<%= render AttributesTableComponent.new @calendar_event, [:description, :start_at, :end_at, :companies, :contacts, :projects] %>

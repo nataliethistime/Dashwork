@@ -27,7 +27,7 @@
         <%= icon_for :projects %><span>Projects</span>
       </p>
       <p class='panel-tabs'>
-        <%= active_link_to 'Open', dashboard_home_path(@filters.merge(projects: 'open')), class_active: 'is-active', active: { projects: 'open' } %>
+        <%= active_link_to 'Active', dashboard_home_path(@filters.merge(projects: 'active')), class_active: 'is-active', active: { projects: 'active' } %>
         <%= active_link_to 'Starred', dashboard_home_path(@filters.merge(projects: 'starred')), class_active: 'is-active', active: { projects: 'starred' } %>
         <%= active_link_to 'New', dashboard_home_path(@filters.merge(projects: 'new')), class_active: 'is-active', active: { projects: 'new' } %>
       </p>

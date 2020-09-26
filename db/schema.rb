@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_025929) do
+ActiveRecord::Schema.define(version: 2020_09_26_074824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,33 @@ ActiveRecord::Schema.define(version: 2020_08_23_025929) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "tenant_id"
     t.index ["tenant_id"], name: "index_assets_on_tenant_id"
+  end
+
+  create_table "calendar_event_companies", force: :cascade do |t|
+    t.bigint "calendar_event_id"
+    t.bigint "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_event_id"], name: "index_calendar_event_companies_on_calendar_event_id"
+    t.index ["company_id"], name: "index_calendar_event_companies_on_company_id"
+  end
+
+  create_table "calendar_event_contacts", force: :cascade do |t|
+    t.bigint "calendar_event_id"
+    t.bigint "contact_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_event_id"], name: "index_calendar_event_contacts_on_calendar_event_id"
+    t.index ["contact_id"], name: "index_calendar_event_contacts_on_contact_id"
+  end
+
+  create_table "calendar_event_projects", force: :cascade do |t|
+    t.bigint "calendar_event_id"
+    t.bigint "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_event_id"], name: "index_calendar_event_projects_on_calendar_event_id"
+    t.index ["project_id"], name: "index_calendar_event_projects_on_project_id"
   end
 
   create_table "calendar_events", force: :cascade do |t|
@@ -191,6 +218,18 @@ ActiveRecord::Schema.define(version: 2020_08_23_025929) do
     t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
+  end
+
+  create_table "reviews_book_reviews", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.text "thoughts"
+    t.integer "rating"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reviews_book_reviews_on_user_id"
   end
 
   create_table "stars", force: :cascade do |t|
@@ -253,6 +292,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_025929) do
     t.boolean "companies_app"
     t.boolean "assets_app", default: false
     t.boolean "personal_log_app", default: false
+    t.boolean "reviews_app", default: false
   end
 
   create_table "users", force: :cascade do |t|

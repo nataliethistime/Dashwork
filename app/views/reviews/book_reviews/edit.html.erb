@@ -1,0 +1,4 @@
+<% content_for(:title, 'Edit Book Review') %>
+<% content_for(:back_link, reviews_book_review_path(@reviews_book_review)) %>
+
+<%= render 'form', reviews_book_review: @reviews_book_review %>

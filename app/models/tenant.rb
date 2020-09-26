@@ -14,33 +14,34 @@
 #  notes_app          :boolean
 #  personal_log_app   :boolean          default(FALSE)
 #  projects_app       :boolean
+#  reviews_app        :boolean          default(FALSE)
 #  tasks_app          :boolean
 #  timesheets_app     :boolean
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
 class Tenant < ApplicationRecord
-  has_many :assets
-  has_many :calendar_events
-  has_many :users
-  has_many :notes
-  has_many :tasks
-  has_many :companies
-  has_many :contacts
-  has_many :equipment
-  has_many :forms
-  has_many :form_templates
-  has_many :projects
+  has_many :assets, dependent: :destroy
+  has_many :calendar_events, dependent: :destroy
+  has_many :users, dependent: :destroy
+  has_many :notes, dependent: :destroy
+  has_many :tasks, dependent: :destroy
+  has_many :companies, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_many :equipment, dependent: :destroy
+  has_many :forms, dependent: :destroy
+  has_many :form_templates, dependent: :destroy
+  has_many :projects, dependent: :destroy
 
-  has_many :company_tags
-  has_many :contact_tags
-  has_many :note_tags
-  has_many :project_tags
+  has_many :company_tags, dependent: :destroy
+  has_many :contact_tags, dependent: :destroy
+  has_many :note_tags, dependent: :destroy
+  has_many :project_tags, dependent: :destroy
 
-  has_many :custom_fields
-  has_many :custom_company_fields
-  has_many :custom_contact_fields
-  has_many :custom_project_fields
+  has_many :custom_fields, dependent: :destroy
+  has_many :custom_company_fields, dependent: :destroy
+  has_many :custom_contact_fields, dependent: :destroy
+  has_many :custom_project_fields, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 3 }
 
@@ -54,6 +55,7 @@ class Tenant < ApplicationRecord
     notes: { name: 'Notes', id: 'notes', path: routes.notes_path },
     personal_log: { name: 'Personal Log', id: 'personal_log', path: routes.personal_log_entries_path },
     projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
+    reviews: { name: 'Reviews', id: 'reviews', path: routes.reviews_book_reviews_path },
     tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path }
   }.freeze
 

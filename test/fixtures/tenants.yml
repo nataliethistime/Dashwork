@@ -14,6 +14,7 @@
 #  notes_app          :boolean
 #  personal_log_app   :boolean          default(FALSE)
 #  projects_app       :boolean
+#  reviews_app        :boolean          default(FALSE)
 #  tasks_app          :boolean
 #  timesheets_app     :boolean
 #  created_at         :datetime         not null

@@ -3,14 +3,15 @@
 # Table name: projects
 #
 #  id          :bigint           not null, primary key
-#  name        :string
 #  description :text
-#  start_date  :date
 #  end_date    :date
-#  user_id     :integer          not null
-#  tenant_id   :integer          not null
+#  name        :string
+#  start_date  :date
+#  status      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  tenant_id   :integer          not null
+#  user_id     :integer          not null
 #
 class Project < ApplicationRecord
   belongs_to :tenant
@@ -18,18 +19,41 @@ class Project < ApplicationRecord
   has_many :notes
   has_many :tasks
   has_many :forms
+
   has_many :project_companies
   has_many :companies, through: :project_companies
+
   has_many :project_contacts
   has_many :contacts, through: :project_contacts
-  # TODO: link calendar events
+
+  has_many :calendar_event_projects
+  has_many :calendar_events, through: :calendar_event_projects
+
   # TODO: link equipment
+
+  STATUSES = ['active', 'closed']
+  validates :status, inclusion: { in: STATUSES }
+
+  def status
+    super.presence || 'active'
+  end
+
+  def active?
+    status == 'active'
+  end
+
+  def closed?
+    status == 'closed'
+  end
+
   decorate_with ProjectDecorator
+
   include Taggable
   include CustomFieldable
   include Starrable
 
   default_scope -> { order(:name) }
-  scope :open, -> { all }
-  scope :newly_created, -> { all.reorder(created_at: :desc) }
+  scope :active, -> { where(status: ['active', nil]) }
+  scope :closed, -> { where(status: 'closed') }
+  scope :newly_created, -> { reorder(created_at: :desc) }
 end
