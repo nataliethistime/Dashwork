@@ -42,7 +42,7 @@
   <div class='column is-one-third'>
     <%= render LinkedItemsPanelComponent.new @contact, items: @contact.notes, display_attribute: :title %>
     <%= render LinkedItemsPanelComponent.new @contact, items: @contact.tasks.uncompleted %>
-    <%= render LinkedItemsPanelComponent.new @contact, items: @contact.projects.open %>
+    <%= render LinkedItemsPanelComponent.new @contact, items: @contact.projects.active %>
   </div>
 </div>
 
