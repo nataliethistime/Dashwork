@@ -14,6 +14,7 @@
 #  notes_app          :boolean
 #  personal_log_app   :boolean          default(FALSE)
 #  projects_app       :boolean
+#  reviews_app        :boolean          default(FALSE)
 #  tasks_app          :boolean
 #  timesheets_app     :boolean
 #  created_at         :datetime         not null
@@ -54,6 +55,7 @@ class Tenant < ApplicationRecord
     notes: { name: 'Notes', id: 'notes', path: routes.notes_path },
     personal_log: { name: 'Personal Log', id: 'personal_log', path: routes.personal_log_entries_path },
     projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
+    reviews: { name: 'Reviews', id: 'reviews', path: routes.reviews_book_reviews_path },
     tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path }
   }.freeze
 

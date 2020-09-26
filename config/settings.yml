@@ -26,6 +26,7 @@ icons:
   personal_log_review: fas fa-binoculars
   profile: fas fa-user-circle
   projects: fas fa-project-diagram
+  reviews: fas fa-bullhorn
   settings: fas fa-wrench
   sign_out: fas fa-power-off
   sign_up: fas fa-user-plus
