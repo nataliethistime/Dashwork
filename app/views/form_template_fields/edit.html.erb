@@ -1,0 +1,3 @@
+<% content_for(:title, 'Edit Form Field') %>
+<% content_for(:back_link, form_template_field_path(@form_template, @field)) %>
+<%= render 'form_template_fields/form', field: @field %>

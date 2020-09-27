@@ -59,7 +59,9 @@ Rails.application.routes.draw do
   #
   # Forms
   #
-  resources :form_templates
+  resources :form_templates do
+    resources :fields, controller: :form_template_fields
+  end
   resources :forms
 
   #

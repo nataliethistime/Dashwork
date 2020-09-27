@@ -18,11 +18,11 @@ class CustomField < ApplicationRecord
   self.inheritance_column = :domain
   decorate_with FieldDecorator
 
-  TYPES = %w{CustomStringValue CustomTextValue}
-  DOMAINS = %w{CustomCompanyField CustomContactField CustomProjectField}
+  TYPES = %w{CustomStringValue CustomTextValue}.freeze
+  DOMAINS = %w{CustomCompanyField CustomContactField CustomProjectField}.freeze
 
   belongs_to :tenant
-  has_many :custom_values
+  has_many :custom_values, dependent: :restrict_with_error
 
   validates :name, presence: true
   validates :domain, presence: true, inclusion: { in: DOMAINS }

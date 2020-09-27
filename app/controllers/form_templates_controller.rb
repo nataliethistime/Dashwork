@@ -10,6 +10,7 @@ class FormTemplatesController < ApplicationController
   # GET /form_templates/1
   # GET /form_templates/1.json
   def show
+    @forms = @form_template.forms.page(params[:page])
   end
 
   # GET /form_templates/new

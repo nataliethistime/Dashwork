@@ -1,0 +1,9 @@
+<% content_for(:title, 'Form Fields') %>
+<% content_for(:back_link, form_template_path(@form_template)) %>
+<% content_for(:actions) do %>
+  <%= link_to new_form_template_field_path(@form_template), class: 'navbar-item' do %>
+    <%= icon_for :create %>
+  <% end %>
+<% end %>
+
+<%= render IndexTableComponent.new(@fields, [:label, :type], path_for: proc { |item| form_template_field_path(@form_template, item) }) %>
