@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_040607) do
+ActiveRecord::Schema.define(version: 2020_10_09_120622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -328,6 +328,24 @@ ActiveRecord::Schema.define(version: 2020_09_27_040607) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+  end
+
+  create_table "wiki_folders", force: :cascade do |t|
+    t.string "name"
+    t.bigint "parent_id"
+    t.bigint "tenant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id"], name: "index_wiki_folders_on_tenant_id"
+  end
+
+  create_table "wiki_pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "folder_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["folder_id"], name: "index_wiki_pages_on_folder_id"
   end
 
 end

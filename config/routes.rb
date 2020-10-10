@@ -122,4 +122,13 @@ Rails.application.routes.draw do
   # Tasks
   #
   resources :tasks
+
+  #
+  # Wiki
+  #
+  namespace :wiki do
+    resources :folders do
+      resources :pages
+    end
+  end
 end

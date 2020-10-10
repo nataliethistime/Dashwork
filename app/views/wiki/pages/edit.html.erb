@@ -1,0 +1,3 @@
+<% content_for(:title, 'Editing Page') %>
+<% content_for(:back_link, wiki_folder_page_path(@folder, @page)) %>
+<%= render 'form', page: @page %>

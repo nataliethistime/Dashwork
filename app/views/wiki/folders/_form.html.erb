@@ -1,0 +1,5 @@
+<%= simple_form_for(folder) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :parent_id, as: :hidden %>
+  <%= f.button :submit %>
+<% end %>

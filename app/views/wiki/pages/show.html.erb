@@ -1,0 +1,12 @@
+<% content_for(:title, @page.title) %>
+<% content_for(:back_link, wiki_folder_path(@page.folder)) %>
+<% content_for(:actions) do %>
+  <%= link_to edit_wiki_folder_page_path(@page.folder, @page), class: 'navbar-item' do %>
+    <%= icon_for :edit %>
+  <% end %>
+  <%= link_to wiki_folder_page_path(@page.folder, @page), class: 'navbar-item', method: :delete, data: { confirm: 'Are you sure you want to delete this?' } do %>
+    <%= icon_for :delete %>
+  <% end %>
+<% end %>
+
+<%= @page.decorate :content %>

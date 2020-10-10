@@ -1,0 +1,5 @@
+<%= simple_form_for(page, url: page.new_record? ? wiki_folder_pages_path(page.folder) : wiki_folder_page_path(page.folder, page)) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.button :submit %>
+<% end %>

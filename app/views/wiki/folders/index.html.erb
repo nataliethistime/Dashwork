@@ -1,0 +1,17 @@
+<% content_for(:title, 'Wiki') %>
+<% content_for(:back_link, dashboard_home_path) %>
+<% content_for(:actions, actions_for(Wiki::Folder, :create)) %>
+
+<% if @folders.empty? %>
+  <div>
+    You haven't created any folders yet.
+  </div>
+<% else %>
+  <%= render 'wiki/folders/folders', folders: @folders %>
+<% end %>
+
+<br />
+
+<div>
+  <%= link_to 'New Folder', new_wiki_folder_path, class: 'button is-link' %>
+</div>
