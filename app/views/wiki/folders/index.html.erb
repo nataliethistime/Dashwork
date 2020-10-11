@@ -1,6 +1,7 @@
 <% content_for(:title, 'Wiki') %>
 <% content_for(:back_link, dashboard_home_path) %>
 <% content_for(:actions, actions_for(Wiki::Folder, :create)) %>
+<% content_for(:page_style, :document) %>
 
 <% if @folders.empty? %>
   <div>

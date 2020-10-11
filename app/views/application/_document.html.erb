@@ -1,0 +1,16 @@
+<section class='section'>
+  <div class='container'>
+    <div class='columns'>
+      <% if @sidebar.present? %>
+        <div class='column is-2'>
+          <%= render "#{@sidebar}/sidebar" %>
+        </div>
+      <% end %>
+      <div class='column'>
+        <div class='box'>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
