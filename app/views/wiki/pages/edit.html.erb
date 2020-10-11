@@ -1,4 +1,4 @@
 <% content_for(:title, 'Editing Page') %>
-<% content_for(:back_link, wiki_folder_page_path(@folder, @page)) %>
+<% content_for(:back_link, @page.folder.present? ? wiki_folder_path(@page.folder) : wiki_folders_path) %>
 <% content_for(:page_style, :document) %>
 <%= render 'form', page: @page %>

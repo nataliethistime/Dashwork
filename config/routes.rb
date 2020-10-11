@@ -127,8 +127,7 @@ Rails.application.routes.draw do
   # Wiki
   #
   namespace :wiki do
-    resources :folders do
-      resources :pages
-    end
+    resources :folders
+    resources :pages, except: :index
   end
 end

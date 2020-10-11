@@ -8,12 +8,13 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  folder_id  :bigint
+#  tenant_id  :bigint
 #
 # Indexes
 #
 #  index_wiki_pages_on_folder_id  (folder_id)
+#  index_wiki_pages_on_tenant_id  (tenant_id)
 #
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the '{}' from the fixture names and add the columns immediately

@@ -2,6 +2,7 @@ module Wiki
   class FoldersController < ApplicationController
     def index
       @folders = current_tenant.wiki_folders.root_level
+      @pages = current_tenant.wiki_pages.root_level
     end
 
     def show

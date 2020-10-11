@@ -34,6 +34,7 @@ class Tenant < ApplicationRecord
   has_many :form_templates, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_many :wiki_folders, dependent: :destroy, class_name: 'Wiki::Folder'
+  has_many :wiki_pages, dependent: :destroy, class_name: 'Wiki::Page'
 
   has_many :company_tags, dependent: :destroy
   has_many :contact_tags, dependent: :destroy
