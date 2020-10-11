@@ -17,6 +17,7 @@
 #  reviews_app        :boolean          default(FALSE)
 #  tasks_app          :boolean
 #  timesheets_app     :boolean
+#  wiki_app           :boolean          default(FALSE)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
