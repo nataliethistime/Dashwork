@@ -1,0 +1,24 @@
+<div class='content'>
+  <table class='table is-fullwidth is-hoverable is-clickable'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Last Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% local_assigns.fetch(:folders, []).each do |folder| %>
+        <tr onclick="Turbolinks.visit('<%= wiki_folder_path(folder) %>');">
+          <td><%= icon_for :folder %><span><%= folder.decorate(:name) %></span></td>
+          <td><%= folder.decorate(:updated_at_ago) %></td>
+        </tr>
+      <% end %>
+      <% local_assigns.fetch(:pages, []).each do |page| %>
+        <tr onclick="Turbolinks.visit('<%= wiki_folder_page_path(page.folder, page) %>');">
+          <td><%= icon_for :file %><span><%= page.decorate(:title) %></span></td>
+          <td><%= page.decorate(:updated_at_ago) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

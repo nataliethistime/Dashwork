@@ -15,6 +15,8 @@ icons:
   edit: fas fa-edit
   equipment: fas fa-truck
   export: fas fa-cloud-download-alt
+  file: far fa-file
+  folder: fas fa-folder
   form_templates: fas fa-box
   forms: fas fa-file-signature
   go_to: fas fa-arrow-right

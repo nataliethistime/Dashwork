@@ -10,8 +10,16 @@
 <% end %>
 
 <% if @folders.empty? %>
-  This folder is empty.
+  <div>This folder is empty.</div>
 <% else %>
-  <%= render 'wiki/folders/folders', folders: @folders %>
-  <%= render 'wiki/pages/pages', pages: @pages %>
+  <%= render 'wiki/list', folders: @folders, pages: @pages %>
 <% end %>
+
+<div>
+  <%= link_to new_wiki_folder_path(parent_id: @folder.id), class: 'button is-link' do %>
+    <%= icon_for :folder %><span>New Folder</span>
+  <% end %>
+  <%= link_to new_wiki_folder_page_path(@folder), class: 'button is-link' do %>
+    <%= icon_for :file %><span>New Page</span>
+  <% end %>
+</div>

@@ -4,14 +4,10 @@
 <% content_for(:page_style, :document) %>
 
 <% if @folders.empty? %>
-  <div>
-    You haven't created any folders yet.
-  </div>
+  <div>You haven't created any folders yet.</div>
 <% else %>
-  <%= render 'wiki/folders/folders', folders: @folders %>
+  <%= render 'wiki/list', folders: @folders %>
 <% end %>
-
-<br />
 
 <div>
   <%= link_to 'New Folder', new_wiki_folder_path, class: 'button is-link' %>
