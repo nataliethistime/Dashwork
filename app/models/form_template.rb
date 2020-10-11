@@ -10,7 +10,8 @@
 #
 class FormTemplate < ApplicationRecord
   belongs_to :tenant
-  has_many :forms
+  has_many :forms, dependent: :restrict_with_error
+  has_many :fields, class_name: 'FormTemplateField', dependent: :destroy
   default_scope -> { order(:name) }
   decorate_with FormTemplateDecorator
 end

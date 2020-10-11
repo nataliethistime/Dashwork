@@ -1,0 +1,25 @@
+<% content_for(:title, @folder.decorate(:name)) %>
+<% content_for(:back_link, @folder.parent.present? ? wiki_folder_path(@folder.parent) : wiki_folders_path) %>
+<% content_for(:page_style, :document) %>
+<% content_for(:actions) do %>
+  <%= actions_dropdown(:create, [
+    { icon: :wiki, label: 'Create Folder', path: new_wiki_folder_path(parent_id: @folder.id) },
+    { icon: :wiki, label: 'Create Page', path: new_wiki_page_path(folder_id: @folder.id) }
+  ]) %>
+  <%= actions_for(@folder, :edit, :delete) %>
+<% end %>
+
+<% if @folders.empty? && @pages.empty? %>
+  <div>This folder is empty.</div>
+<% else %>
+  <%= render 'wiki/list', folders: @folders, pages: @pages %>
+<% end %>
+
+<div>
+  <%= link_to new_wiki_folder_path(parent_id: @folder.id), class: 'button is-link' do %>
+    <%= icon_for :folder %><span>New Folder</span>
+  <% end %>
+  <%= link_to new_wiki_page_path(folder_id: @folder.id), class: 'button is-link' do %>
+    <%= icon_for :file %><span>New Page</span>
+  <% end %>
+</div>

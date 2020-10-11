@@ -17,6 +17,7 @@
 #  reviews_app        :boolean          default(FALSE)
 #  tasks_app          :boolean
 #  timesheets_app     :boolean
+#  wiki_app           :boolean          default(FALSE)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
@@ -32,6 +33,8 @@ class Tenant < ApplicationRecord
   has_many :forms, dependent: :destroy
   has_many :form_templates, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_many :wiki_folders, dependent: :destroy, class_name: 'Wiki::Folder'
+  has_many :wiki_pages, dependent: :destroy, class_name: 'Wiki::Page'
 
   has_many :company_tags, dependent: :destroy
   has_many :contact_tags, dependent: :destroy
@@ -56,7 +59,8 @@ class Tenant < ApplicationRecord
     personal_log: { name: 'Personal Log', id: 'personal_log', path: routes.personal_log_entries_path },
     projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
     reviews: { name: 'Reviews', id: 'reviews', path: routes.reviews_book_reviews_path },
-    tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path }
+    tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path },
+    wiki: { name: 'Wiki', id: 'wiki', path: routes.wiki_folders_path }
   }.freeze
 
   def self.all_apps

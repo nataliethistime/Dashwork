@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: wiki_pages
+#
+#  id         :bigint           not null, primary key
+#  content    :text
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  folder_id  :bigint
+#  tenant_id  :bigint
+#
+# Indexes
+#
+#  index_wiki_pages_on_folder_id  (folder_id)
+#  index_wiki_pages_on_tenant_id  (tenant_id)
+#
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+one:
+  tenant: one
+  title: I am a page
+  content: I am content
+
+two:
+  tenant: one
+  folder: one
+  title: I am another page yes
+  content: Cool stuff guys

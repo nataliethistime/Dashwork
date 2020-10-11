@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: wiki_folders
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  parent_id  :bigint
+#  tenant_id  :bigint
+#
+# Indexes
+#
+#  index_wiki_folders_on_tenant_id  (tenant_id)
+#
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+
+one:
+  tenant: one
+  name: Technology
+
+two:
+  tenant: one
+  parent: one
+  name: Ruby on Rails

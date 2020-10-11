@@ -51,8 +51,10 @@ class FormTemplatesControllerTest < ActionController::TestCase
   end
 
   test 'should destroy form_template' do
+    tmpl = @form_template.dup
+    tmpl.save!
     assert_difference('FormTemplate.count', -1) do
-      delete :destroy, params: { id: @form_template.id }
+      delete :destroy, params: { id: tmpl.id }
     end
     assert_redirected_to form_templates_url
   end

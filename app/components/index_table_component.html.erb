@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <% @items.each do |item| %>
-        <tr onclick="javascript:Turbolinks.visit('<%= polymorphic_path([item]) %>');">
+        <tr onclick="javascript:Turbolinks.visit('<%= item_path(item) %>');">
           <% @fields.each do |field| %>
             <td class='<%= @row_classes[field] %>'>
               <%= item.decorate field %>

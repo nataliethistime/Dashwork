@@ -1,0 +1,5 @@
+<%= simple_form_for(field, url: form_template_field_path(field.form_template, field)) do |f| %>
+  <%= f.input :label %>
+  <%= f.input :type, collection: FormTemplateField::TYPES %>
+  <%= f.button :submit %>
+<% end %>

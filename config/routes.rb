@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #
   # Administration
   #
-  mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   #
   # Authentication
@@ -59,7 +59,9 @@ Rails.application.routes.draw do
   #
   # Forms
   #
-  resources :form_templates
+  resources :form_templates do
+    resources :fields, controller: :form_template_fields
+  end
   resources :forms
 
   #
@@ -120,4 +122,12 @@ Rails.application.routes.draw do
   # Tasks
   #
   resources :tasks
+
+  #
+  # Wiki
+  #
+  namespace :wiki do
+    resources :folders
+    resources :pages, except: :index
+  end
 end

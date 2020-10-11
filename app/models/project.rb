@@ -31,7 +31,7 @@ class Project < ApplicationRecord
 
   # TODO: link equipment
 
-  STATUSES = ['active', 'closed']
+  STATUSES = %w{active closed}.freeze
   validates :status, inclusion: { in: STATUSES }
 
   def status

@@ -1,0 +1,4 @@
+<% content_for(:title, 'New Folder') %>
+<% content_for(:back_link, wiki_folders_path) %>
+<% content_for(:page_style, :document) %>
+<%= render 'form', folder: @folder %>

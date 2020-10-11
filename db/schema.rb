@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_074824) do
+ActiveRecord::Schema.define(version: 2020_10_11_024517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,15 @@ ActiveRecord::Schema.define(version: 2020_09_26_074824) do
     t.integer "tenant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "form_fields", force: :cascade do |t|
+    t.bigint "form_template_id"
+    t.string "label", null: false
+    t.string "type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["form_template_id"], name: "index_form_fields_on_form_template_id"
   end
 
   create_table "form_templates", force: :cascade do |t|
@@ -293,6 +302,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_074824) do
     t.boolean "assets_app", default: false
     t.boolean "personal_log_app", default: false
     t.boolean "reviews_app", default: false
+    t.boolean "wiki_app", default: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -319,6 +329,26 @@ ActiveRecord::Schema.define(version: 2020_09_26_074824) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+  end
+
+  create_table "wiki_folders", force: :cascade do |t|
+    t.string "name"
+    t.bigint "parent_id"
+    t.bigint "tenant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id"], name: "index_wiki_folders_on_tenant_id"
+  end
+
+  create_table "wiki_pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "folder_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tenant_id"
+    t.index ["folder_id"], name: "index_wiki_pages_on_folder_id"
+    t.index ["tenant_id"], name: "index_wiki_pages_on_tenant_id"
   end
 
 end
