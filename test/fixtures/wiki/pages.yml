@@ -20,8 +20,14 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+
+one:
+  tenant: one
+  title: I am a page
+  content: I am content
+
+two:
+  tenant: one
+  folder: one
+  title: I am another page yes
+  content: Cool stuff guys

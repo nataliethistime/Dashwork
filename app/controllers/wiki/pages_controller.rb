@@ -35,7 +35,7 @@ module Wiki
     def destroy
       @page = current_tenant.wiki_pages.find(params[:id])
       @page.destroy
-      redirect_to wiki_folder_path(@folder)
+      redirect_to @page.folder.present? ? wiki_folder_path(page.folder) : wiki_folders_path
     end
 
     private
