@@ -38,8 +38,7 @@ class User < ApplicationRecord
     :rememberable,
     :validatable,
     :confirmable,
-    :lockable,
-    :timeoutable
+    :lockable
   )
 
   belongs_to :tenant, optional: true

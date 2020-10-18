@@ -173,11 +173,6 @@ Devise.setup do |config|
   # to give user feedback and not to assert the e-mail validity.
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 
-  # ==> Configuration for :timeoutable
-  # The time you want to timeout the user session without activity. After this
-  # time the user will be asked for credentials again. Default is 30 minutes.
-  config.timeout_in = 2.days
-
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
