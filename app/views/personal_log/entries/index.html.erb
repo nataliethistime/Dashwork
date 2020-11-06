@@ -1,5 +1,6 @@
 <% content_for(:title, 'Personal Log') %>
 <% content_for(:back_link, dashboard_home_path) %>
+<% content_for(:page_style, :narrow) %>
 <% content_for(:actions, actions_for(PersonalLog::Entry, :create)) %>
 
 <% if @personal_log_entries.empty? %>
@@ -15,7 +16,7 @@
       <h1 class='title is-4'><%= personal_log_entry.decorate :day %></h1>
     <% end %>
     <div class='columns'>
-      <div class='column is-6'>
+      <div class='column is-8'>
         <%= render 'personal_log/entries/personal_log_entry', personal_log_entry: personal_log_entry %>
       </div>
     </div>

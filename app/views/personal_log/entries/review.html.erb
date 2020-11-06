@@ -1,4 +1,5 @@
 <% content_for(:title, 'Review') %>
+<% content_for(:page_style, :narrow) %>
 <% content_for(:back_link, dashboard_home_path) %>
 
 <% @periods.each do |period| %>
@@ -12,7 +13,7 @@
     <h1 class='title is-5'><%= entries.first.decorate :day %></h1>
     <% @entries[period].each do |entry| %>
       <div class='columns'>
-        <div class='column is-6'>
+        <div class='column is-8'>
           <%= render 'personal_log/entries/personal_log_entry', personal_log_entry: entry %>
         </div>
       </div>
