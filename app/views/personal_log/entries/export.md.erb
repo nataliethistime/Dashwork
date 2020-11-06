@@ -1,7 +1,7 @@
 # Personal Log Entries
 
 <% current_day = nil %>
-<% @entries.find_each do |entry| %>
+<% @entries.each do |entry| %><%# TODO: use find_each and retain ordering! %>
   <% if entry.date.beginning_of_day != current_day %>
 
 ## <%= entry.decorate :day %>
