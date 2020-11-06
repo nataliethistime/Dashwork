@@ -8,7 +8,13 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.7.0-node
+        auth:
+          username: 1vasari
+          password: pA289@BbX5U%TOtFZBy^
       - image: circleci/postgres:9.5-alpine
+        auth:
+          username: 1vasari
+          password: pA289@BbX5U%TOtFZBy^
         environment:
           POSTGRES_USER: dashwork_circleci
           POSTGRES_DB: dashwork_test
