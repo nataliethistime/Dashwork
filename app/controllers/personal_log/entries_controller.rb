@@ -23,6 +23,15 @@ module PersonalLog
       end
     end
 
+    # GET /personal_log/entries/export
+    def export
+      respond_to do |format|
+        format.html
+        format.md { @entries = entries.all }
+        format.json { @entries = entries.all }
+      end
+    end
+
     # GET /personal_log/entries/1
     # GET /personal_log/entries/1.json
     def show

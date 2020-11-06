@@ -1,0 +1,15 @@
+# Personal Log Entries
+
+<% current_day = nil %>
+<% @entries.find_each do |entry| %>
+  <% if entry.date.beginning_of_day != current_day %>
+
+## <%= entry.decorate :day %>
+
+    <% current_day = entry.date.beginning_of_day %>
+  <% end %>
+**<%= entry.decorate :time %>**
+
+<%= raw(entry.content) %>
+
+<% end %>

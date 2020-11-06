@@ -76,6 +76,7 @@ Rails.application.routes.draw do
   namespace :personal_log do
     resources :entries
     get 'review' => 'entries#review'
+    get 'export' => 'entries#export'
   end
 
   #
