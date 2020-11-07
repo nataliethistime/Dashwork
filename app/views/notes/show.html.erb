@@ -1,5 +1,6 @@
 <% content_for(:title, 'Note') %>
 <% content_for(:back_link, notes_path) %>
+<% content_for(:page_style, :document) %>
 <% content_for(:actions, actions_for(@note, :edit, :delete)) %>
 
 <div class='subtitle'>
@@ -8,19 +9,18 @@
 
 <div class='columns'>
   <div class='column is-two-thirds'>
-    <div class='box'>
-      <%= @note.decorate :content %>
+    <%= @note.decorate :content %>
+  </div>
+</div>
+
+<% if @note.has_links? %>
+  <div class='columns'>
+    <div class='column'>
+      <% if @note.company.present? %><p><%= icon_for :companies %><span><%= @note.company.decorate :name_link %></span><% end %>
+      <% if @note.contact.present? %><p><%= icon_for :contacts %><span><%= @note.contact.decorate :name_link %></span><% end %>
+      <% if @note.project.present? %><p><%= icon_for :projects %><span><%= @note.project.decorate :name_link %></span><% end %>
     </div>
   </div>
-  <% if @note.has_links? %>
-    <div class='column is-one-third'>
-      <%= render AttributesTableComponent.new(@note, [
-        { contact: [:name_link] },
-        { company: [:name_link] },
-        { project: [:name_link] },
-      ]) %>
-    </div>
-  <% end %>
-</div>
+<% end %>
 
 <div>Lasted updated: <%= @note.decorate :updated_at_ago %></div>
