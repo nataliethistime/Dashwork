@@ -1,3 +1,4 @@
 <% content_for(:title, @field.name) %>
 <% content_for(:back_link, polymorphic_path([:custom, @domain, :fields])) %>
 <% content_for(:actions, actions_for(@field, :edit, :delete)) %>
+<% content_for(:page_style, :document) %>

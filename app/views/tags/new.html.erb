@@ -1,3 +1,4 @@
 <% content_for(:title, 'New Tag') %>
 <% content_for(:back_link, polymorphic_path([@type, :tags])) %>
+<% content_for(:page_style, :document) %>
 <%= render 'form', tag: @tag %>
