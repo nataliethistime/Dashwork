@@ -1,5 +1,6 @@
 <% content_for(:title, 'Notes') %>
 <% content_for(:back_link, dashboard_home_path) %>
+<% content_for(:page_style, :narrow) %>
 <% content_for(:actions, actions_for(Note, :create)) %>
 
 <%= render 'notes', notes: @notes %>

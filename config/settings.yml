@@ -13,6 +13,7 @@ icons:
   custom_fields: fas fa-clipboard-list
   delete: fas fa-trash
   edit: fas fa-edit
+  ellipsis: fas fa-ellipsis-h
   equipment: fas fa-truck
   export: fas fa-cloud-download-alt
   file: far fa-file
