@@ -17,7 +17,7 @@ class Tag < ApplicationRecord
   TYPES = %w{CompanyTag ContactTag NoteTag ProjectTag}
 
   belongs_to :tenant
-  has_many :tag_assignments
+  has_many :tag_assignments, dependent: :restrict_with_error
   has_many :contacts, through: :tag_assignments, source: :taggable, source_type: 'Contact'
   has_many :companies, through: :tag_assignments, source: :taggable, source_type: 'Company'
   has_many :notes, through: :tag_assignments, source: :taggable, source_type: 'Note'
