@@ -19,6 +19,8 @@
 #  company_id        :integer
 #
 class Task < ApplicationRecord
+  include Taggable
+
   belongs_to :user
   belongs_to :tenant
   belongs_to :contact, optional: true

@@ -40,6 +40,7 @@ class Tenant < ApplicationRecord
   has_many :contact_tags, dependent: :destroy
   has_many :note_tags, dependent: :destroy
   has_many :project_tags, dependent: :destroy
+  has_many :task_tags, dependent: :destroy
 
   has_many :custom_fields, dependent: :destroy
   has_many :custom_company_fields, dependent: :destroy

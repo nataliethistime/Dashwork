@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
   def index
-    @q = current_tenant.tasks.uncompleted.ransack(params[:q])
+    @q = current_tenant.tasks.uncompleted.includes(:tags).ransack(params[:q])
     @tasks = @q.result
   end
 
   def completed
-    @tasks = current_tenant.tasks.completed
+    @tasks = current_tenant.tasks.completed.includes(:tags)
   end
 
   def show
@@ -61,7 +61,9 @@ class TasksController < ApplicationController
       :user_id,
       :contact_id,
       :company_id,
-      :project_id
+      :project_id,
+      :tag_ids,
+      tag_ids: []
     )
   end
 

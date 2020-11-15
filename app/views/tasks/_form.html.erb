@@ -3,6 +3,7 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :due_date %>
+  <%= f.association :tags, collection: current_tenant.task_tags.all %>
   <%= f.association :contact %>
   <%= f.association :company %>
   <%= f.association :project %>

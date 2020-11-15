@@ -125,6 +125,7 @@ Rails.application.routes.draw do
   resources :tasks do
     get :completed, on: :collection
   end
+  resources :task_tags, controller: 'tags', defaults: { type: 'task' }
 
   #
   # Wiki
