@@ -1,0 +1,5 @@
+<% content_for(:title, 'Completed Tasks') %>
+<% content_for(:back_link, dashboard_home_path) %>
+<% content_for(:page_style, :document) %>
+
+<%= render 'tasks/tasks', tasks: @tasks %>

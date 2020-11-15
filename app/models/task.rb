@@ -30,7 +30,7 @@ class Task < ApplicationRecord
   validates :description, presence: true, allow_blank: true
   decorate_with TaskDecorator
 
-  default_scope -> { order(:completed, :due_date) }
+  default_scope -> { order(:due_date) }
   scope :completed, -> { where(completed: true) }
   scope :uncompleted, -> { where(completed: [false, nil]) }
   scope :due_before, -> (date) { uncompleted.where('due_date IS NULL OR due_date < ?', date).reorder(due_date: :asc) }

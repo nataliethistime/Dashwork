@@ -1,9 +1,8 @@
 <% content_for(:title, 'Tasks') %>
 <% content_for(:back_link, dashboard_home_path) %>
+<% content_for(:page_style, :document) %>
 <% content_for(:actions, actions_for(Task, :create)) %>
 
 <%= render 'tasks/tasks', tasks: @tasks %>
-
-<br />
 
 <%= link_to 'New Task', new_task_path, class: 'button is-link' %>

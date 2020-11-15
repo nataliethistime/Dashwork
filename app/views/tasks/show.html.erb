@@ -1,9 +1,15 @@
 <% content_for(:title, @task.name) %>
 <% content_for(:actions, actions_for(@task, :edit, :delete)) %>
+<% content_for(:page_style, :document) %>
 <% content_for(:back_link, tasks_path) %>
 
+<div class='columns'>
+  <div class='column'>
+    <%= @task.decorate :description %>
+  </div>
+</div>
+
 <%= render AttributesTableComponent.new(@task, [
-  :description,
   :due_date,
   :completed,
   { contact: [:name_link] },

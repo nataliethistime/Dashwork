@@ -1,1 +1,16 @@
-<%= render IndexTableComponent.new tasks, [:name, :completed, :due_date] %>
+<table class='table is-fullwidth is-hoverable is-clickable'>
+  <thead>
+    <tr>
+      <th><%= @q.present? ? sort_link(@q, :name) : 'Name' %></th>
+      <th><%= @q.present? ? sort_link(@q, :due_date) : 'Due date' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tasks.each do |task| %>
+      <tr onclick="javascript:Turbolinks.visit('<%= task_path(task) %>');">
+        <td><%= task.decorate :name %></td>
+        <td><%= task.decorate :due_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

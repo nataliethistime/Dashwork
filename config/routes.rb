@@ -122,7 +122,9 @@ Rails.application.routes.draw do
   #
   # Tasks
   #
-  resources :tasks
+  resources :tasks do
+    get :completed, on: :collection
+  end
 
   #
   # Wiki

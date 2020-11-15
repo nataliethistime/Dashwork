@@ -1,6 +1,11 @@
 class TasksController < ApplicationController
   def index
-    @tasks = current_tenant.tasks.all
+    @q = current_tenant.tasks.uncompleted.ransack(params[:q])
+    @tasks = @q.result
+  end
+
+  def completed
+    @tasks = current_tenant.tasks.completed
   end
 
   def show

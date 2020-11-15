@@ -1,3 +1,4 @@
 <% content_for(:title, 'Editing Task') %>
 <% content_for(:back_link, task_path(@task)) %>
+<% content_for(:page_style, :document) %>
 <%= render 'form', task: @task %>
