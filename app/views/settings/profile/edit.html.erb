@@ -1,5 +1,4 @@
 <% content_for(:title, 'Profile') %>
-<% content_for(:page_style, :document) %>
 
 <%= simple_form_for [:settings, @user], url: settings_profile_path do |f| %>
   <%= render 'common/form_errors', form: f %>

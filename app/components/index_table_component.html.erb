@@ -1,28 +1,26 @@
-<div class='box'>
-  <table class='table is-fullwidth is-hoverable is-clickable'>
-    <thead>
-      <tr>
+<table class='table is-fullwidth is-hoverable is-clickable'>
+  <thead>
+    <tr>
+      <% @fields.each do |field| %>
+        <th class='<%= @row_classes[field] %>'>
+          <% if should_sort?(field) %>
+            <%= helpers.sort_link @q, field %>
+          <% else %>
+            <%= field.to_s.humanize %>
+          <% end %>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr onclick="javascript:Turbolinks.visit('<%= item_path(item) %>');">
         <% @fields.each do |field| %>
-          <th class='<%= @row_classes[field] %>'>
-            <% if should_sort?(field) %>
-              <%= helpers.sort_link @q, field %>
-            <% else %>
-              <%= field.to_s.humanize %>
-            <% end %>
-          </th>
+          <td class='<%= @row_classes[field] %>'>
+            <%= item.decorate field %>
+          </td>
         <% end %>
       </tr>
-    </thead>
-    <tbody>
-      <% @items.each do |item| %>
-        <tr onclick="javascript:Turbolinks.visit('<%= item_path(item) %>');">
-          <% @fields.each do |field| %>
-            <td class='<%= @row_classes[field] %>'>
-              <%= item.decorate field %>
-            </td>
-          <% end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <% end %>
+  </tbody>
+</table>

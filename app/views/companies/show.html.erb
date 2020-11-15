@@ -1,6 +1,7 @@
 <% content_for(:title) { @company.name } %>
 <% content_for(:hide_body_title, true) %>
 <% content_for(:back_link, companies_path) %>
+<% content_for(:page_style, :full_width) %>
 <% content_for(:actions) do %>
   <%= actions_dropdown(:create, [
     { icon: :contacts, label: 'Add Contact', path: new_contact_path(company_id: @company.id) },
@@ -26,12 +27,14 @@
         </div>
       </div>
     </div>
-    <%= render AttributesTableComponent.new(@company, [
-      :description,
-      :website,
-      :email,
-      :phone
-    ], custom_values: true) %>
+    <div class='box'>
+      <%= render AttributesTableComponent.new(@company, [
+        :description,
+        :website,
+        :email,
+        :phone
+      ], custom_values: true) %>
+    </div>
   </div>
   <div class='column is-one-third'>
     <%= render LinkedItemsPanelComponent.new @company, items: @company.tasks.uncompleted %>

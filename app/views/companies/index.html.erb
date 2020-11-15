@@ -1,11 +1,14 @@
 <% content_for(:title, 'Companies') %>
 <% content_for(:back_link, dashboard_home_path) %>
 <% content_for(:actions, actions_for(Company, :create)) %>
+<% content_for(:page_style, :full_width) %>
 
 <% if @companies.empty? %>
   <div>
     You haven't created any companies yet.
   </div>
 <% else %>
-  <%= render 'companies', companies: @companies %>
+  <div class='box'>
+    <%= render 'companies', companies: @companies %>
+  </div>
 <% end %>

@@ -15,7 +15,7 @@
 
   <body class='has-navbar-fixed-top'>
     <%= render 'navbar' %>
-    <%= render "application/#{yield(:page_style).presence || 'full_width'}" do %>
+    <%= render "application/#{yield(:page_style).presence || 'document'}" do %>
       <% if flash[:notice].present? %>
         <%= render NotificationComponent.new style: :info do %>
           <%= notice %>

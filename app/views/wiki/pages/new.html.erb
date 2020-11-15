@@ -1,4 +1,3 @@
 <% content_for(:title, 'New Page') %>
-<% content_for(:page_style, :document) %>
 <% content_for(:back_link, @page.folder.present? ? wiki_folder_path(@page.folder) : wiki_folders_path) %>
 <%= render 'form', page: @page %>

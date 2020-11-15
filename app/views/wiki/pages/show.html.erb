@@ -1,6 +1,5 @@
 <% content_for(:title, @page.title) %>
 <% content_for(:back_link, @page.folder.present? ? wiki_folder_path(@page.folder) : wiki_folders_path) %>
-<% content_for(:page_style, :document) %>
 <% content_for(:actions) do %>
   <%= link_to edit_wiki_page_path(@page), class: 'navbar-item' do %>
     <%= icon_for :edit %>

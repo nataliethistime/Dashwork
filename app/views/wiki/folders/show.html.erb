@@ -1,6 +1,5 @@
 <% content_for(:title, @folder.decorate(:name)) %>
 <% content_for(:back_link, @folder.parent.present? ? wiki_folder_path(@folder.parent) : wiki_folders_path) %>
-<% content_for(:page_style, :document) %>
 <% content_for(:actions) do %>
   <%= actions_dropdown(:create, [
     { icon: :wiki, label: 'Create Folder', path: new_wiki_folder_path(parent_id: @folder.id) },

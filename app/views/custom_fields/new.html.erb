@@ -1,4 +1,3 @@
 <% content_for(:title, 'New Custom Field') %>
-<% content_for(:page_style, :document) %>
 <% content_for(:back_link, polymorphic_path([:custom, @domain, :fields])) %>
 <%= render 'form', field: @field %>
