@@ -9,7 +9,8 @@
     <!-- Disable turbolinks preview cache -->
     <meta name='turbolinks-cache-control' content='no-cache'>
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css' %>
-    <%= stylesheet_link_tag 'application-dark', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application-dark', media: '(prefers-color-scheme: dark)', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application-light', media: '(prefers-color-scheme: no-preference), (prefers-color-scheme: light)', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
