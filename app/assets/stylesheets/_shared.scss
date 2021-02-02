@@ -1,0 +1,42 @@
+
+/*
+ * Unset the font smoothing options that Bulma set so that the user's font smoothing option prevails.
+ * For users who can & do disable font smoothing (such as myself) this means that fonts look nicer.
+ */
+html {
+  -moz-osx-font-smoothing: unset;
+  -webkit-font-smoothing: unset;
+}
+
+button, a.button, input.button {
+  font-weight: 500;
+}
+
+/*
+ * TODO: not really sure why we need to do this
+ * Just trying to make it look right for now...
+ */
+.checkbox {
+  margin-right: 5px;
+}
+
+/*
+ * Make clickable table rows appear to be clickable
+ */
+table.is-clickable tbody tr {
+  cursor: pointer;
+}
+
+table.table:not(.has-last-column-aligned-left) {
+  td:last-child, th:last-child {
+    text-align: right;
+  }
+}
+
+textarea {
+  min-height: 6em;
+}
+
+span.icon + span {
+  margin: 0 0.2em;
+}

@@ -1,0 +1,47 @@
+@import 'shared';
+
+$white: hsl(0, 0%, 4%);
+$white-bis: hsl(0, 0%, 7%);
+$white-ter: hsl(0, 0%, 14%);
+$black: hsl(0, 0%, 100%);
+$black-bis: hsl(0, 0%, 98%);
+$black-ter: hsl(0, 0%, 96%);
+
+$scheme-main: hsl(0, 0%, 10%);
+
+$grey-darker: hsl(0, 0%, 93%);
+$grey-dark:hsl(0, 0%, 86%);
+$grey: hsl(0, 0%, 71%);
+$grey-light:hsl(0, 0%, 48%);
+$grey-lighter: hsl(0, 0%, 29%);
+$grey-lightest: hsl(0, 0%, 21%);
+
+$primary: #a42e2e;
+$menu-item-active-background-color: $primary;
+
+$menu-item-radius: 0px;
+$box-radius: 0px;
+$panel-radius: 0px;
+$navbar-dropdown-radius: 0px;
+$navbar-dropdown-boxed-radius: 0px;
+
+@import 'bulma/bulma.sass';
+
+html, body {
+  background-color: #2a2a33;
+}
+
+/*
+ * Make sorting links appear the same as other table headers
+ */
+th .sort_link {
+  color: $grey-darker;
+}
+
+.pagination a, .panel {
+  background-color: $white;
+}
+
+.attributes-table .column {
+  border-bottom: 1px solid $grey-dark;
+}
