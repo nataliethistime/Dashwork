@@ -1,6 +1,5 @@
 class Settings::ProfileController < ApplicationController
-  def edit
-    @user = current_user
+  def index
   end
 
   def update

@@ -1,6 +1,6 @@
 <% content_for(:title, 'Profile') %>
 
-<%= simple_form_for [:settings, @user], url: settings_profile_path do |f| %>
+<%= simple_form_for [:settings, current_user], url: settings_profile_path(current_user) do |f| %>
   <%= render 'common/form_errors', form: f %>
   <%= f.input :email %>
   <%= f.input :first_name %>
