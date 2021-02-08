@@ -1,0 +1,6 @@
+<% content_for :title, 'Appearance' %>
+
+<%= simple_form_for [:settings, current_user], url: settings_appearance_path(current_user) do |f| %>
+  <%= render 'common/form_errors', form: f %>
+  <%= f.button :submit %>
+<% end %>

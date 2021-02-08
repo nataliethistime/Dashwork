@@ -107,6 +107,7 @@ Rails.application.routes.draw do
   # Settings
   #
   namespace :settings do
+    resources :appearance, only: [:index, :update]
     resources :profile, only: [:index, :update]
     resources :tenant, only: [:new, :create, :edit, :update] do
       get '/apps' => 'tenant#edit_apps'

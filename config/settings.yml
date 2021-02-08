@@ -3,6 +3,7 @@ product_name: Dashwork
 icons:
   apps: fas fa-th
   assets: fas fa-car-side
+  appearance: fas fa-paint-brush
   back: fas fa-arrow-left
   books: fas fa-book-reader
   calendar: fas fa-calendar-alt
