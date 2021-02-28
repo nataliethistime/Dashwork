@@ -2,5 +2,6 @@
 
 <%= simple_form_for [:settings, current_user], url: settings_appearance_path(current_user) do |f| %>
   <%= render 'common/form_errors', form: f %>
+  <%= f.input :preferred_theme, collection: User::PREFERRED_THEMES, label_method: :capitalize, include_blank: false %>
   <%= f.button :submit %>
 <% end %>

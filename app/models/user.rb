@@ -13,6 +13,7 @@
 #  first_name             :string
 #  last_name              :string
 #  locked_at              :datetime
+#  preferred_theme        :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -31,6 +32,8 @@
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #
 class User < ApplicationRecord
+  PREFERRED_THEMES = %w[light dark system]
+
   devise(
     :database_authenticatable,
     :registerable,
@@ -61,4 +64,10 @@ class User < ApplicationRecord
   has_many :starred_projects, through: :stars, source: :starrable, source_type: 'Project'
 
   decorate_with UserDecorator
+
+  validates :preferred_theme, inclusion: { in: PREFERRED_THEMES }
+
+  def preferred_theme
+    super.presence || 'system'
+  end
 end

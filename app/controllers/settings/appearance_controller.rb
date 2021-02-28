@@ -4,9 +4,8 @@ module Settings
     end
 
     def update
-      user = curent_user
-      user.update appearance_params
-      redirect_to :index, notice: 'Your preferred theme has been saved'
+      current_user.update appearance_params
+      redirect_to settings_appearance_index_path, notice: 'Your preferred theme has been saved'
     end
 
     private

@@ -9,8 +9,15 @@
     <!-- Disable turbolinks preview cache -->
     <meta name='turbolinks-cache-control' content='no-cache'>
     <%= stylesheet_link_tag 'https://unpkg.com/@fortawesome/fontawesome-free@5.15.2/css/all.min.css' %>
+    <% case user_signed_in? ? current_user&.preferred_theme : 'system' %>
+    <% when 'light' %>
+    <%= stylesheet_link_tag 'application-light', 'data-turbolinks-track': 'reload' %>
+    <% when 'dark' %>
+    <%= stylesheet_link_tag 'application-dark', 'data-turbolinks-track': 'reload' %>
+    <% when 'system' %>
     <%= stylesheet_link_tag 'application-dark', media: '(prefers-color-scheme: dark)', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application-light', media: '(prefers-color-scheme: no-preference), (prefers-color-scheme: light)', 'data-turbolinks-track': 'reload' %>
+    <% end %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
