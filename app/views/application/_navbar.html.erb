@@ -25,29 +25,29 @@
     <div class='navbar-end'>
       <% if user_signed_in? %>
         <div class='navbar-item is-hidden-touch'>
-          <%= current_user.decorate :name %> (<%= current_tenant.name %>)
+          <%= current_user.decorate :name %> <% if current_tenant.present? %>(<%= current_tenant.name %>)<% end %>
         </div>
 
-        <div class='navbar-item has-dropdown is-hoverable'>
-          <a class='navbar-link is-arrowless'>
-            <%= icon_for :apps %>
-            <% if content_for?(:title) %>
-              <span><%= yield(:title) %></span>
-            <% end %>
-          </a>
+        <% if current_tenant.present? %>
+          <div class='navbar-item has-dropdown is-hoverable'>
+            <a class='navbar-link is-arrowless'>
+              <%= icon_for :apps %>
+              <% if content_for?(:title) %>
+                <span><%= yield(:title) %></span>
+              <% end %>
+            </a>
 
-          <div class='navbar-dropdown'>
-            <% if current_tenant.apps.present? %>
+            <div class='navbar-dropdown'>
               <% current_tenant.apps.each do |app| %>
                 <%= link_to app[:path], class: 'navbar-item' do %>
                   <%= icon_for app[:id] %><span><%= app[:name] %></span>
                 <% end %>
               <% end %>
               <hr class='navbar-divider'>
-            <% end %>
-            <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: 'navbar-item is-hidden-touch' %>
+              <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: 'navbar-item is-hidden-touch' %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <a class='navbar-item'><%= icon_for :help %><span class='is-hidden-desktop'>Help</span></a>
         <%= link_to settings_profile_index_path, class: 'navbar-item', title: 'Settings' do %>

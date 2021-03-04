@@ -8,7 +8,7 @@
       <div class='hero-body'>
         <div class='container'>
           <h1 class='title'>
-            Hi <%= current_user.first_name %>
+            Hey <%= current_user.first_name.blank? ? 'stanger' : current_user.first_name %>
           </h1>
           <h2 class='subtitle'>
             It's nice to see you today

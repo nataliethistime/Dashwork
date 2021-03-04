@@ -1,4 +1,4 @@
-<%= simple_form_for [:settings, @tenant] do |f| %>
+<%= simple_form_for [:settings, @tenant], url: @tenant.new_record? ? settings_tenant_index_path : settings_tenant_path(@tenat) do |f| %>
   <%= render 'common/form_errors', form: f %>
   <%= f.input :name %>
   <%= f.button :submit %>

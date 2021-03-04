@@ -42,7 +42,7 @@ class Settings::TenantController < ApplicationController
   end
 
   def sidebar
-    :settings
+    current_tenant.present? ? :settings : nil
   end
 
   def app_names_as_params
