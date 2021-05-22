@@ -24,11 +24,11 @@ module DecoratorFormatters
   end
 
   def format_date(date)
-    localize date, format: :long
+    localize date, format: '%B %d, %Y'
   end
 
   def format_time(time)
-    localize time, format: :short
+    localize time, format: '%l:%M%P'
   end
 
   def format_google_maps_search_link(query)

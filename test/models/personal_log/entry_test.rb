@@ -4,7 +4,8 @@
 #
 #  id         :bigint           not null, primary key
 #  content    :text
-#  date       :datetime
+#  entry_date :date
+#  entry_time :time
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  tenant_id  :bigint

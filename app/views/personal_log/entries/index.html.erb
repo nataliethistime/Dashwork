@@ -10,7 +10,7 @@
 <% else %>
   <% previous_day = nil %>
   <% @personal_log_entries.each do |personal_log_entry| %>
-    <% new_day = personal_log_entry.date.beginning_of_day %>
+    <% new_day = personal_log_entry.entry_date %>
     <% if previous_day != new_day %>
       <% previous_day = new_day %>
       <h1 class='title is-4'><%= personal_log_entry.decorate :day %></h1>

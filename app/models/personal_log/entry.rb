@@ -4,7 +4,8 @@
 #
 #  id         :bigint           not null, primary key
 #  content    :text
-#  date       :datetime
+#  entry_date :date
+#  entry_time :time
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  tenant_id  :bigint
@@ -20,15 +21,23 @@ module PersonalLog
     belongs_to :user
 
     validates :content, presence: true
-    validates :date, presence: true
+    validates :entry_date, presence: true
+    validates :entry_time, presence: true
 
     decorate_with PersonalLogEntryDecorator
 
     after_initialize do |personal_log_entry|
-      personal_log_entry.date ||= Time.zone.now
+      now = Time.zone.now
+      personal_log_entry.entry_date ||= now
+      personal_log_entry.entry_time ||= now
     end
 
-    scope :on_day, -> (date) { where(date: date..(date + 1.day)) }
-    default_scope -> { order(date: :desc) }
+    before_save do |e|
+      # Remove seconds and milliseconds from entry time
+      e.entry_time = e.entry_time.change sec: 0, nsec: 0
+    end
+
+    scope :on_day, -> (date) { where(entry_date: date..(date + 1.day)) }
+    default_scope -> { order(entry_date: :desc).order(entry_time: :desc) }
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_110200) do
+ActiveRecord::Schema.define(version: 2021_05_22_043556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -191,11 +191,12 @@ ActiveRecord::Schema.define(version: 2021_02_28_110200) do
 
   create_table "personal_log_entries", force: :cascade do |t|
     t.text "content"
-    t.datetime "date"
     t.bigint "tenant_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "entry_date"
+    t.time "entry_time"
     t.index ["tenant_id"], name: "index_personal_log_entries_on_tenant_id"
     t.index ["user_id"], name: "index_personal_log_entries_on_user_id"
   end

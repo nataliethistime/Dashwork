@@ -4,7 +4,8 @@
 #
 #  id         :bigint           not null, primary key
 #  content    :text
-#  date       :datetime
+#  entry_date :date
+#  entry_time :time
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  tenant_id  :bigint
@@ -18,10 +19,12 @@
 
 one:
   content: This is some content
-  date: <%= Time.zone.yesterday.beginning_of_day %>
+  entry_date: <%= Time.zone.yesterday.beginning_of_day %>
+  entry_time: <%= Time.zone.parse('11:11am').to_time %>
   user: one
 
 two:
   content: My name is Jeff
-  date: <%= Time.zone.today.beginning_of_day %>
+  entry_date: <%= Time.zone.today.beginning_of_day %>
+  entry_time: <%= Time.zone.parse('2:00pm').to_time %>
   user: one
