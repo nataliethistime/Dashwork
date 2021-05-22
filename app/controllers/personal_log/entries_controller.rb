@@ -5,7 +5,12 @@ module PersonalLog
     # GET /personal_log/entries
     # GET /personal_log/entries.json
     def index
-      @personal_log_entries = entries.all.page(params[:page])
+      if params[:q]
+        query = '%' + params[:q] + '%'
+        @personal_log_entries = entries.all.where('content LIKE ?', query).page(params[:page])
+      else
+        @personal_log_entries = entries.all.page(params[:page])
+      end
     end
 
     # GET /personal_log/entries/review
