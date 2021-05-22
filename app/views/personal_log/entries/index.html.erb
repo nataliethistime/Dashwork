@@ -1,7 +1,9 @@
 <% content_for(:title, 'Personal Log') %>
 <% content_for(:back_link, dashboard_home_path) %>
 <% content_for(:page_style, :narrow) %>
-<% content_for(:actions, actions_for(PersonalLog::Entry, :create)) %>
+<% content_for(:actions) do %>
+  <%= render CreateActionComponent.new path: new_personal_log_entry_path %>
+<% end %>
 
 <% if @personal_log_entries.empty? %>
   <div>
