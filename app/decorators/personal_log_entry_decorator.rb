@@ -4,7 +4,7 @@ class PersonalLogEntryDecorator < DecoratorBase
   end
 
   def time(personal_log_entry)
-    localize personal_log_entry.entry_time, format: '%l:%M %P'
+    localize personal_log_entry.entry_time, format: '%-l:%M %P'
   end
 
   def day(personal_log_entry)
