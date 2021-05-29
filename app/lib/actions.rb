@@ -8,12 +8,14 @@ module Actions
   end
 
   def edit_action(model)
+    puts 'Deprecated: magic edit action, use the view component instead'
     helpers.link_to routes.polymorphic_path([:edit, model]), class: 'navbar-item' do
       helpers.icon_for :edit
     end
   end
 
   def delete_action(model)
+    puts 'Deprecated: magic delete action, use the view component instead'
     helpers.link_to routes.polymorphic_path([model]),
       method: :delete,
       data: { confirm: "Are you sure you want to delete #{model.decorate :name}?" },
@@ -23,6 +25,7 @@ module Actions
   end
 
   def create_action(model)
+    puts 'Deprecated: magic create action, use the view component instead'
     helpers.link_to routes.polymorphic_path([:new, model.model_name.singular.to_sym]), class: 'navbar-item' do
       helpers.icon_for :create
     end
