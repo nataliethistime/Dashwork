@@ -1,6 +1,8 @@
 <% content_for(:title, 'Projects') %>
 <% content_for(:back_link, dashboard_home_path) %>
-<% content_for(:actions, actions_for(Project, :create)) %>
+<% content_for(:actions) do %>
+  <%= render CreateActionComponent.new path: new_project_path %>
+<% end %>
 
 <%= render 'projects', projects: @projects %>
 

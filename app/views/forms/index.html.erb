@@ -1,6 +1,8 @@
 <% content_for(:title, 'All Forms') %>
 <% content_for(:back_link, dashboard_home_path) %>
-<% content_for(:actions, actions_for(Form, :create)) %>
+<% content_for(:actions) do %>
+  <%= render CreateActionComponent.new path: new_form_path %>
+<% end %>
 
 <%= render 'forms/forms', forms: @forms %>
 

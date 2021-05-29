@@ -1,7 +1,10 @@
 <% content_for(:title) { @project.name } %>
 <% content_for(:hide_body_title, true) %>
 <% content_for(:back_link, projects_path) %>
-<% content_for(:actions, actions_for(@project, :edit, :delete)) %>
+<% content_for(:actions) do %>
+  <%= render EditActionComponent.new path: edit_project_path(@project) %>
+  <%= render DeleteActionComponent.new path: projects_path(@project), model_name: 'project' %>
+<% end %>
 
 <div class='columns'>
   <div class='column is-two-thirds'>

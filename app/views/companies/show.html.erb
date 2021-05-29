@@ -9,7 +9,8 @@
     { icon: :projects, label: 'Add Project', path: new_project_path(company_id: @company.id) },
     { icon: :tasks, label: 'Add Task', path: new_task_path(company_id: @company.id) }
   ]) %>
-  <%= actions_for(@company, :edit, :delete) %>
+  <%= render EditActionComponent.new path: edit_company_path(@company) %>
+  <%= render DeleteActionComponent.new path: company_path(@company), model_name: 'company' %>
 <% end %>
 
 <div class='columns'>

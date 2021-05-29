@@ -1,6 +1,9 @@
 <% content_for(:title, @asset.name) %>
 <% content_for(:back_link, assets_path) %>
-<% content_for(:actions, actions_for(@asset, :edit, :delete)) %>
+<% content_for(:actions) do %>
+  <%= render EditActionComponent.new path: edit_asset_path(@asset) %>
+  <%= render DeleteActionComponent.new path: asset_path(@asset), model_name: 'asset' %>
+<% end %>
 
 <%= render AttributesTableComponent.new @asset, [
   :name,

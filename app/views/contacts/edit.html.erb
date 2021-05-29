@@ -1,4 +1,3 @@
 <% content_for(:title, 'Editing Contact') %>
 <% content_for(:back_link, contact_path(@contact)) %>
-<% content_for(:actions, actions_for(@contact, :delete)) %>
 <%= render 'form', contact: @contact %>

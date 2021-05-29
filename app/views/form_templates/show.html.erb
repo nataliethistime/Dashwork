@@ -1,5 +1,8 @@
 <% content_for(:title, @form_template.decorate(:name)) %>
-<% content_for(:actions, actions_for(@form_template, :edit, :delete)) %>
+<% content_for(:actions) do %>
+  <%= render EditActionComponent.new path: edit_form_template_path(@form_template) %>
+  <%= render DeleteActionComponent.new path: form_templates_path(@form_template), model_name: 'form template' %>
+<% end %>
 <% content_for(:back_link, form_templates_path) %>
 
 <div>

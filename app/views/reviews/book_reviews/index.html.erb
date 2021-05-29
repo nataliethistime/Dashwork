@@ -1,6 +1,8 @@
 <% content_for(:title, 'Book Reviews') %>
 <% content_for(:back_link, dashboard_home_path) %>
-<% content_for(:actions, actions_for(Reviews::BookReview, :create)) %>
+<% content_for(:actions) do %>
+  <%= render CreateActionComponent.new path: new_reviews_book_review_path %>
+<% end %>
 
 <%= render IndexTableComponent.new(@reviews_book_reviews, [:title, :author, :rating]) %>
 

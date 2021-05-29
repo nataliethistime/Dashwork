@@ -1,8 +1,4 @@
 module ApplicationHelper
-  def actions_for(model, *actions)
-    Actions.actions_for(model, Array(actions)).html_safe
-  end
-
   def actions_dropdown(icon, items)
     render 'common/actions_dropdown', icon: icon, items: items
   end

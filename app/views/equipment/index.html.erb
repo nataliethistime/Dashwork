@@ -1,6 +1,8 @@
 <% content_for(:title, 'Equipment') %>
 <% content_for(:back_link, dashboard_home_path) %>
-<% content_for(:actions, actions_for(Equipment, :create)) %>
+<% content_for(:actions) do %>
+  <%= render CreateActionComponent.new path: new_equipment_path %>
+<% end %>
 
 <%= render 'equipment/equipment', equipment: @equipment %>
 

@@ -1,8 +1,6 @@
 <% content_for(:title, 'Tags') %>
 <% content_for(:actions) do %>
-  <%= link_to polymorphic_path([:new, @type.to_sym, :tag]), class: 'navbar-item' do %>
-    <%= icon_for :create %>
-  <% end %>
+  <%= render CreateActionComponent.new path: polymorphic_path([:new, @type.to_sym, :tag]) %>
 <% end %>
 
 <% if @tags.empty? %>

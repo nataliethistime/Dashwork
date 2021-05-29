@@ -1,6 +1,9 @@
 <% content_for(:title, @form.decorate(:name)) %>
 <% content_for(:back_link, forms_path) %>
-<% content_for(:actions, actions_for(@form, :edit, :delete)) %>
+<% content_for(:actions) do %>
+  <%= render EditActionComponent.new path: edit_form_path(@form) %>
+  <%= render DeleteActionComponent.new path: forms_path(@form), model_name: 'form' %>
+<% end %>
 
 <p>
   <strong>Status:</strong>

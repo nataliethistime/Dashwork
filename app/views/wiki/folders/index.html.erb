@@ -1,6 +1,8 @@
 <% content_for(:title, 'Wiki') %>
 <% content_for(:back_link, dashboard_home_path) %>
-<% content_for(:actions, actions_for(Wiki::Folder, :create)) %>
+<% content_for(:actions) do %>
+  <%= render CreateActionComponent.new path: new_wiki_folder_path %>
+<% end %>
 
 <% if @folders.empty? && @pages.empty? %>
   <div>You haven't created any pages or folders yet.</div>

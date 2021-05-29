@@ -1,6 +1,8 @@
 <% content_for(:title, 'Assets') %>
 <% content_for(:back_link, dashboard_home_path) %>
-<% content_for(:actions, actions_for(Asset, :create)) %>
+<% content_for(:actions) do %>
+  <%= render CreateActionComponent.new path: new_asset_path %>
+<% end %>
 
 <% if @assets.empty? %>
   <div>

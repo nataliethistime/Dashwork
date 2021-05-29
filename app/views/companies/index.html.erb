@@ -1,6 +1,8 @@
 <% content_for(:title, 'Companies') %>
 <% content_for(:back_link, dashboard_home_path) %>
-<% content_for(:actions, actions_for(Company, :create)) %>
+<% content_for(:actions) do %>
+  <%= render CreateActionComponent.new path: new_company_path %>
+<% end %>
 <% content_for(:page_style, :full_width) %>
 
 <% if @companies.empty? %>

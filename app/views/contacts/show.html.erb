@@ -7,7 +7,8 @@
     { icon: :tasks, label: 'Add Task', path: new_task_path(contact_id: @contact.id) },
     { icon: :projects, label: 'Add Project', path: new_project_path(contact_id: @contact.id) }
   ]) %>
-  <%= actions_for(@contact, :edit, :delete) %>
+  <%= render EditActionComponent.new path: edit_contact_path(@contact) %>
+  <%= render DeleteActionComponent.new path: contact_path(@contact), model_name: 'contact' %>
 <% end %>
 
 <div class='columns'>

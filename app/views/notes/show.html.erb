@@ -1,6 +1,9 @@
 <% content_for(:title, 'Note') %>
 <% content_for(:back_link, notes_path) %>
-<% content_for(:actions, actions_for(@note, :edit, :delete)) %>
+<% content_for(:actions) do %>
+  <%= render EditActionComponent.new path: edit_note_path(@note) %>
+  <%= render DeleteActionComponent.new path: notes_path(@note), model_name: 'note' %>
+<% end %>
 
 <div class='subtitle'>
   <%= render TagComponent.with_collection @note.tags %>

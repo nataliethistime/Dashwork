@@ -1,6 +1,9 @@
 <% content_for(:title, @tag.name) %>
 <% content_for(:back_link, polymorphic_path([@type.to_sym, :tags])) %>
-<% content_for(:actions, actions_for(@tag, :edit, :delete)) %>
+<% content_for(:actions) do %>
+  <%= render EditActionComponent.new path: polymorphic_path([:edit, @tag]) %>
+  <%= render DeleteActionComponent.new path: polymorphic_path([@tag]), model_name: 'tag' %>
+<% end %>
 
 <% if @items.empty? %>
   <div>
