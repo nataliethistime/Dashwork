@@ -13,7 +13,7 @@ class CustomFieldsController < ApplicationController
     @field = tenant_fields.new field_params
 
     if @field.save
-      redirect_to polymorphic_path([:custom, @domain, :fields]), notice: 'Successfully created field'
+      redirect_to polymorphic_path([:custom, @domain.to_sym, :fields]), notice: 'Successfully created field'
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class CustomFieldsController < ApplicationController
   def destroy
     field = tenant_fields.find params[:id]
     field.destroy
-    redirect_to polymorphic_path([:custom, @domain, :fields]), notice: 'Successfully deleted custom field'
+    redirect_to polymorphic_path([:custom, @domain.to_sym, :fields]), notice: 'Successfully deleted custom field'
   end
 
   private

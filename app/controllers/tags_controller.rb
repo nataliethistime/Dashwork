@@ -17,7 +17,7 @@ class TagsController < ApplicationController
   def create
     @tag = tenant_tags.new tag_params
     if @tag.save
-      redirect_to polymorphic_path([@type, :tags]), notice: 'Successfully created tag'
+      redirect_to polymorphic_path([@type.to_sym, :tags]), notice: 'Successfully created tag'
     else
       render 'new'
     end
@@ -39,7 +39,7 @@ class TagsController < ApplicationController
   def destroy
     @tag = tenant_tags.find params[:id]
     @tag.delete
-    redirect_to polymorphic_path([@type, :tags]), notice: 'Successfully deleted tag'
+    redirect_to polymorphic_path([@type.to_sym, :tags]), notice: 'Successfully deleted tag'
   end
 
   private

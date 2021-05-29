@@ -1,5 +1,5 @@
 <% content_for(:title, @tag.name) %>
-<% content_for(:back_link, polymorphic_path([@type, :tags])) %>
+<% content_for(:back_link, polymorphic_path([@type.to_sym, :tags])) %>
 <% content_for(:actions, actions_for(@tag, :edit, :delete)) %>
 
 <% if @items.empty? %>

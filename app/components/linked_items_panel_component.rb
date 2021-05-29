@@ -12,10 +12,10 @@ class LinkedItemsPanelComponent < ViewComponent::Base
   end
 
   def view_all_path
-    polymorphic_path([@parent, @scope])
+    polymorphic_path([@parent, @scope.to_sym])
   end
 
   def create_path
-    polymorphic_path([:new, @singular], { "#{@parent.model_name.to_s.downcase}_id": @parent.id })
+    polymorphic_path([:new, @singular.to_sym], { "#{@parent.model_name.to_s.downcase}_id": @parent.id })
   end
 end
