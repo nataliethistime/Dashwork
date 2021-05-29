@@ -1,10 +1,31 @@
 <% content_for(:title, 'Personal Log') %>
 <% content_for(:back_link, dashboard_home_path) %>
 <% content_for(:page_style, :narrow) %>
+<% content_for(:hide_body_title, true) %>
 <% content_for(:actions) do %>
   <%= render CreateActionComponent.new path: new_personal_log_entry_path %>
-  <%= render SearchActionComponent.new path: personal_log_entries_path, value: params[:q], query_param_name: 'q' %>
 <% end %>
+
+<div class="columns">
+  <div class="column">
+    <h1 class='title'>Personal Log</h1>
+  </div>
+  <div class="column is-narrow">
+    <%= form_tag personal_log_entries_path, method: 'get', remote: false do %>
+      <div class='field'>
+        <div class='control'>
+          <input
+            placeholder='Search'
+            type='text'
+            autocomplete='off'
+            name='q'
+            value='<%= params[:q] %>'
+            class='input'>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <% if @personal_log_entries.empty? %>
   <div>
