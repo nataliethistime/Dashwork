@@ -9,8 +9,8 @@ class DecoratorBase
     Rails.application.routes.url_helpers
   end
 
-  def localize(*args)
-    I18n.localize(*args)
+  def localize(*args, **kwargs)
+    I18n.localize(*args, **kwargs)
   end
 
   def updated_at(item)
