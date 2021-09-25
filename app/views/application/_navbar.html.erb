@@ -38,13 +38,33 @@
             </a>
 
             <div class='navbar-dropdown'>
-              <% current_tenant.apps.each do |app| %>
-                <%= link_to app[:path], class: 'navbar-item' do %>
-                  <%= icon_for app[:id] %><span><%= app[:name] %></span>
-                <% end %>
+              <%= link_to companies_path, class: 'navbar-item' do %>
+                <%= icon_for :companies %><span>Companies</span>
               <% end %>
-              <hr class='navbar-divider'>
-              <%= link_to 'Manage Apps', settings_tenant_apps_path(current_tenant), class: 'navbar-item is-hidden-touch' %>
+
+              <%= link_to contacts_path, class: 'navbar-item' do %>
+                <%= icon_for :contacts %><span>Contacts</span>
+              <% end %>
+
+              <%= link_to notes_path, class: 'navbar-item' do %>
+                <%= icon_for :notes %><span>Notes</span>
+              <% end %>
+
+              <%= link_to personal_log_entries_path, class: 'navbar-item' do %>
+                <%= icon_for :personal_log %><span>Personal Log</span>
+              <% end %>
+
+              <%= link_to projects_path, class: 'navbar-item' do %>
+                <%= icon_for :projects %><span>Projects</span>
+              <% end %>
+
+              <%= link_to tasks_path, class: 'navbar-item' do %>
+                <%= icon_for :tasks %><span>Tasks</span>
+              <% end %>
+
+              <%= link_to wiki_folders_path, class: 'navbar-item' do %>
+                <%= icon_for :wiki %><span>Wiki</span>
+              <% end %>
             </div>
           </div>
         <% end %>

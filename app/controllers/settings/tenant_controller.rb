@@ -20,10 +20,6 @@ class Settings::TenantController < ApplicationController
     @tenant = current_tenant
   end
 
-  def edit_apps
-    @tenant = current_tenant
-  end
-
   def update
     @tenant = current_tenant
     @tenant.update tenant_params
@@ -38,14 +34,10 @@ class Settings::TenantController < ApplicationController
   private
 
   def tenant_params
-    params.require(:tenant).permit(:name, *app_names_as_params)
+    params.require(:tenant).permit(:name)
   end
 
   def sidebar
     current_tenant.present? ? :settings : nil
-  end
-
-  def app_names_as_params
-    Tenant.all_apps.dup.map { |app| "#{app}_app" }
   end
 end

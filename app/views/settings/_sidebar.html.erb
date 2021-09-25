@@ -4,5 +4,4 @@
   <%= render SidebarLinkComponent.new(:appearance, 'Appearance', settings_appearance_index_path) %>
   <%= render SidebarHeaderComponent.new('Tenant') %>
   <%= render SidebarLinkComponent.new(:tenant_settings, 'Company Settings', edit_settings_tenant_path(current_tenant)) %>
-  <%= render SidebarLinkComponent.new(:apps, 'Manage Apps', settings_tenant_apps_path(current_tenant)) %>
 <% end %>

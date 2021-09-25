@@ -1,6 +1,11 @@
 <%= render SidebarComponent.new do %>
   <%= render SidebarHeaderComponent.new 'Apps' %>
-  <% current_tenant.apps.each do |app| %>
-    <%= render SidebarLinkComponent.new app[:id], app[:name], app[:path] %>
-  <% end %>
+
+  <%= render SidebarLinkComponent.new :companies, 'Companies', companies_path %>
+  <%= render SidebarLinkComponent.new :contacts, 'Contacts', contacts_path %>
+  <%= render SidebarLinkComponent.new :notes, 'Notes', notes_path %>
+  <%= render SidebarLinkComponent.new :personal_log, 'Personal Log', personal_log_entries_path %>
+  <%= render SidebarLinkComponent.new :projects, 'Projects', projects_path %>
+  <%= render SidebarLinkComponent.new :tasks, 'Tasks', tasks_path %>
+  <%= render SidebarLinkComponent.new :wiki, 'Wiki', wiki_folders_path %>
 <% end %>
