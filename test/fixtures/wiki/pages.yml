@@ -23,11 +23,13 @@
 
 one:
   tenant: one
+  user: one
   title: I am a page
   content: I am content
 
 two:
   tenant: one
+  user: one
   folder: one
   title: I am another page yes
   content: Cool stuff guys

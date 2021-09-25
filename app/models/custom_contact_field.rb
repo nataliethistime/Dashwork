@@ -9,10 +9,12 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  tenant_id  :bigint
+#  user_id    :bigint
 #
 # Indexes
 #
 #  index_custom_fields_on_tenant_id  (tenant_id)
+#  index_custom_fields_on_user_id    (user_id)
 #
 class CustomContactField < CustomField
 end

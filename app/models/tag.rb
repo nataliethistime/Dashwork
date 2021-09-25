@@ -8,15 +8,18 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  tenant_id  :bigint
+#  user_id    :bigint
 #
 # Indexes
 #
 #  index_tags_on_tenant_id  (tenant_id)
+#  index_tags_on_user_id    (user_id)
 #
 class Tag < ApplicationRecord
   TYPES = %w{CompanyTag ContactTag NoteTag ProjectTag TaskTag}.freeze
 
   belongs_to :tenant
+  belongs_to :user
   has_many :tag_assignments, dependent: :restrict_with_error
   has_many :contacts, through: :tag_assignments, source: :taggable, source_type: 'Contact'
   has_many :companies, through: :tag_assignments, source: :taggable, source_type: 'Company'

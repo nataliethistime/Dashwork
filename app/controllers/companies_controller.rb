@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @q = current_tenant.companies.ransack(params[:q])
+    @q = current_user.companies.ransack(params[:q])
     @companies = @q.result.page(params[:page])
   end
 
@@ -24,7 +24,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/new
   def new
-    @company = current_tenant.companies.new
+    @company = current_user.companies.new
   end
 
   # GET /companies/1/edit
@@ -34,8 +34,8 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
-    @company = current_tenant.companies.new company_params
-    @company.user = current_user
+    @company = current_user.companies.new company_params
+    @company.tenant_id = current_user.tenant_id
 
     respond_to do |format|
       if @company.save
@@ -76,7 +76,7 @@ class CompaniesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_company
-    @company = current_tenant.companies.find(params[:id])
+    @company = current_user.companies.find(params[:id])
   end
 
   def sidebar

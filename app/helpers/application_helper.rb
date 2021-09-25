@@ -3,10 +3,6 @@ module ApplicationHelper
     render 'common/actions_dropdown', icon: icon, items: items
   end
 
-  def current_tenant
-    current_user&.tenant
-  end
-
   def icon_for(name)
     icon = EnvSettings.icons[name.to_s]
     tag.span class: 'icon' do

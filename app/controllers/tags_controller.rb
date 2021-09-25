@@ -2,20 +2,21 @@ class TagsController < ApplicationController
   before_action :set_type
 
   def index
-    @tags = tenant_tags.all
+    @tags = user_tags.all
   end
 
   def show
-    @tag = tenant_tags.find params[:id]
+    @tag = user_tags.find params[:id]
     @items = @tag.public_send(@type_plural).includes(:tags).page params[:page]
   end
 
   def new
-    @tag = tenant_tags.new
+    @tag = user_tags.new
   end
 
   def create
-    @tag = tenant_tags.new tag_params
+    @tag = user_tags.new tag_params
+    @tag.tenant_id = current_user.tenant_id
     if @tag.save
       redirect_to polymorphic_path([@type.to_sym, :tags]), notice: 'Successfully created tag'
     else
@@ -24,11 +25,11 @@ class TagsController < ApplicationController
   end
 
   def edit
-    @tag = tenant_tags.find params[:id]
+    @tag = user_tags.find params[:id]
   end
 
   def update
-    @tag = tenant_tags.find params[:id]
+    @tag = user_tags.find params[:id]
     if @tag.update tag_params
       redirect_to polymorphic_path([@tag]), notice: 'Successfully updated tag'
     else
@@ -37,7 +38,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    @tag = tenant_tags.find params[:id]
+    @tag = user_tags.find params[:id]
     @tag.delete
     redirect_to polymorphic_path([@type.to_sym, :tags]), notice: 'Successfully deleted tag'
   end
@@ -51,8 +52,8 @@ class TagsController < ApplicationController
   #
   # Takes into account the type and returns the association for the correct kind of field
   #
-  def tenant_tags
-    current_tenant.public_send "#{@type}_tags"
+  def user_tags
+    current_user.public_send "#{@type}_tags"
   end
 
   def sidebar

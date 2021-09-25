@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_043556) do
+ActiveRecord::Schema.define(version: 2021_09_25_031826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,7 +110,9 @@ ActiveRecord::Schema.define(version: 2021_05_22_043556) do
     t.bigint "tenant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["tenant_id"], name: "index_custom_fields_on_tenant_id"
+    t.index ["user_id"], name: "index_custom_fields_on_user_id"
   end
 
   create_table "custom_values", force: :cascade do |t|
@@ -266,7 +268,9 @@ ActiveRecord::Schema.define(version: 2021_05_22_043556) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
+    t.bigint "user_id"
     t.index ["tenant_id"], name: "index_tags_on_tenant_id"
+    t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -339,7 +343,9 @@ ActiveRecord::Schema.define(version: 2021_05_22_043556) do
     t.bigint "tenant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["tenant_id"], name: "index_wiki_folders_on_tenant_id"
+    t.index ["user_id"], name: "index_wiki_folders_on_user_id"
   end
 
   create_table "wiki_pages", force: :cascade do |t|
@@ -349,8 +355,10 @@ ActiveRecord::Schema.define(version: 2021_05_22_043556) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "tenant_id"
+    t.bigint "user_id"
     t.index ["folder_id"], name: "index_wiki_pages_on_folder_id"
     t.index ["tenant_id"], name: "index_wiki_pages_on_tenant_id"
+    t.index ["user_id"], name: "index_wiki_pages_on_user_id"
   end
 
 end

@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = current_tenant.contacts.includes(:tags).page(params[:page])
+    @contacts = current_user.contacts.includes(:tags).page(params[:page])
   end
 
   # GET /contacts/1
@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = current_tenant.contacts.new new_contact_params
+    @contact = current_user.contacts.new new_contact_params
   end
 
   # GET /contacts/1/edit
@@ -24,8 +24,8 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = current_tenant.contacts.new(contact_params)
-    @contact.user = current_user
+    @contact = current_user.contacts.new(contact_params)
+    @contact.tenant_id = current_user.tenant_id
 
     respond_to do |format|
       if @contact.save
@@ -66,7 +66,7 @@ class ContactsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_contact
-    @contact = current_tenant.contacts.find(params[:id])
+    @contact = current_user.contacts.find(params[:id])
   end
 
   def sidebar

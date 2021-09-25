@@ -53,7 +53,7 @@ class CustomFieldsController < ApplicationController
   # Takes into account the domain and returns the association for the correct kind of field
   #
   def tenant_fields
-    current_tenant.public_send "custom_#{@domain}_fields"
+    current_user.public_send "custom_#{@domain}_fields"
   end
 
   def sidebar

@@ -6,7 +6,7 @@
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.input :status, as: :select, collection: Project::STATUSES, label_method: :capitalize %>
-  <%= f.association :tags, collection: current_tenant.project_tags %>
+  <%= f.association :tags, collection: current_user.project_tags %>
   <%= f.association :contacts %>
   <%= f.association :companies %>
 

@@ -4,26 +4,26 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @q = current_tenant.projects.active.includes(:tags).ransack(params[:q])
+    @q = current_user.projects.active.includes(:tags).ransack(params[:q])
     @projects = @q.result.page(params[:page])
   end
 
   # GET /projects/closed
   # GET /projects/closed.json
   def closed
-    @q = current_tenant.projects.closed.includes(:tags).ransack(params[:q])
+    @q = current_user.projects.closed.includes(:tags).ransack(params[:q])
     @projects = @q.result.page(params[:page])
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @notes = @project.notes.includes(:user, :tags, :contact, :company, :project).page(params[:notes_page])
+    @notes = @project.notes.includes(:user, :tags, :contact, :company).page(params[:notes_page])
   end
 
   # GET /projects/new
   def new
-    @project = current_tenant.projects.new new_project_params
+    @project = current_user.projects.new new_project_params
   end
 
   # GET /projects/1/edit
@@ -33,8 +33,8 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = current_tenant.projects.new(project_params)
-    @project.user = current_user
+    @project = current_user.projects.new(project_params)
+    @project.tenant_id = current_user.tenant_id
 
     respond_to do |format|
       if @project.save
@@ -79,7 +79,7 @@ class ProjectsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_project
-    @project = current_tenant.projects.find(params[:id])
+    @project = current_user.projects.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

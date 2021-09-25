@@ -1,22 +1,23 @@
 module Wiki
   class FoldersController < ApplicationController
     def index
-      @folders = current_tenant.wiki_folders.root_level
-      @pages = current_tenant.wiki_pages.root_level
+      @folders = current_user.wiki_folders.root_level
+      @pages = current_user.wiki_pages.root_level
     end
 
     def show
-      @folder = current_tenant.wiki_folders.find(params[:id])
+      @folder = current_user.wiki_folders.find(params[:id])
       @folders = @folder.folders
       @pages = @folder.pages
     end
 
     def new
-      @folder = current_tenant.wiki_folders.new(new_wiki_folder_params)
+      @folder = current_user.wiki_folders.new(new_wiki_folder_params)
     end
 
     def create
-      @folder = current_tenant.wiki_folders.new(wiki_folder_params)
+      @folder = current_user.wiki_folders.new(wiki_folder_params)
+      @folder.tenant_id = current_user.tenant_id
 
       if @folder.save
         redirect_to wiki_folder_path(@folder)
@@ -26,11 +27,11 @@ module Wiki
     end
 
     def edit
-      @folder = current_tenant.wiki_folders.find(params[:id])
+      @folder = current_user.wiki_folders.find(params[:id])
     end
 
     def update
-      @folder = current_tenant.wiki_folders.find(params[:id])
+      @folder = current_user.wiki_folders.find(params[:id])
 
       if @folder.update(wiki_folder_params)
         redirect_to wiki_folder_path(@folder)
@@ -40,7 +41,7 @@ module Wiki
     end
 
     def destroy
-      @folder = current_tenant.wiki_folders.find(params[:id])
+      @folder = current_user.wiki_folders.find(params[:id])
       @folder.destroy
       redirect_to @folder.parent.present? ? wiki_folder_path(@folder.parent) : wiki_folders_path
     end

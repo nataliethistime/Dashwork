@@ -17,14 +17,17 @@
 suppliers:
   name: Suppliers
   tenant: one
+  user: one
   type: CompanyTag
 
 subcontractors:
   name: Subcontractors
   tenant: one
+  tenant: one
   type: CompanyTag
 
 consultants:
   name: Consultants
+  tenant: one
   tenant: one
   type: CompanyTag

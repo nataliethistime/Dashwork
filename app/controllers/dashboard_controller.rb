@@ -19,11 +19,11 @@ class DashboardController < ApplicationController
     params[:projects] ||= 'active'
     case params[:projects]
     when 'active'
-      current_tenant.projects.active.limit(5)
+      current_user.projects.active.limit(5)
     when 'starred'
       current_user.starred_projects.active.limit(5)
     when 'new'
-      current_tenant.projects.active.newly_created.limit(5)
+      current_user.projects.active.newly_created.limit(5)
     end
   end
 
@@ -31,9 +31,9 @@ class DashboardController < ApplicationController
     params[:tasks] ||= 'today'
     case params[:tasks]
     when 'today'
-      current_tenant.tasks.due_before(Time.zone.tomorrow.beginning_of_day).limit(5)
+      current_user.tasks.due_before(Time.zone.tomorrow.beginning_of_day).limit(5)
     when 'new'
-      current_tenant.tasks.newly_created.limit(5)
+      current_user.tasks.newly_created.limit(5)
     end
   end
 
@@ -43,7 +43,7 @@ class DashboardController < ApplicationController
     when 'starred'
       current_user.starred_contacts.limit(5)
     when 'new'
-      current_tenant.contacts.newly_created.limit(5)
+      current_user.contacts.newly_created.limit(5)
     end
   end
 
@@ -53,7 +53,7 @@ class DashboardController < ApplicationController
     when 'starred'
       current_user.starred_companies.limit(5)
     when 'new'
-      current_tenant.companies.newly_created.limit(5)
+      current_user.companies.newly_created.limit(5)
     end
   end
 

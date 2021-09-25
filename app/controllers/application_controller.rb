@@ -1,14 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  before_action :check_tenant
   before_action :set_sidebar
   around_action :set_time_zone
 
   private
-
-  def current_tenant
-    current_user&.tenant
-  end
 
   #
   # Override this method to set the sidebar in your controllers. Alternitively you can set @sidebar
@@ -20,12 +15,6 @@ class ApplicationController < ActionController::Base
 
   def set_sidebar
     @sidebar = sidebar
-  end
-
-  def check_tenant
-    if user_signed_in? && current_tenant.nil?
-      redirect_to new_settings_tenant_path unless helpers.current_page?(new_settings_tenant_path)
-    end
   end
 
   def set_time_zone

@@ -70,7 +70,6 @@ Rails.application.routes.draw do
   namespace :settings do
     resources :appearance, only: [:index, :update]
     resources :profile, only: [:index, :update]
-    resources :tenant, only: [:new, :create, :edit, :update]
   end
 
   #

@@ -18,7 +18,7 @@ class StarsController < ApplicationController
   end
 
   def items
-    current_tenant.public_send @type_plural
+    current_user.public_send @type_plural
   end
 
   def sidebar

@@ -21,9 +21,11 @@
 
 one:
   tenant: one
+  user: one
   name: Technology
 
 two:
   tenant: one
+  user: one
   parent: one
   name: Ruby on Rails

@@ -46,17 +46,30 @@ class User < ApplicationRecord
 
   belongs_to :tenant, optional: true
 
-  has_many :notes
-  has_many :tasks
-  has_many :contacts
-  has_many :companies
-  has_many :projects
-  has_many :personal_log_entries, class_name: 'PersonalLog::Entry'
+  has_many :companies, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  has_many :notes, dependent: :destroy
+  has_many :personal_log_entries, class_name: 'PersonalLog::Entry', dependent: :destroy
+  has_many :projects, dependent: :destroy
+  has_many :tasks, dependent: :destroy
+  has_many :wiki_folders, dependent: :destroy, class_name: 'Wiki::Folder'
+  has_many :wiki_pages, dependent: :destroy, class_name: 'Wiki::Page'
 
-  has_many :stars
-  has_many :starred_companies, through: :stars, source: :starrable, source_type: 'Company'
-  has_many :starred_contacts, through: :stars, source: :starrable, source_type: 'Contact'
-  has_many :starred_projects, through: :stars, source: :starrable, source_type: 'Project'
+  has_many :company_tags, dependent: :destroy
+  has_many :contact_tags, dependent: :destroy
+  has_many :note_tags, dependent: :destroy
+  has_many :project_tags, dependent: :destroy
+  has_many :task_tags, dependent: :destroy
+
+  has_many :custom_company_fields, dependent: :destroy
+  has_many :custom_contact_fields, dependent: :destroy
+  has_many :custom_fields, dependent: :destroy
+  has_many :custom_project_fields, dependent: :destroy
+
+  has_many :stars, dependent: :destroy
+  has_many :starred_companies, through: :stars, source: :starrable, source_type: 'Company', dependent: :destroy
+  has_many :starred_contacts, through: :stars, source: :starrable, source_type: 'Contact', dependent: :destroy
+  has_many :starred_projects, through: :stars, source: :starrable, source_type: 'Project', dependent: :destroy
 
   decorate_with UserDecorator
 

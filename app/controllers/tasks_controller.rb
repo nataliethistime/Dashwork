@@ -1,28 +1,28 @@
 class TasksController < ApplicationController
   def index
-    @q = current_tenant.tasks.uncompleted.includes(:tags).ransack(params[:q])
+    @q = current_user.tasks.uncompleted.includes(:tags).ransack(params[:q])
     @tasks = @q.result
   end
 
   def completed
-    @tasks = current_tenant.tasks.completed.includes(:tags)
+    @tasks = current_user.tasks.completed.includes(:tags)
   end
 
   def show
-    @task = current_tenant.tasks.find params[:id]
+    @task = current_user.tasks.find params[:id]
   end
 
   def new
-    @task = current_tenant.tasks.new new_task_params
+    @task = current_user.tasks.new new_task_params
   end
 
   def edit
-    @task = current_tenant.tasks.find params[:id]
+    @task = current_user.tasks.find params[:id]
   end
 
   def create
-    @task = current_tenant.tasks.new(task_params)
-    @task.user = current_user
+    @task = current_user.tasks.new(task_params)
+    @task.tenant_id = current_user.tenant_id
 
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = current_tenant.tasks.find params[:id]
+    @task = current_user.tasks.find params[:id]
     if @task.update(task_params)
       redirect_to @task, notice: 'Task was successfully updated.'
     else
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = current_tenant.tasks.find params[:id]
+    @task = current_user.tasks.find params[:id]
     @task.destroy
     redirect_to tasks_url, notice: 'Task was successfully destroyed.'
   end

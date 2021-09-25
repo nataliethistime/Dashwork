@@ -1,15 +1,16 @@
 module Wiki
   class PagesController < ApplicationController
     def show
-      @page = current_tenant.wiki_pages.find params[:id]
+      @page = current_user.wiki_pages.find params[:id]
     end
 
     def new
-      @page = current_tenant.wiki_pages.new new_wiki_page_params
+      @page = current_user.wiki_pages.new new_wiki_page_params
     end
 
     def create
-      @page = current_tenant.wiki_pages.new wiki_page_params
+      @page = current_user.wiki_pages.new wiki_page_params
+      @page.tenant_id = current_user.tenant_id
 
       if @page.save
         redirect_to wiki_page_path(@page)
@@ -19,11 +20,11 @@ module Wiki
     end
 
     def edit
-      @page = current_tenant.wiki_pages.find(params[:id])
+      @page = current_user.wiki_pages.find(params[:id])
     end
 
     def update
-      @page = current_tenant.wiki_pages.find(params[:id])
+      @page = current_user.wiki_pages.find(params[:id])
 
       if @page.update wiki_page_params
         redirect_to wiki_page_path(@page)
@@ -33,7 +34,7 @@ module Wiki
     end
 
     def destroy
-      @page = current_tenant.wiki_pages.find(params[:id])
+      @page = current_user.wiki_pages.find(params[:id])
       @page.destroy
       redirect_to @page.folder.present? ? wiki_folder_path(page.folder) : wiki_folders_path
     end

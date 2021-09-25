@@ -7,7 +7,7 @@
   <%= f.input :email %>
   <%= f.input :phone %>
   <%= f.input :address %>
-  <%= f.association :tags, collection: current_tenant.company_tags.all %>
+  <%= f.association :tags, collection: current_user.company_tags.all %>
 
   <%= render 'common/custom_values_form', form: f, item: company %>
 
