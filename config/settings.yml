@@ -2,10 +2,8 @@ product_name: Dashwork
 
 icons:
   apps: fas fa-th
-  assets: fas fa-car-side
   appearance: fas fa-paint-brush
   back: fas fa-arrow-left
-  books: fas fa-book-reader
   calendar: fas fa-calendar-alt
   companies: fas fa-briefcase
   complete: fas fa-check-circle
@@ -15,12 +13,9 @@ icons:
   delete: fas fa-trash
   edit: fas fa-edit
   ellipsis: fas fa-ellipsis-h
-  equipment: fas fa-truck
   export: fas fa-cloud-download-alt
   file: far fa-file
   folder: fas fa-folder
-  form_templates: fas fa-box
-  forms: fas fa-file-signature
   go_to: fas fa-arrow-right
   help: fas fa-question-circle
   import: fas fa-upload
@@ -30,7 +25,6 @@ icons:
   personal_log_review: fas fa-binoculars
   profile: fas fa-user-circle
   projects: fas fa-project-diagram
-  reviews: fas fa-bullhorn
   settings: fas fa-wrench
   sign_out: fas fa-power-off
   sign_up: fas fa-user-plus

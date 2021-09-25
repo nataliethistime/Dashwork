@@ -50,13 +50,8 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :contacts
   has_many :companies
-  has_many :calendar_events
-  has_many :equipment
-  has_many :forms
   has_many :projects
   has_many :personal_log_entries, class_name: 'PersonalLog::Entry'
-
-  has_many :book_reviews, class_name: 'Reviews::BookReview'
 
   has_many :stars
   has_many :starred_companies, through: :stars, source: :starrable, source_type: 'Company'

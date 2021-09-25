@@ -1,2 +1,0 @@
-class FormDecorator < DecoratorBase
-end

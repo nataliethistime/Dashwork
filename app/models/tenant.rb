@@ -22,16 +22,11 @@
 #  updated_at         :datetime         not null
 #
 class Tenant < ApplicationRecord
-  has_many :assets, dependent: :destroy
-  has_many :calendar_events, dependent: :destroy
   has_many :users, dependent: :destroy
   has_many :notes, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :companies, dependent: :destroy
   has_many :contacts, dependent: :destroy
-  has_many :equipment, dependent: :destroy
-  has_many :forms, dependent: :destroy
-  has_many :form_templates, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_many :wiki_folders, dependent: :destroy, class_name: 'Wiki::Folder'
   has_many :wiki_pages, dependent: :destroy, class_name: 'Wiki::Page'
@@ -50,16 +45,11 @@ class Tenant < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3 }
 
   APPS = {
-    assets: { name: 'Assets', id: 'assets', path: routes.assets_path },
-    calendar: { name: 'Calendar', id: 'calendar', path: routes.calendar_events_path },
     companies: { name: 'Companies', id: 'companies', path: routes.companies_path },
     contacts: { name: 'Contacts', id: 'contacts', path: routes.contacts_path },
-    equipment: { name: 'Equipment', id: 'equipment', path: routes.equipment_index_path },
-    forms: { name: 'Forms', id: 'forms', path: routes.forms_path },
     notes: { name: 'Notes', id: 'notes', path: routes.notes_path },
     personal_log: { name: 'Personal Log', id: 'personal_log', path: routes.personal_log_entries_path },
     projects: { name: 'Projects', id: 'projects', path: routes.projects_path },
-    reviews: { name: 'Reviews', id: 'reviews', path: routes.reviews_book_reviews_path },
     tasks: { name: 'Tasks', id: 'tasks', path: routes.tasks_path },
     wiki: { name: 'Wiki', id: 'wiki', path: routes.wiki_folders_path }
   }.freeze

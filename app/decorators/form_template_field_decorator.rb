@@ -1,2 +1,0 @@
-class FormTemplateFieldDecorator < DecoratorBase
-end

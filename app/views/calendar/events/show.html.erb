@@ -1,8 +1,0 @@
-<% content_for(:title, @calendar_event.name) %>
-<% content_for(:back_link, calendar_events_path) %>
-<% content_for(:actions) do %>
-  <%= render EditActionComponent.new path: edit_calendar_event_path(@calendar_event) %>
-  <%= render DeleteActionComponent.new path: calendar_event_path(@calendar_event), model_name: 'event' %>
-<% end %>
-
-<%= render AttributesTableComponent.new @calendar_event, [:description, :start_at, :end_at, :companies, :contacts, :projects] %>

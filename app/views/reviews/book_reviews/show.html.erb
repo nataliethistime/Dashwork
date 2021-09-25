@@ -1,8 +1,0 @@
-<% content_for(:title, 'Book Review') %>
-<% content_for(:back_link, reviews_book_reviews_path) %>
-<% content_for(:actions) do %>
-  <%= render EditActionComponent.new path: edit_reviews_book_review_path(@reviews_book_review) %>
-  <%= render DeleteActionComponent.new path: reviews_book_review_path(@reviews_book_review), model_name: 'book review' %>
-<% end %>
-
-<%= render AttributesTableComponent.new(@reviews_book_review, [:title, :author, :rating, :thoughts]) %>

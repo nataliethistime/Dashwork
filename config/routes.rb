@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'public#index'
+  root to: 'dashboard#home'
 
   #
   # Administration
@@ -10,18 +10,6 @@ Rails.application.routes.draw do
   # Authentication
   #
   devise_for :users
-
-  #
-  # Assets
-  #
-  resources :assets
-
-  #
-  # Calendar
-  #
-  namespace :calendar do
-    resources :events
-  end
 
   #
   # Companies
@@ -52,19 +40,6 @@ Rails.application.routes.draw do
   end
 
   #
-  # Equipment
-  #
-  resources :equipment
-
-  #
-  # Forms
-  #
-  resources :form_templates do
-    resources :fields, controller: :form_template_fields
-  end
-  resources :forms
-
-  #
   # Notes
   #
   resources :notes
@@ -88,20 +63,6 @@ Rails.application.routes.draw do
   resources :custom_project_fields, controller: 'custom_fields', defaults: { domain: 'project' }
   resources :project_tags, controller: 'tags', defaults: { type: 'project' }
   get '/projects/:id/tasks' => 'links#tasks', as: :project_tasks, defaults: { type: 'project' }
-
-  #
-  # Public pages
-  #
-  namespace :public do
-    get :index
-  end
-
-  #
-  # Reviews
-  #
-  namespace :reviews do
-    resources :book_reviews
-  end
 
   #
   # Settings
