@@ -21,8 +21,6 @@ module PersonalLog
   class Entry < ApplicationRecord
     belongs_to :user
 
-    attr_accessor :entered_at
-
     validates :content, presence: true
     validates :entered_at, presence: true
     validates :entry_date, presence: true
