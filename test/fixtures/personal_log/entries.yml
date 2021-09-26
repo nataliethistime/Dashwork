@@ -20,12 +20,10 @@
 
 one:
   content: This is some content
-  entry_date: <%= Time.zone.yesterday.beginning_of_day %>
-  entry_time: <%= Time.zone.parse('11:11am').to_time %>
+  entered_at: <%= Time.zone.yesterday %>
   user: one
 
 two:
   content: My name is Jeff
-  entry_date: <%= Time.zone.today.beginning_of_day %>
-  entry_time: <%= Time.zone.parse('2:00pm').to_time %>
+  entered_at: <%= Time.zone.today %>
   user: one

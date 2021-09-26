@@ -2,11 +2,11 @@
 
 <% current_day = nil %>
 <% @entries.each do |entry| %><%# TODO: use find_each and retain ordering! %>
-  <% if entry.entry_date != current_day %>
+  <% if entry.entered_at.beginning_of_day != current_day %>
 
 ## <%= entry.decorate :day %>
 
-    <% current_day = entry.entry_date %>
+    <% current_day = entry.entered_at.beginning_of_day %>
   <% end %>
 **<%= entry.decorate :time %>**
 

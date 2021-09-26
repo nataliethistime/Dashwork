@@ -23,47 +23,23 @@ module PersonalLog
 
     validates :content, presence: true
     validates :entered_at, presence: true
-    validates :entry_date, presence: true
-    validates :entry_time, presence: true
-
-    validate :entered_at_valid
 
     decorate_with PersonalLogEntryDecorator
 
     after_initialize do |personal_log_entry|
-      now = Time.zone.now
-      personal_log_entry.entry_date ||= now
-      personal_log_entry.entry_time ||= now
+      personal_log_entry.entered_at ||= Time.zone.now
     end
 
     before_save do |e|
-      # Remove seconds and milliseconds from entry time
-      e.entry_time = e.entry_time.change sec: 0, nsec: 0
+      #
+      # Remove seconds and milliseconds. Makes form inputs easier to use because they don't handle
+      # seconds in time stamps very well. For instance, currently in Chrome the seconds compoent is
+      # greyed out and can't be changed (by typing or picking numbers in the UI).
+      #
+      e.entered_at = e.entered_at.change sec: 0, nsec: 0
     end
 
-    scope :on_day, -> (date) { where(entry_date: date..(date + 1.day)) }
-    default_scope -> { order(entry_date: :desc).order(entry_time: :desc) }
-
-    def entered_at_valid
-      if entered_at.year != entry_date.year
-        errors.add(:base, 'entered_at year does not match')
-      end
-
-      if entered_at.month != entry_date.month
-        errors.add(:base, 'entered_at month does not match')
-      end
-
-      if entered_at.day != entry_date.day
-        errors.add(:base, 'entered_at day does not match')
-      end
-
-      if entered_at.hour != entry_time.hour
-        errors.add(:base, 'entered_at hour does not match')
-      end
-
-      if entered_at.min != entry_time.min
-        errors.add(:base, 'entered_at min does not match')
-      end
-    end
+    scope :on_day, -> (date) { where(entered_at: date..(date + 1.day)) }
+    default_scope -> { order(entered_at: :desc) }
   end
 end

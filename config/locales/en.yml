@@ -58,10 +58,6 @@ en:
       note/project:
         name_link: Project name
 
-      personal_log/entry:
-        entry_date: Date
-        entry_time: Time
-
   simple_form:
     options:
       custom_company_field:

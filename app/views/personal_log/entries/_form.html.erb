@@ -1,7 +1,6 @@
 <%= simple_form_for(personal_log_entry) do |f| %>
   <%= render 'common/form_errors', form: f %>
-  <%= f.input :entry_date if f.object.persisted? %>
-  <%= f.input :entry_time if f.object.persisted? %>
+  <%= f.input :entered_at, as: :datetime if f.object.persisted? %>
   <%= f.input :content %>
   <%= f.button :submit %>
 <% end %>

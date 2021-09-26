@@ -108,7 +108,7 @@ module PersonalLog
 
     # Only allow a list of trusted parameters through.
     def personal_log_entry_params
-      params.require(:personal_log_entry).permit(:content, :entry_date, :entry_time)
+      params.require(:personal_log_entry).permit(:content, :entered_at)
     end
   end
 end
