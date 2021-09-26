@@ -8,10 +8,12 @@
 #  updated_at :datetime         not null
 #  parent_id  :bigint
 #  tenant_id  :bigint
+#  user_id    :bigint
 #
 # Indexes
 #
 #  index_wiki_folders_on_tenant_id  (tenant_id)
+#  index_wiki_folders_on_user_id    (user_id)
 #
 
 # This model initially had no columns defined. If you add columns to the
