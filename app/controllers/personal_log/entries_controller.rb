@@ -7,7 +7,7 @@ module PersonalLog
     def index
       if params[:q]
         query = '%' + params[:q] + '%'
-        @personal_log_entries = entries.all.where('content ILIKE ?', query).page(params[:page])
+        @personal_log_entries = entries.all.where('content LIKE ?', query).page(params[:page])
       else
         @personal_log_entries = entries.all.page(params[:page])
       end
