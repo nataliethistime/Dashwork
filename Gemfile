@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.7.0'
 
+gem 'dotenv-rails'
 gem 'active_link_to' # Improved active linking library
 gem 'bootsnap', '>= 1.4.2', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'config' # Configure the app with yml files
@@ -14,7 +15,6 @@ gem 'kaminari' # Pagination
 gem 'mini_decorator', '0.0.2' # Model decoration
 gem 'mini_magick'
 gem 'paper_trail' # Item version tracking
-gem 'pg' # Postgress database
 gem 'puma', '~> 4.1' # Use Puma as the app server
 gem 'rails_admin', '~> 2.0' # Manage the databse
 gem 'rails', '~> 6.0.3.2' # Yes, it's a rails app
@@ -23,6 +23,7 @@ gem 'redcarpet' # Markdown rendering
 gem 'sass-rails', '>= 6' # Use SCSS for stylesheets
 gem 'simple_form' # Simpler forms
 gem 'sprockets', '3.7.2' # Keeping this at 3.7.2 because of a segfault issue in CI
+gem 'sqlite3' # Sqlite db
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'view_component' # Object based view components
 gem 'webpacker', '~> 5.x' # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

@@ -1,37 +1,32 @@
-default_config: &default_config
-  adapter: postgresql
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+production:
+  adapter: sqlite3
   ecoding: unicode
+  database: db/production.sqlite3
+  pool: 5 
   timeout: 5000
 
-docker_config: &docker_config
-  <<: *default_config
-  host: db
-  username: postgres
-  password: flickthepaperwork
-
-ci_config: &ci_config
-  <<: *default_config
-  host: <%= ENV['CI_DB_HOST'] %>
-  username: <%= ENV['CI_DB_USER'] %>
-  password: <%= ENV['CI_DB_PASSWORD'] %>
-  database: <%= ENV['CI_DB'] %>
-
 development:
-  <<: *docker_config
-  database: dashwork_development
+  adapter: sqlite3
+  ecoding: unicode
+  database: db/development.sqlite3
+  pool: 5 
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <% if ENV['CIRCLECI'].present? %>
-  <<: *ci_config
+  host: <%= ENV['CI_DB_HOST'] %>
+  username: <%= ENV['CI_DB_USER'] %>
+  password: <%= ENV['CI_DB_PASSWORD'] %>
+  database: <%= ENV['CI_DB'] %>
   <% else %>
-  <<: *docker_config
-  database: dashwork_test
+  adapter: sqlite3
+  ecoding: unicode
+  database: db/test.sqlite3
+  pool: 5 
+  timeout: 5000
   <% end %>
 
-production:
-  <<: *default_config
-  url: <%= ENV['DATABASE_URL'] %>
