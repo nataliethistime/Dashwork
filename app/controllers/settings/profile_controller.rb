@@ -5,8 +5,7 @@ class Settings::ProfileController < ApplicationController
   def update
     @user = current_user
     @user.update user_params
-    flash[:notice] = 'Profile successfully updated.'
-    render 'edit'
+    redirect_to root_path, notice: 'Profile successfully updated.'
   end
 
   private

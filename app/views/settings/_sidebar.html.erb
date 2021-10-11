@@ -2,6 +2,4 @@
   <%= render SidebarHeaderComponent.new('General') %>
   <%= render SidebarLinkComponent.new(:profile, 'Profile', settings_profile_index_path) %>
   <%= render SidebarLinkComponent.new(:appearance, 'Appearance', settings_appearance_index_path) %>
-  <%= render SidebarHeaderComponent.new('Tenant') %>
-  <%= render SidebarLinkComponent.new(:tenant_settings, 'Company Settings', edit_settings_tenant_path(current_user)) %>
 <% end %>

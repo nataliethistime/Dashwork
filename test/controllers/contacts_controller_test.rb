@@ -31,7 +31,7 @@ class ContactsControllerTest < ActionController::TestCase
       }
     end
 
-    assert_redirected_to contact_path(Contact.last)
+    assert_response :redirect
   end
 
   test 'should show contact' do
