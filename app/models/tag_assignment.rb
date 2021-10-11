@@ -2,7 +2,7 @@
 #
 # Table name: tag_assignments
 #
-#  id            :bigint           not null, primary key
+#  id            :integer          not null, primary key
 #  taggable_type :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

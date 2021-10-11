@@ -2,7 +2,7 @@
 #
 # Table name: tenants
 #
-#  id                 :bigint           not null, primary key
+#  id                 :integer          not null, primary key
 #  assets_app         :boolean          default(FALSE)
 #  calendar_app       :boolean
 #  companies_app      :boolean

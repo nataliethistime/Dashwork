@@ -2,7 +2,7 @@
 #
 # Table name: custom_fields
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  domain     :string
 #  name       :string
 #  type       :string

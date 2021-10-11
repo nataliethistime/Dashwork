@@ -2,7 +2,7 @@
 #
 # Table name: projects
 #
-#  id          :bigint           not null, primary key
+#  id          :integer          not null, primary key
 #  description :text
 #  end_date    :date
 #  name        :string

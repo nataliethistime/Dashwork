@@ -2,7 +2,7 @@
 #
 # Table name: custom_values
 #
-#  id                    :bigint           not null, primary key
+#  id                    :integer          not null, primary key
 #  boolean_entity        :boolean
 #  custom_fieldable_type :string
 #  date_entity           :date

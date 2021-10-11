@@ -2,21 +2,21 @@
 #
 # Table name: tasks
 #
-#  id                :bigint           not null, primary key
-#  name              :string
+#  id                :integer          not null, primary key
+#  completed         :boolean
 #  description       :text
 #  due_date          :date
-#  completed         :boolean
-#  user_id           :integer
-#  tenant_id         :integer
-#  contact_id        :integer
-#  equipment_id      :integer
-#  project_id        :integer
-#  calendar_event_id :integer
-#  note_id           :integer
+#  name              :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  calendar_event_id :integer
 #  company_id        :integer
+#  contact_id        :integer
+#  equipment_id      :integer
+#  note_id           :integer
+#  project_id        :integer
+#  tenant_id         :integer
+#  user_id           :integer
 #
 class Task < ApplicationRecord
   include Taggable

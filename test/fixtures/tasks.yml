@@ -2,7 +2,7 @@
 #
 # Table name: tasks
 #
-#  id                :bigint           not null, primary key
+#  id                :integer          not null, primary key
 #  completed         :boolean
 #  description       :text
 #  due_date          :date

@@ -2,7 +2,7 @@
 #
 # Table name: wiki_pages
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  content    :text
 #  title      :string
 #  created_at :datetime         not null

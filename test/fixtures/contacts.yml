@@ -2,7 +2,7 @@
 #
 # Table name: contacts
 #
-#  id             :bigint           not null, primary key
+#  id             :integer          not null, primary key
 #  address        :string
 #  birthday       :date
 #  description    :text

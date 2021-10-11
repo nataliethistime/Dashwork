@@ -2,7 +2,7 @@
 #
 # Table name: stars
 #
-#  id             :bigint           not null, primary key
+#  id             :integer          not null, primary key
 #  starrable_type :string
 #  starrable_id   :bigint
 #  user_id        :bigint

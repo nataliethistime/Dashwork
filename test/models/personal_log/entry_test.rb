@@ -2,7 +2,7 @@
 #
 # Table name: personal_log_entries
 #
-#  id         :bigint           not null, primary key
+#  id         :integer          not null, primary key
 #  content    :text
 #  entered_at :datetime
 #  entry_date :date

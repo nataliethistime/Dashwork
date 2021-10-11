@@ -2,7 +2,7 @@
 #
 # Table name: companies
 #
-#  id          :bigint           not null, primary key
+#  id          :integer          not null, primary key
 #  address     :string
 #  description :text
 #  email       :string
