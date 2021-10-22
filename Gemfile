@@ -30,6 +30,7 @@ gem 'webpacker', '~> 5.x' # Transpile app-like JavaScript. Read more: https://gi
 
 group :development, :test do
   gem 'pry' # Debugging
+  gem 'letter_opener'
 end
 
 group :development do
