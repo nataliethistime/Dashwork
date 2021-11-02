@@ -45,6 +45,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring'
   gem 'web-console', '>= 3.3.0'
+  gem 'capistrano', '~> 3.16', require: false
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-yarn'
+  gem 'capistrano-rails'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
