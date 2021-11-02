@@ -38,4 +38,29 @@
       </div>
     <% end %>
   </div>
+
+  <div class='column is-half'>
+    <div class='columns'>
+      <div class='column'>
+        <h1 class='title is-size-4'>Tasks</h1>
+      </div>
+      <div class='column is-narrow'>
+        <%= link_to new_task_path, class: 'button is-primary is-rounded is-small' do %>
+          Add
+        <% end %>
+      </div>
+    </div>
+
+    <div class='content'>
+      <ul>
+        <% @tasks.each do |t| %>
+          <li>
+            <%= link_to task_path(t) do %>
+              <%= localize t.due_date, format: '%A %l:%M%P' %> - <%= t.decorate(:name) %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
