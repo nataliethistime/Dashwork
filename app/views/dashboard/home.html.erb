@@ -34,7 +34,18 @@
 
     <% @entries.each do |entry| %>
       <div class='block'>
-        <%= render 'personal_log/entries/personal_log_entry', personal_log_entry: entry %>
+        <div class='card'>
+          <div class='card-content'>
+            <p class='title is-4 has-text-centered'>
+              <%= link_to entry, class: 'has-text-black' do %>
+                <%= entry.decorate :entered_at_ago %>
+              <% end %>
+            </p>
+            <div class='content'>
+              <%= entry.decorate :content %>
+            </div>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
