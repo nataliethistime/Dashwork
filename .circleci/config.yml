@@ -11,20 +11,8 @@ jobs:
         auth:
           username: 1vasari
           password: pA289@BbX5U%TOtFZBy^
-      - image: circleci/postgres:9.5-alpine
-        auth:
-          username: 1vasari
-          password: pA289@BbX5U%TOtFZBy^
-        environment:
-          POSTGRES_USER: dashwork_circleci
-          POSTGRES_DB: dashwork_test
-          POSTGRES_PASSWORD: lets_test_this_thing
     environment:
       RAILS_ENV: test
-      CI_DB_HOST: 127.0.0.1
-      CI_DB_USER: dashwork_circleci
-      CI_DB: dashwork_circle_ci_test
-      CI_DB_PASSWORD: lets_test_this_thing
     executor: ruby/default
     steps:
       - checkout
@@ -34,12 +22,6 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run:
-          name: Database setup
-          command: bundle exec rails db:setup --trace
       - run:
           name: Run Rails tests
           command: bundle exec rails test
