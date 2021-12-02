@@ -13,7 +13,7 @@ RailsAdmin.config do |config|
 
   config.authenticate_with do
     authenticate_or_request_with_http_basic(%q{What's the password?}) do |username, password|
-      username == 'nathan' && password == 'flickthepaperwork'
+      username == ENV.fetch('RAILS_ADMIN_USER') && password == ENV.fetch('RAILS_ADMIN_PASSWORD')
     end
   end
 end
