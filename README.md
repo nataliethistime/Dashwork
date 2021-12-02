@@ -4,6 +4,8 @@
 
 An information management platform. I use this to conteract the symptoms of my ADHD.
 
+Run the project with `docker compose build` and `docker compose up`. Run the tests with `docker compose run web rails test`.
+
 # License
 
 MIT
