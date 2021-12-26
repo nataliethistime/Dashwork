@@ -5,10 +5,4 @@ class DashboardController < ApplicationController
     @entries = PersonalLog::Entry.recent
     @tasks = Task.where(due_date: week_start..week_end)
   end
-
-  private
-
-  def sidebar
-    :dashboard
-  end
 end
