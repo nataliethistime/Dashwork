@@ -19,12 +19,6 @@ $grey-lightest: hsl(0, 0%, 21%);
 $primary: #a42e2e;
 $menu-item-active-background-color: $primary;
 
-$menu-item-radius: 0px;
-$box-radius: 0px;
-$panel-radius: 0px;
-$navbar-dropdown-radius: 0px;
-$navbar-dropdown-boxed-radius: 0px;
-
 @import 'bulma/bulma.sass';
 
 html, body {

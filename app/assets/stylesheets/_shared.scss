@@ -1,4 +1,30 @@
 
+//
+// Our variables
+//
+$orange: hsl(14,  100%, 53%);
+$yellow: hsl(48,  100%, 67%);
+$green: hsl(141, 53%,  53%);
+$turquoise: hsl(171, 100%, 41%);
+$cyan: hsl(204, 71%,  53%);
+$blue: hsl(217, 71%,  53%);
+$purple: hsl(271, 100%, 71%);
+$red: hsl(348, 86%, 61%);
+
+//
+// Shared Bulma customizations
+//
+$info: $cyan;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+
+$menu-item-radius: 0px;
+$box-radius: 0px;
+$panel-radius: 0px;
+$navbar-dropdown-radius: 0px;
+$navbar-dropdown-boxed-radius: 0px;
+
 /*
  * Unset the font smoothing options that Bulma set so that the user's font smoothing option prevails.
  * For users who can & do disable font smoothing (such as myself) this means that fonts look nicer.
@@ -39,4 +65,10 @@ textarea {
 
 span.icon + span {
   margin: 0 0.2em;
+}
+
+mark {
+  background-color: $yellow;
+  padding-left: 5px;
+  padding-right: 5px;
 }
