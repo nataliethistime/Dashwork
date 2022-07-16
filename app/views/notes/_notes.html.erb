@@ -1,57 +1,14 @@
-<% notes.each do |note| %>
-  <div class='columns'>
-    <div class='column is-8'>
-      <div class='card'>
-        <div class='card-content'>
-          <div class='media'>
-            <div class='media-content'>
-              <div class='columns'>
-                <div class='column'>
-                  <p class='title is-4'><%= note.user.decorate :name %></p>
-                  <div class='subtitle is-6'>
-                    <%= note.decorate :updated_at %>
-                    <% note.tags.each do |tag| %>
-                      <%= link_to note_tag_path(tag) do %>
-                        <div class='tag is-info is-rounded'>
-                          <%= tag.decorate :name %>
-                        </div>
-                      <% end %>
-                    <% end %>
-                  </div>
-                </div>
+<%= render IndexTableComponent.new(
+  notes,
+  [
+    :updated_at,
+    :author,
+    :content,
+    :links,
+    :tags
+  ],
+) %>
 
-                <div class='column is-narrow'>
-                  <div class='dropdown is-hoverable'>
-                    <div class='dropdown-trigger'>
-                      <button class='button is-light is-rounded'>
-                        <%= icon_for :ellipsis %>
-                      </button>
-                    </div>
-                    <div class='dropdown-menu' role='menu'>
-                      <div class='dropdown-content'>
-                        <%= link_to note_path(note), class: 'dropdown-item' do %>
-                          <%= icon_for :go_to %><span>View</span>
-                        <% end %>
-                        <%= link_to edit_note_path(note), class: 'dropdown-item' do %>
-                          <%= icon_for :edit %><span>Edit</span>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <%= note.decorate :content %>
-
-          <% if note.company.present? %><p><%= icon_for :companies %><span><%= note.company.decorate :name_link %></span><% end %>
-          <% if note.contact.present? %><p><%= icon_for :contacts %><span><%= note.contact.decorate :name_link %></span><% end %>
-          <% if note.project.present? %><p><%= icon_for :projects %><span><%= note.project.decorate :name_link %></span><% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+<% if notes.respond_to? :total_pages %>
+  <%= paginate notes %>
 <% end %>
-
-<%= paginate notes %>

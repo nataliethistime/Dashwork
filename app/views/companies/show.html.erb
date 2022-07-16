@@ -1,12 +1,10 @@
 <% content_for(:title) { @company.name } %>
 <% content_for(:hide_body_title, true) %>
 <% content_for(:back_link, companies_path) %>
-<% content_for(:page_style, :full_width) %>
 <% content_for(:actions) do %>
   <%= actions_dropdown(:create, [
     { icon: :contacts, label: 'Add Contact', path: new_contact_path(company_id: @company.id) },
     { icon: :notes, label: 'Add Note', path: new_note_path(company_id: @company.id) },
-    { icon: :projects, label: 'Add Project', path: new_project_path(company_id: @company.id) },
     { icon: :tasks, label: 'Add Task', path: new_task_path(company_id: @company.id) }
   ]) %>
   <%= render EditActionComponent.new path: edit_company_path(@company) %>
@@ -14,7 +12,7 @@
 <% end %>
 
 <div class='columns'>
-  <div class='column is-two-thirds'>
+  <div class='column'>
     <div class='columns'>
       <div class='column'>
         <h1 class='title'><%= @company.name %></h1>
@@ -28,22 +26,41 @@
         </div>
       </div>
     </div>
-    <div class='box'>
-      <%= render AttributesTableComponent.new(@company, [
-        :description,
-        :website,
-        :email,
-        :phone
-      ], custom_values: true) %>
-    </div>
-  </div>
-  <div class='column is-one-third'>
-    <%= render LinkedItemsPanelComponent.new @company, items: @company.tasks.uncompleted %>
-    <%= render LinkedItemsPanelComponent.new @company, items: @company.notes, display_attribute: :title %>
-    <%= render LinkedItemsPanelComponent.new @company, items: @company.projects.active %>
-    <%= render LinkedItemsPanelComponent.new @company, items: @company.contacts %>
+    <%= render AttributesTableComponent.new(@company, [
+      :description,
+      :website,
+      :email,
+      :phone
+    ], custom_values: true) %>
   </div>
 </div>
+
+<% if @company.tasks.uncompleted.any? %>
+  <div class='columns'>
+    <div class='column'>
+      <h1 class='title'>Tasks</h1>
+      <%= render 'tasks/tasks', tasks: @company.tasks.uncompleted %>
+    </div>
+  </div>
+<% end %>
+
+<% if @company.notes.any? %>
+  <div class='columns'>
+    <div class='column'>
+      <h1 class='title'>Notes</h1>
+      <%= render 'notes/notes', notes: @company.notes %>
+    </div>
+  </div>
+<% end %>
+
+<% if @company.contacts.any? %>
+  <div class='columns'>
+    <div class='column'>
+      <h1 class='title'>Contacts</h1>
+      <%= render 'contacts/contacts', contacts: @company.contacts %>
+    </div>
+  </div>
+<% end %>
 
 <% if @company.address.present? %>
   <div class='columns'>

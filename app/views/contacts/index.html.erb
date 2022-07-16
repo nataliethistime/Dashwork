@@ -4,10 +4,6 @@
   <%= render CreateActionComponent.new path: new_contact_path %>
 <% end %>
 
-<p>
-  <%= render 'contacts', contacts: @contacts %>
-</p>
-
-<br>
+<%= render 'contacts', contacts: @contacts %>
 
 <%= link_to 'New Contact', new_contact_path, class: 'button is-link' %>

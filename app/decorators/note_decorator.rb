@@ -7,6 +7,14 @@ class NoteDecorator < DecoratorBase
     format note.content, as: :markdown
   end
 
+  def author(note)
+    note.user.decorate :name
+  end
+
+  def links(note)
+    render partial: 'notes/links', locals: { note: note }
+  end
+
   def tags(note)
     note.tags.collect(&:name).join ', '
   end

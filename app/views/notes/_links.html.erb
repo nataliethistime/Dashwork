@@ -1,0 +1,3 @@
+<% if note.company.present? %><div><%= icon_for :companies %><span><%= note.company.decorate :name_link %></span></div><% end %>
+<% if note.contact.present? %><div><%= icon_for :contacts %><span><%= note.contact.decorate :name_link %></span></div><% end %>
+<% if note.project.present? %><div><%= icon_for :projects %><span><%= note.project.decorate :name_link %></span></div><% end %>

@@ -16,13 +16,10 @@ $grey-light:hsl(0, 0%, 48%);
 $grey-lighter: hsl(0, 0%, 29%);
 $grey-lightest: hsl(0, 0%, 21%);
 
-$primary: #a42e2e;
-$menu-item-active-background-color: $primary;
-
 @import 'bulma/bulma.sass';
 
 html, body {
-  background-color: #2a2a33;
+  background-color: #302f2f;
 }
 
 /*
@@ -37,5 +34,5 @@ th .sort_link {
 }
 
 .attributes-table .column {
-  border-bottom: 1px solid $grey-dark;
+  border-bottom: 1px solid $grey-lighter;
 }

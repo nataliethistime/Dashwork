@@ -4,26 +4,34 @@
 //
 $orange: hsl(14,  100%, 53%);
 $yellow: hsl(48,  100%, 67%);
-$green: hsl(141, 53%,  53%);
+$green: hsl(141, 53%, 53%);
 $turquoise: hsl(171, 100%, 41%);
-$cyan: hsl(204, 71%,  53%);
-$blue: hsl(217, 71%,  53%);
+$cyan: hsl(204, 71%, 53%);
+$blue: hsl(217, 91%, 64%);
 $purple: hsl(271, 100%, 71%);
 $red: hsl(348, 86%, 61%);
 
 //
 // Shared Bulma customizations
 //
+$primary: $purple;
 $info: $cyan;
 $success: $green;
 $warning: $yellow;
 $danger: $red;
+$link: $blue;
 
 $menu-item-radius: 0px;
 $box-radius: 0px;
 $panel-radius: 0px;
 $navbar-dropdown-radius: 0px;
 $navbar-dropdown-boxed-radius: 0px;
+
+$link-hover: $primary;
+$navbar-item-hover-color: $primary;
+$menu-item-active-background-color: $primary;
+$input-arrow: $primary;
+$input-focus-border-color: $primary;
 
 /*
  * Unset the font smoothing options that Bulma set so that the user's font smoothing option prevails.

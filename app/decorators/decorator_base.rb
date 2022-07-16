@@ -13,6 +13,10 @@ class DecoratorBase
     I18n.localize(*args, **kwargs)
   end
 
+  def render(*args, **kwargs, &block)
+    ApplicationController.new.render_to_string(*args, **kwargs, &block).html_safe
+  end
+
   def updated_at(item)
     localize item.updated_at, format: :short
   end

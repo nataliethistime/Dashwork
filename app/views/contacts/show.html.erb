@@ -5,14 +5,13 @@
   <%= actions_dropdown(:create, [
     { icon: :notes, label: 'Add Note', path: new_note_path(contact_id: @contact.id) },
     { icon: :tasks, label: 'Add Task', path: new_task_path(contact_id: @contact.id) },
-    { icon: :projects, label: 'Add Project', path: new_project_path(contact_id: @contact.id) }
   ]) %>
   <%= render EditActionComponent.new path: edit_contact_path(@contact) %>
   <%= render DeleteActionComponent.new path: contact_path(@contact), model_name: 'contact' %>
 <% end %>
 
 <div class='columns'>
-  <div class='column is-two-thirds'>
+  <div class='column'>
     <div class='columns'>
       <div class='column'>
         <h1 class='title'><%= @contact.decorate :name %></h1>
@@ -40,12 +39,25 @@
       :birthday
     ], custom_values: true) %>
   </div>
-  <div class='column is-one-third'>
-    <%= render LinkedItemsPanelComponent.new @contact, items: @contact.notes, display_attribute: :title %>
-    <%= render LinkedItemsPanelComponent.new @contact, items: @contact.tasks.uncompleted %>
-    <%= render LinkedItemsPanelComponent.new @contact, items: @contact.projects.active %>
-  </div>
 </div>
+
+<% if @contact.tasks.uncompleted.any? %>
+  <div class='columns'>
+    <div class='column'>
+      <h1 class='title'>Tasks</h1>
+      <%= render LinkedItemsPanelComponent.new @contact, items: @contact.tasks.uncompleted %>
+    </div>
+  </div>
+<% end %>
+
+<% if @contact.notes.any? %>
+  <div class='columns'>
+    <div class='column'>
+      <h1 class='title'>Notes</h1>
+      <%= render 'notes/notes', notes: @contact.notes %>
+    </div>
+  </div>
+<% end %>
 
 <% if @contact.address.present? %>
   <div class='columns'>

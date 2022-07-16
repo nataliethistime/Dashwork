@@ -18,9 +18,9 @@
 <% if @note.has_links? %>
   <div class='columns'>
     <div class='column'>
-      <% if @note.company.present? %><p><%= icon_for :companies %><span><%= @note.company.decorate :name_link %></span><% end %>
-      <% if @note.contact.present? %><p><%= icon_for :contacts %><span><%= @note.contact.decorate :name_link %></span><% end %>
-      <% if @note.project.present? %><p><%= icon_for :projects %><span><%= @note.project.decorate :name_link %></span><% end %>
+      <% if @note.company.present? %><div><%= icon_for :companies %><span><%= @note.company.decorate :name_link %></span></div><% end %>
+      <% if @note.contact.present? %><div><%= icon_for :contacts %><span><%= @note.contact.decorate :name_link %></span></div><% end %>
+      <% if @note.project.present? %><div><%= icon_for :projects %><span><%= @note.project.decorate :name_link %></span></div><% end %>
     </div>
   </div>
 <% end %>

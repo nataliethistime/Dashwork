@@ -1,13 +1,8 @@
 @import 'shared';
-
-$primary: #22237ed6;
-
-$menu-item-active-background-color: $primary;
-
 @import 'bulma/bulma.sass';
 
 html, body {
-  background-color: #efeef7;
+  background-color: #e6e5ee;
 }
 
 /*
@@ -21,6 +16,6 @@ th .sort_link {
   background-color: white;
 }
 
-.attributes-table .columns {
-  border-bottom: 1px solid $grey-darker;
+.attributes-table .column {
+  border-bottom: 1px solid $grey-lighter;
 }

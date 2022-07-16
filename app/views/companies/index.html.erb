@@ -3,14 +3,11 @@
 <% content_for(:actions) do %>
   <%= render CreateActionComponent.new path: new_company_path %>
 <% end %>
-<% content_for(:page_style, :full_width) %>
 
 <% if @companies.empty? %>
   <div>
     You haven't created any companies yet.
   </div>
 <% else %>
-  <div class='box'>
-    <%= render 'companies', companies: @companies %>
-  </div>
+  <%= render 'companies', companies: @companies %>
 <% end %>
