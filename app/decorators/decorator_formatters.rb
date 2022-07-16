@@ -53,6 +53,7 @@ module DecoratorFormatters
       underline: true,
       highlight: true,
       fenced_code_blocks: true,
+      tables: true,
     )
     helpers.content_tag :div, redcarpet.render(text).html_safe, class: 'content'
   end
