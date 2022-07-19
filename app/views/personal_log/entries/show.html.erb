@@ -7,6 +7,20 @@
 
 <%= @personal_log_entry.decorate :content %>
 
-<div>
-  <strong>Date:</strong> <%= @personal_log_entry.decorate :date %>
+<div class="block">
+  <div>
+    <strong>Date:</strong> <%= @personal_log_entry.decorate :date %>
+  </div>
+
+  <% if @personal_log_entry.geolocation.present? %>
+    <div>
+      <strong>Location:</strong> <%= @personal_log_entry.decorate :geolocation_coordinates %>
+    </div>
+  <% end %>
 </div>
+
+<% if @personal_log_entry.geolocation.present? %>
+  <div class='block'>
+    <%= @personal_log_entry.decorate :geolocation_map %>
+  </div>
+<% end %>

@@ -2,5 +2,6 @@
   <%= render 'common/form_errors', form: f %>
   <%= f.input :entered_at, as: :datetime if f.object.persisted? %>
   <%= f.input :content %>
+  <%= render 'common/geolocation_form', form: f %>
   <%= f.button :submit %>
 <% end %>

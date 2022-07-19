@@ -45,4 +45,25 @@ document.addEventListener('turbolinks:load', () => {
   // Autosize all <textarea> elements
   //
   autosize(document.querySelectorAll('textarea'));
+
+  //
+  // Geolocation
+  //
+  const Geolocation = window.navigator.geolocation;
+  const longitudes = $('input[data-x-frontend-value="longitude"]');
+  const latitudes = $('input[data-x-frontend-value="latitude"]');
+
+  if (longitudes.length + latitudes.length > 0) {
+    console.log('Fetching geolocation');
+    Geolocation.getCurrentPosition(
+      (res) => {
+        console.log('Got geolocation', res);
+        longitudes.each((i, el) => $(el).val(res.coords.longitude));
+        latitudes.each((i, el) => $(el).val(res.coords.latitude));
+      },
+      (err) => {
+        console.log('Failed to get geolocation:', err);
+      }
+    );
+  }
 });

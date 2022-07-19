@@ -7,9 +7,9 @@ module PersonalLog
     def index
       if params[:q]
         query = '%' + params[:q] + '%'
-        @personal_log_entries = entries.all.where('content LIKE ?', query).page(params[:page])
+        @personal_log_entries = entries.all.where('content LIKE ?', query).page(params[:page]).includes(:geolocation)
       else
-        @personal_log_entries = entries.all.page(params[:page])
+        @personal_log_entries = entries.all.page(params[:page]).includes(:geolocation)
       end
     end
 
@@ -108,7 +108,10 @@ module PersonalLog
 
     # Only allow a list of trusted parameters through.
     def personal_log_entry_params
-      params.require(:personal_log_entry).permit(:content, :entered_at)
+      params.require(:personal_log_entry).permit(:content, :entered_at, geolocation_attributes: [
+        :longitude,
+        :latitude,
+      ])
     end
   end
 end

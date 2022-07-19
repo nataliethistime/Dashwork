@@ -8,5 +8,10 @@
     <div class='content'>
       <%= personal_log_entry.decorate :content %>
     </div>
+    <% if personal_log_entry.geolocation.present? %>
+      <div>
+        <strong>Location:</strong> <%= personal_log_entry.decorate :geolocation_coordinates %>
+      </div>
+    <% end %>
   </div>
 </div>

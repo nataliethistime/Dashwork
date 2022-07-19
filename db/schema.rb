@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_060146) do
+ActiveRecord::Schema.define(version: 2022_07_19_090149) do
 
   create_table "assets", force: :cascade do |t|
     t.string "name"
@@ -170,6 +170,15 @@ ActiveRecord::Schema.define(version: 2021_09_26_060146) do
     t.integer "equipment_id"
     t.integer "project_id"
     t.integer "calendar_event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "geolocations", force: :cascade do |t|
+    t.string "geolocatable_type"
+    t.bigint "geolocatable_id"
+    t.string "longitude"
+    t.string "latitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

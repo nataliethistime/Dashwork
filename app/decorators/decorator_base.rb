@@ -32,4 +32,13 @@ class DecoratorBase
   def created_at_ago(item)
     "#{helpers.time_ago_in_words(item.created_at)} ago"
   end
+
+  def geolocation_coordinates(item)
+    item.geolocation.present? ? item.geolocation.coordinates : ""
+  end
+
+  def geolocation_map(item)
+    return "" unless item.geolocation.present?
+    render MapComponent.new query: item.geolocation.coordinates
+  end
 end

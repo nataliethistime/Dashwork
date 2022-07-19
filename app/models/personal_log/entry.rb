@@ -26,6 +26,8 @@ module PersonalLog
 
     decorate_with PersonalLogEntryDecorator
 
+    include Geolocatable
+
     after_initialize do |personal_log_entry|
       personal_log_entry.entered_at ||= Time.zone.now
     end
