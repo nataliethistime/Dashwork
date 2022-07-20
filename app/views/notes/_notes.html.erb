@@ -3,10 +3,15 @@
   [
     :updated_at,
     :author,
-    :content,
+    :preview,
     :links,
     :tags
   ],
+  row_classes: {
+    updated_at: 'is-hidden-mobile',
+    tags: 'is-hidden-mobile',
+    links: 'is-hidden-mobile',
+  }
 ) %>
 
 <% if notes.respond_to? :total_pages %>
