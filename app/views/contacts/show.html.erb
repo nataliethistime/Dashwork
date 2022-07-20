@@ -54,7 +54,7 @@
   <div class='columns'>
     <div class='column'>
       <h1 class='title'>Notes</h1>
-      <%= render 'notes/notes', notes: @contact.notes %>
+      <%= render 'notes/notes', notes: @contact.notes.includes(:tags, :project, :user, :company) %>
     </div>
   </div>
 <% end %>
