@@ -1,0 +1,5 @@
+<%= form_for(task) do |f| %>
+  <%= f.hidden_field :completed, value: !task.completed %>
+  <%= f.hidden_field :redirect_to, value: request.path %>
+  <%= f.submit task.completed ? 'Back to Incomplete' : 'Mark Completed', class: 'button is-link is-small is-rounded' %>
+<% end %>

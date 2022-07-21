@@ -5,11 +5,13 @@
 <% end %>
 <% content_for(:back_link, tasks_path) %>
 
-<div class='columns'>
-  <div class='column'>
-    <%= @task.decorate :description %>
+<% if @task.description.present? %>
+  <div class='columns'>
+    <div class='column'>
+      <%= @task.decorate :description %>
+    </div>
   </div>
-</div>
+<% end %>
 
 <%= render AttributesTableComponent.new(@task, [
   :due_date,
@@ -20,9 +22,7 @@
   { project: [:name_link] },
 ]) %>
 
-<% if !@task.completed %>
-  <%= simple_form_for(@task) do |f| %>
-    <%= f.hidden_field :completed, value: true %>
-    <%= f.button :submit, 'Mark Completed' %>
-  <% end %>
+<%= simple_form_for(@task) do |f| %>
+  <%= f.hidden_field :completed, value: !@task.completed %>
+  <%= f.button :submit, @task.completed ? 'Mark Completed' : 'Back to Incomplete' %>
 <% end %>

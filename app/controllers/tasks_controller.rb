@@ -34,7 +34,8 @@ class TasksController < ApplicationController
   def update
     @task = current_user.tasks.find params[:id]
     if @task.update(task_params)
-      redirect_to @task, notice: 'Task was successfully updated.'
+      path = params[:task][:redirect_to] || task_path(@task)
+      redirect_to path, notice: 'Task was successfully updated.'
     else
       render 'edit'
     end

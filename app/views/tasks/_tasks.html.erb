@@ -4,6 +4,7 @@
       <th><%= @q.present? ? sort_link(@q, :name) : 'Name' %></th>
       <th>Tags</th>
       <th><%= @q.present? ? sort_link(@q, :due_date) : 'Due date' %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +13,9 @@
         <td><%= task.decorate :name %></td>
         <td><%= task.decorate :tags %></td>
         <td><%= task.decorate :due_date %></td>
+        <td>
+          <%= render 'tasks/completed_button', task: task %>
+        </td>
       </tr>
     <% end %>
   </tbody>
