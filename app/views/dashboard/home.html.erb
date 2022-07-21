@@ -21,57 +21,10 @@
 
 <div class='columns'>
   <div class='column is-half'>
-    <div class='columns'>
-      <div class='column'>
-        <h1 class='title is-size-4'>Personal Log</h1>
-      </div>
-      <div class='column is-narrow'>
-        <%= link_to new_personal_log_entry_path, class: 'button is-link is-rounded is-small' do %>
-          <%= icon_for :write %><span>Write</span>
-        <% end %>
-      </div>
-    </div>
-
-    <% @entries.each do |entry| %>
-      <div class='block'>
-        <div class='card'>
-          <div class='card-content'>
-            <p class='title is-4 has-text-centered'>
-              <%= link_to entry, class: 'has-text-black' do %>
-                <%= entry.decorate :entered_at_ago %>
-              <% end %>
-            </p>
-            <div class='content'>
-              <%= entry.decorate :content %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'dashboard/tasks' %>
   </div>
 
   <div class='column is-half'>
-    <div class='columns'>
-      <div class='column'>
-        <h1 class='title is-size-4'>Tasks</h1>
-      </div>
-      <div class='column is-narrow'>
-        <%= link_to new_task_path, class: 'button is-link is-rounded is-small' do %>
-          Add
-        <% end %>
-      </div>
-    </div>
-
-    <div class='content'>
-      <ul>
-        <% @tasks.each do |t| %>
-          <li>
-            <%= link_to task_path(t) do %>
-              <%= localize t.due_date, format: '%A %l:%M%P' %> - <%= t.decorate(:name) %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render 'dashboard/personal_log' %>
   </div>
 </div>

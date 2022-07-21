@@ -1,0 +1,27 @@
+<div class='columns'>
+  <div class='column'>
+    <h1 class='title is-size-4'>Personal Log</h1>
+  </div>
+  <div class='column is-narrow'>
+    <%= link_to new_personal_log_entry_path, class: 'button is-link is-rounded is-small' do %>
+      <%= icon_for :write %><span>Write</span>
+    <% end %>
+  </div>
+</div>
+
+<% @entries.each do |entry| %>
+  <div class='block'>
+    <div class='card'>
+      <div class='card-content'>
+        <p class='title is-4 has-text-centered'>
+          <%= link_to entry, class: 'has-text-black' do %>
+            <%= entry.decorate :entered_at_ago %>
+          <% end %>
+        </p>
+        <div class='content'>
+          <%= entry.decorate :content %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
