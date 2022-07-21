@@ -42,7 +42,7 @@ module PersonalLog
     end
 
     scope :on_day, -> (date) { where(entered_at: date..(date + 1.day)) }
-    scope :recent, -> { where('entered_at > ?', Time.zone.now - 24.hours) }
+    scope :recent, -> { where('entered_at > ?', Time.zone.now - 7.days) }
     default_scope -> { order(entered_at: :desc) }
   end
 end
