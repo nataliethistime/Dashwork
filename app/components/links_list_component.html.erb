@@ -1,0 +1,27 @@
+<% if tags? %>
+  <div>
+    <%= helpers.icon_for :tags %>
+    <span><%= render TagComponent.with_collection item.tags %></span>
+  </div>
+<% end %>
+
+<% if company? %>
+  <div>
+    <%= helpers.icon_for :companies %>
+    <span><%= item.company.decorate :name_link %></span>
+  </div>
+<% end %>
+
+<% if contact? %>
+  <div>
+    <%= helpers.icon_for :contacts %>
+    <span><%= item.contact.decorate :name_link %></span>
+  </div>
+<% end %>
+
+<% if project? %>
+  <div>
+    <%= helpers.icon_for :projects %>
+    <span><%= item.project.decorate :name_link %></span>
+  </div>
+<% end %>

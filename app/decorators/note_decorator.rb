@@ -12,7 +12,7 @@ class NoteDecorator < DecoratorBase
   end
 
   def links(note)
-    render partial: 'notes/links', locals: { note: note }
+    render LinksListComponent.new note
   end
 
   def tags(note)
