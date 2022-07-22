@@ -47,3 +47,12 @@
     <%= render 'notes/notes', notes: @notes %>
   </div>
 </div>
+
+<% if @project.wiki_pages.any? %>
+  <div class='columns'>
+    <div class='column'>
+      <h1 class='title'>Wiki Pages</h1>
+      <%= render 'wiki/list', pages: @project.wiki_pages %>
+    </div>
+  </div>
+<% end %>

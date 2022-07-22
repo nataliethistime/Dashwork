@@ -41,4 +41,8 @@ class DecoratorBase
     return "" unless item.geolocation.present?
     render MapComponent.new query: item.geolocation.coordinates
   end
+
+  def links(item)
+    render LinksListComponent.new item
+  end
 end

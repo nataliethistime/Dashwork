@@ -25,3 +25,48 @@
     <span><%= item.project.decorate :name_link %></span>
   </div>
 <% end %>
+
+<% if tasks? %>
+  <% item.tasks.each do |task| %>
+    <div>
+      <%= helpers.icon_for :tasks %>
+      <span><%= link_to task.decorate(:name), task_path(task) %></span>
+    </div>
+  <% end %>
+<% end %>
+
+<% if contacts? %>
+  <% item.contacts.each do |contact| %>
+    <div>
+      <%= helpers.icon_for :contacts %>
+      <span><%= link_to contact.decorate(:name), contact_path(contact) %></span>
+    </div>
+  <% end %>
+<% end %>
+
+<% if companies? %>
+  <% item.companies.each do |company| %>
+    <div>
+      <%= helpers.icon_for :companies %>
+      <span><%= link_to company.decorate(:name), company_path(company) %></span>
+    </div>
+  <% end %>
+<% end %>
+
+<% if projects? %>
+  <% item.projects.each do |project| %>
+    <div>
+      <%= helpers.icon_for :projects %>
+      <span><%= link_to project.decorate(:name), project_path(project) %></span>
+    </div>
+  <% end %>
+<% end %>
+
+<%# if notes? %>
+  <%# item.notes.each do |note| %>
+    <!--<div>-->
+      <%#= helpers.icon_for :notes %>
+      <!--<span><%#= link_to note.decorate(:title), note %></span>-->
+    <!--</div>-->
+  <%# end %>
+<%# end %>

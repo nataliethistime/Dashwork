@@ -46,7 +46,14 @@ module Wiki
     end
 
     def wiki_page_params
-      params.require(:wiki_page).permit(:title, :content, :folder_id)
+      params.require(:wiki_page).permit(
+        :title,
+        :content,
+        :folder_id,
+        contact_ids: [],
+        company_ids: [],
+        project_ids: []
+      )
     end
 
     def sidebar

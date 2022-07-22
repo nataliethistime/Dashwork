@@ -45,11 +45,24 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :content, :contact_id, :company_id, :project_id, tag_ids: [])
+    params.require(:note).permit(
+      :title,
+      :content,
+      :contact_id,
+      :company_id,
+      :project_id,
+      :wiki_page_id,
+      tag_ids: []
+    )
   end
 
   def new_note_params
-    params.permit(:contact_id, :company_id, :project_id)
+    params.permit(
+      :contact_id,
+      :company_id,
+      :project_id,
+      :wiki_page_id
+    )
   end
 
   def sidebar

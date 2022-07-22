@@ -1,6 +1,9 @@
 <% content_for(:title, @page.title) %>
 <% content_for(:back_link, @page.folder.present? ? wiki_folder_path(@page.folder) : wiki_folders_path) %>
 <% content_for(:actions) do %>
+  <%= actions_dropdown(:create, [
+    { icon: :notes, label: 'Add Note', path: new_note_path(wiki_page_id: @page.id) },
+  ]) %>
   <%= link_to edit_wiki_page_path(@page), class: 'navbar-item' do %>
     <%= icon_for :edit %>
   <% end %>
@@ -9,4 +12,19 @@
   <% end %>
 <% end %>
 
+<% if @page.has_links? %>
+  <div class='block'>
+    <%= render LinksListComponent.new @page %>
+  </div>
+
+  <hr>
+<% end %>
+
 <%= @page.decorate :content %>
+
+<% if @page.notes.any? %>
+  <hr>
+
+  <h1 class='title'>Notes</h1>
+  <%= render 'notes/notes', notes: @page.notes.includes(:tags, :contact, :company, :project, :user) %>
+<% end %>

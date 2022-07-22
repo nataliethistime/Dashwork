@@ -59,6 +59,15 @@
   </div>
 <% end %>
 
+<% if @contact.wiki_pages.any? %>
+  <div class='columns'>
+    <div class='column'>
+      <h1 class='title'>Wiki Pages</h1>
+      <%= render 'wiki/list', pages: @contact.wiki_pages %>
+    </div>
+  </div>
+<% end %>
+
 <% if @contact.address.present? %>
   <div class='columns'>
     <div class='column'>

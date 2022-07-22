@@ -1,6 +1,9 @@
 <%= simple_form_for(page) do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
+  <%= f.association :contacts %>
+  <%= f.association :companies %>
+  <%= f.association :projects %>
   <%= f.association :folder, as: :hidden %>
   <%= f.button :submit %>
 <% end %>

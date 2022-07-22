@@ -7,12 +7,12 @@ class NoteDecorator < DecoratorBase
     helpers.truncate note.content, length: 120
   end
 
-  def author(note)
-    note.user.decorate :name
+  def title(note)
+    helpers.truncate note.content, length: 80
   end
 
-  def links(note)
-    render LinksListComponent.new note
+  def author(note)
+    note.user.decorate :name
   end
 
   def tags(note)

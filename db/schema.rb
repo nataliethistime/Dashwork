@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_19_090149) do
+ActiveRecord::Schema.define(version: 2022_07_21_030720) do
 
   create_table "assets", force: :cascade do |t|
     t.string "name"
@@ -195,6 +195,8 @@ ActiveRecord::Schema.define(version: 2022_07_19_090149) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "company_id"
+    t.integer "wiki_page_id"
+    t.index ["wiki_page_id"], name: "index_notes_on_wiki_page_id"
   end
 
   create_table "personal_log_entries", force: :cascade do |t|
@@ -353,6 +355,33 @@ ActiveRecord::Schema.define(version: 2022_07_19_090149) do
     t.bigint "user_id"
     t.index ["tenant_id"], name: "index_wiki_folders_on_tenant_id"
     t.index ["user_id"], name: "index_wiki_folders_on_user_id"
+  end
+
+  create_table "wiki_page_companies", force: :cascade do |t|
+    t.integer "page_id", null: false
+    t.integer "company_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_wiki_page_companies_on_company_id"
+    t.index ["page_id"], name: "index_wiki_page_companies_on_page_id"
+  end
+
+  create_table "wiki_page_contacts", force: :cascade do |t|
+    t.integer "page_id", null: false
+    t.integer "contact_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_id"], name: "index_wiki_page_contacts_on_contact_id"
+    t.index ["page_id"], name: "index_wiki_page_contacts_on_page_id"
+  end
+
+  create_table "wiki_page_projects", force: :cascade do |t|
+    t.integer "page_id", null: false
+    t.integer "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["page_id"], name: "index_wiki_page_projects_on_page_id"
+    t.index ["project_id"], name: "index_wiki_page_projects_on_project_id"
   end
 
   create_table "wiki_pages", force: :cascade do |t|

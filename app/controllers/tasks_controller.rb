@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @q = current_user.tasks.uncompleted.includes(:tags).ransack(params[:q])
+    @q = current_user.tasks.uncompleted.includes(:tags, :company, :contact, :project).ransack(params[:q])
     @tasks = @q.result
   end
 

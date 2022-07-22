@@ -28,6 +28,9 @@ class Company < ApplicationRecord
   has_many :calendar_event_companies
   has_many :calendar_events, through: :calendar_event_companies
 
+  has_many :wiki_page_companies, class_name: 'Wiki::PageCompany'
+  has_many :wiki_pages, source: 'page', class_name: 'Wiki::Page', through: :wiki_page_companies
+
   decorate_with CompanyDecorator
 
   default_scope -> { order(:name) }

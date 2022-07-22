@@ -22,6 +22,16 @@ module Wiki
     belongs_to :tenant
     belongs_to :user
     belongs_to :folder, optional: true
+    has_many :notes, foreign_key: 'wiki_page_id'
+
+    has_many :page_contacts
+    has_many :contacts, through: :page_contacts
+
+    has_many :page_companies
+    has_many :companies, through: :page_companies
+
+    has_many :page_projects
+    has_many :projects, through: :page_projects
 
     validates :title, presence: true
     validates :content, presence: true
@@ -29,5 +39,9 @@ module Wiki
     scope :root_level, -> { where(folder: nil) }
 
     decorate_with WikiPageDecorator
+
+    def has_links?
+      contacts.any? || companies.any? || projects.any? || notes.any?
+    end
   end
 end

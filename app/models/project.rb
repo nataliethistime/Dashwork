@@ -29,7 +29,8 @@ class Project < ApplicationRecord
   has_many :calendar_event_projects
   has_many :calendar_events, through: :calendar_event_projects
 
-  # TODO: link equipment
+  has_many :wiki_page_projects, class_name: 'Wiki::PageProject'
+  has_many :wiki_pages, source: 'page', class_name: 'Wiki::Page', through: :wiki_page_projects
 
   STATUSES = %w{active closed}.freeze
   validates :status, inclusion: { in: STATUSES }

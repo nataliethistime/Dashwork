@@ -40,6 +40,9 @@ class Contact < ApplicationRecord
   has_many :calendar_event_contacts
   has_many :calendar_events, through: :calendar_event_contacts
 
+  has_many :wiki_page_contacts, class_name: 'Wiki::PageContact'
+  has_many :wiki_pages, source: 'page', class_name: 'Wiki::Page', through: :wiki_page_contacts
+
   include CustomFieldable
   include Taggable
   include Starrable

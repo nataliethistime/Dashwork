@@ -4,6 +4,7 @@
   <%= f.association :contact %>
   <%= f.association :company %>
   <%= f.association :project %>
+  <%= f.association :wiki_page %>
   <%= f.association :tags, collection: current_user.note_tags.all %>
   <%= f.button :submit %>
 <% end %>

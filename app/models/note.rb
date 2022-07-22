@@ -14,6 +14,11 @@
 #  task_id           :integer
 #  tenant_id         :integer          not null
 #  user_id           :integer          not null
+#  wiki_page_id      :integer
+#
+# Indexes
+#
+#  index_notes_on_wiki_page_id  (wiki_page_id)
 #
 class Note < ApplicationRecord
   belongs_to :tenant
@@ -24,7 +29,10 @@ class Note < ApplicationRecord
   belongs_to :project, optional: true
   belongs_to :task, optional: true
   belongs_to :calendar_event, optional: true
+  belongs_to :wiki_page, class_name: 'Wiki::Page', optional: true
+
   validates :content, presence: true
+
   default_scope -> { order(updated_at: :desc) }
   decorate_with NoteDecorator
 

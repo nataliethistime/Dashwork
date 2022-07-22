@@ -13,16 +13,17 @@
   </div>
 <% end %>
 
-<%= render AttributesTableComponent.new(@task, [
-  :due_date,
-  :completed,
-  :tags,
-  { contact: [:name_link] },
-  { company: [:name_link] },
-  { project: [:name_link] },
-]) %>
+<div class='columns'>
+  <div class='column'>
+    <%= render AttributesTableComponent.new(@task, [
+      :due_date,
+      :completed,
+    ]) %>
+  </div>
+</div>
 
-<%= simple_form_for(@task) do |f| %>
-  <%= f.hidden_field :completed, value: !@task.completed %>
-  <%= f.button :submit, @task.completed ? 'Mark Completed' : 'Back to Incomplete' %>
-<% end %>
+<div class='block'>
+  <%= render LinksListComponent.new @task %>
+</div>
+
+<%= render 'tasks/completed_button', task: @task %>

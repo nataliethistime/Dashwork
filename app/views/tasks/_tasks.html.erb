@@ -2,8 +2,8 @@
   <thead>
     <tr>
       <th><%= @q.present? ? sort_link(@q, :name) : 'Name' %></th>
-      <th>Tags</th>
       <th><%= @q.present? ? sort_link(@q, :due_date) : 'Due date' %></th>
+      <th>Links</th>
       <th></th>
     </tr>
   </thead>
@@ -11,8 +11,8 @@
     <% tasks.each do |task| %>
       <tr onclick="javascript:Turbolinks.visit('<%= task_path(task) %>');">
         <td><%= task.decorate :name %></td>
-        <td><%= task.decorate :tags %></td>
         <td><%= task.decorate :due_date %></td>
+        <td><%= task.decorate :links %></td>
         <td>
           <%= render 'tasks/completed_button', task: task %>
         </td>

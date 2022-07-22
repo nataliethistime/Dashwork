@@ -1,10 +1,10 @@
 <%= render IndexTableComponent.new(
   notes,
   [
-    :updated_at,
     :author,
     :preview,
-    :links
+    :links,
+    :updated_at
   ],
   row_classes: {
     updated_at: 'is-hidden-mobile',
