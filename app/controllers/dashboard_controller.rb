@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def home
-    @entries = PersonalLog::Entry.recent
-    @tasks = Task.scheduled.uncompleted.includes(:project, :company, :contact, :tags)
+    @entries = current_user.personal_log_entries.recent
+    @tasks = current_user.tasks.scheduled.uncompleted.includes(:project, :company, :contact, :tags)
   end
 
   private
