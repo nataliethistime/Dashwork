@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ApplicationHelperTest < ActionView::TestCase
   test 'icon_for' do
-    assert_equal '<span class="icon"><i class="fas fa-edit"></i></span>', icon_for(:edit)
+    assert_equal '<span class="icon"><i class="fa-solid fa-edit"></i></span>', icon_for(:edit)
   end
 
   test 'class_names' do
