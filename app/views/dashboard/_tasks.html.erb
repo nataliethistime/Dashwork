@@ -30,6 +30,12 @@
         <%= task.decorate :name %>
       </div>
 
+      <% if task.description.present? %>
+        <div class='block'>
+          <%= task.decorate :description %>
+        </div>
+      <% end %>
+
       <% if task.has_links? %>
         <div class='block'>
           <%= render LinksListComponent.new task %>

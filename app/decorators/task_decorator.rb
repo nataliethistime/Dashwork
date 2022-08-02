@@ -7,6 +7,10 @@ class TaskDecorator < DecoratorBase
     format task.due_date, as: :date
   end
 
+  def description(task)
+    format task.description, as: :markdown
+  end
+
   def tags(task)
     task
       .tags
