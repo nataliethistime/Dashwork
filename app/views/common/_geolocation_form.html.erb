@@ -1,7 +1,7 @@
-<% if form.object.new_record? && form.object.respond_to?(:build_geolocation) %>
+<% if form.object.respond_to?(:build_geolocation) %>
   <% form.object.build_geolocation unless form.object.geolocation.present? %>
   <%= form.fields_for :geolocation do |m| %>
-    <%= m.input :longitude, input_html: { 'data-x-frontend-value': 'longitude'} %>
-    <%= m.input :latitude, input_html: { 'data-x-frontend-value': 'latitude'} %>
+    <%= m.input :longitude, input_html: form.object.new_record? ? { 'data-x-frontend-value': 'longitude'} : {} %>
+    <%= m.input :latitude, input_html: form.object.new_record? ? { 'data-x-frontend-value': 'latitude'} : {} %>
   <% end %>
 <% end %>
