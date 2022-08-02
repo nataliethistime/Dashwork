@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_21_030720) do
+ActiveRecord::Schema.define(version: 2022_08_02_034025) do
 
   create_table "assets", force: :cascade do |t|
     t.string "name"
@@ -208,6 +208,7 @@ ActiveRecord::Schema.define(version: 2022_07_21_030720) do
     t.date "entry_date"
     t.time "entry_time"
     t.datetime "entered_at"
+    t.integer "word_count", default: 0
     t.index ["tenant_id"], name: "index_personal_log_entries_on_tenant_id"
     t.index ["user_id"], name: "index_personal_log_entries_on_user_id"
   end

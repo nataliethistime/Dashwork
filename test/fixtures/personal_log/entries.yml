@@ -7,6 +7,7 @@
 #  entered_at :datetime
 #  entry_date :date
 #  entry_time :time
+#  word_count :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  tenant_id  :bigint

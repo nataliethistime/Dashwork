@@ -22,4 +22,8 @@ class PersonalLogEntryDecorator < DecoratorBase
   def date(personal_log_entry)
     localize personal_log_entry.entered_at, format: '%-l:%M %P %A %B %e, %Y'
   end
+
+  def word_count(personal_log_entry)
+    format personal_log_entry.word_count, as: :commified_number
+  end
 end

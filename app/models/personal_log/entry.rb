@@ -7,6 +7,7 @@
 #  entered_at :datetime
 #  entry_date :date
 #  entry_time :time
+#  word_count :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  tenant_id  :bigint
@@ -39,6 +40,11 @@ module PersonalLog
       # greyed out and can't be changed (by typing or picking numbers in the UI).
       #
       e.entered_at = e.entered_at.change sec: 0, nsec: 0
+
+      #
+      # Very naive word count, but I think sufficient for my use case
+      #
+      e.word_count = e.content.split(' ').size
     end
 
     scope :on_day, -> (date) { where(entered_at: date..(date + 1.day)) }

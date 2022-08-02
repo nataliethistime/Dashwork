@@ -61,4 +61,8 @@ module DecoratorFormatters
   def format_currency(number)
     helpers.number_to_currency number, unit: '$'
   end
+
+  def format_commified_number(number)
+    helpers.number_with_delimiter(number, delimiter: ',')
+  end
 end
