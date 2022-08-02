@@ -12,6 +12,10 @@
     <strong>Date:</strong> <%= @personal_log_entry.decorate :date %>
   </div>
 
+  <div>
+    <strong>Last Updated:</strong> <%= @personal_log_entry.decorate :updated_at_ago %>
+  </div>
+
   <% if @personal_log_entry.geolocation.present? %>
     <div>
       <strong>Location:</strong> <%= @personal_log_entry.geolocation.decorate :coordinates %>
