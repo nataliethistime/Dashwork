@@ -37,7 +37,7 @@
     <% new_day = personal_log_entry.entered_at.beginning_of_day %>
     <% if previous_day != new_day %>
       <% previous_day = new_day %>
-      <h1 class='title is-4'><%= personal_log_entry.decorate :day %></h1>
+      <h1 class='title is-4'><%= personal_log_entry.decorate :long_day %></h1>
     <% end %>
     <div class='columns'>
       <div class='column is-8'>

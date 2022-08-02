@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     resources :entries
     get 'review' => 'entries#review'
     get 'export' => 'entries#export'
+    get 'timeline' => 'entries#timeline'
   end
 
   #

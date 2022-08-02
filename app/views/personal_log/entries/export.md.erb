@@ -4,7 +4,7 @@
 <% @entries.each do |entry| %><%# TODO: use find_each and retain ordering! %>
   <% if entry.entered_at.beginning_of_day != current_day %>
 
-## <%= entry.decorate :day %>
+## <%= entry.decorate :long_day %>
 
     <% current_day = entry.entered_at.beginning_of_day %>
   <% end %>

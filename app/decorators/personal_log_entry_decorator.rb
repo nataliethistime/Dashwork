@@ -11,8 +11,12 @@ class PersonalLogEntryDecorator < DecoratorBase
     "#{helpers.time_ago_in_words(personal_log_entry.entered_at)} ago"
   end
 
-  def day(personal_log_entry)
+  def long_day(personal_log_entry)
     localize personal_log_entry.entered_at, format: '%A %B %e, %Y'
+  end
+
+  def short_day(personal_log_entry)
+    localize personal_log_entry.entered_at, format: '%B %e %Y'
   end
 
   def date(personal_log_entry)

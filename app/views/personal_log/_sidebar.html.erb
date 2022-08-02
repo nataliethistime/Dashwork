@@ -1,5 +1,6 @@
 <%= render SidebarComponent.new do %>
   <%= render SidebarLinkComponent.new :personal_log, 'Entries', personal_log_entries_path %>
+  <%= render SidebarLinkComponent.new :timeline, 'Timeline', personal_log_timeline_path %>
   <%= render SidebarLinkComponent.new :personal_log_review, 'Review', personal_log_review_path %>
   <%= render SidebarLinkComponent.new :export, 'Export', personal_log_export_path %>
   <%= render SidebarLinkComponent.new :help, 'Help', '#', active: false %>

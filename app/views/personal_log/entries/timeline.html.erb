@@ -1,0 +1,10 @@
+<% content_for :title, 'Timeline' %>
+<% content_for :back_link, personal_log_entries_path %>
+
+<div class='block'>
+  <ul>
+    <% @entries.each do |entry| %>
+      <li><%= entry.decorate :short_day %> <%= entry.decorate :time %>: <%= entry.content.truncate(80) %></li>
+    <% end %>
+  </ul>
+</div>

@@ -13,6 +13,11 @@ module PersonalLog
       end
     end
 
+    # GET /personal_log/entries/timeline
+    def timeline
+      @entries = entries.all.without_order.order(entered_at: :asc)
+    end
+
     # GET /personal_log/entries/review
     def review
       @days = {
