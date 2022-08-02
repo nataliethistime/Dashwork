@@ -13,3 +13,13 @@ set :keep_releases, 5
 set :rails_env, 'production'
 set :bundle_gemfile, 'Gemfile'
 set :rvm_ruby_version, File.read(File.join(__dir__, '../.ruby-version')).strip
+
+namespace :apache do
+  task :reload do
+    on roles(:web) do
+      execute :systemctl, :reload, :apache2
+    end
+  end
+end
+
+after 'deploy:finished', 'apache:reload'
