@@ -10,7 +10,7 @@
     </div>
     <% if personal_log_entry.geolocation.present? %>
       <div>
-        <strong>Location:</strong> <%= personal_log_entry.decorate :geolocation_coordinates %>
+        <strong>Location:</strong> <%= personal_log_entry.geolocation.decorate :coordinates %>
       </div>
     <% end %>
   </div>

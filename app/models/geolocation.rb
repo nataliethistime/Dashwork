@@ -22,7 +22,9 @@ class Geolocation < ApplicationRecord
   # Are there min/max values we can check against?
   #
 
-  def coordinates
-    "#{latitude},#{longitude}"
+  decorate_with GeolocationDecorator
+
+  def has_coordinates?
+    latitude.present? && longitude.present?
   end
 end
