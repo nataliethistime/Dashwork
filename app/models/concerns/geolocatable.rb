@@ -2,7 +2,7 @@ module Geolocatable
   extend ActiveSupport::Concern
 
   included do
-    has_one :geolocation, as: :geolocatable
+    has_one :geolocation, as: :geolocatable, dependent: :destroy
     accepts_nested_attributes_for :geolocation
 
     before_validation do |item|
