@@ -14,6 +14,7 @@
 #  last_name      :string
 #  mobile_phone   :string
 #  nickname       :string
+#  pronouns       :string
 #  title          :string
 #  website        :string
 #  work_phone     :string

@@ -4,7 +4,8 @@ class ContactDecorator < DecoratorBase
       contact.title.presence,
       contact.first_name.presence,
       contact.last_name.presence,
-      contact.nickname.present? ? "(#{contact.nickname})" : ''
+      contact.nickname.present? ? "(#{contact.nickname})" : '',
+      contact.pronouns.present? ? "[#{contact.pronouns}]" : '',
     ].filter(&:present?).join ' '
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_02_034025) do
+ActiveRecord::Schema.define(version: 2022_08_26_045012) do
 
   create_table "assets", force: :cascade do |t|
     t.string "name"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2022_08_02_034025) do
     t.string "mobile_phone"
     t.string "address"
     t.date "birthday"
+    t.string "pronouns"
   end
 
   create_table "custom_fields", force: :cascade do |t|

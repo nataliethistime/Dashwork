@@ -14,6 +14,7 @@
 #  last_name      :string
 #  mobile_phone   :string
 #  nickname       :string
+#  pronouns       :string
 #  title          :string
 #  website        :string
 #  work_phone     :string
@@ -23,11 +24,13 @@
 #  tenant_id      :integer          not null
 #  user_id        :integer          not null
 #
+
 one:
-  first_name: Nathan
-  last_name: McCallum
+  first_name: Natalie
+  last_name: Rose
   description: I am a fucking human person.
   job_title: Software Developer
-  website: https://nathan-mccallum.com
+  pronouns: she/her
+  address: Brisbane
   user: one
   tenant: one

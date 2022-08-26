@@ -75,6 +75,7 @@ class ContactsController < ApplicationController
       :title,
       :website,
       :work_phone,
+      :pronouns,
       tag_ids: [],
       custom_values_attributes: {}
     )
