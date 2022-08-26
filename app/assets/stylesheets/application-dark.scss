@@ -36,3 +36,7 @@ th .sort_link {
 .attributes-table .column {
   border-bottom: 1px solid $grey-lighter;
 }
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
