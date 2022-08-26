@@ -15,6 +15,26 @@ module PersonalLog
       assert_response :success
     end
 
+    test 'should query entries' do
+      get :index, params: { q: 'test' }
+      assert_response :success
+    end
+
+    test 'should get timeline' do
+      get :timeline
+      assert_response :success
+    end
+
+    test 'should get review' do
+      get :review
+      assert_response :success
+    end
+
+    test 'should export to markdown' do
+      get :export, format: :md
+      assert_response :success
+    end
+
     test 'should get new' do
       get :new
       assert_response :success
