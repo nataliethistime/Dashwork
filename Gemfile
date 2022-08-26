@@ -10,7 +10,6 @@ gem 'country_select' # Country selection helper
 gem 'devise' # Easy user authentication
 gem 'discard', '~> 1.2' # Soft deletion of items
 gem 'image_processing'
-gem 'jbuilder', '~> 2.7' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'kaminari' # Pagination
 gem 'mini_decorator', '0.0.2' # Model decoration
 gem 'mini_magick'

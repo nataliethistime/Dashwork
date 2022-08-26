@@ -3,7 +3,6 @@ module PersonalLog
     before_action :set_personal_log_entry, only: [:show, :edit, :update, :destroy]
 
     # GET /personal_log/entries
-    # GET /personal_log/entries.json
     def index
       if params[:q]
         query = '%' + params[:q] + '%'
@@ -34,16 +33,15 @@ module PersonalLog
     end
 
     # GET /personal_log/entries/export
+    # GET /personal_log/entries/export.md
     def export
       respond_to do |format|
         format.html
         format.md { @entries = entries.all }
-        format.json { @entries = entries.all }
       end
     end
 
     # GET /personal_log/entries/1
-    # GET /personal_log/entries/1.json
     def show
     end
 
@@ -57,43 +55,29 @@ module PersonalLog
     end
 
     # POST /personal_log/entries
-    # POST /personal_log/entries.json
     def create
       @personal_log_entry = entries.new(personal_log_entry_params)
 
-      respond_to do |format|
-        if @personal_log_entry.save
-          format.html { redirect_to personal_log_entries_path, notice: 'Entry was successfully created.' }
-          format.json { render :show, status: :created, location: @personal_log_entry }
-        else
-          format.html { render :new }
-          format.json { render json: @personal_log_entry.errors, status: :unprocessable_entity }
-        end
+      if @personal_log_entry.save
+        redirect_to personal_log_entries_path, notice: 'Entry was successfully created.'
+      else
+        render :new
       end
     end
 
     # PATCH/PUT /personal_log/entries/1
-    # PATCH/PUT /personal_log/entries/1.json
     def update
-      respond_to do |format|
-        if @personal_log_entry.update(personal_log_entry_params)
-          format.html { redirect_to @personal_log_entry, notice: 'Entry was successfully updated.' }
-          format.json { render :show, status: :ok, location: @personal_log_entry }
-        else
-          format.html { render :edit }
-          format.json { render json: @personal_log_entry.errors, status: :unprocessable_entity }
-        end
+      if @personal_log_entry.update(personal_log_entry_params)
+        redirect_to @personal_log_entry, notice: 'Entry was successfully updated.'
+      else
+        render :edit
       end
     end
 
     # DELETE /personal_log/entries/1
-    # DELETE /personal_log/entries/1.json
     def destroy
       @personal_log_entry.destroy
-      respond_to do |format|
-        format.html { redirect_to personal_log_entries_url, notice: 'Entry was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+      redirect_to personal_log_entries_url, notice: 'Entry was successfully destroyed.'
     end
 
     private

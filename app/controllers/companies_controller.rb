@@ -11,14 +11,12 @@ class CompaniesController < ApplicationController
   ]
 
   # GET /companies
-  # GET /companies.json
   def index
     @q = current_user.companies.ransack(params[:q])
     @companies = @q.result.page(params[:page])
   end
 
   # GET /companies/1
-  # GET /companies/1.json
   def show
   end
 
@@ -32,44 +30,30 @@ class CompaniesController < ApplicationController
   end
 
   # POST /companies
-  # POST /companies.json
   def create
     @company = current_user.companies.new company_params
     @company.tenant_id = current_user.tenant_id
 
-    respond_to do |format|
-      if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render :show, status: :created, location: @company }
-      else
-        format.html { render :new }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
+    if @company.save
+      redirect_to @company, notice: 'Company was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /companies/1
-  # PATCH/PUT /companies/1.json
   def update
-    respond_to do |format|
-      if @company.update(company_params)
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
-        format.json { render :show, status: :ok, location: @company }
-      else
-        format.html { render :edit }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
-      end
+    if @company.update(company_params)
+      redirect_to @company, notice: 'Company was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /companies/1
-  # DELETE /companies/1.json
   def destroy
     @company.destroy
-    respond_to do |format|
-      format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to companies_url, notice: 'Company was successfully destroyed.'
   end
 
   private
