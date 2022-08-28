@@ -26,5 +26,5 @@
   <hr>
 
   <h1 class='title'>Notes</h1>
-  <%= render 'notes/notes', notes: @page.notes.includes(:tags, :contact, :company, :project, :user) %>
+  <%= render 'notes/notes', notes: @page.notes.includes(:tags, :contact, :company, :project) %>
 <% end %>

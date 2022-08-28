@@ -7,7 +7,7 @@ class LinksController < ApplicationController
   end
 
   def notes
-    @notes = @parent.notes.includes(:user, :tags, :contact, :company, :project).page(params[:page])
+    @notes = @parent.notes.includes(:tags, :contact, :company, :project).page(params[:page])
   end
 
   def projects
