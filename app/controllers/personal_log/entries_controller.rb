@@ -34,10 +34,12 @@ module PersonalLog
 
     # GET /personal_log/entries/export
     # GET /personal_log/entries/export.md
+    # GET /personal_log/entries/export.txt
     def export
       respond_to do |format|
         format.html
         format.md { @entries = entries.all }
+        format.text { @entries = entries.all }
       end
     end
 
