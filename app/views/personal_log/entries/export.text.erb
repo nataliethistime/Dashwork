@@ -1,5 +1,5 @@
 <% @entries.each do |entry| %>
-Date: <%= entry.entered_at.strftime '%B %-d, %Y at %-l:%M:%S %p %Z' %>
+Date: <%= entry.entered_at.strftime '%A, %-d %B %Y at %-l:%M:%S %P %Z' %>
 
 <%= raw(entry.content) %>
 
